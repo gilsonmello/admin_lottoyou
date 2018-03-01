@@ -1,0 +1,142 @@
+<?php
+/**
+ * CakePHP GroupsController
+ * @author Gustavo Cardoso
+ */
+class GroupsController extends AppController {
+
+    public function index($modal = 0) {
+        // CARREGA FUNÇÕES BÁSICAS DE PESQUISA E ORDENAÇÃO
+        $options = parent::_index();
+
+        // CONFIGURA O MODEL
+        $this->Group->recursive = 1;
+
+        //FILTRO INICIAL
+        //$conditions = array('conditions'=>array(''));
+        // PEGA FUNCIONALIDADES CADASTRADAS
+        $dados = $this->Group->find('all', $options);
+
+        // INICIALIZA VARIÁVEIS
+        $semFuncionalidades = $semUsuarios = $ativo = $inativo = 0;
+
+        // ESTILIZA LINHA DA GRID
+        foreach ($dados as $k => $v) {
+            if ($v['Group']['ativo'] != 'Sim') {
+                $dados[$k]['Group']['style'] = 'background-color: #F2C9CA';
+                $inativo++;
+            } else {
+                $ativo++;
+            }
+
+            if ($v['Group']['totalUsuarios'] == 0){
+                $semUsuarios++;
+            }
+
+            if ($v['Group']['totalFuncionalidades'] == 0){
+                $semFuncionalidades++;
+            }
+        }
+
+        // CALCULA O TOTAL DE REGISTROS
+        $total = count($dados);
+
+        // ENVIA DADOS PARA A VIEW
+        if($modal == 0){
+            return compact('total', 'dados', 'ativo', 'inativo', 'semFuncionalidades', 'semUsuarios');
+        } else {
+            $this->set(compact('total', 'dados', 'ativo', 'inativo', 'semFuncionalidades', 'semUsuarios','modal'));
+        }
+    }
+
+    public function add() {
+        // CONFIGURA LAYOUT
+        $this->layout = 'ajax';
+
+        if ($this->request->is('post') || $this->request->is('put')) {
+            if ($this->Group->save($this->request->data)) {
+                $this->Session->setFlash('Registro salvo com sucesso.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-success'));
+            } else {
+                $this->Session->setFlash('Não foi possível editar o registro. Favor tentar novamente.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-danger'));
+            }
+        }
+
+        // PEGA LISTA DE FUNCIONALIDADES
+        $optionsFuncionalidades = $this->Group->Funcionalidade->find(
+            'list', 
+            array(
+                'fields' => array('Funcionalidade.id', 'Funcionalidade.name', 'Modulo.name'),
+                'joins' => array(
+                    array(
+                        'table' => 'modulos',
+                        'alias' => 'Modulo',
+                        'type' => 'INNER',
+                        'conditions' => array(
+                            'Modulo.id = Funcionalidade.modulo_id'
+                        )
+                    )
+                ),
+                'order' => array('Modulo.name, Funcionalidade.name'),
+                'conditions' => array('Funcionalidade.active' => 1)
+            )
+        );
+
+        $this->set(compact('optionsFuncionalidades'));
+    }
+
+    public function edit($id = null) {
+        // CONFIGURA LAYOUT
+        $this->layout = 'ajax';
+
+        $this->Group->id = $id;
+
+        if (!$this->Group->exists()) {
+            throw new NotFoundException('Registro inexistente', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-danger'));
+        }
+
+        if ($this->request->is('post') || $this->request->is('put')) {
+            
+            $this->request->data['Group']['id'] = $id;
+
+            if ($this->Group->save($this->request->data)) {
+                $this->Session->setFlash('Registro salvo com sucesso.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-success'));
+            } else {
+                $this->Session->setFlash('Não foi possível editar o registro. Favor tentar novamente.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-danger'));
+            }
+        }
+        
+        $this->request->data = $this->Group->read(null, $id);
+        $aux = array();
+        foreach ($this->request->data['Funcionalidade'] as $v) {
+            $aux[] = $v['id'];
+        }
+        $this->set('selectedFuncionalidades', $aux);
+
+        // PEGA LISTA DE FUNCIONALIDADES
+        $optionsFuncionalidades = $this->Group->Funcionalidade->find(
+            'list', 
+            array(
+                'fields' => array('Funcionalidade.id', 'Funcionalidade.name', 'Modulo.name'),
+                'joins' => array(
+                    array(
+                        'table' => 'modulos',
+                        'alias' => 'Modulo',
+                        'type' => 'INNER',
+                        'conditions' => array(
+                            'Modulo.id = Funcionalidade.modulo_id'
+                        )
+                    )
+                ),
+                'order' => array('Modulo.name, Funcionalidade.name'),
+                'conditions' => array('Funcionalidade.active' => 1)
+            )
+        );
+        
+        $this->set(compact('optionsFuncionalidades'));
+    }
+
+    public function delete($id = null) {
+        parent::_delete($id);
+    }
+
+}

@@ -1,0 +1,30 @@
+<?php echo $this->Form->create('Group', array('class' => 'form form-validate', 'role' => 'form')); ?>
+<?php echo $this->element('forms/title', array('title' => '<i class="fa fa-plus-square"></i> CADASTRAR FUNCIONALIDADE')); ?>
+<?php echo $this->Form->hidden('id'); ?>
+<div class="card-body">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="form-group">                
+                <?php echo $this->Form->input('name', array('label' => 'Nome', 'class' => 'form-control')); ?>
+            </div>
+        </div>
+        <div class="col-md-4">
+        	<?php echo $this->Form->input('active', array('type' => 'radio', 'legend' => 'Ativo', 'class' => 'radio-inline radio-styled tipo', 'options' => array(1 => 'Sim', 0 => 'Não'))); ?>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+        	<?php echo $this->Form->input('tipo', array('type' => 'radio', 'legend' => 'Tipo', 'class' => 'radio-inline radio-styled tipo', 'options' => array('I'=>'Interno', 'E'=>'Externo'))); ?>
+        </div>
+    </div>
+    <div class="row" style="margin-top:15px;">
+    	<div class="col-md-12">
+            <div class="form-group">
+			    <?php echo $this->Form->input('funcionalidade', array('label' => false, 'multiple' => 'true', 'type' => 'select', 'options' => $optionsFuncionalidades, 'selected'=>$selectedFuncionalidades, 'class' => 'chosen-select', 'required'=>'required', 'class'=>'form-control', 'div'=>array('class'=>'col-sm-12 controls'))); ?>
+			    <label class="control-label">Funcionalidade</label>
+			</div>
+		</div>
+	</div>
+</div>
+<?php echo $this->element('forms/buttons') ?>
+<?php echo $this->Form->end(); ?>

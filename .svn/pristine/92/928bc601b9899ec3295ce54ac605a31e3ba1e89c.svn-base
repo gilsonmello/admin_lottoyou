@@ -1,0 +1,101 @@
+<?php
+
+App::uses('AppModel', 'Model');
+
+/**
+ * CakePHP SegLogModel
+ * @author Go! Ponto a ponto
+ */
+class SegLog extends AppModel {
+
+	public $name  = 'SegLog';
+	public $order = 'SegLog.created ASC';
+
+    public $belongsTo = array('User');
+
+    public $validate = array(
+        'gel_empresa_id' => array(
+            'required' => array(
+                'rule' => array('notEmpty'),
+                'message' => 'Campo obrigatório',
+                'required' => true
+            )
+        ),
+    );
+
+    public function beforeSave($options = array()) {
+        // RELACIONA A EMPRESA AO LOG
+        $this->data[$this->alias]['gel_empresa_id'] = CakeSession::read('Auth.Company.id');
+
+        switch ($this->data['SegLog']['model']) {
+            case 'FinMovimentacao':
+                // PEDA DADOS MOVIMENTAÇÃO
+                $dados = $this->data['FinMovimentacao'];
+
+                // PEGA O VALOR DA MOVIMENTAÇÃO       
+                $valor = ($dados['valor_final'] > 0) ? $dados['valor_final'] : $dados['valor_inicial'];
+                $valor = ($dados['tipo'] != '') ? ($dados['tipo'] == 'R') ? $valor : $valor*-1 : $valor;
+
+                // INCLUI O VALOR NA DESCRIÇÃO
+                $this->data['SegLog']['description'] .= '|'.$valor; 
+
+                // CASO ADD OU EDIT UTILIZA OS DADOS SALVOS,
+                // CASO CONTRÁRIO BUSCA A INFORMAÇÃO NO HISTÓRICO
+                if ($this->data['SegLog']['action'] != 'delete'){
+                    // PEGA MODIFICAÇÕES
+                    $change = json_decode($this->data['SegLog']['change'], true);
+                    $status = Hash::extract($change, '{n}.status');
+                    $especial = '';
+                    
+                    // VERIFICA SE É UMA ALTERAÇÃO ESPECIAL
+                    switch ($status[0]) {
+                        // VERIFICA SE CONFIRMOU
+                        case array('PE'=>'PG'):
+                        case array('AG'=>'PG'):
+                            $especial = 'Confirmou';
+                            break;
+                        // VERIFICA SE DESCONFIRMOU
+                        case array('PG'=>'AG'):
+                            $especial = 'Desconfirmou';
+                            break;
+                        // VERIFICA SE CONCILIOU
+                        case array('AG'=>'CO'):
+                        case array('PG'=>'CO'):
+                            $especial = 'Conciliou';
+                            break;
+                        // VERIFICA SE DESCONCILIOU
+                        case array('CO'=>'PG'):
+                            $especial = 'Desconciliou';
+                            break;
+                    }
+
+                    // INCLUI A PARCELA NA DESCRIÇÃO
+                    if ($dados['parcela_descricao'] == 1){
+                        $this->data['SegLog']['description'] = str_replace($dados['descricao'], $dados['descricao'].' - ('.$dados['parcela_inicial'].'/'.$dados['total_parcelas'].')', $this->data['SegLog']['description']);
+                    }
+                    
+                    // ALTERA A DESCRIÇÃO CASO ESPECIAL
+                    if (!empty($especial)){
+                        $this->data['SegLog']['description'] = str_ireplace(array('Cadastrou','Editou'), $especial, $this->data['SegLog']['description']);
+                    }
+
+                    // ALTERA A DESCRIÇÃO CASO TRANSFERÊNCIA
+                    if ($dados['transferencia'] == 1){
+                        $this->data['SegLog']['description'] = str_ireplace('movimentação', 'transferência', $this->data['SegLog']['description']);
+                    }
+                } else {
+                    // ALTERA A DESCRIÇÃO CASO TRANSFERÊNCIA
+                    if ($dados['transferencia'] == 1){
+                        $this->data['SegLog']['description'] = str_ireplace('movimentação', 'transferência', $this->data['SegLog']['description']);
+                    }
+
+                    // ALTERA A DESCRIÇÃO CASO TRANSFERÊNCIA
+                    if ($dados['transferencia'] == 1){
+                        $this->data['SegLog']['description'] = str_ireplace('e todas na sequência (demais parcelas)', '(<b class="text-danger">saída</b> e <b class="text-success">entrada</b>)', $this->data['SegLog']['description']);
+                    }
+                }
+                break;
+        }
+    }
+}
+?>

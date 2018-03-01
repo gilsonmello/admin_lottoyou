@@ -1,0 +1,412 @@
+<?php
+/**
+ * PUBLISH Librairy - main class
+ *
+ * @author  Gustavo Cardoso<gcardoso@gmail.com>
+ * @version 1.0
+ */
+
+if (!defined('PUBLISH_VERSION')) {
+
+    define('PUBLISH_VERSION', '1');
+
+    App::uses('File','Utility');
+    App::uses('Folder','Utility');
+
+    class Publish
+    {
+        /*
+         * Diretório Publish (Object)
+         */
+        private $folder = null;
+
+        /*
+         * Arquivo de configuração do ambiente FTP (Object)
+         */
+        private $file = null;
+
+        /*
+         * Conexão FTP (resource)
+         */
+        private $conn = null;
+
+        /*
+         * Configuração do ambiente de FTP
+         */
+        private $config = null;
+
+        /*
+         * Resposta ao usuário da ação realizada
+         */
+        private $response = null;
+
+        /*
+         * Arquivos de log (Object)
+         */
+        private $logs = null;
+
+        /*
+         * Pasta raiz
+         */
+        private $root = null;
+
+
+        public function __construct ()
+        {
+            // CONFIGURA PASTA RAIZ
+            $this->root = APP.'Vendor/publish';
+
+            // CARREGA CONFIGURAÇÃO DO AMBIENTE
+            $this->loadConfiguration();
+        }
+
+        public function loadConfiguration()
+        {   
+            // INSTANCIA OBJETO FOLDER DA PASTA PUBLISH
+            $this->folder = new Folder($this->root);
+
+            // BUSCA O ARQUIVO DE CONFIGURAÇÃO
+            $environment = $this->folder->find('publish.json');
+            
+            // VERIFICA SE O ARQUIVO DE CONFIGURAÇÃO EXISTE
+            if (count($environment) > 0){
+                // INSTACIA O OBJETO DO ARQUIVO DE CONFIGURAÇÃO
+                $this->file = new File($this->folder->pwd() . DS . $environment[0]);
+
+                // SETA A CONFIGURAÇÃO DO AMBIENTE FTP
+                $this->config = json_decode($this->file->read());
+
+                // FECHA O ARQUIVO
+                $this->file->close();
+            }
+
+            // PEGA ARQUIVOS DE LOGS
+            $this->logs = $this->getSVN();
+        }
+
+        /* 
+         * GERAL
+         */
+        public function createFolder($root, $arquivo)
+        {
+            $path_parts = pathinfo($arquivo);
+            $diretorios = explode('/', $path_parts['dirname']);
+
+            foreach ($diretorios as $dir) {
+                if (!$this->folder->create($root.$dir)){
+                    return false;
+                }
+
+                $root = $root.$dir.'/';
+            }
+
+            return true;
+        }
+
+        public function getResponse()
+        {
+            if (isset($this->response['error']) && $this->response['error'] == 1){
+                $this->response['class'] = 'danger';
+                $this->response['title'] = '<h4>Atenção!</h4>';
+                $this->response['message'] = $this->response['title'].implode('<br/>', $this->response['message']);
+            } else {
+                $this->response['class'] = 'success';
+                $this->response['message'] = '<h4 style="display:inline;">Configuração salva com sucesso!</h4>';
+            }
+            
+            return $this->response;
+        }
+
+        public function getRoot()
+        {
+            // RETORNA PASTA RAIZ
+            return $this->root;
+        }
+
+        /* 
+         * SVN
+         */
+        public function checkSVN($svn)
+        {
+            $error = 0;
+
+            if (substr($svn, 0, 6) != 'svn://'){
+                $error = 1;
+            }
+
+            return !$error;
+        }
+
+        public function extractDataLog($log)
+        {
+            // LÊ ARQUIVO
+            $content = $log->read();
+
+            // DIVIDE OS LOGS DO ARQUIVO
+            $aux = explode('------------------------------------------------------------------------', $content);
+            
+            // TRATA LINHAS
+            $aux = $this->trataLinhas($aux);
+
+            foreach($aux as $k => $v){
+                $v = explode('Changed paths:', $v);
+
+                // TRATA LINHAS
+                $v = $this->trataLinhas($v);
+
+                foreach ($v as $i => $m) {
+                    if ($i == 0){
+                        $v[$i] = explode(' | ', $v[$i]);
+                        unset($v[$i][3]);
+
+                        $v[$i][0] = str_replace('r', '', $v[$i][0]);
+                        $v[$i][2] = convertDate(substr($v[$i][2], 0, 19));
+                    } else {
+                        
+                        $v[$i] = str_replace(array('M /trunk/', 'M /trunk', 'A /trunk/'), 'ß', $v[$i]);
+                        $v[$i] = explode('ß', $v[$i]);
+
+                        // TRATA LINHAS
+                        $v[$i] = $this->trataLinhas($v[$i]);
+
+                        // DIVIDE COMENTÁRIOS DE AQUIVOS
+                        $ultimo = count($v[$i])-1; 
+                        $v[$i][$ultimo] = explode(' ',  $v[$i][$ultimo], 2);
+                        $v[$i][$ultimo][0] = trim(substr($v[$i][$ultimo][0], 0, -3));
+                        $v[$i][$ultimo][1] = '- '.trim($v[$i][$ultimo][1]);
+
+                        $v[] = $v[$i][$ultimo][1];
+                        $v[$i][$ultimo] = $v[$i][$ultimo][0];
+
+                        // REMOVE PASTAS DO LOG
+                        foreach ($v[1] as $m => $a) {
+                            if (!is_file(ROOT.DS.$a)){
+                                unset($v[1][$m]);
+                            }
+                        }
+
+                        $log->revisoes[] = array('cabecalho' => $v[0], 'arquivos' => $v[1], 'comentarios' => $v[2]);
+                    }
+                }
+            }
+
+            return $log;
+        }
+
+        public function getLogs()
+        {
+            // RETORNA LOGS
+            return $this->logs;
+        }
+
+        public function getSVN()
+        {
+            // INICIALIZA VARIÁVEIS
+            $logs = array();
+
+            // TODO: GERAR AQUIVO SVN A PARTIR DESTE FONTE
+
+            // VERIFICA SE EXISTEM ARQUIVOS DE LOG
+            $files = $this->folder->find('.*\.log');
+
+            // CASO EXISTAM ARQUIVOS DE LOGS 
+            foreach ($files as $file) {
+                // INSTAVIA OBJECTOS DOS ARQUIVOS
+                $log = new File($this->folder->pwd() . DS . $file);
+
+                // PEGA A REVISÕES DOS LOGS
+                $logs[] = $this->extractDataLog($log);
+            }
+
+            return $logs;
+        }
+
+        public function getUpdates()
+        {
+            // INICIALIZA VARIÁVEIS
+            $updates = array();
+
+            // TODO: GERAR AQUIVO SVN A PARTIR DESTE FONTE
+
+            // VERIFICA SE EXISTEM ARQUIVOS DE LOG
+            $inicial = $this->folder->pwd();
+            $this->folder->cd('updates');
+            $files = $this->folder->find('.*\.json');
+            
+            // CASO EXISTAM ARQUIVOS DE LOGS 
+            foreach ($files as $file) {
+                // INSTAVIA OBJECTOS DOS ARQUIVOS
+                $update = new File($this->folder->pwd() . DS . $file);
+
+                // PEGA REVISÃO
+                $revision = str_replace('.json', '', $file);
+
+                // PEGA A REVISÕES DOS LOGS
+                $arquivos = explode("\r\n", $update->read());
+                $updates[$revision] = $this->trataLinhas($arquivos);
+            }
+
+            // RETORNA A PASTA PARA A RAIZ
+            $this->folder->cd($inicial);
+            
+            return $updates;
+        }
+
+        public function trataLinhas($arr)
+        {
+            foreach($arr as $k => $v){
+                if (empty(trim($v))){
+                    unset($arr[$k]);
+                } else {
+                    $arr[$k] = trim($v);
+                }
+            }
+
+            return array_values($arr);
+        }
+
+        public function registraLogEnvio($revision, $arquivo = null)
+        {
+            $folder = $this->root. DS .'updates';
+            $file = $folder. DS .$revision.'.json';
+            $file = new File($file);
+            $error = 0;
+
+            try {
+                if ($arquivo == null){
+                    $file->create();
+                    $file->write('', 'w+');
+                } else {
+                    $file->append($arquivo."\r\n");
+                }
+
+                $file->close();
+            } catch (Exception $e) {
+                $error = 1;
+            }
+
+            return !$error;
+        }
+
+        /* 
+         * CONFIGURAÇÃO DO AMBIENTE FTP
+         */
+        public function checkConfiguration()
+        {
+            $error = 0;
+
+            if ($this->config == null){
+                $error = 1;
+            }
+
+            return !$error;
+        }
+
+        public function defineConfiguration($data)
+        {
+            $this->response['error'] = 0;
+            
+            if (trim($data['host']) == ''){
+                $this->response['error'] = 1;
+                $this->response['message'][] = '* Campo Host obrigatório';
+            } else {
+                $error = $this->checkFTPConfiguration($data['host'], $data['user'], $data['pass'], $data['path']);
+                switch ($error) {
+                    case 1:
+                        $this->response['error'] = 1;
+                        $this->response['message'][] = '* Formato de Host inválido';
+                        break;
+                    case 2:
+                        $this->response['error'] = 1;
+                        $this->response['message'][] = '* Teste Host ('.$data['host'].') inválido';
+                        break;
+                    case 3:
+                        $this->response['error'] = 1;
+                        $this->response['message'][] = '* Teste de Usuário ou Senha invalido(s)';
+                        break;
+                    case 4:
+                        $this->response['error'] = 1;
+                        $this->response['message'][] = '* Teste de mudança de diretório falhou';
+                        break;
+                    case 5:
+                        $this->response['error'] = 1;
+                        $this->response['message'][] = '* Extensão FTP não disponível';
+                        break;
+                }
+            }
+            
+            if (trim($data['user']) == ''){
+                $this->response['error'] = 1;
+                $this->response['message'][] = '* Campo Usuário obrigatório';
+            }
+            
+            if (trim($data['pass']) == ''){
+                $this->response['error'] = 1;
+                $this->response['message'][] = '* Campo Senha obrigatório';
+            }
+            
+            if (trim($data['path']) == ''){
+                $this->response['error'] = 1;
+                $this->response['message'][] = '* Campo Diretório obrigatório';
+            }
+
+            if (!$this->response['error']){
+                $this->setConfiguration($data);
+            }
+        }
+
+        public function getConfiguration()
+        {   
+            // RETORNA CONFIGURAÇÃO 
+            return (array) $this->config;
+        }
+
+        public function setConfiguration($data)
+        {
+            $this->config = $data;
+
+            $fp = fopen($this->folder->pwd() . DS . 'publish.json', 'w+');
+            fwrite($fp, json_encode($data));
+            fclose($fp);
+        }
+
+        public function checkFTPConfiguration($ftp_server, $user, $pass, $path)
+        {
+            $error = 0;
+
+            if (substr($ftp_server, 0, 4) != 'ftp.'){
+                $error = 1;
+            } else {
+                try {
+                    if (!extension_loaded('ftp')) {
+                        $error = 5;
+                        throw new Exception('Unable to use Ftp: The FTP extension is not available.');
+                    }
+
+                    $this->conn = ftp_connect($ftp_server);
+                    if ($this->conn === false) {
+                        $error = 2;
+                        throw new Exception('Unable to connect');
+                    }
+
+                    $loggedIn = ftp_login($this->conn,  $user,  $pass);
+                    if ($loggedIn !== true) {
+                        $error = 3;
+                        throw new Exception('Unable to log in');
+                    }
+
+                    if (!ftp_chdir($this->conn, $path)){
+                        $error = 4;
+                        throw new Exception('Unable to set directory');
+                    }
+
+                    ftp_close($this->conn);
+                } catch (Exception $e) {
+                    fb("Failure: " . $e->getMessage());
+                }
+            }
+
+            return $error;
+        }
+    }
+}

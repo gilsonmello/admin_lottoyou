@@ -1,0 +1,254 @@
+<div class="navbar navbar-default navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container" id="topo-menu">
+            <div class="col-sm-7">
+                <div id=""> <?php echo $this->Html->image('logos/lottoyou.png', array('id' => 'img-logo')) ?></div>
+            </div>
+            <div class="col-sm-5">
+                <!--<div class="nav-collapse collapse">-->
+
+                <form class="navbar-form pull-right">
+                    <input class="span2" placeholder="Email" type="text">
+                    <input class="span2" placeholder="Password" type="password">
+                    <button type="submit" class="btn">Sign in</button>
+                </form>
+                <!--</div>-->
+            </div>
+        </div>
+        <div class="container" id="menu">
+            <a class="btn brand" href="#">RASPADINHA</a>
+            <a class="btn brand" href="#">LOTERIA</a>
+            <a class="btn brand" href="#">SOCCER EXPERT</a>
+            <a class="btn brand" href="#">CARTOLA</a>
+        </div>
+    </div>
+</div>
+<div class="row" id="banner">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <?php echo $this->Html->image('banner/banner-1.jpg', array('class' => 'img-fluid responsive img-carrocel')) ?>
+            </div>
+            <div class="item">
+                <?php echo $this->Html->image('banner/banner-1.jpg', array('class' => 'img-fluid responsive img-carrocel')) ?>
+            </div>
+            <div class="item">
+                <?php echo $this->Html->image('banner/banner-1.jpg', array('class' => 'img-fluid responsive img-carrocel')) ?>
+            </div>
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>    
+</div>
+<div class="container">
+
+    <div class="row" id="conteudo">
+        <div id="myCarousel2" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel2" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel2" data-slide-to="1"></li>
+                <li data-target="#myCarousel2" data-slide-to="2"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <div class=" col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                        <h2>Heading</h2>
+                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                        <p><a class="btn" href="#">View details &raquo;</a></p>
+                    </div>                    
+                    <div class=" col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                        <h2>Heading</h2>
+                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                        <p><a class="btn" href="#">View details &raquo;</a></p>
+                    </div>                    
+                    <div class=" col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                        <h2>Heading</h2>
+                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                        <p><a class="btn" href="#">View details &raquo;</a></p>
+                    </div>                    
+                </div>
+                <div class="item">
+                    <div class=" col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                        <h2>Heading</h2>
+                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                        <p><a class="btn" href="#">View details &raquo;</a></p>
+                    </div>
+                    <div class=" col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                        <h2>Heading</h2>
+                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                        <p><a class="btn" href="#">View details &raquo;</a></p>
+                    </div>
+                    <div class=" col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                        <h2>Heading</h2>
+                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                        <p><a class="btn" href="#">View details &raquo;</a></p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class=" col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                        <h2>Heading</h2>
+                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                        <p><a class="btn" href="#">View details &raquo;</a></p>
+                    </div>
+                    <div class=" col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                        <h2>Heading</h2>
+                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                        <p><a class="btn" href="#">View details &raquo;</a></p>
+                    </div>
+                    <div class=" col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                        <h2>Heading</h2>
+                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                        <p><a class="btn" href="#">View details &raquo;</a></p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class=" col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                        <h2>Heading</h2>
+                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                        <p><a class="btn" href="#">View details &raquo;</a></p>
+                    </div>
+                    <div class=" col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                        <h2>Heading</h2>
+                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                        <p><a class="btn" href="#">View details &raquo;</a></p>
+                    </div>
+                    <div class=" col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                        <h2>Heading</h2>
+                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                        <p><a class="btn" href="#">View details &raquo;</a></p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class=" col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                        <h2>Heading</h2>
+                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                        <p><a class="btn" href="#">View details &raquo;</a></p>
+                    </div>
+                    <div class=" col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                        <h2>Heading</h2>
+                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                        <p><a class="btn" href="#">View details &raquo;</a></p>
+                    </div>
+                    <div class=" col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                        <h2>Heading</h2>
+                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                        <p><a class="btn" href="#">View details &raquo;</a></p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel2" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel2" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>    
+    </div>
+
+    <hr/>
+    <!-- Main hero unit for a primary marketing message or call to action -->
+    <!--    <div class="row">
+            <div class="col-sm-12">-->
+    <div class="row">
+        <div class="card card-underline">
+            <div class="card-head">
+                <ul class="nav nav-tabs pull-right" data-toggle="tabs">
+                    <li class="active"><a href="#tab-loteria">LOTERIAS</a></li>
+                    <li><a href="#tab-extra">EXTRAS</a></li>
+                </ul>
+                <header>Jogue na loteria online com a Lottoland</header>
+            </div>
+            <div class="card-body tab-content">
+                <div class="tab-pane active" id="tab-loteria">
+                    <p>Per at postea mediocritatem, vim numquam aliquid eu, in nam sale gubergren. Fuisset delicatissimi duo, qui ut animal noluisse erroribus. Ea eum veniam audire. Dicant vituperata consequuntur.</p>
+                </div>
+                <div class="tab-pane" id="tab-extra">
+                    <p>Ad ius duis dissentiunt, an sit harum primis persecuti, adipisci tacimates mediocrem sit et. Id illud voluptaria omittantur qui, te affert nostro mel. Cu conceptam vituperata temporibus has.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Example row of columns -->
+    <div class="row">
+        <div class=" col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <h2>Heading</h2>
+            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+            <p><a class="btn btn-primary" href="#">View details &raquo;</a></p>
+        </div>
+        <div class=" col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <h2>Heading</h2>
+            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+            <p><a class="btn btn-primary" href="#">View details &raquo;</a></p>
+        </div>
+        <div class=" col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <h2>Heading</h2>
+            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+            <p><a class="btn btn-primary" href="#">View details &raquo;</a></p>
+        </div>
+    </div>
+
+    <!-- Example row of columns -->
+    <div class="row">
+        <div class=" col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <h2>Heading</h2>
+            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+            <p><a class="btn" href="#">View details &raquo;</a></p>
+        </div>        
+    </div>
+
+    <hr>
+
+    <footer>
+        <div class="row" style="padding: 3%">
+            <div class="col-md-3 col-sm-3 col-lg-3 img-footer">
+                <img src="//www.lottoland.com/cms/5846d442e4b0d02cb592253d/webutation_icon@1x.png"  class="footer-item" width="65" height="65">
+            </div>
+            <div class="col-md-3 col-sm-3 col-lg-3 img-footer">
+                <img src="//www.lottoland.com/cms/54f8a9e7e4b0deabcfd57249/br_trustsign_ekomi.png" class="footer-item">
+            </div>
+            <div class="col-md-3 col-sm-3 col-lg-3 img-footer">
+                <img src="//www.lottoland.com/cms/54f8aa32e4b0deabcfd58079/br_trustsign_webshop.png"  class="footer-item">
+            </div>
+            <div class="col-md-3 col-sm-3 col-lg-3 img-footer">
+                <img src="//www.lottoland.com/cms/59f998ed0eb35873b6b46d98/EGR-Power-50-Rankings-Twitter-banner-768x384.jpg" width="384" height="192"  class="footer-item">
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <p>
+                    A Lottoland.com é administrada pela Lottoland, em nome da EU Lotto Limited.
+                    EU Lotto está autorizada a oferecer serviços de intermediação.<br>
+                    EU Lotto não é associada ou afiliada a nenhuma operadora de loterias oficiais. Sede no endereço: Suite A, Ocean Village Promenade, Ocean Village, Gibraltar, GX11 1AA <br/>
+                    Jogue nas maiores loterias online com a lottoland.com/br
+                </p>
+            </div>
+        </div>
+        <p>&copy; Company 2013</p>
+    </footer>
+</div> <!-- /container -->

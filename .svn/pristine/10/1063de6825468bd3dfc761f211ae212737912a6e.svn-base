@@ -1,0 +1,205 @@
+<?php if ($imprimir == 0) { ?>
+<style type="text/css">table{color:#444}</style>
+<div class="page-content">
+    <?php echo $this->Html->link("<i class='glyphicon glyphicon-print'> </i>", array("action" => "sintesePrestacoesContas", 1), array("class" => "btn btn-default", 'title' => 'Imprimir', "style" => "float : right", "escape" => false, "target" => "_blank")) ?>
+    <ul class="nav nav-tabs ul-edit responsive">
+        <li class="active"><a href="#tab-consulta" data-toggle="tab"><i class="fa fa-filter"></i>&nbsp;Resultado</a></li>
+    </ul>
+    <div id="generalTabContent" class="tab-content" style="padding-top: 15px;padding-bottom: 15px;">
+        <div id="tab-consulta" class="tab-pane fade in active">
+            <?php } ?>
+            <style type="text/css">table tr td{padding-top: 5px;padding-bottom: 5px;text-align: center;vertical-align: middle;}</style>
+            <?php ini_set("memory_limit", "5048M"); ?>
+            <?php header("Cache-Control: no-cache, must-revalidate"); ?>
+            <?php header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); ?>
+            <page backtop="45mm" backbottom="10mm" backleft="10mm" backright="10mm">
+                <page_header>
+                    <?php echo $this->element('relatorios/cabecalho', array(
+                        'relatorio'=>'<sup>RELATÓRIO:</sup><br>SÍNTESE DAS PRESTAÇÕES DE CONTAS',
+                        'documento'=>'Levantamento de Informações')); ?>
+                </page_header>    
+
+                <div class="alert-success"  style="width:100%;font-weight: bold; text-align: center; font-size: 14px;padding:5px;;">PRESTAÇÕES DE CONTAS ENCAMINHAS PARA DF</div>
+                <table class="table table-bordered" cellpadding="0" cellspacing="0" border="1" style="width: 100%;" align="center">
+                    <tr class="alert-warning">
+                        <td style="font-weight: bold;width:46%;text-align:left;padding-left: 5px;">Situação das Prestações de Contas</td>
+                        <td style="font-weight: bold;width:11%;">1ª Parcela</td>
+                        <td style="font-weight: bold;width:11%;">2ª Parcela</td>
+                        <td style="font-weight: bold;width:11%;">3ª Parcela</td>
+                        <td style="font-weight: bold;width:11%;">4ª Parcela</td>
+                        <td style="font-weight: bold;width:10%;">Total por Situação</td>
+                    </tr> 
+                    <tr>
+                        <td style="text-align:left;padding-left:5px;">Aprovadas pelo Núcleo de Convênios</td>
+                        <td><?php echo $t11 = isset($prestacoes_aprovadas_merito_financeiro[1]) ? $prestacoes_aprovadas_merito_financeiro[1] : '0' ?></td>
+                        <td><?php echo $t12 = isset($prestacoes_aprovadas_merito_financeiro[2]) ? $prestacoes_aprovadas_merito_financeiro[2] : '0' ?></td>
+                        <td><?php echo $t13 = isset($prestacoes_aprovadas_merito_financeiro[3]) ? $prestacoes_aprovadas_merito_financeiro[3] : '0' ?></td>
+                        <td><?php echo $t14 = isset($prestacoes_aprovadas_merito_financeiro[4]) ? $prestacoes_aprovadas_merito_financeiro[4] : '0' ?></td>
+                        <td><?php echo $t1 = array_sum($prestacoes_aprovadas_merito_financeiro)+0; ?></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:left;padding-left:5px;"><s>Em diligência documental</s></td>
+                        <td><?php echo $t21 = !empty($value) ? $value : '0' ?></td>
+                        <td><?php echo $t22 = !empty($value) ? $value : '0' ?></td>
+                        <td><?php echo $t23 = !empty($value) ? $value : '0' ?></td>
+                        <td><?php echo $t24 = !empty($value) ? $value : '0' ?></td>
+                        <td><?php echo $t2 = 0; ?></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:left;padding-left:5px;">Aguardando análise de mérito</td>
+                        <td><?php echo $t31 = isset($prestacoes_aguardando_analise_financeira[1]) ? $prestacoes_aguardando_analise_financeira[1] : '0' ?></td>
+                        <td><?php echo $t32 = isset($prestacoes_aguardando_analise_financeira[2]) ? $prestacoes_aguardando_analise_financeira[2] : '0' ?></td>
+                        <td><?php echo $t33 = isset($prestacoes_aguardando_analise_financeira[3]) ? $prestacoes_aguardando_analise_financeira[3] : '0' ?></td>
+                        <td><?php echo $t34 = isset($prestacoes_aguardando_analise_financeira[4]) ? $prestacoes_aguardando_analise_financeira[4] : '0' ?></td>
+                        <td><?php echo $t3 = array_sum($prestacoes_aguardando_analise_financeira)+0; ?></td>
+                    </tr>
+                    <tr class="total">
+                        <td style="font-weight: bold;text-align:left;padding-left:5px;">Total por parcela:</td>
+                        <td style="font-weight: bold"><?php echo $t11+$t21+$t31; ?></td>
+                        <td style="font-weight: bold"><?php echo $t12+$t22+$t32; ?></td>
+                        <td style="font-weight: bold"><?php echo $t13+$t23+$t33; ?></td>
+                        <td style="font-weight: bold"><?php echo $t14+$t24+$t34; ?></td>
+                        <td style="font-weight: bold"><?php echo $t1+$t2+$t3+0; ?></td>
+                    </tr>
+                </table>
+                <br/>
+                <div class="alert-success" style="font-weight: bold; text-align: center; font-size: 14px;padding:5px;">PRESTAÇÕES DE CONTAS NA DIRETORIA DE CIDADANIA CULTURAL - SUDECULT</div>
+                <table class="table table-bordered" cellpadding="0" cellspacing="0" border="1" style="width: 100%;" align="center">
+                    <tr class="alert-warning">
+                        <td style="font-weight: bold;width:46%;text-align:left;padding-left: 5px;">Situação das Prestações de Contas</td>
+                        <td style="font-weight: bold;width:11%;">1ª Parcela</td>
+                        <td style="font-weight: bold;width:11%;">2ª Parcela</td>
+                        <td style="font-weight: bold;width:11%;">3ª Parcela</td>
+                        <td style="font-weight: bold;width:11%;">4ª Parcela</td>
+                        <td style="font-weight: bold;width:10%;">Total por Situação</td>
+                    </tr> 
+                    <tr>
+                        <td style="text-align:left;padding-left:5px;">Em análise documental</td>
+                        <td><?php echo $t11 = isset($prestacoes_recebidas[1]) ? $prestacoes_recebidas[1] : '0' ?></td>
+                        <td><?php echo $t12 = isset($prestacoes_recebidas[2]) ? $prestacoes_recebidas[2] : '0' ?></td>
+                        <td><?php echo $t13 = isset($prestacoes_recebidas[3]) ? $prestacoes_recebidas[3] : '0' ?></td>
+                        <td><?php echo $t14 = isset($prestacoes_recebidas[4]) ? $prestacoes_recebidas[4] : '0' ?></td>
+                        <td><?php echo $t1 = array_sum($prestacoes_recebidas)+0; ?></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:left;padding-left:5px;"><s>Em diligência documental</s></td>
+                        <td><?php echo $t21 = !empty($value) ? $value : '0' ?></td>
+                        <td><?php echo $t22 = !empty($value) ? $value : '0' ?></td>
+                        <td><?php echo $t23 = !empty($value) ? $value : '0' ?></td>
+                        <td><?php echo $t24 = !empty($value) ? $value : '0' ?></td>
+                        <td><?php echo $t2 = '0'; ?></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:left;padding-left:5px;">Aguardando análise de mérito</td>
+                        <td><?php echo $t31 = isset($prestacoes_aguardando_analise_merito[1]) ? $prestacoes_aguardando_analise_merito[1] : '0' ?></td>
+                        <td><?php echo $t32 = isset($prestacoes_aguardando_analise_merito[2]) ? $prestacoes_aguardando_analise_merito[2] : '0' ?></td>
+                        <td><?php echo $t33 = isset($prestacoes_aguardando_analise_merito[3]) ? $prestacoes_aguardando_analise_merito[3] : '0' ?></td>
+                        <td><?php echo $t34 = isset($prestacoes_aguardando_analise_merito[4]) ? $prestacoes_aguardando_analise_merito[4] : '0' ?></td>
+                        <td><?php echo $t3 = array_sum($prestacoes_aguardando_analise_merito)+0; ?></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:left;padding-left:5px;"><s>Em diligência de mérito</s></td>
+                        <td><?php echo $t41 = !empty($value) ? $value : '0' ?></td>
+                        <td><?php echo $t42 = !empty($value) ? $value : '0' ?></td>
+                        <td><?php echo $t43 = !empty($value) ? $value : '0' ?></td>
+                        <td><?php echo $t44 = !empty($value) ? $value : '0' ?></td>
+                        <td><?php echo $t4 = '0'; ?></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:left;padding-left:5px;">Aprovadas pela coordenação de pontos de cultura</td>
+                        <td><?php echo $t51 = isset($prestacoes_aprovadas_merito_tecnico[1]) ? $prestacoes_aprovadas_merito_tecnico[1] : '0' ?></td>
+                        <td><?php echo $t52 = isset($prestacoes_aprovadas_merito_tecnico[2]) ? $prestacoes_aprovadas_merito_tecnico[2] : '0' ?></td>
+                        <td><?php echo $t53 = isset($prestacoes_aprovadas_merito_tecnico[3]) ? $prestacoes_aprovadas_merito_tecnico[3] : '0' ?></td>
+                        <td><?php echo $t54 = isset($prestacoes_aprovadas_merito_tecnico[4]) ? $prestacoes_aprovadas_merito_tecnico[4] : '0' ?></td>
+                        <td><?php echo $t5 = array_sum($prestacoes_aprovadas_merito_tecnico)+0; ?></td>
+                    </tr>
+                    <tr class="total">
+                        <td style="font-weight: bold;text-align:left;padding-left:5px;">Total por parcela:</td>
+                        <td style="font-weight: bold"><?php echo $t11+$t21+$t31+$t41+$t51; ?></td>
+                        <td style="font-weight: bold"><?php echo $t12+$t22+$t32+$t42+$t52; ?></td>
+                        <td style="font-weight: bold"><?php echo $t13+$t23+$t33+$t43+$t53; ?></td>
+                        <td style="font-weight: bold"><?php echo $t14+$t24+$t34+$t44+$t54; ?></td>
+                        <td style="font-weight: bold"><?php echo $t1+$t2+$t3+$t4+$t5; ?></td>
+                    </tr>
+                </table>
+                <br/>
+                <div class="alert-success" style="font-weight: bold; text-align: center; font-size: 14px;padding:5px;">PRESTAÇÕES DE CONTAS <i>(a receber)</i></div>
+                <table class="table table-bordered" cellpadding="0" cellspacing="0" border="1" style="width: 100%;"  align="center">
+                    <tr class="alert-warning">
+                        <td style="font-weight: bold;width:46%;text-align:left;padding-left: 5px;">Situação das Prestações de Contas</td>
+                        <td style="font-weight: bold;width:11%;">1ª Parcela</td>
+                        <td style="font-weight: bold;width:11%;">2ª Parcela</td>
+                        <td style="font-weight: bold;width:11%;">3ª Parcela</td>
+                        <td style="font-weight: bold;width:11%;">4ª Parcela</td>
+                        <td style="font-weight: bold;width:10%;">Total por Situação</td>
+                    </tr>  
+                    <?php $t1 = $t2 = $t3 = $t4 = $t5 = 0; ?>
+                    <?php foreach ($prestacoes_contas_receber as $ano => $v) { ?>                
+                    <tr>
+                        <?php $t1 += isset($v[1]) ? $v[1] : 0; ?>
+                        <?php $t2 += isset($v[2]) ? $v[2] : 0; ?>
+                        <?php $t3 += isset($v[3]) ? $v[3] : 0; ?>
+                        <?php $t4 += isset($v[4]) ? $v[4] : 0; ?>
+                        <?php $t5 += array_sum($v); ?>
+                        <td style="text-align:left;padding-left:5px;">Prestações de contas a receber em <?php echo $ano; ?></td>
+                        <td><?php echo isset($v[1]) ? $v[1] : '0' ?></td>
+                        <td><?php echo isset($v[2]) ? $v[2] : '0' ?></td>
+                        <td><?php echo isset($v[3]) ? $v[3] : '0' ?></td>
+                        <td><?php echo isset($v[4]) ? $v[4] : '0' ?></td>
+                        <td><?php echo array_sum($v)+0; ?></td>
+                    </tr>
+                    <?php } ?>
+                    <tr class="total">
+                        <td style="font-weight: bold;text-align:left;padding-left:5px;">Total por parcela:</td>
+                        <td style="font-weight: bold"><?php echo $t1; ?></td>
+                        <td style="font-weight: bold"><?php echo $t2; ?></td>
+                        <td style="font-weight: bold"><?php echo $t3; ?></td>
+                        <td style="font-weight: bold"><?php echo $t4; ?></td>
+                        <td style="font-weight: bold"><?php echo $t5; ?></td>
+                    </tr>
+                </table>
+                <br/>    
+                <div class="alert-success" style="font-weight: bold; text-align: center; font-size: 14px;padding:5px;">PARCELAS NÃO PAGAS</div>
+                <table class="table table-bordered" cellpadding="0" cellspacing="0" border="1" style="width: 100%;"  align="center">
+                    <tr class="alert-warning">
+                        <td style="font-weight: bold;width:46%;text-align:left;padding-left: 5px;">Situação dos Pagamentos</td>
+                        <td style="font-weight: bold;width:11%;">1ª Parcela</td>
+                        <td style="font-weight: bold;width:11%;">2ª Parcela</td>
+                        <td style="font-weight: bold;width:11%;">3ª Parcela</td>
+                        <td style="font-weight: bold;width:11%;">4ª Parcela</td>
+                        <td style="font-weight: bold;width:10%;">Total por Situação</td>
+                    </tr>  
+                    <tr>
+                        <td style="text-align:left;padding-left:5px;">Parcelas não pagas</td>
+                        <td><?php echo isset($parcelas_nao_pagas[1]) ? $parcelas_nao_pagas[1] : '0' ?></td>
+                        <td><?php echo isset($parcelas_nao_pagas[2]) ? $parcelas_nao_pagas[2] : '0' ?></td>
+                        <td><?php echo isset($parcelas_nao_pagas[3]) ? $parcelas_nao_pagas[3] : '0' ?></td>
+                        <td><?php echo isset($parcelas_nao_pagas[4]) ? $parcelas_nao_pagas[4] : '0' ?></td>
+                        <td><?php echo array_sum($parcelas_nao_pagas)+0; ?></td>
+                    </tr>
+                    <tr class="total">
+                        <td style="font-weight: bold;text-align:left;padding-left:5px;">Total por parcela:</td>
+                        <td style="font-weight: bold;"><?php echo isset($parcelas_nao_pagas[1]) ? $parcelas_nao_pagas[1] : '0' ?></td>
+                        <td style="font-weight: bold;"><?php echo isset($parcelas_nao_pagas[2]) ? $parcelas_nao_pagas[2] : '0' ?></td>
+                        <td style="font-weight: bold;"><?php echo isset($parcelas_nao_pagas[3]) ? $parcelas_nao_pagas[3] : '0' ?></td>
+                        <td style="font-weight: bold;"><?php echo isset($parcelas_nao_pagas[4]) ? $parcelas_nao_pagas[4] : '0' ?></td>
+                        <td style="font-weight: bold;"><?php echo array_sum($parcelas_nao_pagas)+0; ?></td>
+                    </tr>   
+                </table> 
+                <?php if ($imprimir == 0) { ?>
+                <?php echo $this->Html->link("<i class='glyphicon glyphicon-print'> </i>", array("action" => "sintesePrestacoesContas", 1), array("class" => "btn btn-default", 'title' => 'Imprimir', "style" => "float : right", "escape" => false, "target" => "_blank")) ?>
+                <?php } else { ?>
+                <br/>
+                <br/>
+                <?php } ?>
+                <b style="color:#444;">Levantamento realizado em <?php echo date('d') ?> de <?php echo $mes[date('M')] ?> de <?php echo date('Y') ?></b>
+                <?php if ($imprimir == 0) { ?><br/><br/><br/><?php } ?>
+                <page_footer>
+                    <?php echo $this->element('relatorios/rodape'); ?>
+                </page_footer>
+            </page>
+            <?php if ($imprimir == 0) { ?>
+        </div>
+    </div>
+</div>
+<?php } ?>

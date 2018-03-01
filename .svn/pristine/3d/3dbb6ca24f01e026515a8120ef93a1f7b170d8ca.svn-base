@@ -1,0 +1,8 @@
+<?php
+    require ('../Vendor/html2pdf/html2pdf.php');
+    $pdf = new HTML2PDF('P','A4','pt', true, 'UTF-8', array(0, 10, 0, 5)); 
+    $pdf->setDefaultFont('Arial');
+    $pdf->WriteHTML($content_for_layout, isset($_GET['html']));
+    $pdf_file_name = (isset($pdf_file_name)) ? $pdf_file_name : 'relatorio_';
+    $pdf->Output($pdf_file_name.'_'.date('ymdhis').'.pdf', 'FD');    
+?>

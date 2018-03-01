@@ -1,0 +1,87 @@
+<?php echo $this->element('menu/configurantion'); ?>   
+
+<div class="panel panel-default">
+    <div class="panel-heading">Últimas movimentações</div>
+    <div class="panel-body">
+        <!--ul class="list-group">
+            <?php //foreach ($logs as $v) { ?>
+            <li class="list-group-item" style="border-left:none;border-right:none;">
+                <span class="label label-default"><?php //echo $v['Log']['created']; ?></span>&nbsp;
+                <span class="label label-success"><?php //echo $v['Log']['action']; ?></span>
+                <?php //echo $v['Log']['description']; ?>
+            </li>    
+            <?php //} ?>
+        </ul-->
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-6 col-md-3">
+        <ul class="list-group">
+            <li class="list-group-item" style="background-color: #f5f5f5;">USUÁRIOS</li>
+            <li class="list-group-item">
+                <span class="badge"><?php echo $usuariosAtivos+$usuariosInativos; ?></span>
+                Total
+            </li>
+            <li class="list-group-item">
+                <span class="badge"><?php echo $usuariosAtivos; ?></span>
+                Ativos
+            </li>
+            <li class="list-group-item">
+                <span class="badge"><?php echo $usuariosInativos; ?></span>
+                Inativos
+            </li>
+        </ul>
+    </div>
+    <div class="col-sm-6 col-md-3">
+        <ul class="list-group">
+            <li class="list-group-item" style="background-color: #f5f5f5;">GRUPOS</li>
+            <li class="list-group-item">
+                <span class="badge"><?php echo $gruposAtivos+$gruposInativos; ?></span>
+                Total
+            </li>
+            <li class="list-group-item">
+                <span class="badge"><?php echo $gruposAtivos; ?></span>
+                Ativos
+            </li>
+            <li class="list-group-item">
+                <span class="badge"><?php echo $gruposInativos; ?></span>
+                Inativos
+            </li>
+        </ul>
+    </div>
+    <div class="col-sm-6 col-md-3">
+        <ul class="list-group">
+            <li class="list-group-item" style="background-color: #f5f5f5;">FUNCIONALIDADES</li>
+            <li class="list-group-item">
+                <span class="badge"><?php echo $funcionalidadesAtivos+$funcionalidadesInativos; ?></span>
+                Total
+            </li>
+            <li class="list-group-item">
+                <span class="badge"><?php echo $funcionalidadesAtivos; ?></span>
+                Ativos
+            </li>
+            <li class="list-group-item">
+                <span class="badge"><?php echo $funcionalidadesInativos; ?></span>
+                Inativos
+            </li>
+        </ul>
+    </div>
+    <div class="col-sm-6 col-md-3">
+        <ul class="list-group">
+            <li class="list-group-item" style="background-color: #f5f5f5;">PERMISSÕES</li>
+            <li class="list-group-item">
+                <span class="badge"><?php echo $permissoesAtivos+$permissoesInativos; ?></span>
+                Total
+            </li>
+            <li class="list-group-item">
+                <span class="badge"><?php echo $permissoesAtivos; ?></span>
+                Vinculadas a funcionalidade
+            </li>
+            <li class="list-group-item">
+                <span class="badge"><?php echo $permissoesInativos; ?></span>
+                Sem vínculo a funcionalidade
+            </li>
+        </ul>
+    </div>
+</div>

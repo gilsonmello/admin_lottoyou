@@ -1,0 +1,77 @@
+<?php if ($imprimir == 0) { ?>
+<style type="text/css">table{color:#444}</style>
+<div class="page-content">
+    <?php echo $this->Html->link("<i class='glyphicon glyphicon-print'> </i>", array("action" => "auditoriaCadastros", 1), array("class" => "btn btn-default", 'title' => 'Imprimir', "style" => "float : right", "escape" => false, "target" => "_blank")) ?>
+    <ul class="nav nav-tabs ul-edit responsive">
+        <li class="active"><a href="#tab-consulta" data-toggle="tab"><i class="fa fa-filter"></i>&nbsp;Resultado</a></li>
+    </ul>
+    <div id="generalTabContent" class="tab-content" style="padding-top: 15px;padding-bottom: 15px;">
+        <div id="tab-consulta" class="tab-pane fade in active">
+            <?php } ?>
+            <style type="text/css">table tr td{padding-top: 5px;padding-bottom: 5px;text-align: center;vertical-align: middle;}</style>
+            <?php ini_set("memory_limit", "5048M"); ?>
+            <?php header("Cache-Control: no-cache, must-revalidate"); ?>
+            <?php header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); ?>
+            <page backtop="45mm" backbottom="10mm" backleft="10mm" backright="10mm">
+                <page_header>
+                    <?php echo $this->element('relatorios/cabecalho', array(
+                        'relatorio'=>'<sup>RELATÓRIO:</sup><br>AUDITORIA DE CADASTROS',
+                        'documento'=>'Levantamento de Informações')); ?>
+                </page_header> 
+                <?php if ($imprimir == 1) { ?>   
+                <page_footer>
+                    <?php echo $this->element('relatorios/rodape'); ?>
+                </page_footer>
+                <?php } ?>   
+
+                <div class="alert-success"  style="width:100%;font-weight: bold; text-align: center; font-size: 14px;padding:5px;;">
+                    RELAÇÃO DE INSTITUIÇÕES<br/>
+                    <span style="font-size:10px;">TOTAL DE INSTITUIÇÕES: <?php echo $total_instituicoes; ?> | A ATUALIZAR: <?php echo $total_instituicoes_corrigir; ?> (<?php echo round($total_instituicoes_corrigir/$total_instituicoes*100); ?>%)</span>
+                </div>
+                <table class="table table-bordered" cellpadding="0" cellspacing="0" border="1" style="width: 100%;" align="center">
+                    <tr class="alert-warning">
+                        <td style="font-weight: bold;width:46%;text-align:left;padding-left: 5px;">Nome Fantasia</td>
+                        <td style="font-weight: bold;width:22%;">CNPJ</td>
+                        <td style="font-weight: bold;width:32%;text-align:left;">Pendências</td>
+                    </tr>
+                    <?php foreach($pendencias as $v): ?> 
+                    <tr>
+                        <td <?php echo ($v['pendencias']['campos'] == '') ? 'class="alert-success"' : ''; ?> style="text-align:left;padding-left:5px;width:46%;"><?php echo $v['pendencias']['nome_fantasia']; ?></td>
+                        <td <?php echo ($v['pendencias']['campos'] == '') ? 'class="alert-success"' : ''; ?> style="width:22%;"><?php echo $v['pendencias']['cnpj']; ?></td>
+                        <td <?php echo ($v['pendencias']['campos'] == '') ? 'class="alert-success"' : ''; ?> style="text-align:left;width:32%;"><?php echo $v['pendencias']['campos']; ?></td>
+                    </tr>
+                    <?php endforeach; ?> 
+                </table>
+                <br/>
+                <div class="alert-success" style="font-weight: bold; text-align: center; font-size: 14px;padding:5px;">
+                    PROJETOS<br/>
+                    <span style="font-size:10px;">TOTAL DE PROJETOS: <?php echo $total_convenios; ?> | A ATUALIZAR: <?php echo $total_convenios_corrigir; ?> (<?php echo round($total_convenios_corrigir/$total_convenios*100); ?>%)</span>
+                </div>
+
+                <table class="table table-bordered" cellpadding="0" cellspacing="0" border="1" style="width: 100%;" align="center">
+                    <tr class="alert-warning">
+                        <td style="font-weight: bold;width:46%;text-align:left;padding-left: 5px;">NOME DO PROJETO</td>
+                        <td style="font-weight: bold;width:54%;">PENDÊNCIAS</td>
+                    </tr> 
+                    <?php foreach($pendencias2 as $v): ?> 
+                    <tr>
+                        <td <?php echo ($v['pendencias']['campos'] == '') ? 'class="alert-success"' : ''; ?> style="text-align:left;padding-left:5px;width:46%;"><?php echo $v['pendencias']['titulo']; ?></td>
+                        <td <?php echo ($v['pendencias']['campos'] == '') ? 'class="alert-success"' : ''; ?> style="text-align:left;width:54%;"><?php echo $v['pendencias']['campos']; ?></td>
+                    </tr>
+                    <?php endforeach; ?> 
+                    </tr>
+                </table>
+                <?php if ($imprimir == 0) { ?>
+                <?php echo $this->Html->link("<i class='glyphicon glyphicon-print'> </i>", array("action" => "auditoriaCadastros", 1), array("class" => "btn btn-default", 'title' => 'Imprimir', "style" => "float : right", "escape" => false, "target" => "_blank")) ?>
+                <?php } else { ?>
+                <br/>
+                <br/>
+                <?php } ?>
+                <b style="color:#444;">Levantamento realizado em <?php echo date('d') ?> de <?php echo $mes[date('M')] ?> de <?php echo date('Y') ?></b>
+                <?php if ($imprimir == 0) { ?><br/><br/><br/><?php } ?>
+            </page>
+            <?php if ($imprimir == 0) { ?>
+        </div>
+    </div>
+</div>
+<?php } ?>

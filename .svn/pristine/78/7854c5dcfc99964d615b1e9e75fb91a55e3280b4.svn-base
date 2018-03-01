@@ -1,0 +1,120 @@
+<?php
+/**
+ * CakePHP FuncionalidadesController
+ * @author Gustavo Cardoso
+ */
+class FuncionalidadesController extends AppController {
+    
+    public function index($grid = 0) {   
+        // CARREGA FUNÇÕES BÁSICAS DE PESQUISA E ORDENAÇÃO
+        $options = parent::_index();
+
+        // CONFIGURA O MODEL
+        $this->Funcionalidade->recursive = 2;
+        $this->Funcionalidade->Modulo->unbindModel(array('hasMany'=>array('Funcionalidade')));
+        $this->Funcionalidade->Group->unbindModel(array('hasMany'=>array('User')));
+
+        // PEGA FUNCIONALIDADES CADASTRADAS
+        $dados = $this->Funcionalidade->find('all', array('order'=>'Funcionalidade.modulo, Funcionalidade.name'));
+        
+        // INICIALIZA VARIÁVEIS
+        $semPermissao = $ativo = $inativo = 0;
+
+        // ESTILIZA LINHA DA GRID
+        foreach ($dados as $k => $v) {
+            if ($v['Funcionalidade']['ativo'] != 'Sim' || $v['Funcionalidade']['totalPermissoes'] == 0) {
+                $dados[$k]['Funcionalidade']['style'] = 'background-color: #F2C9CA';
+                $inativo++;
+            } else {
+                $ativo++;
+            }
+
+            if ($v['Funcionalidade']['totalPermissoes'] == 0){
+                $semPermissao++;
+            }
+        }
+
+        // PERMISSÕES NÃO VINCULADAS
+        $permissoesNaoVinculadas = $this->Funcionalidade->findPermissoesNaoVinculadas();
+
+        // PREPARA DADOS
+        foreach ($dados as $k => $v) {
+            $v['Funcionalidade']['modulo_active'] = $v['Modulo']['active'];
+            $records[$v['Funcionalidade']['modulo']][] = $v['Funcionalidade'];
+            unset($v['Funcionalidade']['modulo']);
+        }
+
+        // CALCULA O TOTAL DE REGISTROS
+        $total = count($dados);
+
+        // RETORNA DADOS
+        return compact('permissoesNaoVinculadas', 'total', 'records', 'ativo', 'inativo', 'semPermissao');
+    }
+
+    public function add() {
+        // CONFIGURA LAYOUT
+        $this->layout = 'ajax';
+
+        if ($this->request->is('post') || $this->request->is('put')) {
+            if ($this->Funcionalidade->save($this->request->data)) {
+                $this->Session->setFlash('Registro salvo com sucesso.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-success'));
+            } else {
+                $this->Session->setFlash('Não foi possível editar o registro. Favor tentar novamente.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-danger'));
+            }
+        }
+
+        // PEGA LISTA DE PERMISSÕES
+        $this->set('optionsPermissions', $this->Funcionalidade->Permission->find('list'));
+
+        // PEGA LISTA DE GRUPOS
+        $this->set('optionsGrupos', $this->Funcionalidade->Group->find('list'));
+        
+        // CONFIGURA LISTA INICIAL DE GRUPOS
+        $this->set('selectedGrupos', array('1'));
+
+        // PEGA LISTA DE MÓDULOS
+        $this->set('modulos', $this->Funcionalidade->Modulo->find('list', array('conditions' => array('active' => 1))));
+    }
+
+    public function edit($id = null) {
+        // CONFIGURA LAYOUT
+        $this->layout = 'ajax';
+
+        $this->Funcionalidade->id = $id;
+        if (!$this->Funcionalidade->exists()) {
+            throw new NotFoundException('Registro inexistente', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-danger'));
+        }
+        if ($this->request->is('post') || $this->request->is('put')) {
+
+            $this->request->data['Funcionalidade']['id'] = $id;
+            if ($this->Funcionalidade->save($this->request->data)) {
+                $this->Session->setFlash('Registro salvo com sucesso.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-success'));
+            } else {
+                $this->Session->setFlash('Não foi possível editar o registro. Favor tentar novamente.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-danger'));
+            }
+        }
+        
+        // CONFIGURA LISTA INICIAL DE PERMISSÕES
+        $this->request->data = $this->Funcionalidade->read(null, $id);
+        $aux = array(); foreach ($this->request->data['Permission'] as $v) $aux[] = $v['id'];
+        $this->set('selectedPermissions', $aux);
+
+        // PEGA LISTA DE PERMISSÕES
+        $this->set('optionsPermissions', $this->Funcionalidade->Permission->find('list'));
+
+        // CONFIGURA LISTA INICIAL DE GRUPOS
+        $aux = array(); foreach ($this->request->data['Group'] as $v) $aux[] = $v['id'];
+        $this->set('selectedGrupos', $aux);
+
+        // PEGA LISTA DE GRUPOS
+        $this->set('optionsGrupos', $this->Funcionalidade->Group->find('list'));
+
+        // PEGA LISTA DE MÓDULOS
+        $this->set('modulos', $this->Funcionalidade->Modulo->find('list', array('conditions' => array('or'=>array('active' => 1, 'id'=>$this->request->data['Funcionalidade']['modulo_id'])))));
+    }
+
+    public function delete($id = null) {
+        parent::_delete($id);
+    }
+
+}

@@ -1,0 +1,89 @@
+------------------------------------------------------------------------
+r338 | gustavo | 2016-05-09 16:15:15 -0300 (seg, 09 mai 2016) | 2 lines
+Changed paths:
+   D /trunk/LICENSE
+   D /trunk/README.md
+   M /trunk/app/Controller/EstPosicoesController.php
+   M /trunk/app/Controller/FinMovimentacoesController.php
+   M /trunk/app/Controller/GelDashboardController.php
+   A /trunk/app/Controller/SisUpdatesController.php
+   A /trunk/app/Vendor/publish
+   A /trunk/app/Vendor/publish/batch
+   A /trunk/app/Vendor/publish/batch/backup-bd.bat
+   A /trunk/app/Vendor/publish/batch/get-svn-log.bat
+   A /trunk/app/Vendor/publish/publish.json
+   A /trunk/app/Vendor/publish/publish.php
+   A /trunk/app/Vendor/publish/svn.log
+   A /trunk/app/Vendor/publish/utility
+   A /trunk/app/Vendor/publish/utility/Ftp.php
+   M /trunk/app/View/Elements/layout/notifications.ctp
+   M /trunk/app/View/GelDashboard/index.ctp
+   M /trunk/app/View/SisConfiguracoes/index.ctp
+   A /trunk/app/View/SisUpdates
+   A /trunk/app/View/SisUpdates/index.ctp
+   D /trunk/app/ftpsync.settings
+   M /trunk/app/webroot/js/sge/AppSisConfiguracoes.js
+   D /trunk/ftpsync.settings
+
+- Instalação do plugin Deploy;
+- Correção de Bugs;
+------------------------------------------------------------------------
+r337 | gustavo | 2016-05-06 19:52:33 -0300 (sex, 06 mai 2016) | 1 line
+Changed paths:
+   M /trunk/dump.sql
+
+- Backup BP;
+------------------------------------------------------------------------
+r336 | gustavo | 2016-05-06 19:52:06 -0300 (sex, 06 mai 2016) | 1 line
+Changed paths:
+   A /trunk/app/Controller/FinMetasController.php
+   M /trunk/app/Controller/FinMovimentacoesController.php
+   M /trunk/app/Controller/FinRelatoriosController.php
+   M /trunk/app/Controller/GelDashboardController.php
+   A /trunk/app/Model/FinMeta.php
+   M /trunk/app/Model/FinMovimentacao.php
+   M /trunk/app/View/Elements/layout/menu.ctp
+   A /trunk/app/View/FinMetas
+   A /trunk/app/View/FinMetas/add.ctp
+   A /trunk/app/View/FinMetas/edit.ctp
+   A /trunk/app/View/FinMetas/index.ctp
+   M /trunk/app/View/FinMovimentacoes/add.ctp
+   M /trunk/app/View/FinRelatorios/caixa_banco.ctp
+   M /trunk/app/View/FinRelatorios/demostrativo_resultados.ctp
+   M /trunk/app/View/GelDashboard/index.ctp
+   A /trunk/app/webroot/js/sge/AppFinMetas.js
+   A /trunk/docs/bd-logs/000015.log
+
+- Ajustes no sistema;
+------------------------------------------------------------------------
+r335 | gustavo | 2016-05-06 00:26:27 -0300 (sex, 06 mai 2016) | 1 line
+Changed paths:
+   M /trunk/app/Controller/GelDashboardController.php
+   M /trunk/app/Model/FinMovimentacao.php
+   M /trunk/app/View/GelDashboard/index.ctp
+   M /trunk/app/webroot/js/sge/AppDashboard.js
+   M /trunk/lib/Cake/basics.php
+
+- Customização do Dashboard;
+------------------------------------------------------------------------
+r334 | gustavo | 2016-05-05 16:26:40 -0300 (qui, 05 mai 2016) | 1 line
+Changed paths:
+   M /trunk/dump.sql
+
+- Backup BP;
+------------------------------------------------------------------------
+r333 | gustavo | 2016-05-05 16:26:27 -0300 (qui, 05 mai 2016) | 1 line
+Changed paths:
+   M /trunk/app/Controller/GelDashboardController.php
+   M /trunk/app/Model/FinMovimentacao.php
+   M /trunk/app/View/GelDashboard/index.ctp
+   D /trunk/docs/bd-logs/000015.log
+
+- Atualização do Dashboard;
+------------------------------------------------------------------------
+r332 | gustavo | 2016-05-04 07:22:55 -0300 (qua, 04 mai 2016) | 1 line
+Changed paths:
+   M /trunk/app/View/GelDashboard/index.ctp
+
+- Customização do Dashboard;
+------------------------------------------------------------------------

@@ -1,0 +1,137 @@
+<?php
+/**
+ * Updates Controller
+ */
+
+App::uses('Publish','Vendor/publish');
+App::uses('FTP','Vendor/publish/utility');
+
+class SisUpdatesController extends AppController {
+
+    private $publish = null;
+    private $ftp = null;
+    private $env = null;
+    public $uses = null;
+
+    public function __construct($request = null, $response = null){
+        parent::__construct($request, $response);
+
+        // VERIFICA SE OS OBJETOS JÁ FORAM INSTACIADOS
+        if ($this->publish == null && $this->ftp == null){
+            // INSTANCIA OBJETO PUBLISH
+            $this->publish = new Publish();
+
+            // PEGA CONFIGURAÇÃO DO AMBIENTE FTP
+            $env = $this->publish->getConfiguration();
+
+            // INSTACIA O OBJETO FTP SE EXISTE AMBIENTE DE CONFIGURAÇÃO
+            if (!empty($env)){
+                $directory = $env['path'];
+                $host = $env['host'];
+                $options['username'] = $env['user'];
+                $options['password'] = $env['pass'];
+
+                // INSTACIA OBJETO FTP
+                $this->ftp = new FTP($directory, $host, $options);
+            }
+        }
+    }
+
+    public function index() 
+    {
+        if ($this->request->is(array('PUT', 'POST'))){
+            
+            if (isset($this->data['Environment'])){
+                // CONFIGURA O AMBIENTE
+                $this->publish->defineConfiguration($this->data['Environment']);
+                $response = $this->publish->getResponse();
+
+                // CONFIGURA MENSSAGEM
+                $this->Session->setFlash($response['message'], 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-'.$response['class'], 'style'=>'margin-bottom:10px;'));
+            }
+        }
+    
+        // VERIFICA SE É NECESSÁRIO CONFIGURAR O AMBIENTE
+        $config = $this->publish->checkConfiguration();
+
+        // PEGA DADOS DA CONFIGURAÇÃO
+        $this->env = $this->request->data['Environment'] = $this->publish->getConfiguration();
+
+        // PEGA LOGS DO SVN
+        $logs = $this->publish->getLogs();
+
+        // PEGA ATUALIZAÇÕES REALIZADAS
+        $updates = $this->publish->getUpdates();
+        
+        $this->set(compact('config', 'logs', 'updates'));
+    }
+
+    public function connect()
+    {
+        $error = 0;
+        $msg = '';
+ 
+        try {
+            // PEGA LISTA DE ARQUIVOS E DIRETÓRIOS
+            $list = $this->ftp->listDirectory();
+
+            // REGISTA LOGO ENVIO
+            if (!$this->publish->registraLogEnvio($this->params->query['revision'])){
+                throw new Exception("Não foi possível registrar o log do envio.");
+            }
+        } catch (Exception $e) {
+            $error = 1;
+            $msg = $e->getMessage();
+        }
+
+        echo json_encode(compact('error','list','msg')); exit;
+    }
+
+    public function upload()
+    {
+        // INICIALIZA VARIÁVEIS
+        $arquivo = $this->params->query['arquivo'];
+        $revision = $this->params->query['revision'];
+        $type = null;
+        $error = 0;
+        $msg = '';
+
+        try {
+            // VERIFICA SE EXITE O ARQUIVO NO FTP
+            if ($this->ftp->exists($arquivo)){
+                $type = 'update';
+                $file = $this->publish->getRoot().'/backup/'.$revision.'/'.$arquivo;
+
+                // VERIFICA SE EXISTE OS DIRETÓRIOS PARA SALVAR O ARQUIVO
+                if (!$this->publish->createFolder($this->publish->getRoot().'/backup/', $revision.'/'.$arquivo)){
+                    throw new Exception("Não foi criar os diretório do Backup no servidor.");
+                }
+
+                // FAZ BACKUP DO ARQUIVO QUE SERÁ SUBSTITUÍDO
+                if(!$this->ftp->downloadFile($arquivo, $file)){
+                    throw new Exception("Não foi possível fazer o download do arquivo.");
+                }
+            } else {
+                $type = 'create';
+            }
+
+            // ENVIA DADOS PARA O AMBIENTE DE FTP
+            $file = ROOT.'/'.$arquivo;
+
+            // FAZ UPLOAD DO ARQUIVO
+            if(!$this->ftp->uploadFile($arquivo, $file)){
+                throw new Exception("Não foi possível fazer o download do arquivo.");
+            }
+
+            // REGISTA LOGO ENVIO
+            if (!$this->publish->registraLogEnvio($revision, $arquivo)){
+                throw new Exception("Não foi possível registrar o log do envio.");
+            }
+        } catch (Exception $e) {
+            $error = 1;
+            $msg = $e->getMessage();
+        }
+
+        echo json_encode(compact('error', 'type')); exit;
+    }
+}

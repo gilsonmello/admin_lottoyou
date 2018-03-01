@@ -1,0 +1,40 @@
+<?php
+
+App::uses('AppModel', 'Model');
+
+/**
+ * CakePHP ModuloModel
+ * @author Go! Ponto a ponto
+ */
+class SisEmailTemplate extends AppModel {
+
+    public $virtualFields = array(
+        'ativo' => "CASE WHEN SisEmailTemplate.active = 1 THEN 'Sim' ELSE 'Não' END",              
+        'ativo_label' => "CASE WHEN SisEmailTemplate.active = 1 THEN 'success' ELSE 'danger' END",     
+    );
+    
+    public $displayField = 'assunto';
+
+    public $order = 'SisEmailTemplate.assunto ASC';
+
+    public $validate = array(
+        'assunto' => array(
+            'required' => array(
+                'rule' => array('notEmpty'),
+                'message' => 'Campo obrigatório'
+            )
+        ),
+        'html' => array(
+            'required' => array(
+                'rule' => array('notEmpty'),
+                'message' => 'Campo obrigatório'
+            )
+        ),
+        'codigo' => array(
+            'required' => array(
+                'rule' => array('notEmpty'),
+                'message' => 'Campo obrigatório'
+            )
+        ),                
+    );
+}

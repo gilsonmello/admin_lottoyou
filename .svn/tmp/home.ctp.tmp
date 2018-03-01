@@ -1,0 +1,497 @@
+<style type="text/css">
+    
+    .bg-green{
+        background-color: #64A407;
+    }
+
+    .bg-white{
+        background-color: #FFD700 !important;
+        border-color: #fff !important;
+    }
+    
+    .color-white{
+        color: #fff !important;
+        font-weight: bold; 
+    }
+
+    .navbar .vcenter{
+        display: flex;
+        align-items: center;
+        padding: 18px 0px;
+    }
+    .navbar .acoes a{
+        text-decoration: none;
+        color: #69a507;
+        font-weight: 700;
+        font-size: 14px;
+    }
+    .navbar .navItemCart{
+
+    }
+
+    .navbar .color-white{
+        color: white !important;
+    }
+
+    .navbar .navbar-nav li:hover{
+        background-color: #c3dc41;
+        box-shadow: inset 0 -4px 0 -2px #9cb034;
+    }
+    
+    .navbar .cart-count{
+        top: -3px;
+        font-weight: 900;
+        display: inline-block;
+        position: absolute;
+        font-size: 12px;
+        line-height: 17px;
+        text-align: center;
+        right: -8px;
+        top: -5px;
+        color: #fff;
+        width: 19px;
+        height: 19px;
+        border-radius: 50%;
+        background-color: #69a507;
+        transition: background-color .125s ease-out;
+    }
+    .navbar .cart-money{
+        color: #9aa89c;
+    }
+
+    .navbar .no-padding{
+        padding: 0;
+    }
+
+    .navbar .navbar-brand{
+        height: auto !important;
+    }
+    
+    .container-fluid > .navbar-header{
+        margin: 0 !important;
+    }
+
+    .navbar .center{
+        margin: 0 auto;
+    }
+    .navbar .no-margin{
+        margin: 0;
+    }
+    .navbar .no-paddind-left{
+        padding-left: 0;
+    }
+    .navbar .no-paddind-right{
+        padding-right: 0;
+    }
+    .navbar .cart{
+        font-size: 30px;
+        height: 25px;
+        width: 27px;
+        color: #9aa89c;
+        position: relative;
+    }
+
+    #prev-slide-content{
+        left: -89px; 
+        right: inherit
+    }
+
+    #next-slide-content{
+        left: inherit; 
+        right: -89px;
+    }
+
+    @media (max-width: 768px){
+        .navbar .vcenter{
+            margin: 0 !important;
+            display: flex;
+            align-items: center;
+            padding: 0 !important;
+        }
+
+    }
+    
+    .navbar2 li{
+        font-weight: bold;
+    }
+
+
+</style>
+<<<<<<< .mine
+<div class="navbar navbar-inverse navbar-fixed-top navbar-default bg-white">
+    <div class="container" style="width: 80%">
+        <div class="navbar-header">
+            <div class="navbar-brand" style="padding: 0px ">
+                <?php echo $this->Html->image('logos/lottoyou.png', array('id' => '', 'style' => 'width: 120px')) ?>
+            </div>
+        </div>
+        <div class="nav navbar-nav navbar-right">
+            <div class="row acoes vcenter">
+                <div class="col-lg-4" >
+                    <a href="#" class="text-center">Entrar</a>
+                </div>
+                <div class="col-lg-2">
+                    |
+                </div>
+                <div class="col-lg-4" >
+                    <a href="#" class="text-center">Registrar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid bg-green">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar2">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span> 
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar2">
+            <ul class="nav navbar-nav" style="text-align: center; width: 100%;">
+                <li style="float: none !important; display: inline-block;"><a href="#" class="color-white">Home</a></li>
+                <li style="float: none !important; display: inline-block;"><a href="#" class="color-white">Raspadinha</a></li>
+                <li style="float: none !important; display: inline-block;"><a href="#" class="color-white">Loteria</a></li>
+                <li style="float: none !important; display: inline-block;"><a href="#" class="color-white">Cartola</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+||||||| .r153
+<div class="navbar navbar-inverse navbar-fixed-top navbar-default bg-white">
+    <div class="container">
+        <div class="navbar-header">
+            <div class="navbar-brand">
+                <?php echo $this->Html->image('logos/lottoyou.png', array('id' => '', 'width' => '100', 'height' => '70')) ?>
+            </div>
+        </div>
+        <div class="nav navbar-nav navbar-right">
+            <div class="row acoes vcenter">
+                <div class="col-lg-4" style="padding: 22px 15px;">
+                    <a href="#" class="text-center">Entrar</a>
+                </div>
+                <div class="col-lg-2">
+                    |
+                </div>
+                <div class="col-lg-4" style="padding: 22px 15px;">
+                    <a href="#" class="text-center">Registrar</a>
+                </div>
+            </div>
+        </div>
+        <!-- 
+        <div class="navbar-header" id="topo-menu">
+            
+            <a href="#" class="navbar-brand">
+                <?php echo $this->Html->image('logos/lottoyou.png', array('id' => 'img-logo', 'width' => '50', 'height' => '100')) ?>
+            </a>
+        </div>
+        <div class="nav navbar-nav navbar-right">            
+            <div class="col-sm-4 col-lg-4 col-xs-12">
+                <div class="row acoes vcenter">
+                    <div class="col-lg-2" style="padding: 22px 15px;">
+                        <a href="#" class="text-center">Entrar</a>
+                    </div>
+                    <div class="col-lg-1">
+                        |
+                    </div>
+                    <div class="col-lg-2" style="padding: 22px 15px;">
+                        <a href="#" class="text-center">Registrar</a>
+                    </div>
+                    <div class="col-lg-1">
+                        |
+                    </div>
+                    <div class="col-lg-6" style="padding: 10px 0;">
+                        <a href="#">
+                            <div class="row vcenter">
+                                <div class="col-lg-2 no-paddind-right">
+                                    <div class="glyphicon glyphicon-shopping-cart cart">
+                                        <span class="cart-count">0</span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-10">
+                                    <p class="no-margin cart-money">R$ 0,00</p>
+                                    <p class="no-margin">
+                                        Pagar Agora
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    </div> 
+                </div>
+
+                <!-- <form class="navbar-form pull-right">
+                    <input class="span2" placeholder="Email" type="text">
+                    <input class="span2" placeholder="Password" type="password">
+                    <button type="submit" class="btn">Sign in</button>
+                </form> -->
+                <!--</div>
+            </div>
+        </div>-->
+        <!-- <div class="container" id="menu">
+            <a class="btn brand" href="#">RASPADINHA</a>
+            <a class="btn brand" href="#">LOTERIA</a>
+            <a class="btn brand" href="#">SOCCER EXPERT</a>
+            <a class="btn brand" href="#">CARTOLA</a>
+        </div> -->
+    </div>
+    <div class="container-fluid bg-green">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar2">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span> 
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar2">
+            <ul class="nav navbar-nav" style="text-align: center; width: 100%;">
+                <li style="float: none !important; display: inline-block;"><a href="#" class="color-white">Home</a></li>
+                <li style="float: none !important; display: inline-block;"><a href="#" class="color-white">RASPADINHA</a></li>
+                <li style="float: none !important; display: inline-block;"><a href="#" class="color-white">LOTERIA</a></li>
+                <li style="float: none !important; display: inline-block;"><a href="#" class="color-white">CARTOLA</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+=======
+>>>>>>> .r155
+<!-- <div class="navbar navbar-inverse navbar-fixed-top navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header" id="topo-menu">
+        </div>
+        <div class="nav navbar-nav">
+            <div class="container-fluid vcenter" id="menu">
+                <ul class="nav navbar-nav center">
+                    <li><a href="#" class="color-white">Home</a></li>
+                    <li><a href="#" class="color-white">RASPADINHA</a></li>
+                    <li><a href="#" class="color-white">LOTERIA</a></li>
+                    <li><a href="#" class="color-white">CARTOLA</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+<div class="container" id="content">
+
+    <div class="row" id="banner">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <?php echo $this->Html->image('banner/banner-1.jpg', array('class' => 'img-fluid responsive img-carrocel', 'style' => 'height: 400px')) ?>
+                </div>                
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>    
+    </div>
+
+    
+</div> <!-- /container -->
+
+<div class="container">
+    <div class="row" id="conteudo">
+        <div class="col-lg-12">
+        <div id="myCarousel2" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel2" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel2" data-slide-to="1"></li>
+                <li data-target="#myCarousel2" data-slide-to="2"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <div class=" col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                        <h2>Heading</h2>
+                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                        <p><a class="btn" href="#">View details &raquo;</a></p>
+                    </div>                    
+                    <div class=" col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                        <h2>Heading</h2>
+                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                        <p><a class="btn" href="#">View details &raquo;</a></p>
+                    </div>                    
+                    <div class=" col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                        <h2>Heading</h2>
+                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                        <p><a class="btn" href="#">View details &raquo;</a></p>
+                    </div>                    
+                </div>
+                <div class="item">
+                    <div class=" col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                        <h2>Heading</h2>
+                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                        <p><a class="btn" href="#">View details &raquo;</a></p>
+                    </div>
+                    <div class=" col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                        <h2>Heading</h2>
+                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                        <p><a class="btn" href="#">View details &raquo;</a></p>
+                    </div>
+                    <div class=" col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                        <h2>Heading</h2>
+                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                        <p><a class="btn" href="#">View details &raquo;</a></p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class=" col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                        <h2>Heading</h2>
+                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                        <p><a class="btn" href="#">View details &raquo;</a></p>
+                    </div>
+                    <div class=" col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                        <h2>Heading</h2>
+                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                        <p><a class="btn" href="#">View details &raquo;</a></p>
+                    </div>
+                    <div class=" col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                        <h2>Heading</h2>
+                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                        <p><a class="btn" href="#">View details &raquo;</a></p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class=" col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                        <h2>Heading</h2>
+                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                        <p><a class="btn" href="#">View details &raquo;</a></p>
+                    </div>
+                    <div class=" col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                        <h2>Heading</h2>
+                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                        <p><a class="btn" href="#">View details &raquo;</a></p>
+                    </div>
+                    <div class=" col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                        <h2>Heading</h2>
+                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                        <p><a class="btn" href="#">View details &raquo;</a></p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class=" col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                        <h2>Heading</h2>
+                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                        <p><a class="btn" href="#">View details &raquo;</a></p>
+                    </div>
+                    <div class=" col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                        <h2>Heading</h2>
+                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                        <p><a class="btn" href="#">View details &raquo;</a></p>
+                    </div>
+                    <div class=" col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                        <h2>Heading</h2>
+                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                        <p><a class="btn" href="#">View details &raquo;</a></p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel2" data-slide="prev" id="prev-slide-content">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel2" data-slide="next" id="next-slide-content">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>  
+        </div>  
+    </div>   
+
+    <!-- Main hero unit for a primary marketing message or call to action -->
+    <div class="row">
+        <div class="card-underline">
+            <div class="card-head">
+                <ul class="nav nav-tabs pull-right" data-toggle="tabs">
+                    <li class="active"><a href="#tab-loteria">LOTERIAS</a></li>
+                </ul>
+                <header>Jogue na loteria online com a Lottoland</header>
+            </div>
+            <div class="card-body tab-content">
+                <div class="tab-pane active" id="tab-loteria">
+                                            
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Example row of columns -->
+    <div class="row">
+        <div class=" col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <h2>Heading</h2>
+            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+            <p><a class="btn btn-primary" href="#">View details &raquo;</a></p>
+        </div>
+        <div class=" col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <h2>Heading</h2>
+            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+            <p><a class="btn btn-primary" href="#">View details &raquo;</a></p>
+        </div>
+        <div class=" col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <h2>Heading</h2>
+            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+            <p><a class="btn btn-primary" href="#">View details &raquo;</a></p>
+        </div>
+    </div>
+
+    <!-- Example row of columns -->
+    <div class="row">
+        <div class=" col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <h2>Heading</h2>
+            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+            <p><a class="btn" href="#">View details &raquo;</a></p>
+        </div>        
+    </div>
+
+    <hr>
+
+    <footer>
+        <div class="row" style="padding: 3%">
+            <div class="col-md-3 col-sm-3 col-lg-3 img-footer">
+                <img src="//www.lottoland.com/cms/5846d442e4b0d02cb592253d/webutation_icon@1x.png"  class="footer-item" width="65" height="65">
+            </div>
+            <div class="col-md-3 col-sm-3 col-lg-3 img-footer">
+                <img src="//www.lottoland.com/cms/54f8a9e7e4b0deabcfd57249/br_trustsign_ekomi.png" class="footer-item">
+            </div>
+            <div class="col-md-3 col-sm-3 col-lg-3 img-footer">
+                <img src="//www.lottoland.com/cms/54f8aa32e4b0deabcfd58079/br_trustsign_webshop.png"  class="footer-item">
+            </div>
+            <div class="col-md-3 col-sm-3 col-lg-3 img-footer">
+                <img src="//www.lottoland.com/cms/59f998ed0eb35873b6b46d98/EGR-Power-50-Rankings-Twitter-banner-768x384.jpg" width="384" height="192"  class="footer-item">
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <p>
+                    A Lottoland.com é administrada pela Lottoland, em nome da EU Lotto Limited.
+                    EU Lotto está autorizada a oferecer serviços de intermediação.<br>
+                    EU Lotto não é associada ou afiliada a nenhuma operadora de loterias oficiais. Sede no endereço: Suite A, Ocean Village Promenade, Ocean Village, Gibraltar, GX11 1AA <br/>
+                    Jogue nas maiores loterias online com a lottoland.com/br
+                </p>
+            </div>
+        </div>
+        <p>&copy; Company 2013</p>
+    </footer>
+</div>

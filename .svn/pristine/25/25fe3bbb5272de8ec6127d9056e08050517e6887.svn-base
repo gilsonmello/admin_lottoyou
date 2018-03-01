@@ -1,0 +1,50 @@
+<section style="padding:0;">
+	<div class="section-body card" style="margin:0;">
+	    <!-- BEGIN CONTACT DETAILS HEADER -->
+	    <div class="card-head card-head-sm style-primary">
+	        <header>
+                Permissões atualizadas com sucesso
+            </header>
+	        <div class="tools">
+                <button type="button" class="btn ink-reaction btn-flat btn-default-bright" data-dismiss="modal"><a href="javascript: history.go(-1])"><i class="fa fa-fw fa-arrow-left"></i> voltar</a></button>
+	        </div>
+	    </div>
+
+        <div class="card-body tab-content" style="padding:19px;">
+	        <div class="row">
+				<div class="col-md-6">
+			        <table class="table table-condensed table-hover" cellspacing="0" width="100%">
+			            <thead>
+			                <tr>
+			                    <th><span class="text-success">PERMISSÕES CADASTRADAS: <?php echo count($adicionar); ?></span></th>
+			                </tr>
+			            </thead>
+			            <tbody>
+			                <?php foreach($adicionar  as $v){ ?>
+			                <tr>
+			                    <td><?php echo $v; ?></td>
+			                </tr>
+			                <?php } ?>
+			            </tbody>
+			        </table>
+		        </div>
+				<div class="col-md-6">
+			        <table class="table table-condensed table-hover" cellspacing="0" width="100%">
+			            <thead>
+			                <tr>
+			                    <th><span class="text-danger">PERMISSÕES REMOVIDAS: <?php echo count($remover); ?></span></th>
+			                </tr>
+			            </thead>
+			            <tbody>
+			                <?php foreach($remover as $v){ ?>
+			                <tr>
+			                    <td><?php echo $v; ?></td>
+			                </tr>
+			                <?php } ?>
+			            </tbody>
+			        </table>
+		        </div>
+			</div>
+		</div>
+	</div>
+</section>

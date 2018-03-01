@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title><?php echo Configure::read('Sistema.nome'); ?></title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="cache-control" content="no-cache">
+        <meta http-equiv="expires" content="Thu, 19 Nov 1900 08:52:00 GMT">
+
+        <!-- Para o buscador do google -->
+        <meta property="og:image" content="http://gocontrolcar.com.br/img/logos/controlcar.jpg" />
+        <meta name="description" content="Sistema com o objetivo de controlar todos os custos que seu automovel." />
+        <meta name="keywords" content="controle, gocontrolcar, controlcar, veiculos, mecanica, control, car, control car,carro, moto, transporte, van, automovel, Sistema Automotivo, sistem de carro, Sistema, ControlCar, Controlcar, controlcar"/>
+        <meta name="author" content="GO! Ponto a Ponto" />
+        <meta property="og:title" content="Sistema de controle automotivo - Go! Ponto a Ponto" />
+        <meta property="og:url" content="http://gocontrolcar.com.br" />
+        <meta property="og:site_name" content="GOControlCAR" />
+
+        <link rel="shortcut icon" href="<?php echo $this->Html->url('/img/icons/favicon.ico'); ?>">
+
+        <!-- BEGIN STYLESHEETS -->
+        <?php echo $this->Html->css('http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,700') . "\n\t"; ?>
+        <?php echo $this->Html->css('http://fonts.googleapis.com/css?family=Oswald:400,700,300') . "\n\t"; ?>
+        <?php echo $this->Html->css('vendors/jquery-ui-1.10.4.custom/css/ui-lightness/jquery-ui-1.10.4.custom.min.css') . "\n\t"; ?>
+        <?php echo $this->Html->css('theme-default/font-awesome.min.css?1422529194') . "\n\t"; ?>
+        <?php echo $this->Html->css('theme-default/material-design-iconic-font.min.css?1421434286') . "\n\t"; ?>
+        <?php echo $this->Html->css('vendors/bootstrap/css/bootstrap.min.css') . "\n\t"; ?>
+        <?php echo $this->Html->css('theme-default/materialadmin-site.css?1425466319') . "\n\t"; ?>
+        <?php echo $this->Html->css('theme-default/libs/bootstrap-datepicker/datepicker3.css?1422823364') . "\n\t"; ?>
+        <?php echo $this->Html->css('vendors/animate.css/animate.css') . "\n\t"; ?>
+        <?php echo $this->Html->css('vendors/jquery-lightbox/css/lightbox.css') . "\n\t"; ?>
+        <?php echo $this->Html->css('vendors/owl-carousel/owl-carousel/owl.carousel.css') . "\n\t"; ?>
+        <?php echo $this->Html->css('vendors/owl-carousel/owl-carousel/owl.theme.css') . "\n\t"; ?>
+        <?php echo $this->Html->css('vendors/jquery-circliful/css/jquery.circliful.css') . "\n\t"; ?>
+        <?php echo $this->Html->css('theme-default/libs/toastr/toastr.css?14248878123') . "\n\t"; ?>
+        <?php echo $this->Html->css('frontend/themes/orange.css') . "\n\t"; ?>
+        <?php echo $this->Html->css('nucleos/jquery.bxslider.css') . "\n\t"; ?>
+        <?php echo $this->Html->css('carousel.css') . "\n\t"; ?>
+        
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+        <script>
+            var baseUrl = "<?php echo $this->Html->url('/'); ?>";
+            var baseSub = "<?php echo $this->webroot; ?>";
+        </script>
+    </head>
+
+    <body id="page-top" data-spy="scroll" data-target=".navbar-custom" class="frontend-one-page">
+        <!--BEGIN PAGE LOADER-->
+        <div id="page-loader"><img src="https://loading.io/spinners/wave/lg.wave-ball-preloader.gif"  alt="" /></div>
+        <!--END PAGE LOADER-->
+        <!--BEGIN BACK TO TOP--><a id="totop" href="#"><i class="fa fa-angle-up"></i></a>
+        <!--END BACK TO TOP-->
+        <!--BEGIN CONTENT-->
+        <?php echo $this->Session->flash(); ?>
+        <?php echo $this->fetch('content'); ?>
+        <!--END CONTENT-->
+        <!--BEGIN MODAL-->
+        <div id="nivel1" class="modal" data-backdrop='static' tabindex="-1" aria-labelledby="nivel1" aria-hidden="true">
+            <div class="modal-dialog" style="z-index: 2">
+                <div class="modal-content">
+                </div>
+            </div>
+        </div>
+        <!--END MODAL-->
+        <?php echo $this->Html->script('core/libs/jquery/jquery-1.11.2.js') . "\n"; ?>
+        <?php echo $this->Html->script('core/libs/jquery/jquery-migrate-1.2.1.min.js') . "\n"; ?>
+        <?php echo $this->Html->script('core/libs/jquery-ui/jquery-ui.min.js') . "\n"; ?>
+        <!--loading bootstrap js-->
+        <?php echo $this->Html->script('core/libs/bootstrap/bootstrap.min.js') . "\n"; ?>
+        <?php echo $this->Html->script('core/libs/bootstrap-hover-dropdown/bootstrap-hover-dropdown.js') . "\n"; ?>
+        <?php echo $this->Html->script('core/libs/html5shiv.js') . "\n"; ?>
+        <?php echo $this->Html->script('core/libs/respond.min.js') . "\n"; ?>
+        <?php echo $this->Html->script('core/libs/isotope/dist/isotope.pkgd.min.js') . "\n"; ?>
+        <?php echo $this->Html->script('core/libs/jquery.hoverdir.js') . "\n"; ?>
+        <?php echo $this->Html->script('core/libs/modernizr.custom.97074.js') . "\n"; ?>
+        <?php echo $this->Html->script('core/libs/jquery-lightbox/js/lightbox.min.js') . "\n"; ?>
+        <?php echo $this->Html->script('https://maps.googleapis.com/maps/api/js?key=AIzaSyAu6tm60TzeUo9rWpLnrQ7mrFn4JPMVje4&amp;sensor=false') . "\n"; ?>
+        <?php echo $this->Html->script('core/libs/owl-carousel/owl-carousel/owl.carousel.min.js') . "\n"; ?>
+        <?php echo $this->Html->script('core/libs/jquery-circliful/js/jquery.circliful.min.js') . "\n"; ?>
+        <!--Loading script for each page-->
+        <?php echo $this->Html->script('core/libs/jquery.appear.js') . "\n"; ?>
+        <?php echo $this->Html->script('core/libs/jquery-wow/wow.min.js') . "\n"; ?>
+        <?php echo $this->Html->script('core/libs/jquery-backstretch/jquery.backstretch.min.js') . "\n"; ?>
+        <?php echo $this->Html->script('core/libs/one-page/one-page_slider.js') . "\n"; ?>
+        <?php echo $this->Html->script('core/libs/one-page/one-page_animated.js') . "\n"; ?>
+        <?php echo $this->Html->script('core/libs/toastr/toastr.js') . "\n"; ?>
+        <?php echo $this->Html->script('core/libs/toastr/ui-toastr-notifications.js') . "\n"; ?>
+        <?php echo $this->Html->script('core/libs/jquery-text-effect.js') . "\n"; ?>
+        <?php echo $this->Html->script('core/libs/spin.js/spin.min.js') . "\n"; ?>
+        <?php echo $this->Html->script('core/nucleos/jquery.notify.min.js') . "\n"; ?>
+        <?php echo $this->Html->script('core/nucleos/jquery.meiomask.js') . "\n"; ?> 
+        <?php echo $this->Html->script('core/nucleos/jquery.priceFormat.min.js') . "\n"; ?>
+        <?php echo $this->Html->script('core/nucleos/jquery.bxslider.js') . "\n"; ?>
+        <?php echo $this->Html->script('core/source/App.js') . "\n"; ?>
+        <?php echo $this->Html->script('core/source/AppForm.js') . "\n"; ?>
+        <?php echo $this->Html->script('core/source/AppVendor.js') . "\n"; ?>
+        <?php echo $this->Html->script('core/source/AppCard.js') . "\n"; ?>
+        <!--CORE JAVASCRIPT-->
+        <?php echo $this->Html->script('frontend-one-page.js') . "\n"; ?>
+        <?php echo $this->Html->script('basics.js') . "\n"; ?>
+<!--
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('.bxslider').bxSlider({
+                    slideWidth: 200,
+                    minSlides: 1,
+                    maxSlides: 5,
+                    slideMargin: 10
+                });
+                
+                $(".btnSolComprar").click(function(){
+                    alert('Para solicitar a compra pelo site é necessário logar no em nosso site.');
+                });
+            });</script>-->
+    </body>
+</html>
