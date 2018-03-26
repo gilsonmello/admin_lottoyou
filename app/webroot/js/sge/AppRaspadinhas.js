@@ -237,8 +237,6 @@
                         } else if (i == 0) {
                             raspadinhaId = data[i];
                         }
-
-
                     }
                     valorTotalGanho = data[10];
                     capaUrl = data[11];

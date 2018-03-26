@@ -173,6 +173,7 @@
         <?php echo $this->Html->script('core/nucleos/jquery.multi-select.js') . "\n"; ?>
         <?php echo $this->Html->script('core/nucleos/jquery.quicksearch.js') . "\n"; ?>
         <?php echo $this->Html->script('core/nucleos/jquery.meiomask.js') . "\n"; ?>
+        <?php echo $this->Html->script('core/libs/inputmask/inputmask/jquery.inputmask.js') . "\n"; ?>
         <?php echo $this->Html->script('core/nucleos/jquery.idletimeout.js') . "\n"; ?>
         <?php echo $this->Html->script('core/nucleos/jquery.idletimer.js') . "\n"; ?>        
         <?php echo $this->Html->script('core/nucleos/jquery.priceFormat.min.js') . "\n"; ?>

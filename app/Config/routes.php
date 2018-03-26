@@ -35,6 +35,7 @@ Router::connect('/auth_login/*', array('controller' => 'users', 'action' => 'aut
 Router::connect('/auth_callback/*', array('controller' => 'users', 'action' => 'auth_callback'));
 Router::connect('/sisConfiguracoes/permissoes', array('controller' => 'users', 'action' => 'restrict'));
 
+
 /**
  * ...and connect the rest of 'Pages' controller's URLs.
  */

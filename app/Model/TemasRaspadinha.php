@@ -9,6 +9,16 @@ App::uses('AppModel', 'Model');
 class TemasRaspadinha extends AppModel {
 
     public $displayField = 'nome';
+
+    public $hasMany = [
+        'RasTabelasDesconto' => [
+            'className' => 'RasTabelasDesconto',
+            'foreignKey' => 'lote_id',
+            'conditions' => '',
+            'fields' => '',
+            'order' => ''
+        ],
+    ];
     
     public $validate = array(
         'nome' => array(

@@ -169,6 +169,8 @@ class AppController extends Controller {
             $this->Session->write('Auth.User.Permission', $data);
         }
 
+        //die(var_dump($data));
+
         // PEGA CONTROLLER E ACTION REQUISITADA
         $controller = $this->request->params['controller'];
         $action = $this->request->params['action'];
@@ -189,6 +191,8 @@ class AppController extends Controller {
         if (!$temPermissao) {
             $dados = $thisGroup->Funcionalidade->Permission->find('all', array('conditions' => array('Permission.name =' => $permissao)));
         }
+
+        //die(var_dump($temPermissao));
 
         return $temPermissao;
     }

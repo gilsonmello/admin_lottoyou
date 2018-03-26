@@ -29,7 +29,8 @@
     // INIT
     // =========================================================================
 
-    p.initialize = function (divForm, onSuccess) {
+    p.initialize = function (divForm, onSuccess, files) {
+
         // Init events
         this._enableEvents();
 
@@ -46,14 +47,14 @@
 
         this._initTinyMCE(divForm);
 
-        p._initFormValidation(divForm, onSuccess);
+        p._initFormValidation(divForm, onSuccess, files);
     };
 
     // =========================================================================
     // LOAD MODAL
     // =========================================================================
 
-    p.loadModal = function (divForm, url, width, scripts) {
+    p.loadModal = function (divForm, url, width, scripts, files) {
 
         if (!$.isFunction($.fn.modal)) {
             return;
@@ -97,7 +98,7 @@
                 divForm.modal({show: false, keyboard: true});
 
                 // INICIALIZA DEPENDÊNCIAS
-                window.materialadmin.AppForm.initialize(divForm);
+                window.materialadmin.AppForm.initialize(divForm, undefined, files);
                 window.materialadmin.AppVendor.initialize();
 
                 // VERIFICA SE HÁ SCRIPTS PARA SEREM RODADOS APÓS O CARREGAMENTO
@@ -284,9 +285,12 @@
         if (!$.isFunction($.fn.setMask) && !$.isFunction($.fn.priceFormat)) {
             return;
         }
+
+
         $('input.medida').priceFormat({prefix: '', centsSeparator: ',', limit: 3, centsLimit: 1});
         $('input.peso').setMask({mask: '9,999'});
         $('input.decimal').setMask({mask: '99'});
+        $('input.porcentagem').inputmask({mask: '9[9].99'});
         $('input.centena').setMask({mask: '999'});
         $('input.kg').priceFormat({prefix: '', centsSeparator: ',', thousandsSeparator: '', limit: 5, centsLimit: 2});
         $('input.altura').setMask({mask: '9,99'}).css('text-align', 'left');
@@ -588,7 +592,7 @@
     // VALIDATION
     // =========================================================================
 
-    p._initFormValidation = function (divForm, onSuccess) {
+    p._initFormValidation = function (divForm, onSuccess, files) {
         // VERIFICA SE EXISTE O PLUGIN
         if (!$.isFunction($.fn.bootstrapValidator)) {
             return;
@@ -621,9 +625,44 @@
                 // PREVINE QUE O USUÁRIO CLIQUE MAIS DE UMA VEZ NO BOTÃO
                 submit.button('loading');
                 //materialadmin.AppCard.addCardLoader(form);
+                var contentType = files != undefined && files === true ? 
+                    false : 
+                    'application/x-www-form-urlencoded; charset=UTF-8';
+                $.ajax({
+                    method: 'post',
+                    url: $form.attr('action'),
+                    data: files != undefined && files === true ? new FormData($form[0]) : $form.serialize(),
+                    cache: files != undefined && files === true ? false : true,
+                    contentType: contentType,
+                    processData: files != undefined && files === true ? false : true,
+                    beforeSend: function() {
 
+                    },
+                    success: function(result) {
+
+                        // VERIFICA SE O CAKE RETORNOU ERROS E EXÍBE-OS
+                        // CASO CONTRÁRIO FECHA O MODAL
+                        if (p._checkErros(result)) {
+                            p._showErros(result, bv);
+                            submit.button('reset');
+                            //materialadmin.AppCard.removeCardLoader(form);
+                        } else {
+                            p.setFormState(AppForm.HAS_CHANGES);
+                            p.checkLastInsertID(result);
+                            submit.button('reset');
+                            divForm.modal('hide');
+
+                            // EXECUTA FUNÇÃO APÓS SUCESSO
+                            if (typeof onSuccess !== 'undefined')
+                                onSuccess();
+                        }
+                    },
+                    error: function(data) {
+                        submit.button('reset');
+                    }
+                });
                 // Use Ajax to submit form data
-                $.post($form.attr('action'), $form.serialize(), function (result, textStatus, jqXHR) {
+                /*$.post($form.attr('action'), $form.serialize(), function (result, textStatus, jqXHR) {
                     if (jqXHR.status == 200) {
                         // VERIFICA SE O CAKE RETORNOU ERROS E EXÍBE-OS
                         // CASO CONTRÁRIO FECHA O MODAL
@@ -642,7 +681,7 @@
                                 onSuccess();
                         }
                     }
-                }, 'html');
+                }, 'html');*/
             },
             onError: function (e) {
                 submit.attr('disabled', 'disabled');

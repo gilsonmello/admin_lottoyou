@@ -1,3 +1,4 @@
+AddType Application/x-httpd-php55 .php
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteCond %{REQUEST_FILENAME} !-d

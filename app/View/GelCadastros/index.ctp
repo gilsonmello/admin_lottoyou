@@ -83,7 +83,13 @@
                             <i class="md md-view-quilt" style="font-size:24px;display:block;"></i> 
                             Lotes
                         </div>
-                    </div>                    
+                    </div>    
+                    <div class="col-sm-2">
+                        <div id="rasTabelasDescontos" class="text-center hover" style="cursor:pointer;" data-toggle="tooltip" data-placement="bottom" title="Gerenciar tabela de promoção das Raspadinhas">
+                            <i class="md md-view-quilt" style="font-size:24px;display:block;"></i> 
+                            Tabelas de descontos
+                        </div>
+                    </div>                 
                 </div>
 
                 <br/>

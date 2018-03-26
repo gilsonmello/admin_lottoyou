@@ -63,7 +63,7 @@
 class DATABASE_CONFIG {
       
     # Homologação
-    public $default = array(
+    /*public $default = array(
         'datasource' => 'Database/Mysql',
         'persistent' => false,
         'host' => 'mysql.dersoncarlos.com.br',
@@ -72,16 +72,16 @@ class DATABASE_CONFIG {
         'database' => 'dersoncarlos08',
         'prefix' => '',
         'encoding' => 'utf8',
-    );
+    );*/
 	
 	# local
-    public $default2 = array(
+    public $default = array(
         'datasource' => 'Database/Mysql',
         'persistent' => false,
         'host' => '127.0.0.1',
         'login' => 'root',
         'password' => 'jun10r',
-        'database' => 'grupo3',
+        'database' => 'lottoyou',
         'prefix' => '',
         'encoding' => 'utf8',
     );

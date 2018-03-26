@@ -41,7 +41,7 @@
                         </div>
                     </div>
                     <div class="col-lg-3">
-                        <div class="form-group ">
+                        <div class="form-group">
                             <?php echo $this->Form->input('RasLote.active', array('label' => 'Ativo', 'options' => array('1' => 'Sim', '0' => 'Não'), 'empty' => 'Todos', 'class' => 'form-control')); ?>
                         </div>
                     </div>
@@ -77,7 +77,20 @@
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-icon-toggle dropdown-toggle" data-toggle="dropdown"><i class="fa fa-gear"></i></button>
                                         <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                                            <li><?php echo $this->Html->link('<i class="fa fa-cart-plus"></i>&nbsp Gerar Raspadinhas', 'javascript: void(0)', array("escape" => false, 'id' => $v['RasLote']['id'], 'class' => 'btnGerarRaspadinha')) ?></li>
+                                            <li>
+                                                <?php echo $this->Html->link('<i class="fa fa-cart-plus"></i>&nbsp Gerar Números', 'javascript: void(0)', array("escape" => false, 'id' => $v['RasLote']['id'], 'class' => 'btnGerarNumeros')) ?>
+                                            </li>
+                                            <li>
+                                                <?php echo $this->Html->link('<i class="fa fa-cart-plus"></i>&nbsp Gerar Raspadinhas', 'javascript: void(0)', array("escape" => false, 'id' => $v['RasLote']['id'], 'class' => 'btnGerarRaspadinha')) ?>
+                                            </li>
+                                            <li>
+                                                <?php echo $this->Html->link('<i class="fa fa-cart-plus"></i>&nbsp Imagens da Capa de Premiação', 'javascript: void(0)', 
+                                                array(
+                                                    "escape" => false, 
+                                                    'id' => $v['RasLote']['id'], 
+                                                    'class' => 'btnUploadCovers'
+                                                )) ?>
+                                            </li>
                                             <li class="divider"></li>
                                             <li><?php echo $this->Html->link('<i class="md md-create"></i>&nbsp Editar', 'javascript: void(0)', array("escape" => false, 'id' => $v['RasLote']['id'], 'class' => 'btnEditar')) ?></li>
                                             <li><?php echo $this->Html->link('<i class="md md-delete"></i>&nbsp Excluir', 'javascript: void(0)', array("escape" => false, 'id' => $v['RasLote']['id'], 'class' => 'btnDeletar')) ?></li>
