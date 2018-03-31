@@ -12,4 +12,14 @@ class SocCategoria extends AppModel {
     
     public $displayField = 'nome';
 
+    public $hasMany = [
+    	'SocBolao' => [
+            'className' => 'SocBolao',
+            'foreignKey' => 'soc_categoria_id',
+            'conditions' => '',
+            'fields' => '',
+            'order' => ''
+        ],
+	];
+
 }

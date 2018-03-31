@@ -113,7 +113,7 @@
         var url = (typeof id === 'undefined') ? 'socBoloes/add' : 'socBoloes/' + action + '/' + id;
         var i = 0;
 
-        window.materialadmin.AppForm.loadModal(modalObject, url, '500px', function() {
+        window.materialadmin.AppForm.loadModal(modalObject, url, '70%', function() {
             modalObject.off('hide.bs.modal');
             modalObject.on('hide.bs.modal', function() {
                 if (window.materialadmin.AppForm.getFormState()) {

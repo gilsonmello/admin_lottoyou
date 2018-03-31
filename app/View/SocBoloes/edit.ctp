@@ -1,11 +1,16 @@
 <?php echo $this->Form->create('SocBolao', array('class' => 'form form-validate', 'role' => 'form')); ?>
-<?php echo $this->element('forms/title', array('title' => '<i class="fa fa-plus-square"></i> EDITAR Bolão')); ?>
+<?php echo $this->element('forms/title', array('title' => '<i class="fa fa-plus-square"></i> EDITAR Gênero')); ?>
 <?php echo $this->Form->hidden('id'); ?>
 <div class="card-body">
     <div class="row">
-        <div class="col-sm-8">
+        <div class="col-sm-4">
             <div class="form-group">                
                 <?php echo $this->Form->input('nome', array('label' => 'Nome', 'class' => 'form-control')); ?>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group">                
+                <?php echo $this->Form->input('soc_categoria_id', array('label' => 'Categoria', 'class' => 'form-control chosen', 'options' => $optionsSocCategorias, 'empty' => 'Selecione', 'required' => true)); ?>
             </div>
         </div>
         <div class="col-md-4">

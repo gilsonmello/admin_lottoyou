@@ -28,7 +28,7 @@
                     <div class="col-sm-2">
                         <div id="socBoloes" class="text-center hover" style="cursor:pointer;" data-toggle="tooltip" data-placement="bottom" title="Gerenciamento dos Bolões">
                             <i class="md md-security" style="font-size:24px;display:block;"></i> 
-                            Bolão
+                            Gênero
                         </div>
                     </div>
                     <div class="col-sm-2">
@@ -89,7 +89,19 @@
                             <i class="md md-view-quilt" style="font-size:24px;display:block;"></i> 
                             Tabelas de descontos
                         </div>
-                    </div>                 
+                    </div>  
+                    <div class="col-sm-2">
+                        <div id="rasTabelasPremios" class="text-center hover" style="cursor:pointer;" data-toggle="tooltip" data-placement="bottom" title="Gerenciar tabela de premiação das Raspadinhas">
+                            <i class="md md-view-quilt" style="font-size:24px;display:block;"></i> 
+                            Tabelas de Premios
+                        </div>
+                    </div> 
+                    <!-- <div class="col-sm-2">
+                        <div id="rasDemos" class="text-center hover" style="cursor:pointer;" data-toggle="tooltip" data-placement="bottom" title="Gerenciar Demos das Raspadinhas">
+                            <i class="md md-view-quilt" style="font-size:24px;display:block;"></i> 
+                            Demos das Raspadinhas
+                        </div>
+                    </div>   -->              
                 </div>
 
                 <br/>

@@ -3,7 +3,7 @@
         <div class="card-head card-head-sm style-primary">
             <header>
                 <i class="md md-apps" style="margin-bottom:0;"></i> Soccer Expert 
-                <i class="md md-navigate-next" style="margin-bottom:0;"></i> <b>Bolões</b>
+                <i class="md md-navigate-next" style="margin-bottom:0;"></i> <b>Gênero</b>
             </header>
             <div class="tools">
                 <button id="voltar" type="button" class="btn ink-reaction btn-flat btn-default-bright" data-dismiss="modal">
@@ -64,17 +64,23 @@
                        style="margin-bottom:0;">
                     <thead>
                         <tr>
+                            <th>Categoria</th>
                             <th>Nome</th>
-                            <th style="width:80px;">Ativo</th>
-                            <th style="width:50px;">Ações</th>
+                            <th class="text-center">Ativo</th>
+                            <th class="text-center">Ações</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php foreach ($dados as $k => $v) { ?>
                             <tr>
-                                <td><?php echo $v['SocBolao']['nome']; ?></td>
-                                <td><label class="label label-<?php echo $v['SocBolao']['ativo_label']; ?>"><?php echo $v['SocBolao']['ativo']; ?></label></td>
-                                <td>
+                                <td><?= $v['SocCategoria']['nome']; ?></td>
+                                <td><?= $v['SocBolao']['nome']; ?></td>
+                                <td class="text-center">
+                                    <label class="label label-<?php echo $v['SocBolao']['ativo_label']; ?>">
+                                        <?= $v['SocBolao']['ativo']; ?>
+                                    </label>
+                                </td>
+                                <td class="text-center">
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-icon-toggle dropdown-toggle" data-toggle="dropdown"><i class="fa fa-gear"></i></button>
                                         <ul class="dropdown-menu dropdown-menu-right" role="menu">

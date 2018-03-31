@@ -289,6 +289,20 @@
 
         $('input.medida').priceFormat({prefix: '', centsSeparator: ',', limit: 3, centsLimit: 1});
         $('input.peso').setMask({mask: '9,999'});
+        $('input.integer').inputmask({
+            "mask": "9", 
+            "repeat": 15, 
+            "greedy": false
+        });
+
+        $('input.money-br').maskMoney({
+            prefix:'R$ ', 
+            allowNegative: false, 
+            thousands:'.', 
+            decimal:',', 
+            affixesStay: false
+        });
+
         $('input.decimal').setMask({mask: '99'});
         $('input.porcentagem').inputmask({mask: '9[9].99'});
         $('input.centena').setMask({mask: '999'});
@@ -318,7 +332,12 @@
         $('input.money').priceFormat({prefix: '$ ', centsSeparator: ',', thousandsSeparator: '.'});
         $('input.moneyWithouPrefix').priceFormat({prefix: '', centsSeparator: ',', thousandsSeparator: '.'});
         //$('input.money').setMask({mask:'99,999.999.999', autoTab:false, type:'reverse'}).css('text-align','left');
-        $('input.money3').setMask({mask: '999,999.999.999', autoTab: false, type: 'reverse'}).css('text-align', 'left');
+        $('input.money3').setMask({
+            mask: '999,999.999.999', 
+            autoTab: false, 
+            type: 'reverse'
+        }).css('text-align', 'left');
+
         $('input.money4').setMask({mask: '9999,999.999.999', autoTab: false, type: 'reverse'}).css('text-align', 'left');
 
         $('input.number').setMask({mask: '999.999', autoTab: false, type: 'reverse'}).css('text-align', 'left');

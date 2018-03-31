@@ -9,15 +9,28 @@ App::uses('AppModel', 'Model');
 class SocRodada extends AppModel {
 
     public $order = 'SocRodada.nome ASC';
+    
     public $displayField = 'nome';
+
     public $virtualFields = array(
         'ativo' => "CASE WHEN SocRodada.active = 1 THEN 'Sim' ELSE 'Não' END",
         'ativo_label' => "CASE WHEN SocRodada.active = 1 THEN 'success' ELSE 'danger' END",
         'bolao' => "select nome from soc_boloes b where SocRodada.soc_bolao_id = b.id",
         'tipo_name' => "CASE WHEN SocRodada.tipo = 1 THEN 'Limitado' ELSE 'Ilimitado' END",
-        'categoria_name' => 'select nome from soc_categorias s where s.id = SocRodada.soc_categoria_id',
+        //'categoria_name' => 'select nome from soc_categorias s where s.id = SocRodada.soc_categoria_id',
         'qtd_apostas' => 'SELECT count(DISTINCt(user_id)) FROM soc_apostas aposta WHERE aposta.soc_rodada_id = SocRodada.id'
     );
+
+    public $hasOne = array(
+        'SocConfRodada' => array(
+            'className' => 'SocConfRodada',
+            'foreignKey' => 'soc_rodada_id',
+            'conditions' => '',
+            'fields' => '',
+            'order' => ''
+        )
+    );
+
     public $hasMany = array(
         'SocJogo' => array(
             'className' => 'SocJogo',
@@ -26,7 +39,16 @@ class SocRodada extends AppModel {
             'fields' => '',
             'order' => ''
         ),
+        'SocRodadasGrupo' => array(
+            'className' => 'SocRodadasGrupo',
+            'foreignKey' => 'soc_rodada_id',
+            'conditions' => '',
+            'fields' => '',
+            'order' => ''
+        ),
     );
+
+    
     public $validate = array(
         'nome' => array(
             'required' => array(
@@ -45,12 +67,12 @@ class SocRodada extends AppModel {
                 'required' => true,
                 'message' => 'Campo obrigatório'
             ),
-            'unique' => array(
+            /*'unique' => array(
                 'rule' => 'isUnique',
                 'message' => 'Bolão em uso. Favor informar outro.'
-            ),
+            ),*/
         ),
-        'soc_categoria_id' => array(
+        /*'soc_categoria_id' => array(
             'required' => array(
                 'rule' => array('checkVazio', 'soc_categoria_id'),
                 'required' => true,
@@ -58,9 +80,9 @@ class SocRodada extends AppModel {
             ),
             'unique' => array(
                 'rule' => 'isUnique',
-                'message' => 'Bolão em uso. Favor informar outro.'
+                'message' => 'Categoria em uso. Favor informar outro.'
             ),
-        ),
+        ),*/
         'valor' => array(
             'required' => array(
                 'rule' => array('notEmpty'),
@@ -98,4 +120,35 @@ class SocRodada extends AppModel {
         'S' => 'ESPECIAL',
         'C' => 'CUSTOM',
     );
+
+    public function beforeSave($options = array()) {
+        parent::beforeSave($options);
+        //Se for do tipo ilimitado, não é necessário o campo limite,
+        if($this->data['SocRodada']['tipo'] == 0) {
+            $this->data['SocRodada']['limite'] = null;
+        }
+    }
+
+    public function beforeValidate($options = array()) {
+        parent::beforeValidate($options);
+        //Se for do tipo ilimitado, não é necessário o campo limite,
+        //Removo o campo limite da validação
+        if($this->data['SocRodada']['tipo'] == 0) {
+            unset($this->validate['limite']);
+        }
+    }
+
+    public function afterSave($created, $options = array()) {
+        parent::afterSave($created);
+        if($created) {
+            //Se for do tipo limitado, faço criação de um grupo para a rodada
+            if($this->data['SocRodada']['tipo'] != 0) {
+                $this->SocRodadasGrupo->create();
+                $socRodadasGrupo['soc_rodada_id'] = $this->id;
+                $socRodadasGrupo['active'] = 1;
+                $socRodadasGrupo['status'] = 1;
+                $this->SocRodadasGrupo->save($socRodadasGrupo);
+            }
+        }
+    }
 }

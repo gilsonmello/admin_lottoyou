@@ -11,21 +11,21 @@
             </div>
         </div>
         <div class="col-md-4">
-            <?php echo $this->Form->input('active', array('type' => 'radio', 'legend' => 'Ativo', 'class' => 'radio-inline radio-styled tipo', 'options' => array(1 => 'Sim', 0 => 'Não'), 'value' => '0')); ?>
+            <?php echo $this->Form->input('active', array('type' => 'radio', 'legend' => 'Ativo', 'class' => 'radio-inline radio-styled tipo', 'options' => array(1 => 'Sim', 0 => 'Não'), 'value' => '1')); ?>
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-3">
+        <div class="col-sm-5">
             <div class="form-group">                
-                <?php echo $this->Form->input('soc_bolao_id', array('label' => 'Bolão', 'class' => 'form-control chosen', 'options' => $optionsBoloes, 'empty' => 'Selecione', 'required' => true)); ?>
+                <?php echo $this->Form->input('soc_bolao_id', array('label' => 'Gênero', 'class' => 'form-control chosen', 'options' => $optionsBoloes, 'empty' => 'Selecione', 'required' => true)); ?>
             </div>
         </div>
-        <div class="col-sm-3">
+        <!-- <div class="col-sm-3">
             <div class="form-group">                
                 <?php echo $this->Form->input('soc_categoria_id', array('label' => 'Categoria', 'class' => 'form-control chosen', 'options' => $optionsCategorias, 'empty' => 'Selecione', 'required' => true)); ?>
             </div>
-        </div>
-        <div class="col-sm-3">
+        </div> -->
+        <div class="col-sm-4">
             <div class="form-group">                
                 <?php echo $this->Form->input('data_termino', array('label' => false, 'class' => 'form-control date', 'required' => false)); ?>
                 <label for="SocRodadaDataTerminoMonth">
@@ -58,8 +58,9 @@
             <div class="form-group">
                 <?php echo $this->Form->input('limite', array('label' => false, 'class' => 'form-control number', 'required' => false)); ?>
                 <label for="SocRodadaLimite">
-                    Qtd Limite<span style="color:red;">*</span>
+                    Qtd Limite
                 </label>
+                <em>Caso seja ilimitado, o limite será ignorado.</em>
             </div>
         </div>
     </div>

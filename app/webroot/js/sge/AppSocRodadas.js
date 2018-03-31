@@ -73,6 +73,10 @@
             p._loadAddJogo($(this).attr('id'));
         });
 
+        $(AppSocRodadas.objectId + ' .btnConfiguracao').click(function () {
+            p._loadConfiguracao($(this).attr('id'));
+        });
+
         $(AppSocRodadas.objectId + ' .btnDeletar').click(function () {
             var url = baseUrl + 'socRodadas/delete/' + $(this).attr('id');
             window.materialadmin.AppGrid.delete(url, function () {
@@ -124,6 +128,22 @@
             
         });
     };
+
+    p._loadConfiguracao = function (socRodadaId) {
+        // CHAMA A FUNÇÃO MODAL
+        var modalObject = $(AppSocRodadas.modalFormId);
+        var url = baseUrl + 'socConfRodadas/add/' + socRodadaId;
+
+        window.materialadmin.AppForm.loadModal(modalObject, url, '80%', function () {
+            modalObject.off('hide.bs.modal');
+            modalObject.on('hide.bs.modal', function () {
+                if (window.materialadmin.AppForm.getFormState()) {
+//                    p._loadConsSocRodada();
+                }
+            });
+        });
+    }
+
 
     p._loadAddJogo = function (id) {
         // CHAMA A FUNÇÃO MODAL

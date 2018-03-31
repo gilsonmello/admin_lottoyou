@@ -84,12 +84,11 @@
                                                 <?php echo $this->Html->link('<i class="fa fa-cart-plus"></i>&nbsp Gerar Raspadinhas', 'javascript: void(0)', array("escape" => false, 'id' => $v['RasLote']['id'], 'class' => 'btnGerarRaspadinha')) ?>
                                             </li>
                                             <li>
-                                                <?php echo $this->Html->link('<i class="fa fa-cart-plus"></i>&nbsp Imagens da Capa de Premiação', 'javascript: void(0)', 
-                                                array(
+                                                <?= $this->Html->link('<i class="fa fa-cart-plus"></i>&nbsp Gerar Demos', 'javascript: void(0)', [
                                                     "escape" => false, 
                                                     'id' => $v['RasLote']['id'], 
-                                                    'class' => 'btnUploadCovers'
-                                                )) ?>
+                                                    'class' => 'btnGerarDemos'
+                                                ]) ?>
                                             </li>
                                             <li class="divider"></li>
                                             <li><?php echo $this->Html->link('<i class="md md-create"></i>&nbsp Editar', 'javascript: void(0)', array("escape" => false, 'id' => $v['RasLote']['id'], 'class' => 'btnEditar')) ?></li>

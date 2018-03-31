@@ -58,6 +58,23 @@
         });
     };
 
+    p._loadGerarDemos = function(id, clonar) {
+        // CHAMA A FUNÇÃO MODALa
+        var modalObject = $(AppRasLotes.modalFormId);
+        var action = (typeof clonar !== 'undefined') ? 'add' : 'addDemos';
+        var url = (typeof id === 'undefined') ? 'rasLotes/addDemos' : 'rasLotes/' + action + '/' + id;
+        var i = 0;
+
+        window.materialadmin.AppForm.loadModal(modalObject, url, '75%', function () {
+            modalObject.off('hide.bs.modal');
+            modalObject.on('hide.bs.modal', function () {
+                if (window.materialadmin.AppForm.getFormState()) {
+                    //p._loadConsRasLote();
+                }
+            });
+        });
+    };
+
     p._loadGerarNumeros = function(id, clonar) {
         // CHAMA A FUNÇÃO MODALa
         var modalObject = $(AppRasLotes.modalFormId);
@@ -150,9 +167,8 @@
             p._loadGerarNumeros($(this).attr('id'));
         });
 
-        $(AppRasLotes.objectId + ' .btnUploadCovers').click(function () {
-            //p._loadGerarLoteRaspadinha($(this).attr('id'));
-            alert('aq');
+        $(AppRasLotes.objectId + ' .btnGerarDemos').click(function () {
+            p._loadGerarDemos($(this).attr('id'));
         });
 
         $(AppRasLotes.objectId + ' .btnDeletar').click(function () {

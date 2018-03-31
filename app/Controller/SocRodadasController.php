@@ -3,6 +3,12 @@
 class SocRodadasController extends AppController {
 
     public $components = array('App');
+
+    public function beforeRender()
+    {
+        parent::beforeRender();
+        $this->SocRodada->recursive = -1;
+    }
     
     public function index($modal = 0) {
         // CARREGA FUNÇÕES BÁSICAS DE PESQUISA E ORDENAÇÃO
@@ -69,8 +75,8 @@ class SocRodadasController extends AppController {
 
         $this->loadModel('SocBolao');
         $optionsBoloes = $this->SocBolao->find('list');
-        $this->loadModel('SocCategoria');
-        $optionsCategorias = $this->SocCategoria->find('list');
+        //$this->loadModel('SocCategoria');
+        //$optionsCategorias = $this->SocCategoria->find('list');
         
         $this->set(compact('optionsBoloes', 'optionsCategorias'));
         if ($this->request->is('post') || $this->request->is('put')) {
@@ -90,8 +96,8 @@ class SocRodadasController extends AppController {
         $this->loadModel('SocBolao');
         $optionsBoloes = $this->SocBolao->find('list');
         
-        $this->loadModel('SocCategoria');
-        $optionsCategorias = $this->SocCategoria->find('list');
+        //$this->loadModel('SocCategoria');
+        //$optionsCategorias = $this->SocCategoria->find('list');
         
         $this->set(compact('optionsBoloes', 'optionsCategorias'));
         
@@ -111,7 +117,6 @@ class SocRodadasController extends AppController {
         }else{
 
             $this->request->data = $this->SocRodada->read(null, $id);
-            
         }
     }
 

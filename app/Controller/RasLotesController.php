@@ -67,6 +67,71 @@ class RasLotesController extends AppController {
         
     }
 
+    public function addDemos($id = null) {
+        $this->layout = 'ajax';
+
+        $msg = "Salvo com Sucesso";
+        $class = "alert alert-success";
+
+        $this->loadModel('RasLotesNumero');
+        $this->RasLotesNumero->recursive = -1;
+
+        if ($this->request->is('post') || $this->request->is('put')) {
+                    
+            $valor_premiado = [];
+
+            if(isset($this->request->data['RasDemo']['valor_premiado']) && !empty($this->request->data['RasDemo']['valor_premiado'])) {
+                //Pegando o valor premiado
+                $valor_premiado = $this->RasLotesNumero->read(null, $this->request->data['RasDemo']['valor_premiado']);
+            }       
+
+            if(count($valor_premiado) == 0)
+                $this->request->data['RasDemo']['valor_premiado'] = 0.00;
+            else 
+                $this->request->data['RasDemo']['valor_premiado'] = $valor_premiado['RasLotesNumero']['number'];    
+            
+
+            if ($status = $this->RasLote->criarRaspadinhaDemo($this->request->data)) {
+
+                if($status['status'] === false) {
+                    $msg = $status['msg'];
+                    $error = 1;
+                    $class = 'alert alert-danger';
+                }
+
+            } else {
+                $msg = 'Não foi possível salvar o registro.<br/>';
+                $error = 1;
+            }
+
+            $this->Session->setFlash($msg, 'alert', array('plugin' => 'BoostCake', 'class' => $class));
+        }
+
+        $numeros_possiveis = $this->RasLotesNumero->find('list', [
+            'conditions' => [
+                'ras_lote_id' => $id
+            ]
+        ]);
+
+        
+        $this->RasLote->RasDemo->recursive = -1;
+
+        
+        $this->set('lote', $this->RasLote->read(null, $id));
+        $this->set('numeros_possiveis', $numeros_possiveis);
+        $this->set('demos', $this->RasLote->RasDemo->find('all', [
+            'fields' => ['RasDemo.premio', 'RasDemo.total_geradas'],
+            'conditions' => [
+                'RasDemo.lote_id' => $id
+            ],
+            'group' => [
+                'RasDemo.premio'
+            ],
+            'order' => ['RasDemo.premio' => 'DESC']
+        ]));
+        //$this->request->data = $this->RasLote->read(null, $id);
+    }
+
     public function addNumeros($id = null) {
         $this->layout = 'ajax';
 

@@ -36,6 +36,8 @@ class SocBoloesController extends AppController {
                 $this->Session->setFlash('Não foi possível salvar o registro.<br/>Favor tentar novamente.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-danger'));
             }
         }
+
+        $this->set('optionsSocCategorias', $this->SocBolao->SocCategoria->find('list'));
     }
 
     public function edit($id = null) {
@@ -57,6 +59,7 @@ class SocBoloesController extends AppController {
         }
 
         $this->request->data = $this->SocBolao->read(null, $id);
+        $this->set('optionsSocCategorias', $this->SocBolao->SocCategoria->find('list'));
     }
 
     public function delete($id = null) {

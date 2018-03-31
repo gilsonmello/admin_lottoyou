@@ -13,7 +13,7 @@ class TemasRaspadinha extends AppModel {
     public $hasMany = [
         'RasTabelasDesconto' => [
             'className' => 'RasTabelasDesconto',
-            'foreignKey' => 'lote_id',
+            'foreignKey' => 'tema_id',
             'conditions' => '',
             'fields' => '',
             'order' => ''

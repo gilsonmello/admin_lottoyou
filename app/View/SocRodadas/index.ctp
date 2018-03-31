@@ -64,36 +64,47 @@
                        style="margin-bottom:0;">
                     <thead>
                         <tr>
-                            <th style="width:60%;">Nome</th>
-                            <th>Bolao</th>
-                            <th>Tipo</th>
-                            <th>Categoria</th>
+                            <th style="width:40%;">Nome</th>
+                            <th>Gênero</th>
+                            <th class="text-center">Tipo</th>
+                            <th class="text-center">Limite</th>
                             <th>Valor</th>
-                            <th style="width:80px;">Ativo</th>
-                            <th style="width:50px;">Ações</th>
+                            <th class="text-center">Ativo</th>
+                            <th>Ações</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php foreach ($dados as $k => $v) { ?>
                             <tr>
-                                <td><?php echo $v['SocRodada']['nome']; ?></td>
-                                <td><?php echo $v['SocRodada']['bolao']; ?> </td>
-                                <td><?php echo $v['SocRodada']['tipo_name']; ?></td>
-                                <td><?php echo $v['SocRodada']['categoria_name']; ?></td>
-                                <td>$ <?php echo $v['SocRodada']['valor']; ?></td>
-                                <td><label class="label label-<?php echo $v['SocRodada']['ativo_label']; ?>"><?php echo $v['SocRodada']['ativo']; ?></label></td>
+                                <td><?= $v['SocRodada']['nome']; ?></td>
+                                <td><?= $v['SocRodada']['bolao']; ?> </td>
+                                <td class="text-center">
+                                    <?= $v['SocRodada']['tipo_name']; ?>
+                                </td>
+                                <th class="text-center">
+                                    <?= $v['SocRodada']['limite'] > 0 ? $v['SocRodada']['limite'] : 'Sem limite' ?>
+                                </th>
+                                <td>$ <?= $v['SocRodada']['valor']; ?></td>
+                                <td class="text-center">
+                                    <label class="label label-<?php echo $v['SocRodada']['ativo_label']; ?>">
+                                        <?php echo $v['SocRodada']['ativo']; ?>
+                                    </label>
+                                </td>
                                 <td>
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-icon-toggle dropdown-toggle" data-toggle="dropdown"><i class="fa fa-gear"></i></button>
                                         <ul class="dropdown-menu dropdown-menu-right" role="menu">
                                             <li>
-                                                <?php echo $this->Html->link('<i class="md md-extension"></i>&nbsp Cadastrar Jogo', 'javascript: void(0)', array("escape" => false, 'id' => $v['SocRodada']['id'], 'class' => 'btnCadastrarJogo')) ?>
+                                                <?= $this->Html->link('<i class="md md-extension"></i>&nbsp Configuração', 'javascript: void(0)', array("escape" => false, 'id' => $v['SocRodada']['id'], 'class' => 'btnConfiguracao')) ?>
+                                            </li>
+                                            <li>
+                                                <?= $this->Html->link('<i class="md md-extension"></i>&nbsp Cadastrar Jogo', 'javascript: void(0)', array("escape" => false, 'id' => $v['SocRodada']['id'], 'class' => 'btnCadastrarJogo')) ?>
                                                 <?php echo $this->Html->link('<i class="md md-create"></i>&nbsp Adicionar Imagem', 'javascript: void(0)', array("escape" => false, 'id' => $v['SocRodada']['id'], 'class' => 'btnImagem')) ?>
                                             </li>
                                             <li class="divider"></li>
-                                            <li><?php echo $this->Html->link('<i class="md md-create"></i>&nbsp Editar', 'javascript: void(0)', array("escape" => false, 'id' => $v['SocRodada']['id'], 'class' => 'btnEditar')) ?></li>
-                                            <li><?php echo $this->Html->link('<i class="md md-delete"></i>&nbsp Excluir', 'javascript: void(0)', array("escape" => false, 'id' => $v['SocRodada']['id'], 'class' => 'btnDeletar')) ?></li>
-                                            <li style="background: #F1F1F1; font-size: 9px; text-align: center;">Atualizado em: <?php echo @$v['SocRodada']['modified'] ?></li>
+                                            <li><?= $this->Html->link('<i class="md md-create"></i>&nbsp Editar', 'javascript: void(0)', array("escape" => false, 'id' => $v['SocRodada']['id'], 'class' => 'btnEditar')) ?></li>
+                                            <li><?= $this->Html->link('<i class="md md-delete"></i>&nbsp Excluir', 'javascript: void(0)', array("escape" => false, 'id' => $v['SocRodada']['id'], 'class' => 'btnDeletar')) ?></li>
+                                            <li style="background: #F1F1F1; font-size: 9px; text-align: center;">Atualizado em: <?= @$v['SocRodada']['modified'] ?></li>
                                         </ul>
                                     </div>
                                 </td>

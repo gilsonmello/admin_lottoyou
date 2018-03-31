@@ -53,7 +53,12 @@
         </div>
         <div class="col-sm-4">
             <div class="form-group">       
-                <?php echo $this->Form->input('valor_premiado', array('label' => 'Valor do Premio', 'required' => true, 'class' => 'form-control chosen', 'options' => $numeros_possiveis)); ?>    
+                <?php echo $this->Form->input('valor_premiado', [
+                    'label' => 'Valor do Premio', 
+                    'required' => true, 
+                    'class' => 'form-control chosen', 
+                    'options' => $numeros_possiveis
+                ]); ?>    
 
                 <!-- <?php echo $this->Form->input('valor_premiado', array('label' => 'Valor do Premio', 'class' => 'form-control money', 'placeholder' => '$: 10,00', 'required' => true)); ?> -->
             </div>

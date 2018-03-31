@@ -17,7 +17,9 @@ class User extends AppModel {
         'ativo' => "CASE WHEN User.active = 1 THEN 'Sim' ELSE 'Não' END",
         'grupo' => "select name from groups g where g.id = User.group_id",
     );
+    
     public $order = 'User.name ASC';
+    
     public $validate = array(
         'name' => array(
             'required' => array(
