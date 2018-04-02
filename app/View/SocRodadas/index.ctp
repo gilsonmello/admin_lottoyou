@@ -67,7 +67,8 @@
                             <th style="width:40%;">Nome</th>
                             <th>Gênero</th>
                             <th class="text-center">Tipo</th>
-                            <th class="text-center">Limite</th>
+                            <th class="text-center">Qtd. Mínima</th>
+                            <th class="text-center">Qtd. Limite</th>
                             <th>Valor</th>
                             <th class="text-center">Ativo</th>
                             <th>Ações</th>
@@ -81,6 +82,9 @@
                                 <td class="text-center">
                                     <?= $v['SocRodada']['tipo_name']; ?>
                                 </td>
+                                <th class="text-center">
+                                    <?= $v['SocRodada']['minimo'] > 0 ? $v['SocRodada']['minimo'] : 'Não Informado' ?>
+                                </th>
                                 <th class="text-center">
                                     <?= $v['SocRodada']['limite'] > 0 ? $v['SocRodada']['limite'] : 'Sem limite' ?>
                                 </th>

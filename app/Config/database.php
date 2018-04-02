@@ -74,8 +74,20 @@ class DATABASE_CONFIG {
         'encoding' => 'utf8',
     );*/
 	
-	# local
+	# local | windows
     public $default = array(
+        'datasource' => 'Database/Mysql',
+        'persistent' => false,
+        'host' => '127.0.0.1',
+        'login' => 'root',
+        'password' => '',
+        'database' => 'lottoyou',
+        'prefix' => '',
+        'encoding' => 'utf8',
+    );
+
+    # local | linux
+    public $default2 = array(
         'datasource' => 'Database/Mysql',
         'persistent' => false,
         'host' => '127.0.0.1',

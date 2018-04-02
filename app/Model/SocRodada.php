@@ -99,7 +99,17 @@ class SocRodada extends AppModel {
             'required' => array(
                 'rule' => array('notEmpty'),
                 'message' => 'Campo obrigatório'
-            )
+            ),
+        ),
+        'minimo' => array(
+            'required' => array(
+                'rule' => array('notEmpty'),
+                'message' => 'Campo obrigatório'
+            ),
+            'biggerThen' => [
+                'rule' => ['biggerThen', 'minimo', 0],
+                'message' => 'Maior que 0'
+            ]
         ),
         'data_termino' => array(
             'required' => array(

@@ -4,10 +4,10 @@
     <div class="row">
         <div class="col-sm-8">
             <div class="form-group">                
-                <?php echo $this->Form->input('nome', array('label' => 'Nome', 'class' => 'form-control', 'required' => false)); ?>
-                <label for="SocRodadaNome">
+                <?php echo $this->Form->input('nome', array('label' => 'Nome', 'class' => 'form-control', 'required' => true)); ?>
+                <!-- <label for="SocRodadaNome">
                     Nome<span style="color:red;">*</span>
-                </label>
+                </label> -->
             </div>
         </div>
         <div class="col-md-4">
@@ -22,44 +22,37 @@
         </div>
         <!-- <div class="col-sm-3">
             <div class="form-group">                
-                <?php echo $this->Form->input('soc_categoria_id', array('label' => 'Categoria', 'class' => 'form-control chosen', 'options' => $optionsCategorias, 'empty' => 'Selecione', 'required' => true)); ?>
+                <?php //echo $this->Form->input('soc_categoria_id', array('label' => 'Categoria', 'class' => 'form-control chosen', 'options' => $optionsCategorias, 'empty' => 'Selecione', 'required' => true)); ?>
             </div>
         </div> -->
         <div class="col-sm-4">
             <div class="form-group">                
-                <?php echo $this->Form->input('data_termino', array('label' => false, 'class' => 'form-control date', 'required' => false)); ?>
-                <label for="SocRodadaDataTerminoMonth">
-                    Data Termino<span style="color:red;">*</span>
-                </label>
+                <?php echo $this->Form->input('data_termino', array('label' => 'Data Termino', 'class' => 'form-control date', 'required' => true)); ?>
             </div>
         </div>
         <div class="col-sm-3">
             <div class="form-group">
-                <?php echo $this->Form->input('hora_termino', array('label' => false, 'class' => 'form-control hora', 'required' => false)); ?>
-                <label for="SocRodadaHoraTerminoHour">
-                    Hora Termino<span style="color:red;">*</span>
-                </label>
+                <?php echo $this->Form->input('hora_termino', array('label' => 'Hora Termino', 'class' => 'form-control hora', 'required' => true)); ?>
             </div>
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-3 col-lg-3 col-xs-12 col-md-3">
             <div class="form-group">                
-                <?php echo $this->Form->input('valor', array('label' => 'Valor', 'class' => 'form-control money', 'required' => false)); ?>
-                <label for="SocRodadaValor">
-                    Valor<span style="color:red;">*</span>
-                </label>
+                <?php echo $this->Form->input('valor', array('label' => 'Valor', 'class' => 'form-control money', 'required' => true)); ?>
             </div>
         </div>
-         <div class="col-md-4">
-            <?php echo $this->Form->input('tipo', array('type' => 'radio', 'legend' => '&nbsp;&nbsp;', 'class' => 'radio-inline radio-styled tipo', 'options' => array(0 => 'ILIMITADO', 1 => 'LIMITADO'), 'value' => '0', 'style' => 'font-size: 12px')); ?>
+         <div class="col-sm-3 col-lg-3 col-xs-12 col-md-3">
+            <?php echo $this->Form->input('tipo', array('type' => 'radio', 'required' => true ,'legend' => 'Tipo', 'class' => 'radio-inline radio-styled tipo', 'options' => array(0 => 'ILIMITADO', 1 => 'LIMITADO'), 'value' => '0', 'style' => 'font-size: 12px')); ?>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-3 col-lg-3 col-xs-12 col-md-3">
             <div class="form-group">
-                <?php echo $this->Form->input('limite', array('label' => false, 'class' => 'form-control number', 'required' => false)); ?>
-                <label for="SocRodadaLimite">
-                    Qtd Limite
-                </label>
+                <?php echo $this->Form->input('minimo', array('label' => 'Qtd. Mínima', 'class' => 'form-control integer', 'required' => true)); ?>
+            </div>
+        </div>
+        <div class="col-sm-3 col-lg-3 col-xs-12 col-md-3">
+            <div class="form-group">
+                <?php echo $this->Form->input('limite', array('label' => ' Qtd Limite', 'class' => 'form-control integer', 'required' => false)); ?>
                 <em>Caso seja ilimitado, o limite será ignorado.</em>
             </div>
         </div>

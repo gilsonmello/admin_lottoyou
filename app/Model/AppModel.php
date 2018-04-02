@@ -418,13 +418,21 @@ class AppModel extends Model {
         }
         return $Cdata;
     }
+
+    public function biggerThen($check, $field, $param) {
+        if($this->data[$this->name][$field] > $param) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     
     function checkVazio($check, $field){
-    
-	if(empty($this->data[$this->name][$field]))
-	  return false;
-	else
-	  return true;
+        if(empty($this->data[$this->name][$field])) {
+            return false;
+        } else{
+            return true;
+        }
     }	
     
      public function formataValorDouble($Cdata) {
