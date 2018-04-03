@@ -22,6 +22,8 @@ class SocJogosController extends AppController {
         $this->SocRodada->recursive = 1;
         $this->SocRodada->validate = array();
 
+        
+
         // PEGA REQUISIÇÕES CADASTRADOS
         if (!empty($this->request->data['id'])) {
             $conditions = array("SocRodada.active" => '1', 'SocRodada.soc_categoria_id' => $this->request->data['id']);
@@ -60,9 +62,7 @@ class SocJogosController extends AppController {
 
             $bolaoId = $this->request->data['SocJogo']['soc_bolao_id'];
             $rodadaId = $this->request->data['SocJogo']['soc_rodada_id'];
-            $dataTermino = $this->request->data['SocJogo']['data_termino'];
-            $horaTermino = $this->request->data['SocJogo']['hora_termino'];
-
+            
             unset($this->request->data['SocJogo']['soc_bolao_id']);
             unset($this->request->data['SocJogo']['local']);
             unset($this->request->data['SocJogo']['data']);
@@ -77,22 +77,45 @@ class SocJogosController extends AppController {
 
             $this->StartTransaction();
             foreach ($this->request->data['SocJogo'] as $v) {
+                
+                $validate = true;
 
-                $value['soc_bolao_id'] = $bolaoId;
-                $value['soc_rodada_id'] = $rodadaId;
-                $value['data_termino'] = $dataTermino;
-                $value['hora_termino'] = $horaTermino;
-                $value['local'] = $v['local'];
-                $value['data'] = $v['data'];
-                $value['hora'] = $v['hora'];
-                $value['gel_clube_casa_id'] = $v['gel_clube_casa_id'];
-                $value['gel_clube_fora_id'] = $v['gel_clube_fora_id'];
+                if(empty($v['local']) || !isset($v['local'])) {
+                    $validate = false;
+                }
 
-                $this->SocJogo->create();
-                if (!$this->SocJogo->save($value)) {
-                    $msg = 'Não foi possível editar o registro. Favor tentar novamente.';
-                    $class = 'alert-danger';
-                    $ok = false;
+                if(empty($v['data']) || !isset($v['data'])) {
+                    $validate = false;
+                }
+
+                if(empty($v['gel_clube_casa_id']) || !isset($v['gel_clube_casa_id'])) {
+                    $validate = false;
+                }
+
+                if(empty($v['gel_clube_fora_id']) || !isset($v['gel_clube_fora_id'])) {
+                    $validate = false;
+                }
+
+                if(empty($v['hora']) || !isset($v['hora'])) {
+                    $validate = false;
+                }
+                
+                if($validate) {
+                    $value['soc_bolao_id'] = $bolaoId;
+                    $value['soc_rodada_id'] = $rodadaId;
+                    $value['local'] = $v['local'];
+                    $value['data'] = $v['data'];
+                    $value['hora'] = $v['hora'];
+                    $value['gel_clube_casa_id'] = $v['gel_clube_casa_id'];
+                    $value['gel_clube_fora_id'] = $v['gel_clube_fora_id'];
+
+
+                    $this->SocJogo->create();
+                    if (!$this->SocJogo->save($value)) {
+                        $msg = 'Não foi possível editar o registro. Favor tentar novamente.';
+                        $class = 'alert-danger';
+                        $ok = false;
+                    }
                 }
             }
             $this->validaTransacao($ok);
@@ -101,13 +124,21 @@ class SocJogosController extends AppController {
 
 
             $this->loadModel('GelClube');
+            $this->GelClube->recursive = -1;
             $optionsClubes = $this->GelClube->find('list');
 
             $this->loadModel('SocBolao');
+            $this->SocBolao->recursive = -1;
             $optionsBoloes = $this->SocBolao->find('list');
 
             $this->loadModel('SocRodada');
-            $dadosRodada = $this->SocRodada->find('first', array('conditions' => array('SocRodada.id' => $idRodada)));
+            $this->SocRodada->recursive = -1;
+            $dadosRodada = $this->SocRodada->find('first', [
+                'conditions' => [
+                    'SocRodada.id' => $idRodada
+                ]
+            ]);
+            //die(var_dump($dadosRodada));
             $this->set(compact('optionsClubes', 'idRodada', 'dadosRodada', 'optionsBoloes'));
         }
     }
@@ -128,8 +159,8 @@ class SocJogosController extends AppController {
 
             $bolaoId = $this->request->data['SocJogo']['soc_bolao_id'];
             $rodadaId = $this->request->data['SocJogo']['soc_rodada_id'];
-            $dataTermino = $this->request->data['SocJogo']['data_termino'];
-            $horaTermino = $this->request->data['SocJogo']['hora_termino'];
+            $dataTermino = $this->request->data['SocJogo']['data'];
+            $horaTermino = $this->request->data['SocJogo']['hora'];
 
             unset($this->request->data['SocJogo']['soc_bolao_id']);
             unset($this->request->data['SocJogo']['data']);
@@ -140,8 +171,8 @@ class SocJogosController extends AppController {
             unset($this->request->data['SocJogo']['hora']);
             unset($this->request->data['SocJogo']['gel_clube_casa_id']);
             unset($this->request->data['SocJogo']['gel_clube_fora_id']);
-            unset($this->request->data['SocJogo']['data_termino']);
-            unset($this->request->data['SocJogo']['hora_termino']);
+            unset($this->request->data['SocJogo']['data']);
+            unset($this->request->data['SocJogo']['hora']);
 
             $this->StartTransaction();
             foreach ($this->request->data['SocJogo'] as $k => $v) {

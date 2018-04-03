@@ -43,7 +43,7 @@
                     <div class="card-body tab-content">
                         <div class="tab-pane active" id="first22">
                             <div class="row" id='divCategoria'>
-                                <?php foreach ($dadosCategorias as $key => $value) { ?>
+                                <?php foreach ($dadosCategorias as $key => $value) { var_dump($value); ?>
                                     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                                         <div class="game ItemHolder card-raspadinha card" style="padding-top: 8px;">
                                             <span class="ng-scope" style="position: absolute;">

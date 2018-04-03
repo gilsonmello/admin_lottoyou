@@ -21,11 +21,11 @@
                 <?php echo $this->Form->input('soc_bolao_id', array('label' => 'Gênero', 'class' => 'form-control chosen', 'options' => $optionsBoloes, 'empty' => 'Selecione', 'required' => true)); ?>
             </div>
         </div>
-        <!-- <div class="col-sm-3">
+        <div class="col-sm-3">
             <div class="form-group">                
-                <?php //echo $this->Form->input('soc_categoria_id', array('label' => 'Categoria', 'class' => 'form-control chosen', 'options' => $optionsCategorias, 'empty' => 'Selecione', 'required' => true)); ?>
+                <?php echo $this->Form->input('soc_categoria_id', array('label' => 'Categoria', 'class' => 'form-control chosen', 'options' => $optionsCategorias, 'empty' => 'Selecione', 'required' => true)); ?>
             </div>
-        </div> -->
+        </div>
         <div class="col-sm-4">
             <div class="form-group">                
                 <?php echo $this->Form->input('data_termino', array('label' => 'Data Termino', 'class' => 'form-control date', 'required' => true)); ?>

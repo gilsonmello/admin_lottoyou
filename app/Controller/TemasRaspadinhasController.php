@@ -36,6 +36,7 @@ class TemasRaspadinhasController extends AppController {
             $background['jpeg'] = 'files/temp/' . $idUser . '/background.jpeg';
 
             if ($this->moveArquivos($idUser, $nomeTema)) {
+
                 if (fileExistsInPath($background['jpg'])) {
                     $this->request->data['TemasRaspadinha']['img_background_url'] = 'files/RaspadinhasTemas/' . $nomeTema . '/background.jpg';
                 }else if(fileExistsInPath($background['jpeg'])){
@@ -168,6 +169,7 @@ class TemasRaspadinhasController extends AppController {
         $targetPathImgIndex = 'files/RaspadinhasTemas/' . $nomeTema . '/imagemIndex.png';
         $diretorioPasta = 'files/RaspadinhasTemas/' . $nomeTema . '/';
 
+
         if (!fileExistsInPath($background['jpg']) && !fileExistsInPath($background['jpeg'])) {
             $ok = false;
             $validImg++;
@@ -186,7 +188,8 @@ class TemasRaspadinhasController extends AppController {
         if ($validImg == 0 && $ok == true) {
             mkdir($diretorioPasta, 0775, true);
 
-            copy($background, $targetPathBg);
+            copy($background['jpg'], $targetPathBg);
+            copy($background['jpeg'], $targetPathBg);
             copy($capa, $targetPathCapa);
             copy($imagemIndex, $targetPathImgIndex);
 

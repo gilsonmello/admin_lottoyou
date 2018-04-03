@@ -75,8 +75,9 @@ class SocRodadasController extends AppController {
 
         $this->loadModel('SocBolao');
         $optionsBoloes = $this->SocBolao->find('list');
-        //$this->loadModel('SocCategoria');
-        //$optionsCategorias = $this->SocCategoria->find('list');
+        $this->loadModel('SocCategoria');
+        $this->SocCategoria->recursive = -1;
+        $optionsCategorias = $this->SocCategoria->find('list');
         
         $this->set(compact('optionsBoloes', 'optionsCategorias'));
         if ($this->request->is('post') || $this->request->is('put')) {
@@ -96,8 +97,8 @@ class SocRodadasController extends AppController {
         $this->loadModel('SocBolao');
         $optionsBoloes = $this->SocBolao->find('list');
         
-        //$this->loadModel('SocCategoria');
-        //$optionsCategorias = $this->SocCategoria->find('list');
+        $this->loadModel('SocCategoria');
+        $optionsCategorias = $this->SocCategoria->find('list');
         
         $this->set(compact('optionsBoloes', 'optionsCategorias'));
         

@@ -12,7 +12,12 @@
             <div class="form-group">                
                 <?php echo $this->Form->input('soc_rodada_id', array('label' => 'Rodada', 'class' => 'form-control chosen', 'options' => array($dadosRodada['SocRodada']['id'] => $dadosRodada['SocRodada']['nome']), 'required' => true,)); ?>
             </div>
-        </div>               
+        </div> 
+        <div class="col-xs-12 col-md-3 col-sm-3 col-lg-3">
+            <div class="form-group">                
+                <label>Caso esteja faltando algum dado obrigátorio, o registro será ignorado.</label>
+            </div>
+        </div>              
         <div class="col-xs-12 col-md-3 col-sm-3 col-lg-3" style="display: none">
             <div class="form-group">                
                 <?php echo $this->Form->input('data', array('label' => 'Data Término', 'class' => 'form-control date data','value' => $dadosRodada['SocRodada']['data_termino'])); ?>
@@ -29,20 +34,20 @@
         <div  id='card-1'>
             <div class="card card-underline card-lista" id='divClone' style="display: none">
                 <div class="card-head card-head-sm style-default-light">
-                    <header style="padding-top: 0px; padding-bottom: 0px;">
+                    <header style="">
                         <div class="col-md-4">
-                            <div class="form-group"  style="padding-top: 0px; margin-bottom: 0px;">
-                                <?php echo $this->Form->input('local', array('label' => false, 'placeholder' => 'Local', 'class' => 'form-control')); ?>
+                            <div class="form-group" style="margin-bottom: 0px;">
+                                <?php echo $this->Form->input('local', array('label' => 'Local', 'class' => 'form-control', 'required' => true)); ?>
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="form-group"  style="padding-top: 0px; margin-bottom: 0px;">
-                                <?php echo $this->Form->input('data', array('label' => false, 'placeholder' => 'Data', 'class' => 'form-control date data')); ?>
+                            <div class="form-group" style="margin-bottom: 0px;">
+                                <?php echo $this->Form->input('data', array('label' => 'Data', 'class' => 'form-control date data', 'required' => true)); ?>
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="form-group"  style="padding-top: 0px; margin-bottom: 0px;">
-                                <?php echo $this->Form->input('hora', array('label' => false, 'placeholder' => '99:99:00', 'class' => 'form-control hora')); ?>
+                            <div class="form-group" style=" margin-bottom: 0px;">
+                                <?php echo $this->Form->input('hora', array('label' => 'Hora', 'placeholder' => '99:99:00', 'class' => 'form-control hora', 'required' => true)); ?>
                             </div>
                         </div>
                     </header>
@@ -58,13 +63,13 @@
                     <div class="row">
                         <div class="col-md-6 " style="">
                             <div class="form-group">
-                                <?php echo $this->Form->input('gel_clube_casa_id', array('empty' => 'Selecione', 'class' => 'form-control ', 'options' => $optionsClubes, 'label' => 'Clube(casa)')) ?>
+                                <?php echo $this->Form->input('gel_clube_casa_id', array('empty' => 'Selecione', 'class' => 'form-control ', 'options' => $optionsClubes, 'label' => 'Clube(casa)', 'required' => true)) ?>
                             </div>               
                         </div>               
                         <!--end .col -->
                         <div class="col-md-6" style="">
                             <div class="form-group">
-                                <?php echo $this->Form->input('gel_clube_fora_id', array('empty' => 'Selecione', 'class' => 'form-control ', 'options' => $optionsClubes, 'label' => 'Clube(fora)')) ?>
+                                <?php echo $this->Form->input('gel_clube_fora_id', array('empty' => 'Selecione', 'class' => 'form-control ', 'options' => $optionsClubes, 'label' => 'Clube(fora)', 'required' => true)) ?>
                             </div><!--end .card-body -->
                         </div><!--end .col -->
                         <!--end .dd.nestable-list -->

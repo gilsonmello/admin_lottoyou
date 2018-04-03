@@ -26,19 +26,19 @@
                 <hr style="margin-top:21px" />
                 <div class="row">
                     <div class="col-sm-2">
-                        <div id="socBoloes" class="text-center hover" style="cursor:pointer;" data-toggle="tooltip" data-placement="bottom" title="Gerenciamento dos Bolões">
+                        <div id="socBoloes" class="text-center hover" style="cursor:pointer;" data-toggle="tooltip" data-placement="bottom" title="Gerenciamento dos Gêneros">
                             <i class="md md-security" style="font-size:24px;display:block;"></i> 
                             Gênero
                         </div>
                     </div>
                     <div class="col-sm-2">
-                        <div id="socCategorias" class="text-center hover" style="cursor:pointer;" data-toggle="tooltip" data-placement="bottom" title="Gerenciar as Rodadas das Semana">
+                        <div id="socCategorias" class="text-center hover" style="cursor:pointer;" data-toggle="tooltip" data-placement="bottom" title="Gerenciar Categorias">
                             <i class="md md-security" style="font-size:24px;display:block;"></i> 
                             Categoria
                         </div>
                     </div>
                     <div class="col-sm-2">
-                        <div id="socRodadas" class="text-center hover" style="cursor:pointer;" data-toggle="tooltip" data-placement="bottom" title="Gerenciar as Rodadas das Semana">
+                        <div id="socRodadas" class="text-center hover" style="cursor:pointer;" data-toggle="tooltip" data-placement="bottom" title="Gerenciar Rodadas">
                             <i class="md md-security" style="font-size:24px;display:block;"></i> 
                             Cartela
                         </div>
@@ -87,7 +87,7 @@
                     <div class="col-sm-2">
                         <div id="rasTabelasDescontos" class="text-center hover" style="cursor:pointer;" data-toggle="tooltip" data-placement="bottom" title="Gerenciar tabela de promoção das Raspadinhas">
                             <i class="md md-view-quilt" style="font-size:24px;display:block;"></i> 
-                            Tabelas de descontos
+                            Tabelas de Descontos
                         </div>
                     </div>  
                     <div class="col-sm-2">

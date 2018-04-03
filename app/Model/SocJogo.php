@@ -11,7 +11,7 @@ class SocJogo extends AppModel {
 //    public $order = 'SocJogo.nome ASC';
 //    public $displayField = 'nome';
 
-    public $virtualFields = array(
+    public $virtualFields = [
         'ativo' => "CASE WHEN SocJogo.active = 1 THEN 'Sim' ELSE 'Não' END",
         'ativo_label' => "CASE WHEN SocJogo.active = 1 THEN 'success' ELSE 'danger' END",
         'bolao' => "select nome from soc_boloes b where SocJogo.soc_bolao_id = b.id",
@@ -20,30 +20,31 @@ class SocJogo extends AppModel {
         'escudo_clube_casa' => "select ge.dimensao from gel_escudos ge where SocJogo.gel_clube_casa_id = ge.gel_clube_id limit 1",
         'nome_clube_fora' => "select fo.nome from gel_clubes fo where SocJogo.gel_clube_fora_id = fo.id",
         'escudo_clube_fora' => "select ge.dimensao from gel_escudos ge where SocJogo.gel_clube_fora_id = ge.gel_clube_id limit 1",
-    );
-    public $belongsTo = array(
-        'GelClube' => array(
+    ];
+
+    public $belongsTo = [
+        'GelClube' => [
             'className' => 'GelClube',
             'foreignKey' => 'gel_clube_casa_id',
             'conditions' => '',
             'fields' => '',
             'order' => ''
-        ),
-        'GelClube' => array(
+        ],
+        'GelClube' => [
             'className' => 'GelClube',
             'foreignKey' => 'gel_clube_fora_id',
             'conditions' => '',
             'fields' => '',
             'order' => ''
-        ),
-    );
-    public $validate = array(
-        'active' => array(
-            'required' => array(
-                'rule' => array('notEmpty'),
+        ],
+    ];
+    
+    public $validate = [
+        'active' => [
+            'required' => [
+                'rule' => ['notEmpty'],
                 'message' => 'Campo obrigatório'
-            )
-        )
-    );
-
+            ]
+        ]
+    ];
 }

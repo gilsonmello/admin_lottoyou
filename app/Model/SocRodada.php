@@ -17,7 +17,7 @@ class SocRodada extends AppModel {
         'ativo_label' => "CASE WHEN SocRodada.active = 1 THEN 'success' ELSE 'danger' END",
         'bolao' => "select nome from soc_boloes b where SocRodada.soc_bolao_id = b.id",
         'tipo_name' => "CASE WHEN SocRodada.tipo = 1 THEN 'Limitado' ELSE 'Ilimitado' END",
-        //'categoria_name' => 'select nome from soc_categorias s where s.id = SocRodada.soc_categoria_id',
+        'categoria_name' => 'select nome from soc_categorias s where s.id = SocRodada.soc_categoria_id',
         'qtd_apostas' => 'SELECT count(DISTINCt(user_id)) FROM soc_apostas aposta WHERE aposta.soc_rodada_id = SocRodada.id'
     );
 
@@ -30,6 +30,23 @@ class SocRodada extends AppModel {
             'order' => ''
         )
     );
+
+    public $belongsTo = [
+        'SocBolao' => [
+            'className' => 'SocBolao',
+            'foreignKey' => 'soc_bolao_id',
+            'conditions' => '',
+            'fields' => '',
+            'order' => ''
+        ],
+        'SocCategoria' => [
+            'className' => 'SocCategoria',
+            'foreignKey' => 'soc_categoria_id',
+            'conditions' => '',
+            'fields' => '',
+            'order' => ''
+        ]
+    ];
 
     public $hasMany = array(
         'SocJogo' => array(
@@ -72,17 +89,17 @@ class SocRodada extends AppModel {
                 'message' => 'Bolão em uso. Favor informar outro.'
             ),*/
         ),
-        /*'soc_categoria_id' => array(
+        'soc_categoria_id' => array(
             'required' => array(
                 'rule' => array('checkVazio', 'soc_categoria_id'),
                 'required' => true,
                 'message' => 'Campo obrigatório'
             ),
-            'unique' => array(
+            /*'unique' => array(
                 'rule' => 'isUnique',
                 'message' => 'Categoria em uso. Favor informar outro.'
-            ),
-        ),*/
+            ),*/
+        ),
         'valor' => array(
             'required' => array(
                 'rule' => array('notEmpty'),

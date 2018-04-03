@@ -40,9 +40,8 @@ class AppModel extends Model {
     public function beforeFind($query) {
         // PEGA DADOS DO SCHEMA
         $schema = $this->schema();
-        
-        
     }
+
 
     public function beforeValidate($options = array()) {
 
@@ -71,8 +70,16 @@ class AppModel extends Model {
         if(isset($schema['user_id'])){
             $this->data[$this->alias]['user_id'] = $user_id;
         }
+        
         return parent::beforeValidate($options);
     }    
+
+    public function formatDateToMysql($date) {
+        $newDate = explode($date, '/');
+        $newDate = array_reverse($newDate);
+        $newDate = implode($newDate, '-');
+        return $newDate;
+    }
     
     public function _extractFieldsHABTM($data, $id, $chave, $lookup){
         $dados = array();

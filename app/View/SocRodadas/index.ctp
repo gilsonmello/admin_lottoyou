@@ -65,6 +65,7 @@
                     <thead>
                         <tr>
                             <th style="width:40%;">Nome</th>
+                            <th>Categoria</th>
                             <th>Gênero</th>
                             <th class="text-center">Tipo</th>
                             <th class="text-center">Qtd. Mínima</th>
@@ -78,6 +79,7 @@
                         <?php foreach ($dados as $k => $v) { ?>
                             <tr>
                                 <td><?= $v['SocRodada']['nome']; ?></td>
+                                <td><?= $v['SocRodada']['categoria_name']; ?> </td>
                                 <td><?= $v['SocRodada']['bolao']; ?> </td>
                                 <td class="text-center">
                                     <?= $v['SocRodada']['tipo_name']; ?>

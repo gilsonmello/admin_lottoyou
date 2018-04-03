@@ -38,7 +38,7 @@
 <div class="card-body">
     <div class="row">
         <div class="col-sm-12">
-            <h4>Bilhetes Premiados</h4>
+            <h4>Bilhetes</h4>
             <table class="table table-bordered table-condensed table-striped">
                 <tr>
                     <th style="width: 50%">Valor Prêmio</th>
@@ -54,7 +54,7 @@
                         <?php $totalGeradas += $value['RasDemo']['total_geradas']; ?>
                     <?php } ?>
                     <tr>
-                        <td>Total em Prêmios: </td>
+                        <td>Total Geradas: </td>
                         <td><?= $totalGeradas ?></td>
                     </tr>
                 <?php } else { ?>
