@@ -22,7 +22,9 @@ class UsersController extends AppController {
      */
     public function index($modal = 0) {
         // CARREGA FUNÇÕES BÁSICAS DE PESQUISA E ORDENAÇÃO
-        $options = parent::_index();               
+        $options = parent::_index();    
+
+        //var_dump($this->Session->read('Auth.User'));           
 
         // PREPARA MODEL       
         $this->User->recursive = 1;
@@ -286,6 +288,18 @@ class UsersController extends AppController {
             if ($this->Auth->login()) {
                 // LIBERA O ACESSO A APLICAÇÕES BÁSICAS PARA UTILIZAÇÃO DO SISTEMA
                 $dados = $this->Session->read('Auth.User');
+
+                App::import('Model', 'Group');
+                $thisGroup = new Group;
+
+                // VERIFICA SE IRÁ CARREGAR OS DADOS DE PERMISSÃO DA BASE OU DA SESSÃO
+                if (Configure::read('checkPermissionInSession') == 1 && $this->Session->check('Auth.User.Permission')) {
+                    $data = $this->Session->read('Auth.User.Permission');
+                } else {
+                    // PESQUISA PERMISSÕES DO GRUPO
+                    $data = $thisGroup->getFuncionalidadesPermissoes($dados['group_id']);
+                    $this->Session->write('Auth.User.Permission', $data);
+                }
 
                 // VERIFICA SE O USUÁRIO ESTÁ AUTORIZADO A ENTRAR NO SISTEMA
                 if ($dados['active'] == 1) {

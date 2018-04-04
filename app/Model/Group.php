@@ -6,9 +6,18 @@ App::uses('AppModel', 'Model');
  */
 class Group extends AppModel {
     
-    public $hasMany = array('User');
+    public $hasMany = [
+        'User'
+    ];
     
-    public $hasAndBelongsToMany = array('Funcionalidade');
+    public $hasAndBelongsToMany = [
+        'Funcionalidade' => [
+            'className'             => 'Funcionalidade',
+            'joinTable'             => 'funcionalidades_groups',
+            'foreignKey'            => 'funcionalidade_id',
+            'associationForeignKey' => 'group_id'
+        ]
+    ];
     
     public $virtualFields = array(
         'ativo' => "CASE WHEN Group.active = 1 THEN 'Sim' ELSE 'Não' END",

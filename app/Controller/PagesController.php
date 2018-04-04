@@ -35,6 +35,8 @@ class PagesController extends AppController {
      * @return void
      */
     public function home(){
+
+        $this->redirect(['controller' => 'users', 'action' => 'login']);
         
         // PEGA REQUISIÇÕES CADASTRADOS
 //        $this->loadModel('Promocao');

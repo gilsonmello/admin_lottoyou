@@ -4,7 +4,7 @@
     <div class="card-body">
         <div class="row">
             <div class="col-sm-12 col-sm-offset-2"> <?php echo $this->Session->flash(); ?></div>
-            <div class="col-sm-6">
+            <div class="col-sm-12 col-lg-12 col-md-12 col-xs-12">
                 <br/>
                 <span class="text-lg text-bold text-primary"><?php echo Configure::read('Sistema.nome'); ?> | LOGIN</span>
                 <br/><br/>
@@ -31,7 +31,7 @@
                     </div><!--end .row -->
                 <?php echo $this->Form->end(); ?>
             </div><!--end .col -->
-            <div class="col-sm-5 col-sm-offset-1 text-center" style="padding-top:35px;">
+            <!-- <div class="col-sm-5 col-sm-offset-1 text-center" style="padding-top:35px;">
                 <h3 class="text-light">
                     Ainda sem Acesso?
                 </h3>
@@ -48,7 +48,7 @@
                         <?php echo $this->Html->link("<i class='fa fa-google pull-left' style='margin-top:3px;'></i>Entre com Google", array("action" => "auth_login", "google"), array('class' => 'btn btn-block btn-raised btn-danger', 'escape' => false)) ?>
                     <?php } ?>
                 </p>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>
