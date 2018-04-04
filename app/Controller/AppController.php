@@ -154,9 +154,10 @@ class AppController extends Controller {
         $pageJsBehavior = ($this->request->is('ajax')) ? array() : array('inline' => false);
         $this->set(compact('pageJsBehavior'));
 
-
         $this->response->header(array(
             'Access-Control-Allow-Origin' => '*',
+            'Access-Control-Allow-Methods' => 'GET, OPTIONS',
+
         ));
     }
 
