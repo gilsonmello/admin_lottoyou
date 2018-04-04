@@ -5,3 +5,4 @@
 /app/tmp/cache/persistent
 /app/tmp/cache/logs
 /app/tmp/cache/sessions
+/app/tmp/logs
