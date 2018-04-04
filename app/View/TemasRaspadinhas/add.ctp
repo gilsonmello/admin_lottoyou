@@ -12,11 +12,16 @@ echo $this->element('forms/title', array('title' => '<i class="fa fa-plus-square
 <div class="card-body">
     <div class="col-sm-12" >
         <div class="row">
-            <div class="col-sm-8" >
+            <div class="col-sm-4" >
                 <div class="form-group">   
                     <?php echo $this->Form->input("nome", array('label' => 'Nome do Tema:', 'class' => 'form-control')) ?>
                 </div>     
-            </div>   
+            </div>  
+            <div class="col-sm-4" >
+                <div class="form-group">   
+                    <?php echo $this->Form->input("value", array('label' => 'Valor', 'class' => 'form-control money')) ?>
+                </div>     
+            </div> 
             <div class="col-sm-4" >
                 <?php echo $this->Form->input('ativo', array('type' => 'radio', 'legend' => 'Ativo', 'class' => 'radio-inline radio-styled', 'options' => array(1 => 'Sim', 0 => 'Não'), 'value' => '1')); ?>
             </div>   

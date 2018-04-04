@@ -39,6 +39,14 @@ class TemasRaspadinha extends AppModel {
                 'required' => true
             )
         ),
+        'value' => array(
+            'required' => array(
+                'on' => 'create',
+                'rule' => 'notEmpty',
+                'message' => 'Campo obrigatório',
+                'required' => true
+            )
+        ),
 //        'cor_texto_raspadinha' => array(
 //            'required' => array(
 //                'on' => 'create',

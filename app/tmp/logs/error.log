@@ -58,3 +58,85 @@ Stack Trace:
 #3 /var/www/html/grupo3/lib/Cake/Core/App.php(902): App::_checkFatalError()
 #4 [internal function]: App::shutdown()
 #5 {main}
+2018-04-03 20:59:34 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /grupo3/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/grupo3/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-04-03 20:59:34 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /grupo3/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/grupo3/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-04-03 20:59:34 Error: Fatal Error (1): Call to a member function attached() on null in [/var/www/html/grupo3/app/Controller/AppController.php, line 125]
+2018-04-03 20:59:34 Error: [FatalErrorException] Call to a member function attached() on null
+Request URL: /grupo3/app/webroot/files/RaspadinhasTemas/test/imagemIndex.png
+Stack Trace:
+#0 /var/www/html/grupo3/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/html/g...', 125)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/html/g...', 125, Array)
+#2 /var/www/html/grupo3/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/html/g...', 125, Array)
+#3 /var/www/html/grupo3/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-04-03 20:59:34 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /grupo3/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/grupo3/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-04-03 20:59:34 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /grupo3/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/grupo3/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-04-03 21:02:42 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /grupo3/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/grupo3/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-04-03 21:02:42 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /grupo3/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/grupo3/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-04-03 21:02:43 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /grupo3/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/grupo3/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-04-03 21:02:43 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /grupo3/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/grupo3/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
