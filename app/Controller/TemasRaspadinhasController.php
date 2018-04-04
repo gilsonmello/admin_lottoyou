@@ -10,6 +10,8 @@ App::uses('AppController', 'Controller');
  */
 class TemasRaspadinhasController extends AppController {
 
+    public $components = array('App');
+
     public function index($modal = null) {
         $temas = $this->TemasRaspadinha->find('all', array(
             'conditions' => array(
@@ -46,6 +48,9 @@ class TemasRaspadinhasController extends AppController {
                 $this->request->data['TemasRaspadinha']['img_capa_url'] = 'files/RaspadinhasTemas/' . $nomeTema . '/capa.png';
                 $this->request->data['TemasRaspadinha']['img_card_url'] = 'files/RaspadinhasTemas/' . $nomeTema . '/imagemIndex.png';
                 $this->loadModel('TemasRaspadinha');
+
+                $value = $this->request->data['TemasRaspadinha']['value'];
+                $this->request->data['TemasRaspadinha']['value'] = $this->App->formataValorDouble($value);
                 if (!$this->TemasRaspadinha->save($this->request->data)) {
                     $ok = false;
                     $msg = "Não foi possível salvar o seu registro, tente novamente!";
