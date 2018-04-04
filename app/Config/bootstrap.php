@@ -147,3 +147,5 @@ CakeLog::config('error', array(
  *
  */
 define('BASE', str_replace("/webroot", "", dirname($_SERVER['PHP_SELF']) == "/" ? "" : dirname($_SERVER['PHP_SELF'])));
+
+header('Access-Control-Allow-Origin: http://lottoyou.bet, http://localhost:8000');
