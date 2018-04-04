@@ -153,12 +153,6 @@ class AppController extends Controller {
         // CASO CONTRÁRIO A INCLUSÃO DEVE SER FEITA DE FORMA SEQUENCIAL PELO CAKE
         $pageJsBehavior = ($this->request->is('ajax')) ? array() : array('inline' => false);
         $this->set(compact('pageJsBehavior'));
-
-        $this->response->header(array(
-            'Access-Control-Allow-Origin' => '*',
-            'Access-Control-Allow-Methods' => 'GET, OPTIONS',
-
-        ));
     }
 
     // VERIFICA SE O USUÁRIO LOGADO TEM ACESSO A FUNCIONALIDADE REQUISITADA
