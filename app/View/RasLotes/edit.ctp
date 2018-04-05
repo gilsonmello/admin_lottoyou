@@ -24,13 +24,13 @@
             </div>
         </div>
         <div class="col-sm-4 col-lg-4">
-            <div class="form-group">              
-                <?php echo $this->Form->input('valor_premio', array('label' => 'Quant. total de Bilhetes Prêmiados', 'class' => 'form-control')); ?>
+            <div class="form-group">    
+                <?php echo $this->Form->input('qtd_raspadinhas', array('label' => 'Quant. total de Bilhetes', 'class' => 'form-control')); ?>
             </div>
         </div>
         <div class="col-sm-4 col-lg-4">
-            <div class="form-group">    
-                <?php echo $this->Form->input('qtd_raspadinhas', array('label' => 'Quant. total de Bilhetes', 'class' => 'form-control')); ?>
+            <div class="form-group">              
+                <?php echo $this->Form->input('valor_premio', array('label' => 'Quant. total de Bilhetes Prêmiados', 'class' => 'form-control')); ?>
             </div>
         </div>
     </div>
