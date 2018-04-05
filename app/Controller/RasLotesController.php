@@ -35,8 +35,8 @@ class RasLotesController extends AppController {
         $optionsTemas = $this->TemasRaspadinha->find('list');
         $this->set(compact('optionsTemas'));
         if ($this->request->is('post') || $this->request->is('put')) {
-            $value = $this->request->data['TemasRaspadinha']['value'];
-            $this->request->data['TemasRaspadinha']['value'] = $this->App->formataValorDouble($value);
+            $value = $this->request->data['RasLote']['value'];
+            $this->request->data['RasLote']['value'] = $this->App->formataValorDouble($value);
             $this->request->data['RasLote']['qtd_geradas'] = $this->request->data['RasLote']['qtd_premiadas'];
             if ($this->RasLote->save($this->request->data)) {
                 $this->Session->setFlash('Registro salvo com sucesso.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-success'));
@@ -385,8 +385,8 @@ class RasLotesController extends AppController {
 
         if ($this->request->is('post') || $this->request->is('put')) {
             $this->request->data['RasLote']['id'] = $id;
-            $value = $this->request->data['TemasRaspadinha']['value'];
-            $this->request->data['TemasRaspadinha']['value'] = $this->App->formataValorDouble($value);
+            $value = $this->request->data['RasLote']['value'];
+            $this->request->data['RasLote']['value'] = $this->App->formataValorDouble($value);
             if ($this->RasLote->save($this->request->data)) {
                 $this->Session->setFlash('Registro salvo com sucesso.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-success'));
             } else {
