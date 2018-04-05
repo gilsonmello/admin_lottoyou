@@ -434,8 +434,8 @@ class AppModel extends Model {
         }
     }
 
-    public function lessThen($check, $field, $field2) {
-        if($this->data[$this->name][$field] < $this->data[$this->name][$field2]) {
+    public function lessThenOrEqual($check, $field, $field2) {
+        if($this->data[$this->name][$field] <= $this->data[$this->name][$field2]) {
             return true;
         } else {
             return false;

@@ -387,8 +387,8 @@ class RasLotesController extends AppController {
             $value = $this->request->data['RasLote']['value'];
             $this->request->data['RasLote']['value'] = $this->App->formataValorDouble($value);
 
-            if($this->request->data['RasLote']['qtd_raspadinhas'] < $this->request->data['RasLote']['valor_premio']) {
-                $this->Session->setFlash('Qtd. de premiados deve ser menor que a Qtd. total.', 'alert', [
+            if($this->request->data['RasLote']['qtd_raspadinhas'] <= $this->request->data['RasLote']['valor_premio']) {
+                $this->Session->setFlash('Qtd. de premiados deve ser menor ou igual que a Qtd. total.', 'alert', [
                     'plugin' => 'BoostCake', 
                     'class' => 'alert-danger'
                 ]);

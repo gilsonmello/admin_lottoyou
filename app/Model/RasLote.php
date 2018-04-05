@@ -67,8 +67,8 @@ class RasLote extends AppModel {
                 'required' => true,
                 'message' => 'Campo obrigatório'
             ),            
-            'lessThen' => [
-                'rule' => ['lessThen', 'valor_premio', 'qtd_raspadinhas'],
+            'lessThenOrEqual' => [
+                'rule' => ['lessThenOrEqual', 'valor_premio', 'qtd_raspadinhas'],
                 'message' => 'Qtd. de premiados deve ser menor que a Qtd. total'
             ]
         ),        
