@@ -66,7 +66,19 @@ class RasLote extends AppModel {
                 'rule' => array('notEmpty'),
                 'required' => true,
                 'message' => 'Campo obrigatório'
-            ),
+            ),            
+            'lessThen' => [
+                'rule' => ['lessThen', 'valor_premio', 'qtd_raspadinhas'],
+                'message' => 'Menor que 0'
+            ]
+        ),        
+        'value' => array(
+            'required' => array(
+                'on' => 'create',
+                'rule' => 'notEmpty',
+                'message' => 'Campo obrigatório',
+                'required' => true
+            )
         ),
         'temas_raspadinha_id' => array(
             'unique' => array(

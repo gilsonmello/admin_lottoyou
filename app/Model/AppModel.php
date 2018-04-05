@@ -433,6 +433,14 @@ class AppModel extends Model {
             return false;
         }
     }
+
+    public function lessThen($check, $field, $field2) {
+        if($this->data[$this->name][$field] < $this->data[$this->name][$field2]) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     
     function checkVazio($check, $field){
         if(empty($this->data[$this->name][$field])) {
