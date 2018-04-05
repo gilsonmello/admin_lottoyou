@@ -37,7 +37,6 @@ class RasLotesController extends AppController {
         if ($this->request->is('post') || $this->request->is('put')) {
             $value = $this->request->data['RasLote']['value'];
             $this->request->data['RasLote']['value'] = $this->App->formataValorDouble($value);
-            $this->request->data['RasLote']['qtd_geradas'] = $this->request->data['RasLote']['qtd_premiadas'];
             if ($this->RasLote->save($this->request->data)) {
                 $this->Session->setFlash('Registro salvo com sucesso.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-success'));
             } else {
@@ -387,10 +386,19 @@ class RasLotesController extends AppController {
             $this->request->data['RasLote']['id'] = $id;
             $value = $this->request->data['RasLote']['value'];
             $this->request->data['RasLote']['value'] = $this->App->formataValorDouble($value);
-            if ($this->RasLote->save($this->request->data)) {
-                $this->Session->setFlash('Registro salvo com sucesso.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-success'));
-            } else {
-                $this->Session->setFlash('Não foi possível editar o registro. Favor tentar novamente.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-danger'));
+
+            if($this->request->data['RasLote']['qtd_raspadinhas'] < $this->request->data['RasLote']['valor_premio']) {
+                $this->Session->setFlash('Qtd. de premiados deve ser menor que a Qtd. total.', 'alert', [
+                    'plugin' => 'BoostCake', 
+                    'class' => 'alert-danger'
+                ]);
+            }else {
+
+                if ($this->RasLote->save($this->request->data)) {
+                    $this->Session->setFlash('Registro salvo com sucesso.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-success'));
+                } else {
+                    $this->Session->setFlash('Não foi possível editar o registro. Favor tentar novamente.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-danger'));
+                }
             }
         }
 
