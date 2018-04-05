@@ -435,7 +435,6 @@ class AppModel extends Model {
     }
 
     public function lessThen($check, $field, $field2) {
-        die(var_dump($this->data[$this->name]));
         if($this->data[$this->name][$field] < $this->data[$this->name][$field2]) {
             return true;
         } else {

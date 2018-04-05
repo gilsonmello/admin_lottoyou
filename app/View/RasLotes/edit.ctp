@@ -2,7 +2,7 @@
 <?php echo $this->element('forms/title', array('title' => '<i class="fa fa-plus-square"></i> EDITAR lote')); ?>
 <?php echo $this->Form->hidden('id'); ?>
 <div class="card-body">
-     <div class="row">
+    <div class="row">
         <div class="col-lg-5">
             <div class="form-group">              
                 <?php echo $this->Form->input('nome', array('label' => 'Nome', 'class' => 'form-control')); ?>
