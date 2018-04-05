@@ -49,8 +49,7 @@ class TemasRaspadinhasController extends AppController {
                 $this->request->data['TemasRaspadinha']['img_card_url'] = 'files/RaspadinhasTemas/' . $nomeTema . '/imagemIndex.png';
                 $this->loadModel('TemasRaspadinha');
 
-                $value = $this->request->data['TemasRaspadinha']['value'];
-                $this->request->data['TemasRaspadinha']['value'] = $this->App->formataValorDouble($value);
+                
                 if (!$this->TemasRaspadinha->save($this->request->data)) {
                     $ok = false;
                     $msg = "Não foi possível salvar o seu registro, tente novamente!";
