@@ -14,7 +14,7 @@ echo $this->element('forms/title', array('title' => '<i class="fa fa-plus-square
         <div class="row">
             <div class="col-sm-4" >
                 <div class="form-group">   
-                    <?php echo $this->Form->input("nome", array('label' => 'Nome do Tema:', 'class' => 'form-control')) ?>
+                    <?php echo $this->Form->input("nome", array('label' => 'Nome do Tema(Card):', 'class' => 'form-control')) ?>
                 </div>     
             </div>
             <div class="col-sm-4" >
@@ -24,17 +24,17 @@ echo $this->element('forms/title', array('title' => '<i class="fa fa-plus-square
     </div>    
     <div class="col-sm-12" >
         <div class="form-group">   
-            <?php echo $this->Form->input("texto_raspadinha", array('label' => 'Texto da Raspadinha:', 'class' => 'form-control', 'rows' => 2)) ?>
+            <?php echo $this->Form->input("texto_raspadinha", array('label' => 'Texto do Card', 'class' => 'form-control', 'rows' => 2)) ?>
         </div>
     </div> 
     <div class="col-sm-4" >
         <div class="form-group">   
-            <?php echo $this->Form->input("cor_texto_raspadinha", array('label' => 'Cor do Texto:', 'id' => 'teste2', 'class' => 'form-control')) ?>
+            <?php echo $this->Form->input("cor_texto_raspadinha", array('label' => 'Cor do Texto', 'id' => 'teste2', 'class' => 'form-control')) ?>
         </div>  
     </div>  
     <div class="col-sm-4" >
         <div class="form-group">   
-            <?php echo $this->Form->input("texto_index", array('label' => 'Texto do Index:', 'class' => 'form-control')) ?>
+            <?php echo $this->Form->input("texto_index", array('label' => 'Texto do Index', 'class' => 'form-control')) ?>
         </div>  
     </div> 
     <div class="col-sm-4" >
