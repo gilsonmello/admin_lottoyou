@@ -3,13 +3,18 @@
 <?php echo $this->Form->hidden('id'); ?>
 <div class="card-body">
      <div class="row">
-        <div class="col-lg-9">
+        <div class="col-lg-5">
             <div class="form-group">              
                 <?php echo $this->Form->input('nome', array('label' => 'Nome', 'class' => 'form-control')); ?>
             </div>
         </div>
+        <div class="col-sm-4" >
+            <div class="form-group">   
+                <?php echo $this->Form->input("value", array('label' => 'Valor', 'class' => 'form-control money')) ?>
+            </div>     
+        </div> 
         <div class="col-lg-3">
-            <?php echo $this->Form->input('active', array('type' => 'radio', 'legend' => 'Ativo', 'class' => 'radio-inline radio-styled tipo', 'options' => array(1 => 'Sim', 0 => 'Não'))); ?>
+            <?php echo $this->Form->input('active', array('type' => 'radio', 'legend' => 'Ativo', 'class' => 'radio-inline radio-styled tipo', 'options' => array(1 => 'Sim', 0 => 'Não'), 'value' => '0')); ?>
         </div>
     </div>
     <div class="row">
