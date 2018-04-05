@@ -69,7 +69,7 @@ class RasLote extends AppModel {
             ),            
             'lessThenOrEqual' => [
                 'rule' => ['lessThenOrEqual', 'valor_premio', 'qtd_raspadinhas'],
-                'message' => 'Qtd. de premiados deve ser menor que a Qtd. total'
+                'message' => 'Qtd. de premiados deve ser menor ou igual a Qtd. total'
             ]
         ),        
         'value' => array(
