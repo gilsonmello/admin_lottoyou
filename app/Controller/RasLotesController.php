@@ -387,7 +387,6 @@ class RasLotesController extends AppController {
             $this->request->data['RasLote']['id'] = $id;
             $value = $this->request->data['RasLote']['value'];
             $this->request->data['RasLote']['value'] = $this->App->formataValorDouble($value);
-            die(var_dump($this->request->data));
             if ($this->RasLote->save($this->request->data)) {
                 $this->Session->setFlash('Registro salvo com sucesso.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-success'));
             } else {
