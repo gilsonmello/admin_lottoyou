@@ -81,33 +81,42 @@
     function remover_numero(element) {
         $(element).on('click', function() {
             var btn = $(this);
-            $.ajax({
-                method: 'POST',
-                url: baseUrl+'/rasLotes/removerNumeros/'+btn.attr('data-id'),
-                success: function(data) {
-                    if(data.status == true) {
-                        toastr.options.timeOut = 2000;
-                        toastr.success(data.msg);
-                        $(btn.attr('data-line')).fadeOut('toggle', function() {
-                            $(this).remove();
+            var linha = btn.attr('data-line');
 
-                            if($('.linha').length == 0) {
-                                modalObject.modal('hide');
-                                setTimeout(function() {
-                                    p._loadGerarNumeros(id, clonar);
-                                }, 500); 
-                            }
+            if($('.linha').length > 5) {
+                $.ajax({
+                    method: 'POST',
+                    url: baseUrl+'/rasLotes/removerNumeros/'+btn.attr('data-id'),
+                    success: function(data) {
+                        if(data.status == true) {
+                            toastr.options.timeOut = 2000;
+                            toastr.success(data.msg);
+                            $(btn.attr('data-line')).fadeOut('toggle', function() {
+                                $(this).remove();
+
+                                if($('.linha').length == 0) {
+                                    modalObject.modal('hide');
+                                    setTimeout(function() {
+                                        p._loadGerarNumeros(id, clonar);
+                                    }, 500); 
+                                }
+
+                            });
+                        } else {
+                            toastr.options.timeOut = 2000;
+                            toastr.error(data.msg);
+                        }
+                    },
+                    error: function() {
+                        btn.button('reset');
+                        $(btn.attr('data-line')).fadeOut('toggle', function() {
 
                         });
-                    } else {
-                        toastr.options.timeOut = 2000;
-                        toastr.error(data.msg);
                     }
-                },
-                error: function() {
-                    btn.button('reset');
-                }
-            });
+                });
+            } else {
+                alert('É necessário ao menos 5 números para a raspadinha');
+            }
         });
     }
 
@@ -129,6 +138,20 @@
                     var line = $(this).attr('data-line');
                     //Atribuindo o nome do arquivo ao elemento img-name
                     $('.linha-'+line).find('.img-name').text(file_name);
+
+                    var file = $(this)[0].files[0];
+                    
+                    if(window.FileReader){
+                        if(file.type.indexOf('image') >= 0){
+                            var reader = new FileReader();
+                            reader.onprogress = function(evt){
+                            };
+                            reader.onloadend = function(e){
+                                $('.linha-'+line).find('.img-target').attr('src', e.target.result);
+                            };
+                            reader.readAsDataURL(file);
+                        }
+                    } 
                 });
 
             $('.adicionar-numero').on('click', function() {
@@ -157,7 +180,25 @@
                     .on('change', function() {
                         var file_name = $(this)[0].files[0].name;
                         clone.find('.img-name').text(file_name);
+
+                        var file = $(this)[0].files[0];
+                        
+                        if(window.FileReader){
+                            if(file.type.indexOf('image') >= 0){
+                                var reader = new FileReader();
+                                reader.onprogress = function(evt){
+                                };
+                                reader.onloadend = function(e){
+                                    clone.find('.img-target').attr('src', e.target.result);
+                                };
+                                reader.readAsDataURL(file);
+                            }
+                        }       
                     });
+
+                clone.find('.remover-numero')
+                    .attr('data-line', '.linha-'+(length))
+                    .attr('data-id', 'null');
 
                 clone.find('img')
                     .attr('src', '');
@@ -179,7 +220,13 @@
                 }
             });
 
-        }, undefined, true);
+        }, undefined, true, false, function() {
+            modalObject.find('form').submit(function() {
+                if($('.linha').length < 5) {
+                    return false;
+                }
+            })
+        });
     };
 
     p._habilitaBotoesConsulta = function () {
