@@ -145,6 +145,8 @@
                     .removeAttr('name')
                     .attr('name', 'data[RasLotesNumero]['+length+'][number]')
                     .priceFormat({prefix: '$ ', centsSeparator: ',', thousandsSeparator: '.'});
+
+                clone.find('.img-name').text('');
                 
                 clone.find('.img')
                     .val('')
