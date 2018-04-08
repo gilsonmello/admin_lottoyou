@@ -11,6 +11,8 @@ class RasTabelasDesconto extends AppModel {
     public $virtualFields = array(
         'ativo_label' => "CASE WHEN RasTabelasDesconto.active = 1 THEN 'success' ELSE 'danger' END",
         'ativo' => "CASE WHEN RasTabelasDesconto.active = 1 THEN 'Sim' ELSE 'Não' END",
+        'is_discount_label' => "CASE WHEN RasTabelasDesconto.is_discount = 1 THEN 'success' ELSE 'danger' END",
+        'is_discount' => "CASE WHEN RasTabelasDesconto.is_discount = 1 THEN 'Sim' ELSE 'Não' END",
     );
     
     public $order = 'RasTabelasDesconto.created desc';

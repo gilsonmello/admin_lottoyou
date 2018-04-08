@@ -68,12 +68,48 @@
         window.materialadmin.AppForm.loadModal(modalObject, url, '75%', function () {
             modalObject.off('hide.bs.modal');
             modalObject.on('hide.bs.modal', function () {
-                if (window.materialadmin.AppForm.getFormState()) {
-                    //p._loadConsRasLote();
+                
+            
+                //p._loadGerarDemos(id);
+                
+            });
+        }, function() {
+            p._loadGerarDemos(id);
+        }, false, true);
+    };
+
+    function remover_numero(element) {
+        $(element).on('click', function() {
+            var btn = $(this);
+            $.ajax({
+                method: 'POST',
+                url: baseUrl+'/rasLotes/removerNumeros/'+btn.attr('data-id'),
+                success: function(data) {
+                    if(data.status == true) {
+                        toastr.options.timeOut = 2000;
+                        toastr.success(data.msg);
+                        $(btn.attr('data-line')).fadeOut('toggle', function() {
+                            $(this).remove();
+
+                            if($('.linha').length == 0) {
+                                modalObject.modal('hide');
+                                setTimeout(function() {
+                                    p._loadGerarNumeros(id, clonar);
+                                }, 500); 
+                            }
+
+                        });
+                    } else {
+                        toastr.options.timeOut = 2000;
+                        toastr.error(data.msg);
+                    }
+                },
+                error: function() {
+                    btn.button('reset');
                 }
             });
         });
-    };
+    }
 
     p._loadGerarNumeros = function(id, clonar) {
         // CHAMA A FUNÇÃO MODALa
@@ -83,6 +119,18 @@
         var i = 0;
 
         window.materialadmin.AppForm.loadModal(modalObject, url, '75%', function () {
+
+            //Evento executado nos inputs file
+            $('input[type="file"]')
+                .on('change', function() {
+                    //Pegando o nome do arquivo
+                    var file_name = $(this)[0].files[0].name;
+                    //Linha do elemento clicado
+                    var line = $(this).attr('data-line');
+                    //Atribuindo o nome do arquivo ao elemento img-name
+                    $('.linha-'+line).find('.img-name').text(file_name);
+                });
+
             $('.adicionar-numero').on('click', function() {
                 var linha = $('.linha');
                 var length = linha.length;
@@ -101,48 +149,26 @@
                 clone.find('.img')
                     .val('')
                     .attr('src', '')
+                    .attr('data-line', (length - 1))
                     .removeAttr('name')
-                    .attr('name', 'data[RasLotesNumero]['+length+'][img]');
+                    .attr('name', 'data[RasLotesNumero]['+length+'][img]')
+                    .on('change', function() {
+                        var file_name = $(this)[0].files[0].name;
+                        clone.find('.img-name').text(file_name);
+                    });
 
                 clone.find('img')
                     .attr('src', '');
 
                 $('.linha-'+(length - 1)).after(clone);
 
+                $('.remover-numero').off('click');
+                remover_numero($('.remover-numero'));
             });
 
-            $('.remover-numero').on('click', function() {
-                var btn = $(this);
-                $.ajax({
-                    method: 'POST',
-                    url: baseUrl+'/rasLotes/removerNumeros/'+btn.attr('data-id'),
-                    success: function(data) {
-                        if(data.status == true) {
-                            toastr.options.timeOut = 2000;
-                            toastr.success(data.msg);
-                            $(btn.attr('data-line')).fadeOut('toggle', function() {
-                                $(this).remove();
-
-                                if($('.linha').length == 0) {
-                                    modalObject.modal('hide');
-                                    setTimeout(function() {
-                                        p._loadGerarNumeros(id, clonar);
-                                    }, 500); 
-                                }
-
-                            });
-
-                            
-                        }else {
-                            toastr.options.timeOut = 2000;
-                            toastr.error(data.msg);
-                        }
-                    },
-                    error: function() {
-                        btn.button('reset');
-                    }
-                });
-            });
+            $('.remover-numero').off('click');
+            remover_numero($('.remover-numero'));
+            
 
             modalObject.off('hide.bs.modal');
             modalObject.on('hide.bs.modal', function () {
@@ -151,7 +177,7 @@
                 }
             });
 
-        }, true);
+        }, undefined, true);
     };
 
     p._habilitaBotoesConsulta = function () {

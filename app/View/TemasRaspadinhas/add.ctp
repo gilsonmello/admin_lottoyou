@@ -24,7 +24,7 @@ echo $this->element('forms/title', array('title' => '<i class="fa fa-plus-square
     </div>    
     <div class="col-sm-12" >
         <div class="form-group">   
-            <?php echo $this->Form->input("texto_raspadinha", array('label' => 'Texto do Card', 'class' => 'form-control', 'rows' => 2)) ?>
+            <?php echo $this->Form->input("texto_raspadinha", ['label' => 'Texto do Card', 'class' => 'form-control', 'rows' => 2, 'required' => false]) ?>
         </div>
     </div> 
     <div class="col-sm-4" >

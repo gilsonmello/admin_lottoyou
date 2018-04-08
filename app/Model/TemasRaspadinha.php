@@ -31,14 +31,14 @@ class TemasRaspadinha extends AppModel {
                 'message' => 'Nome do Tema em uso. Favor utilizar outro!'
             ),
         ),
-        'texto_raspadinha' => array(
+        /*'texto_raspadinha' => array(
             'required' => array(
                 'on' => 'create',
                 'rule' => 'notEmpty',
                 'message' => 'Campo obrigatório',
                 'required' => true
             )
-        ),
+        ),*/
 //        'cor_texto_raspadinha' => array(
 //            'required' => array(
 //                'on' => 'create',

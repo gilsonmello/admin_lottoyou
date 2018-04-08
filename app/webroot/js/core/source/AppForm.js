@@ -29,7 +29,7 @@
     // INIT
     // =========================================================================
 
-    p.initialize = function (divForm, onSuccess, files) {
+    p.initialize = function (divForm, onSuccess, files, modal_hide) {
 
         // Init events
         this._enableEvents();
@@ -47,14 +47,14 @@
 
         this._initTinyMCE(divForm);
 
-        p._initFormValidation(divForm, onSuccess, files);
+        p._initFormValidation(divForm, onSuccess, files, modal_hide);
     };
 
     // =========================================================================
     // LOAD MODAL
     // =========================================================================
 
-    p.loadModal = function (divForm, url, width, scripts, files) {
+    p.loadModal = function (divForm, url, width, scripts, onSuccess, files, modal_hide) {
 
         if (!$.isFunction($.fn.modal)) {
             return;
@@ -98,7 +98,7 @@
                 divForm.modal({show: false, keyboard: true});
 
                 // INICIALIZA DEPENDÊNCIAS
-                window.materialadmin.AppForm.initialize(divForm, undefined, files);
+                window.materialadmin.AppForm.initialize(divForm, onSuccess, files, modal_hide);
                 window.materialadmin.AppVendor.initialize();
 
                 // VERIFICA SE HÁ SCRIPTS PARA SEREM RODADOS APÓS O CARREGAMENTO
@@ -611,7 +611,7 @@
     // VALIDATION
     // =========================================================================
 
-    p._initFormValidation = function (divForm, onSuccess, files) {
+    p._initFormValidation = function (divForm, onSuccess, files, modal_hide) {
         // VERIFICA SE EXISTE O PLUGIN
         if (!$.isFunction($.fn.bootstrapValidator)) {
             return;
@@ -669,11 +669,16 @@
                             p.setFormState(AppForm.HAS_CHANGES);
                             p.checkLastInsertID(result);
                             submit.button('reset');
-                            divForm.modal('hide');
+
+                            console.log(onSuccess)
+
+                            if(modal_hide && modal_hide != undefined)
+                                divForm.modal('hide');
 
                             // EXECUTA FUNÇÃO APÓS SUCESSO
-                            if (typeof onSuccess !== 'undefined')
+                            if (typeof onSuccess !== 'undefined'){
                                 onSuccess();
+                            }
                         }
                     },
                     error: function(data) {

@@ -89,6 +89,7 @@ class TemasRaspadinhasController extends AppController {
     public function delete($id = null) {
 
         $this->loadModel('Raspadinha');
+        $this->Raspadinha->recursive = -1;
         $verificaRaspadinhas = $this->Raspadinha->find('first', array(
             'conditions' => array(
                 'temas_raspadinha_id' => $id

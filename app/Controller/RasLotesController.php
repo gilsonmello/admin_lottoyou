@@ -161,7 +161,7 @@ class RasLotesController extends AppController {
                 $data['number'] = (double) $data['number'];
 
                 $data['number'] = number_format($data['number'], 2, '.', '');
-                if(empty($data['number']) || empty($data['img']['name'])) {
+                if(empty($data['number']) && empty($data['img']['name'])) {
                     unset($this->request->data['RasLotesNumero'][$key]);
                 }
             }

@@ -81,6 +81,7 @@
                             <th>Tema</th>
                             <th>Quantidade</th>
                             <th>Porcentagem</th>
+                            <th>É desconto?</th>
                             <th style="width:80px;">Ativo</th>
                             <th style="width:50px;">Ações</th>
                         </tr>
@@ -91,6 +92,11 @@
                                 <td><?php echo $v['TemasRaspadinha']['nome']; ?></td>
                                 <td><?php echo $v['RasTabelasDesconto']['quantity']; ?></td>
                                 <td><?php echo $v['RasTabelasDesconto']['percentage']; ?>%</td>
+                                <td>
+                                    <label class="label label-<?php echo $v['RasTabelasDesconto']['is_discount_label']; ?>">
+                                        <?php echo $v['RasTabelasDesconto']['is_discount']; ?>
+                                    </label>
+                                </td>
                                 <td>
                                     <label class="label label-<?php echo $v['RasTabelasDesconto']['ativo_label']; ?>">
                                         <?php echo $v['RasTabelasDesconto']['ativo']; ?>

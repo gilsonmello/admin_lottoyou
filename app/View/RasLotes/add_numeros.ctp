@@ -12,7 +12,7 @@
             <input type="hidden" name="data[RasLotesNumero][<?php echo $key; ?>][id]" value="<?php echo $numero['RasLotesNumero']['id']; ?>">
             
             <div class="row linha linha-<?php echo $key; ?>">
-                <div class="col-lg-5">
+                <div class="col-lg-3">
                     <div class="form-group">
                         <input value="<?php echo $numero['RasLotesNumero']['number']; ?>" name="data[RasLotesNumero][<?php echo $key; ?>][number]" class="numbers form-control money" type="text" id="RasLoteNumber[0]" style="text-align: left;">
                         <label for="RasLoteNumber[<?php echo $key; ?>]">Número</label>
@@ -23,8 +23,13 @@
                         <span class="btn btn-success fileinput-button" style="margin: 8px;">
                             <i class="glyphicon glyphicon-plus"></i>
                             <span>Imagem</span>
-                            <input id="fileupload" class="img" type="file" name="data[RasLotesNumero][<?php echo $key; ?>][img]">
+                            <input id="fileupload" data-line="<?php echo $key; ?>" class="img" type="file" name="data[RasLotesNumero][<?php echo $key; ?>][img]">
                         </span>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="form-group">
+                        <span class="img-name"></span>
                     </div>
                 </div>
                 <div class="col-lg-2">
@@ -44,12 +49,17 @@
                             <label for="RasLoteNumber[<?php echo $i; ?>]">Número</label>
                         </div>
                     </div>
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <span class="img-name"></span>
+                        </div>
+                    </div>
                     <div class="col-lg-2">
                         <div class="btn-group">
                             <span class="btn btn-success fileinput-button" style="margin: 8px;">
                                 <i class="glyphicon glyphicon-plus"></i>
                                 <span>Imagem</span>
-                                <input id="fileupload" class="img" type="file" name="data[RasLotesNumero][<?php echo $i; ?>][img]">
+                                <input id="fileupload" data-line="<?php echo $i; ?>" class="img" type="file" name="data[RasLotesNumero][<?php echo $i; ?>][img]">
                             </span>
                         </div>
                     </div>
