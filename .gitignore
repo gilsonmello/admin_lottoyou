@@ -6,3 +6,4 @@
 /app/tmp/cache/logs
 /app/tmp/cache/sessions
 /app/tmp/logs
+app/tmp/logs/error.log
