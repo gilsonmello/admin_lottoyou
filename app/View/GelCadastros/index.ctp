@@ -51,19 +51,19 @@
                 <div class="row">
                     <div class="col-sm-2">
                         <div id="lotCategorias" class="text-center hover" style="cursor:pointer;" data-toggle="tooltip" data-placement="bottom" title="Gerenciamento de Categoria">
-                            <i class="md md-language" style="font-size:24px;display:block;"></i> 
+                            <i class="md md-language" style="font-size:24px; display:block;"></i> 
                             Gerenciar Categorias
                         </div>
                     </div>
                     <div class="col-sm-2">
                         <div id="lotJogos" class="text-center hover" style="cursor:pointer;" data-toggle="tooltip" data-placement="bottom" title="Gerenciamento de jogos da loteria">
-                            <i class="md md-language" style="font-size:24px;display:block;"></i> 
+                            <i class="md md-language" style="font-size:24px; display:block;"></i> 
                             Gerenciar Sorteios
                         </div>
                     </div>
                     <div class="col-sm-2">
                         <div id="lotJogosResultados" class="text-center hover" style="cursor:pointer;" data-toggle="tooltip" data-placement="bottom" title="">
-                            <i class="md md-language" style="font-size:24px;display:block;"></i> 
+                            <i class="md md-language" style="font-size:24px; display:block;"></i> 
                             Visualizar Resultados
                         </div>
                     </div>
@@ -74,26 +74,26 @@
                 <div class="row">
                     <div class="col-sm-2">
                         <div id="temasRaspadinhas" class="text-center hover" style="cursor:pointer;" data-toggle="tooltip" data-placement="bottom" title="Criação de Temas de Raspadinha">
-                            <i class="md md-view-quilt" style="font-size:24px;display:block;"></i> 
+                            <i class="md md-view-quilt" style="font-size:24px; display:block;"></i> 
                             Temas Raspadinhas
                         </div>
                     </div>
                     <div class="col-sm-2">
                         <div id="rasLotes" class="text-center hover" style="cursor:pointer;" data-toggle="tooltip" data-placement="bottom" title="Gerenciar os lotes das Raspadinhas">
-                            <i class="md md-view-quilt" style="font-size:24px;display:block;"></i> 
+                            <i class="md md-view-quilt" style="font-size:24px; display:block;"></i> 
                             Lotes
                         </div>
                     </div>    
                     <div class="col-sm-2">
-                        <div id="rasTabelasDescontos" class="text-center hover" style="cursor:pointer;" data-toggle="tooltip" data-placement="bottom" title="Gerenciar tabela de promoção das Raspadinhas">
-                            <i class="md md-view-quilt" style="font-size:24px;display:block;"></i> 
-                            Tabelas de Descontos
+                        <div id="rasTabelasDescontos" class="text-center hover" style="cursor:pointer;" data-toggle="tooltip" data-placement="bottom" title="Gerenciar Tabela de Preços e Descontos das Raspadinhas">
+                            <i class="md md-view-quilt" style="font-size:24px; display:block;"></i> 
+                            Tabelas de Preços e Descontos
                         </div>
                     </div>  
                     <div class="col-sm-2">
-                        <div id="rasTabelasPremios" class="text-center hover" style="cursor:pointer;" data-toggle="tooltip" data-placement="bottom" title="Gerenciar tabela de premiação das Raspadinhas">
-                            <i class="md md-view-quilt" style="font-size:24px;display:block;"></i> 
-                            Tabelas de Premios
+                        <div id="rasTabelasPremios" class="text-center hover" style="cursor:pointer;" data-toggle="tooltip" data-placement="bottom" title="Gerenciar Tabela de Prêmios das Raspadinhas">
+                            <i class="md md-view-quilt" style="font-size:24px; display:block;"></i> 
+                            Tabelas de Prêmios
                         </div>
                     </div> 
                     <!-- <div class="col-sm-2">

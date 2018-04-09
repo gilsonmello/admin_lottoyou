@@ -68,14 +68,11 @@
         window.materialadmin.AppForm.loadModal(modalObject, url, '75%', function () {
             modalObject.off('hide.bs.modal');
             modalObject.on('hide.bs.modal', function () {
-                
-            
                 //p._loadGerarDemos(id);
-                
             });
         }, function() {
             p._loadGerarDemos(id);
-        }, false, true);
+        }, false, false);
     };
 
     function remover_numero(element) {

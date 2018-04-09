@@ -1,5 +1,5 @@
 <?php echo $this->Form->create('RasTabelasDesconto', array('class' => 'form form-validate', 'role' => 'form')); ?>
-<?php echo $this->element('forms/title', array('title' => '<i class="fa fa-plus-square"></i> EDITAR lote')); ?>
+<?php echo $this->element('forms/title', array('title' => '<i class="fa fa-plus-square"></i> EDITAR Tabela de Preços e Descontos')); ?>
 <?php echo $this->Form->hidden('id'); ?>
 <div class="card-body">
      <div class="row">

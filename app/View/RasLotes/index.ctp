@@ -78,7 +78,7 @@
                                         <button type="button" class="btn btn-icon-toggle dropdown-toggle" data-toggle="dropdown"><i class="fa fa-gear"></i></button>
                                         <ul class="dropdown-menu dropdown-menu-right" role="menu">
                                             <li>
-                                                <?php echo $this->Html->link('<i class="fa fa-cart-plus"></i>&nbsp Gerar Números', 'javascript: void(0)', array("escape" => false, 'id' => $v['RasLote']['id'], 'class' => 'btnGerarNumeros')) ?>
+                                                <?php echo $this->Html->link('<i class="fa fa-cart-plus"></i>&nbsp Gerar Prêmios', 'javascript: void(0)', array("escape" => false, 'id' => $v['RasLote']['id'], 'class' => 'btnGerarNumeros')) ?>
                                             </li>
                                             <li>
                                                 <?php echo $this->Html->link('<i class="fa fa-cart-plus"></i>&nbsp Gerar Raspadinhas', 'javascript: void(0)', array("escape" => false, 'id' => $v['RasLote']['id'], 'class' => 'btnGerarRaspadinha')) ?>

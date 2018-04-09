@@ -672,7 +672,7 @@
                             p.checkLastInsertID(result);
                             submit.button('reset');
 
-                            if(modal_hide && modal_hide != undefined)
+                            if(modal_hide == true || modal_hide == undefined)
                                 divForm.modal('hide');
 
                             // EXECUTA FUNÇÃO APÓS SUCESSO

@@ -1,5 +1,5 @@
 <?php echo $this->Form->create('RasTabelasDesconto', array('class' => 'form form-validate', 'role' => 'form')); ?>
-<?php echo $this->element('forms/title', array('title' => '<i class="fa fa-plus-square"></i> CADASTRAR LOTE')); ?>
+<?php echo $this->element('forms/title', array('title' => '<i class="fa fa-plus-square"></i> CADASTRAR Tabela de Preços e Descontos')); ?>
 <div class="card-body">
     <div class="row">
         <div class="col-lg-3">

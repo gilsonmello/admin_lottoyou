@@ -1,5 +1,5 @@
 <?php echo $this->Form->create('RasLotesNumero', array('class' => 'form form-validate', 'role' => 'form', 'enctype' => "multipart/form-data")); ?>
-<?php echo $this->element('forms/title', array('title' => '<i class="fa fa-plus-square"></i> Gerar Números de Raspadinha')); ?>
+<?php echo $this->element('forms/title', array('title' => '<i class="fa fa-plus-square"></i> Gerar Prêmio')); ?>
 <style type="text/css">
     .linha {
         margin-bottom: 10px;

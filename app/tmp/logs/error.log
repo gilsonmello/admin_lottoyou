@@ -6561,3 +6561,599 @@ Stack Trace:
 #3 /var/www/html/grupo3/lib/Cake/Core/App.php(902): App::_checkFatalError()
 #4 [internal function]: App::shutdown()
 #5 {main}
+2018-04-08 15:46:19 Error: [MissingActionException] Action UsersController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'img',
+)
+Request URL: /grupo3/users/img/icons/favicon-32x32.png
+Stack Trace:
+#0 /var/www/html/grupo3/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/grupo3/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/html/grupo3/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2018-04-08 15:46:19 Error: [MissingActionException] Action UsersController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'img',
+)
+Request URL: /grupo3/users/img/icons/favicon-16x16.png
+Stack Trace:
+#0 /var/www/html/grupo3/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/grupo3/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/html/grupo3/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2018-04-08 15:46:19 Error: [MissingActionException] Action UsersController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'img',
+)
+Request URL: /grupo3/users/img/icons/favicon-96x96.png
+Stack Trace:
+#0 /var/www/html/grupo3/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/grupo3/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/html/grupo3/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2018-04-08 15:46:19 Error: [MissingActionException] Action UsersController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'img',
+)
+Request URL: /grupo3/users/img/icons/android-icon-192x192.png
+Stack Trace:
+#0 /var/www/html/grupo3/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/grupo3/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/html/grupo3/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2018-04-08 15:46:19 Error: [MissingActionException] Action UsersController::images() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'images',
+)
+Request URL: /grupo3/users/images/icons/favicon.ico
+Stack Trace:
+#0 /var/www/html/grupo3/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/grupo3/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/html/grupo3/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2018-04-09 17:05:55 Error: [MissingActionException] Action UsersController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'img',
+)
+Request URL: /grupo3/users/img/icons/favicon-32x32.png
+Stack Trace:
+#0 /var/www/html/grupo3/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/grupo3/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/html/grupo3/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2018-04-09 17:05:55 Error: [MissingActionException] Action UsersController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'img',
+)
+Request URL: /grupo3/users/img/icons/favicon-16x16.png
+Stack Trace:
+#0 /var/www/html/grupo3/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/grupo3/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/html/grupo3/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2018-04-09 17:05:55 Error: [MissingActionException] Action UsersController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'img',
+)
+Request URL: /grupo3/users/img/icons/favicon-96x96.png
+Stack Trace:
+#0 /var/www/html/grupo3/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/grupo3/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/html/grupo3/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2018-04-09 17:05:55 Error: [MissingActionException] Action UsersController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'img',
+)
+Request URL: /grupo3/users/img/icons/android-icon-192x192.png
+Stack Trace:
+#0 /var/www/html/grupo3/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/grupo3/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/html/grupo3/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2018-04-09 17:05:55 Error: [MissingActionException] Action UsersController::images() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'images',
+)
+Request URL: /grupo3/users/images/icons/favicon.ico
+Stack Trace:
+#0 /var/www/html/grupo3/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/grupo3/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/html/grupo3/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2018-04-09 17:06:08 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /grupo3/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/grupo3/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-04-09 17:06:08 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /grupo3/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/grupo3/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-04-09 17:06:09 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /grupo3/img/icons/favicon-32x32.png
+Stack Trace:
+#0 /var/www/html/grupo3/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-04-09 17:06:09 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /grupo3/img/icons/favicon-16x16.png
+Stack Trace:
+#0 /var/www/html/grupo3/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-04-09 17:06:09 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /grupo3/img/icons/favicon-96x96.png
+Stack Trace:
+#0 /var/www/html/grupo3/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-04-09 17:06:09 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /grupo3/img/icons/android-icon-192x192.png
+Stack Trace:
+#0 /var/www/html/grupo3/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-04-09 17:06:09 Error: [MissingControllerException] Controller class ImagesController could not be found.
+Exception Attributes: array (
+  'class' => 'ImagesController',
+  'plugin' => NULL,
+)
+Request URL: /grupo3/images/icons/favicon.ico
+Stack Trace:
+#0 /var/www/html/grupo3/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-04-09 17:06:26 Error: [MissingActionException] Action GelCadastrosController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'GelCadastrosController',
+  'action' => 'img',
+)
+Request URL: /grupo3/gelCadastros/img/icons/favicon-32x32.png
+Stack Trace:
+#0 /var/www/html/grupo3/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/grupo3/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(GelCadastrosController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/html/grupo3/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2018-04-09 17:06:26 Error: [MissingActionException] Action GelCadastrosController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'GelCadastrosController',
+  'action' => 'img',
+)
+Request URL: /grupo3/gelCadastros/img/icons/favicon-16x16.png
+Stack Trace:
+#0 /var/www/html/grupo3/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/grupo3/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(GelCadastrosController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/html/grupo3/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2018-04-09 17:06:26 Error: [MissingActionException] Action GelCadastrosController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'GelCadastrosController',
+  'action' => 'img',
+)
+Request URL: /grupo3/gelCadastros/img/icons/favicon-96x96.png
+Stack Trace:
+#0 /var/www/html/grupo3/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/grupo3/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(GelCadastrosController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/html/grupo3/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2018-04-09 17:06:26 Error: [MissingActionException] Action GelCadastrosController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'GelCadastrosController',
+  'action' => 'img',
+)
+Request URL: /grupo3/gelCadastros/img/icons/android-icon-192x192.png
+Stack Trace:
+#0 /var/www/html/grupo3/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/grupo3/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(GelCadastrosController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/html/grupo3/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2018-04-09 17:06:26 Error: [MissingActionException] Action GelCadastrosController::images() could not be found.
+Exception Attributes: array (
+  'controller' => 'GelCadastrosController',
+  'action' => 'images',
+)
+Request URL: /grupo3/gelCadastros/images/icons/favicon.ico
+Stack Trace:
+#0 /var/www/html/grupo3/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/grupo3/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(GelCadastrosController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/html/grupo3/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2018-04-09 17:09:05 Error: Fatal Error (1): Call to a member function attached() on null in [/var/www/html/grupo3/app/Controller/AppController.php, line 125]
+2018-04-09 17:09:05 Error: [FatalErrorException] Call to a member function attached() on null
+Request URL: /grupo3/app/files/Raspadinha_Lotes/4/0.04.png
+Stack Trace:
+#0 /var/www/html/grupo3/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/html/g...', 125)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/html/g...', 125, Array)
+#2 /var/www/html/grupo3/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/html/g...', 125, Array)
+#3 /var/www/html/grupo3/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-04-09 17:09:05 Error: Fatal Error (1): Call to a member function attached() on null in [/var/www/html/grupo3/app/Controller/AppController.php, line 125]
+2018-04-09 17:09:05 Error: [FatalErrorException] Call to a member function attached() on null
+Request URL: /grupo3/app/files/Raspadinha_Lotes/4/0.20.png
+Stack Trace:
+#0 /var/www/html/grupo3/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/html/g...', 125)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/html/g...', 125, Array)
+#2 /var/www/html/grupo3/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/html/g...', 125, Array)
+#3 /var/www/html/grupo3/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-04-09 17:09:05 Error: Fatal Error (1): Call to a member function attached() on null in [/var/www/html/grupo3/app/Controller/AppController.php, line 125]
+2018-04-09 17:09:05 Error: [FatalErrorException] Call to a member function attached() on null
+Request URL: /grupo3/app/files/Raspadinha_Lotes/4/10.00.png
+Stack Trace:
+#0 /var/www/html/grupo3/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/html/g...', 125)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/html/g...', 125, Array)
+#2 /var/www/html/grupo3/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/html/g...', 125, Array)
+#3 /var/www/html/grupo3/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-04-09 17:09:05 Error: Fatal Error (1): Call to a member function attached() on null in [/var/www/html/grupo3/app/Controller/AppController.php, line 125]
+2018-04-09 17:09:05 Error: [FatalErrorException] Call to a member function attached() on null
+Request URL: /grupo3/app/files/Raspadinha_Lotes/4/30.00.png
+Stack Trace:
+#0 /var/www/html/grupo3/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/html/g...', 125)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/html/g...', 125, Array)
+#2 /var/www/html/grupo3/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/html/g...', 125, Array)
+#3 /var/www/html/grupo3/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-04-09 17:09:05 Error: Fatal Error (1): Call to a member function attached() on null in [/var/www/html/grupo3/app/Controller/AppController.php, line 125]
+2018-04-09 17:09:05 Error: [FatalErrorException] Call to a member function attached() on null
+Request URL: /grupo3/app/files/Raspadinha_Lotes/4/20.00.png
+Stack Trace:
+#0 /var/www/html/grupo3/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/html/g...', 125)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/html/g...', 125, Array)
+#2 /var/www/html/grupo3/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/html/g...', 125, Array)
+#3 /var/www/html/grupo3/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-04-09 17:09:05 Error: Fatal Error (1): Call to a member function attached() on null in [/var/www/html/grupo3/app/Controller/AppController.php, line 125]
+2018-04-09 17:09:05 Error: [FatalErrorException] Call to a member function attached() on null
+Request URL: /grupo3/app/files/Raspadinha_Lotes/4/5.00.png
+Stack Trace:
+#0 /var/www/html/grupo3/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/html/g...', 125)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/html/g...', 125, Array)
+#2 /var/www/html/grupo3/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/html/g...', 125, Array)
+#3 /var/www/html/grupo3/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-04-09 17:09:05 Error: Fatal Error (1): Call to a member function attached() on null in [/var/www/html/grupo3/app/Controller/AppController.php, line 125]
+2018-04-09 17:09:05 Error: [FatalErrorException] Call to a member function attached() on null
+Request URL: /grupo3/app/files/Raspadinha_Lotes/4/50.00.png
+Stack Trace:
+#0 /var/www/html/grupo3/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/html/g...', 125)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/html/g...', 125, Array)
+#2 /var/www/html/grupo3/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/html/g...', 125, Array)
+#3 /var/www/html/grupo3/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-04-09 17:12:33 Error: Fatal Error (1): Call to a member function attached() on null in [/var/www/html/grupo3/app/Controller/AppController.php, line 125]
+2018-04-09 17:12:33 Error: [FatalErrorException] Call to a member function attached() on null
+Request URL: /grupo3/app/webroot/files/RaspadinhasTemas/PIRATE%20TREASURE/imagemIndex.png
+Stack Trace:
+#0 /var/www/html/grupo3/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/html/g...', 125)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/html/g...', 125, Array)
+#2 /var/www/html/grupo3/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/html/g...', 125, Array)
+#3 /var/www/html/grupo3/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-04-09 17:12:33 Error: Fatal Error (1): Call to a member function attached() on null in [/var/www/html/grupo3/app/Controller/AppController.php, line 125]
+2018-04-09 17:12:33 Error: [FatalErrorException] Call to a member function attached() on null
+Request URL: /grupo3/app/webroot/files/RaspadinhasTemas/Golden%20Goal/imagemIndex.png
+Stack Trace:
+#0 /var/www/html/grupo3/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/html/g...', 125)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/html/g...', 125, Array)
+#2 /var/www/html/grupo3/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/html/g...', 125, Array)
+#3 /var/www/html/grupo3/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-04-09 17:19:59 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /grupo3/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/grupo3/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-04-09 17:19:59 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /grupo3/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/grupo3/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-04-09 17:20:00 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /grupo3/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/grupo3/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-04-09 17:20:00 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /grupo3/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/grupo3/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-04-09 17:21:00 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /grupo3/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/grupo3/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-04-09 17:21:00 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /grupo3/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/grupo3/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-04-09 17:21:00 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /grupo3/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/grupo3/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-04-09 17:21:00 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /grupo3/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/grupo3/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-04-09 17:22:03 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /grupo3/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/grupo3/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-04-09 17:22:03 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /grupo3/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/grupo3/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-04-09 17:22:04 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /grupo3/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/grupo3/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-04-09 17:22:04 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /grupo3/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/grupo3/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-04-09 17:35:49 Error: Fatal Error (1): Call to a member function attached() on null in [/var/www/html/grupo3/app/Controller/AppController.php, line 125]
+2018-04-09 17:35:49 Error: [FatalErrorException] Call to a member function attached() on null
+Request URL: /grupo3/app/files/Raspadinha_Lotes/4/20.00.png
+Stack Trace:
+#0 /var/www/html/grupo3/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/html/g...', 125)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/html/g...', 125, Array)
+#2 /var/www/html/grupo3/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/html/g...', 125, Array)
+#3 /var/www/html/grupo3/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-04-09 17:35:49 Error: Fatal Error (1): Call to a member function attached() on null in [/var/www/html/grupo3/app/Controller/AppController.php, line 125]
+2018-04-09 17:35:49 Error: [FatalErrorException] Call to a member function attached() on null
+Request URL: /grupo3/app/files/Raspadinha_Lotes/4/10.00.png
+Stack Trace:
+#0 /var/www/html/grupo3/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/html/g...', 125)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/html/g...', 125, Array)
+#2 /var/www/html/grupo3/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/html/g...', 125, Array)
+#3 /var/www/html/grupo3/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-04-09 17:35:49 Error: Fatal Error (1): Call to a member function attached() on null in [/var/www/html/grupo3/app/Controller/AppController.php, line 125]
+2018-04-09 17:35:49 Error: [FatalErrorException] Call to a member function attached() on null
+Request URL: /grupo3/app/files/Raspadinha_Lotes/4/30.00.png
+Stack Trace:
+#0 /var/www/html/grupo3/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/html/g...', 125)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/html/g...', 125, Array)
+#2 /var/www/html/grupo3/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/html/g...', 125, Array)
+#3 /var/www/html/grupo3/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-04-09 17:35:49 Error: Fatal Error (1): Call to a member function attached() on null in [/var/www/html/grupo3/app/Controller/AppController.php, line 125]
+2018-04-09 17:35:49 Error: [FatalErrorException] Call to a member function attached() on null
+Request URL: /grupo3/app/files/Raspadinha_Lotes/4/5.00.png
+Stack Trace:
+#0 /var/www/html/grupo3/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/html/g...', 125)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/html/g...', 125, Array)
+#2 /var/www/html/grupo3/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/html/g...', 125, Array)
+#3 /var/www/html/grupo3/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-04-09 17:35:49 Error: Fatal Error (1): Call to a member function attached() on null in [/var/www/html/grupo3/app/Controller/AppController.php, line 125]
+2018-04-09 17:35:49 Error: [FatalErrorException] Call to a member function attached() on null
+Request URL: /grupo3/app/files/Raspadinha_Lotes/4/0.20.png
+Stack Trace:
+#0 /var/www/html/grupo3/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/html/g...', 125)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/html/g...', 125, Array)
+#2 /var/www/html/grupo3/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/html/g...', 125, Array)
+#3 /var/www/html/grupo3/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-04-09 17:35:49 Error: Fatal Error (1): Call to a member function attached() on null in [/var/www/html/grupo3/app/Controller/AppController.php, line 125]
+2018-04-09 17:35:49 Error: [FatalErrorException] Call to a member function attached() on null
+Request URL: /grupo3/app/files/Raspadinha_Lotes/4/50.00.png
+Stack Trace:
+#0 /var/www/html/grupo3/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/html/g...', 125)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/html/g...', 125, Array)
+#2 /var/www/html/grupo3/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/html/g...', 125, Array)
+#3 /var/www/html/grupo3/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-04-09 17:35:49 Error: Fatal Error (1): Call to a member function attached() on null in [/var/www/html/grupo3/app/Controller/AppController.php, line 125]
+2018-04-09 17:35:49 Error: [FatalErrorException] Call to a member function attached() on null
+Request URL: /grupo3/app/files/Raspadinha_Lotes/4/0.04.png
+Stack Trace:
+#0 /var/www/html/grupo3/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/html/g...', 125)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/html/g...', 125, Array)
+#2 /var/www/html/grupo3/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/html/g...', 125, Array)
+#3 /var/www/html/grupo3/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-04-09 17:35:54 Error: Fatal Error (1): Call to a member function attached() on null in [/var/www/html/grupo3/app/Controller/AppController.php, line 125]
+2018-04-09 17:35:54 Error: [FatalErrorException] Call to a member function attached() on null
+Request URL: /grupo3/app/files/Raspadinha_Lotes/2/0.02.png
+Stack Trace:
+#0 /var/www/html/grupo3/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/html/g...', 125)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/html/g...', 125, Array)
+#2 /var/www/html/grupo3/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/html/g...', 125, Array)
+#3 /var/www/html/grupo3/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-04-09 17:35:54 Error: Fatal Error (1): Call to a member function attached() on null in [/var/www/html/grupo3/app/Controller/AppController.php, line 125]
+2018-04-09 17:35:54 Error: [FatalErrorException] Call to a member function attached() on null
+Request URL: /grupo3/app/files/Raspadinha_Lotes/2/0.10.png
+Stack Trace:
+#0 /var/www/html/grupo3/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/html/g...', 125)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/html/g...', 125, Array)
+#2 /var/www/html/grupo3/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/html/g...', 125, Array)
+#3 /var/www/html/grupo3/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-04-09 17:35:54 Error: Fatal Error (1): Call to a member function attached() on null in [/var/www/html/grupo3/app/Controller/AppController.php, line 125]
+2018-04-09 17:35:54 Error: [FatalErrorException] Call to a member function attached() on null
+Request URL: /grupo3/app/files/Raspadinha_Lotes/2/0.25.png
+Stack Trace:
+#0 /var/www/html/grupo3/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/html/g...', 125)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/html/g...', 125, Array)
+#2 /var/www/html/grupo3/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/html/g...', 125, Array)
+#3 /var/www/html/grupo3/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-04-09 17:35:54 Error: Fatal Error (1): Call to a member function attached() on null in [/var/www/html/grupo3/app/Controller/AppController.php, line 125]
+2018-04-09 17:35:54 Error: [FatalErrorException] Call to a member function attached() on null
+Request URL: /grupo3/app/files/Raspadinha_Lotes/2/1.00.png
+Stack Trace:
+#0 /var/www/html/grupo3/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/html/g...', 125)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/html/g...', 125, Array)
+#2 /var/www/html/grupo3/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/html/g...', 125, Array)
+#3 /var/www/html/grupo3/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-04-09 17:35:54 Error: Fatal Error (1): Call to a member function attached() on null in [/var/www/html/grupo3/app/Controller/AppController.php, line 125]
+2018-04-09 17:35:54 Error: [FatalErrorException] Call to a member function attached() on null
+Request URL: /grupo3/app/files/Raspadinha_Lotes/2/10.00.png
+Stack Trace:
+#0 /var/www/html/grupo3/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/html/g...', 125)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/html/g...', 125, Array)
+#2 /var/www/html/grupo3/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/html/g...', 125, Array)
+#3 /var/www/html/grupo3/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-04-09 17:35:54 Error: Fatal Error (1): Call to a member function attached() on null in [/var/www/html/grupo3/app/Controller/AppController.php, line 125]
+2018-04-09 17:35:54 Error: [FatalErrorException] Call to a member function attached() on null
+Request URL: /grupo3/app/files/Raspadinha_Lotes/2/0.50.png
+Stack Trace:
+#0 /var/www/html/grupo3/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/html/g...', 125)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/html/g...', 125, Array)
+#2 /var/www/html/grupo3/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/html/g...', 125, Array)
+#3 /var/www/html/grupo3/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-04-09 17:35:54 Error: Fatal Error (1): Call to a member function attached() on null in [/var/www/html/grupo3/app/Controller/AppController.php, line 125]
+2018-04-09 17:35:54 Error: [FatalErrorException] Call to a member function attached() on null
+Request URL: /grupo3/app/files/Raspadinha_Lotes/2/25.00.png
+Stack Trace:
+#0 /var/www/html/grupo3/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/html/g...', 125)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/html/g...', 125, Array)
+#2 /var/www/html/grupo3/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/html/g...', 125, Array)
+#3 /var/www/html/grupo3/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-04-09 17:35:55 Error: Fatal Error (1): Call to a member function attached() on null in [/var/www/html/grupo3/app/Controller/AppController.php, line 125]
+2018-04-09 17:35:55 Error: [FatalErrorException] Call to a member function attached() on null
+Request URL: /grupo3/app/files/Raspadinha_Lotes/2/50.00.png
+Stack Trace:
+#0 /var/www/html/grupo3/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/html/g...', 125)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/html/g...', 125, Array)
+#2 /var/www/html/grupo3/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/html/g...', 125, Array)
+#3 /var/www/html/grupo3/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-04-09 17:35:55 Error: Fatal Error (1): Call to a member function attached() on null in [/var/www/html/grupo3/app/Controller/AppController.php, line 125]
+2018-04-09 17:35:55 Error: [FatalErrorException] Call to a member function attached() on null
+Request URL: /grupo3/app/files/Raspadinha_Lotes/2/100.00.png
+Stack Trace:
+#0 /var/www/html/grupo3/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/html/g...', 125)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/html/g...', 125, Array)
+#2 /var/www/html/grupo3/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/html/g...', 125, Array)
+#3 /var/www/html/grupo3/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-04-09 17:35:55 Error: Fatal Error (1): Call to a member function attached() on null in [/var/www/html/grupo3/app/Controller/AppController.php, line 125]
+2018-04-09 17:35:55 Error: [FatalErrorException] Call to a member function attached() on null
+Request URL: /grupo3/app/files/Raspadinha_Lotes/2/500.00.png
+Stack Trace:
+#0 /var/www/html/grupo3/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/html/g...', 125)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/html/g...', 125, Array)
+#2 /var/www/html/grupo3/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/html/g...', 125, Array)
+#3 /var/www/html/grupo3/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
