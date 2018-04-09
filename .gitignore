@@ -5,5 +5,5 @@
 /app/tmp/cache/persistent
 /app/tmp/cache/logs
 /app/tmp/cache/sessions
-/app/tmp/logs
-app/tmp/logs/error.log
+/app/tmp/logs/*
+/app/tmp/logs/error.log
