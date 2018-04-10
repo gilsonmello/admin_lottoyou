@@ -37,15 +37,24 @@
                 <?php echo $this->Form->input('min_assertos', array('label' => 'Número mínimo de asserto', 'class' => 'form-control decimal', 'title' => 'Quantidade mínima de dezenas para asserto.', 'required' => true)); ?>
             </div>
         </div>
-        <div class="col-sm-2 col-xs-2 col-md-3 col-lg-2">
+        <div class="col-sm-3 col-xs-2 col-md-3 col-lg-3">
             <div class="form-group"> 
                 <?php echo $this->Form->input('max_assertos', array('label' => 'Número máximo de asserto', 'class' => 'form-control decimal', 'title' => 'Quantidade de dezenas para o primeiro premio.', 'required' => true)); ?>
             </div>
         </div>
-        <div class="col-sm-2 col-xs-2 col-md-2 col-lg-2">
+        <div class="col-sm-3 col-xs-2 col-md-2 col-lg-3">
             <div class="form-group"> 
                 <?php echo $this->Form->input('extra_assertos', array('label' => 'Número de asserto das extras', 'class' => 'form-control decimal', 'title' => 'Quantidade de dezenas extras para asserto.', 'required' => true)); ?>
             </div>
+        </div>
+        <div class="col-lg-3" >
+            <div class="form-group">   
+                <?php echo $this->Form->input("value", [
+                    'label' => 'Valor', 
+                    'class' => 'form-control money',
+                    'required' => true,
+                ]) ?>
+            </div>     
         </div>
         <div class="col-sm-2 col-xs-2 col-md-2 col-lg-2">
             <?php echo $this->Form->input('zero_assertos', array('type' => 'radio', 'legend' => 'Zero pontos', 'class' => 'radio-inline radio-styled tipo', 'options' => array(1 => 'Sim', 0 => 'Não'), 'value' => '1')); ?>

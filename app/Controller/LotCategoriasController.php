@@ -2,6 +2,8 @@
 
 class LotCategoriasController extends AppController {
 
+    public $components = array('App');
+
     public function index($modal = 0) {
         // CARREGA FUNÇÕES BÁSICAS DE PESQUISA E ORDENAÇÃO
         $options = parent::_index();
@@ -29,7 +31,9 @@ class LotCategoriasController extends AppController {
         // CONFIGURA LAYOUT
         $this->layout = 'ajax';
 
-        if ($this->request->is('post') || $this->request->is('put')) {
+        if ($this->request->is('post') || $this->request->is('put')) {            
+            $value = $this->request->data['LotCategoria']['value'];
+            $this->request->data['LotCategoria']['value'] = $this->App->formataValorDouble($value);
             if ($this->LotCategoria->save($this->request->data)) {
                 $this->Session->setFlash('Registro salvo com sucesso.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-success'));
             } else {
@@ -49,6 +53,8 @@ class LotCategoriasController extends AppController {
 
         if ($this->request->is('post') || $this->request->is('put')) {
             $this->request->data['LotCategoria']['id'] = $id;
+            $value = $this->request->data['LotCategoria']['value'];
+            $this->request->data['LotCategoria']['value'] = $this->App->formataValorDouble($value);
             if ($this->LotCategoria->save($this->request->data)) {
                 $this->Session->setFlash('Registro salvo com sucesso.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-success'));
             } else {

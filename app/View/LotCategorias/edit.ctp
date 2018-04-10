@@ -44,7 +44,7 @@
             </div>
         </div>
         <div class="col-sm-3 col-xs-3 col-md-3 col-lg-3">
-            <?php echo $this->Form->input('zero_assertos', array('type' => 'radio', 'legend' => 'Zero pontos', 'class' => 'radio-inline radio-styled tipo', 'options' => array(1 => 'Sim', 0 => 'Não'), 'value' => '1')); ?>
+            <?php echo $this->Form->input('zero_assertos', array('type' => 'radio', 'legend' => 'Zero pontos', 'class' => 'radio-inline radio-styled tipo', 'options' => array(1 => 'Sim', 0 => 'Não'))); ?>
         </div>
     </div>
     <div class="row">
@@ -54,8 +54,18 @@
             </div>
         </div>
 
+        <div class="col-lg-3" >
+            <div class="form-group">   
+                <?php echo $this->Form->input("value", [
+                    'label' => 'Valor', 
+                    'class' => 'form-control money',
+                    'required' => true,
+                ]) ?>
+            </div>     
+        </div>
+
         <div class="col-sm-3 col-xs-3 col-md-3 col-lg-3">
-            <?php echo $this->Form->input('active', array('type' => 'radio', 'legend' => 'Ativo', 'class' => 'radio-inline radio-styled tipo', 'options' => array(1 => 'Sim', 0 => 'Não'), 'value' => '1')); ?>
+            <?php echo $this->Form->input('active', array('type' => 'radio', 'legend' => 'Ativo', 'class' => 'radio-inline radio-styled tipo', 'options' => array(1 => 'Sim', 0 => 'Não'))); ?>
         </div>
         <div class="col-sm-12">
 
