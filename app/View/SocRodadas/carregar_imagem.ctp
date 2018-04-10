@@ -7,7 +7,12 @@
     	</div>
         <div class="col-sm-8 col-lg-8 col-md-8 col-xs-12">
             <div class="form-group">
-                <?php echo $this->Form->input('imagem_capa', array('type' => 'file', 'label' => 'Imagem', 'class' => 'form-control')); ?>
+                <?php echo $this->Form->input('imagem_capa', [
+                    'type' => 'file', 
+                    'label' => 'Imagem', 
+                    'class' => 'form-control',
+                    'accept' => "image/*"
+                ]); ?>
             </div>
         </div>
     </div>
