@@ -150,31 +150,37 @@ class SocRodada extends AppModel {
 
     public function beforeSave($options = array()) {
         parent::beforeSave($options);
-        //Se for do tipo ilimitado, não é necessário o campo limite,
-        if($this->data['SocRodada']['tipo'] == 0) {
-            $this->data['SocRodada']['limite'] = null;
+        if(isset($this->data['SocRodada']['tipo'])) {
+            //Se for do tipo ilimitado, não é necessário o campo limite,
+            if($this->data['SocRodada']['tipo'] == 0) {
+                $this->data['SocRodada']['limite'] = null;
+            }
         }
     }
 
     public function beforeValidate($options = array()) {
         parent::beforeValidate($options);
-        //Se for do tipo ilimitado, não é necessário o campo limite,
-        //Removo o campo limite da validação
-        if($this->data['SocRodada']['tipo'] == 0) {
-            unset($this->validate['limite']);
+        if(isset($this->data['SocRodada']['tipo'])) {
+            //Se for do tipo ilimitado, não é necessário o campo limite,
+            //Removo o campo limite da validação
+            if($this->data['SocRodada']['tipo'] == 0) {
+                unset($this->validate['limite']);
+            }
         }
     }
 
     public function afterSave($created, $options = array()) {
         parent::afterSave($created);
         if($created) {
-            //Se for do tipo limitado, faço criação de um grupo para a rodada
-            if($this->data['SocRodada']['tipo'] != 0) {
-                $this->SocRodadasGrupo->create();
-                $socRodadasGrupo['soc_rodada_id'] = $this->id;
-                $socRodadasGrupo['active'] = 1;
-                $socRodadasGrupo['status'] = 1;
-                $this->SocRodadasGrupo->save($socRodadasGrupo);
+            if(isset($this->data['SocRodada']['tipo'])) {
+                //Se for do tipo limitado, faço criação de um grupo para a rodada
+                if($this->data['SocRodada']['tipo'] != 0) {
+                    $this->SocRodadasGrupo->create();
+                    $socRodadasGrupo['soc_rodada_id'] = $this->id;
+                    $socRodadasGrupo['active'] = 1;
+                    $socRodadasGrupo['status'] = 1;
+                    $this->SocRodadasGrupo->save($socRodadasGrupo);
+                }
             }
         }
     }

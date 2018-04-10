@@ -34,38 +34,43 @@ class SocRodadasController extends AppController {
     }
 
     public function carregarImagem($id) {
-        if($this->request->is('post')){
+        if($this->request->is('post')) {
+
             $this->request->data['SocRodada']['id'] = $id;
-            $this->request->data['SocRodada']['imagem_capa'] = $_FILES['imagem_capa']['name'];
-            $this->loadModel("SocRodada");
             unset($this->SocRodada->validate);
-            if($this->uploadFile($_FILES['imagem_capa'], $id) && $this->SocRodada->save($this->request->data['SocRodada'])){
+
+            $this->SocRodada->create(false);
+
+            //die(var_dump($this->request->data));
+            if($this->uploadFile($_FILES['imagem_capa'], $id)) {
+                $this->SocRodada->save($this->request->data);
                 die(json_encode(true));
             }
             die(json_encode(false));
+        } else {
+            $dados = $this->SocRodada->read(null, $id);
+            $this->set('dados', $dados);
         }
     }
 
     private function uploadFile($parametros = null, $id){
 
-        $path = str_replace('/index.php', "", $_SERVER['SCRIPT_FILENAME'] );
+        $parts = pathinfo($parametros['name']);
 
-        if(!is_dir($path.'/img/rodadas')){
-            mkdir($path.'/img/rodadas');
+        $newFileName = $id . '.' . strtolower($parts['extension']);
+        
+        $targetFile = 'files/Soccer_Expert_Rodadas/'. $newFileName;
+
+        if(!is_dir('files/Soccer_Expert_Rodadas')){
+            mkdir('files/Soccer_Expert_Rodadas', 0777);
         }
 
-        if(!is_dir($path.'/img/rodadas/'.$id)){
-            mkdir($path.'/img/rodadas/'.$id);
-        }
-
-        $nome_imagem = $parametros['name'];
-
-        if(@move_uploaded_file($parametros['tmp_name'], $path.'/img/rodadas/'.$id.'/'.$nome_imagem)){
+        if(@move_uploaded_file($parametros['tmp_name'], $targetFile)){
+            $this->request->data['SocRodada']['imagem_capa'] = $targetFile;
             return true;
         }
 
         return false;
-
     }
 
     public function add() {

@@ -149,9 +149,11 @@
             myDropzone.on("success", function (file) {
                 // Altera imagem atual do perfil
                 var newPhoto = $('.dz-details img').attr('src');
-                $('.header-nav-profile img').attr('src', newPhoto);
+
+                modalObject.find('.img-circle').attr('src', newPhoto);
+                //$('.header-nav-profile img').attr('src', newPhoto);
 //                $('#gridUser .img-circle').attr('src', newPhoto);
-                toastr.success('Foto alterada com sucesso');
+                toastr.success('Imagem alterada com sucesso');
             });
 
         });

@@ -194,7 +194,11 @@
 
             });
 
-            $(document).on('click', '#SocRodadaCarregarImagemForm #carregar_imagem', function (event) {
+            modalObject.find('.carregar_imagem').off('click');
+
+            modalObject.find('form').off('submit');
+
+            modalObject.find('.carregar_imagem').on('click', function (event) {
 
                 //Input imagem selecionado pelo usuário
                 var imagem = $(document).find('#SocRodadaCarregarImagemForm').find('#SocRodadaImagemCapa');
@@ -240,6 +244,7 @@
                                 btn.html(text);
                                 btn.removeAttr('disabled');
                                 toastr.success("Imagem enviada com sucesso");
+                                modalObject.modal('hide');
                             } else {
                                 //Desativa o ajax loader
                                 btn.html(text);

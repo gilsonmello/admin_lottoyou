@@ -2,6 +2,14 @@
 
 class SocCategoriasController extends AppController {
 
+    public function beforeRender() {
+        parent::beforeRender();
+        $targetPath = 'files/Soccer_Expert_Temas';
+        if(!is_dir($targetPath)) {
+            mkdir($targetPath);
+        }
+    }
+
     public function index($modal = 0) {
         // CARREGA FUNÇÕES BÁSICAS DE PESQUISA E ORDENAÇÃO
         $options = parent::_index();
@@ -67,10 +75,12 @@ class SocCategoriasController extends AppController {
 
         $this->layout = 'ajax';
 
+        $this->loadModel('SocCategoria');
+        
         if (!empty($_FILES)) {
             $parts = pathinfo($_FILES['file']['name']);
             $tempFile = $_FILES['file']['tmp_name'];
-            $targetPath = 'img/soccer-expert/categoria/';
+            $targetPath = 'files/Soccer_Expert_Temas/';
             //$newFileName = $user_id.'-'.date('ymdHis').'.'.$parts['extension'];
             $newFileName = $idCategoria . '.' . strtolower($parts['extension']);
             $targetFile = $targetPath . $newFileName;
@@ -79,10 +89,10 @@ class SocCategoriasController extends AppController {
             if (move_uploaded_file($tempFile, $targetFile)) {
                 // SALVA NO BANCO NO NOME DA IMAGEM
                 $data['SocCategoria']['id'] = $idCategoria;
-                $data['SocCategoria']['imagem_capa'] = strtolower($newFileName);
+                $data['SocCategoria']['imagem_capa'] = strtolower($targetFile);
                 $data['SocCategoria']['modified'] = date('d/m/Y H:i:s');
 
-                $this->loadModel('SocCategoria');
+                
 //                $this->SocCategoria->id = $this->SocCategoria->field('id', array('SocCategoria.gel_clube_id' => $idCategoria));
                 $this->SocCategoria->save($data, false);
 //                $this->Session->write('Auth.User.photo', $data['User']['photo']);
@@ -94,8 +104,13 @@ class SocCategoriasController extends AppController {
             echo json_encode(compact('error'));
             exit;
         } else {
-            $this->loadModel('SocCategoria');
-            $dados = $this->SocCategoria->find('first', array('conditions' => array('SocCategoria.id' => $idCategoria)));
+            
+            $dados = $this->SocCategoria->find('first', [
+                'conditions' => [
+                    'SocCategoria.id' => $idCategoria
+                ]
+            ]);
+            
             $this->set(compact('dados'));
         }
     }
