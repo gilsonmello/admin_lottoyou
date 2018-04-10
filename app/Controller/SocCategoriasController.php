@@ -89,7 +89,7 @@ class SocCategoriasController extends AppController {
             if (move_uploaded_file($tempFile, $targetFile)) {
                 // SALVA NO BANCO NO NOME DA IMAGEM
                 $data['SocCategoria']['id'] = $idCategoria;
-                $data['SocCategoria']['imagem_capa'] = strtolower($targetFile);
+                $data['SocCategoria']['imagem_capa'] = $targetFile;
                 $data['SocCategoria']['modified'] = date('d/m/Y H:i:s');
 
                 
