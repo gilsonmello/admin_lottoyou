@@ -43,14 +43,14 @@
                     <div class="card-body tab-content">
                         <div class="tab-pane active" id="first22">
                             <div class="row" id='divCategoria'>
-                                <?php foreach ($dadosCategorias as $key => $value) { var_dump($value); ?>
+                                <?php foreach ($dadosCategorias as $key => $value) { ?>
                                     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                                         <div class="game ItemHolder card-raspadinha card" style="padding-top: 8px;">
                                             <span class="ng-scope" style="position: absolute;">
                                                 <?php echo ($value['SocCategoria']['novo'] == 1) ? $this->Html->image('../img/raspadinha/novo.png', array('class' => 'game-badge', 'style' => 'margin-left: -5px;')) : ''; ?>
                                             </span>
                                             <div class="game-header">
-                                                <?php echo $this->Html->image('../img/soccer-expert/categoria/' . $value['SocCategoria']['imagem_capa'], array('class' => 'header-image', 'alt' => 'Capa', 'style' => 'height: 150px; width: 100%;')) ?>
+                                                <?php echo $this->Html->image($this->Html->url('/').$value['SocCategoria']['imagem_capa'], array('class' => 'header-image', 'alt' => 'Capa', 'style' => 'height: 150px; width: 100%;')) ?>
                                                 <div style="width: 100%; text-align: center; padding: 4px; background-color: #2FB9E3;">
                                                     <!--<p style="font-size: 14px; color: white;"><b><?php echo $value['SocCategoria']['texto_index']; ?></b></p>-->
                                                 </div>
