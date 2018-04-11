@@ -79,16 +79,26 @@
                     <tbody>
                         <?php foreach ($dados as $k => $v) { ?>
                             <tr>
-                                <td><?php echo !empty($v['GelClube']['escudo']) ? $this->Html->image($v['GelClube']['escudo'], array('style' => 'width: 35px; height: 35px')) : '' ; ?></td>                                
-                                <td><?php echo $v['GelClube']['abreviacao']; ?></td>                                
-                                <td><?php echo $v['GelClube']['nome']; ?></td>                                
-                                <td><label class="label label-<?php echo ($v['GelClube']['ativo'] == 'Sim') ? 'success' : 'danger'; ?>"><?php echo $v['GelClube']['ativo']; ?></label></td>
+                                <td>
+                                    <?php if(!empty($v['GelClube']['escudo'])) { ?>
+                                        <img class="img-responsive" style="width: 35px; height: 35px;" src="<?= $this->Html->url('/'.$v['GelClube']['escudo']) ?>">
+                                    <?php } else { ?>
+                                        Não cadastrada
+                                    <?php } ?>                                        
+                                </td>                                
+                                <td><?= $v['GelClube']['abreviacao']; ?></td>                                
+                                <td><?= $v['GelClube']['nome']; ?></td>                                
+                                <td>
+                                    <label class="label label-<?= ($v['GelClube']['ativo'] == 'Sim') ? 'success' : 'danger'; ?>">
+                                        <?= $v['GelClube']['ativo']; ?>
+                                    </label>
+                                </td>
                                 <td class="actions">
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-icon-toggle dropdown-toggle" data-toggle="dropdown"><i class="fa fa-gear"></i></button>
                                         <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                                            <li><?php echo $this->Html->link('<i class="md md-create"></i>&nbsp Adicionar Imagem', 'javascript: void(0)', array("escape" => false, 'id' => $v['GelClube']['id'], 'class' => 'btnAddImagem')) ?></li>
-                                            <li class="divider"></li>
+                                            <!-- <li><?php echo $this->Html->link('<i class="md md-create"></i>&nbsp Adicionar Imagem', 'javascript: void(0)', array("escape" => false, 'id' => $v['GelClube']['id'], 'class' => 'btnAddImagem')) ?></li>
+                                            <li class="divider"></li> -->
                                             <li><?php echo $this->Html->link('<i class="md md-create"></i>&nbsp Editar', 'javascript: void(0)', array("escape" => false, 'id' => $v['GelClube']['id'], 'class' => 'btnEditar')) ?></li>
                                             <li><?php echo $this->Html->link('<i class="md md-delete"></i>&nbsp Excluir', 'javascript: void(0)', array("escape" => false, 'id' => $v['GelClube']['id'], 'class' => 'btnDeletar')) ?></li>
                                             <li style="background: #F1F1F1; font-size: 9px; text-align: center;">Atualizado em: <?php echo @$v['GelClube']['modified'] ?></li>

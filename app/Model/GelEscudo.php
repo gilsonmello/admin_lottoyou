@@ -6,11 +6,13 @@ App::uses('AppModel', 'Model');
  */
 class GelEscudo extends AppModel {
 
-    public $virtualFields = array(
+    public $virtualFields = [
         'ativo' => "CASE WHEN GelEscudo.active = 1 THEN 'Sim' ELSE 'Não' END",
-    );
+    ];
     
-    public $belongsTo = array('GelClube');
+    public $belongsTo = [
+    	'GelClube'
+    ];
     
 //    public $order = 'GelEscudo.nome asc';
 

@@ -6,10 +6,10 @@ App::uses('AppModel', 'Model');
  */
 class GelClube extends AppModel {
 
-    public $virtualFields = array(
+   	public $virtualFields = [
         'ativo' => "CASE WHEN GelClube.active = 1 THEN 'Sim' ELSE 'Não' END",
-        'escudo' => "select dimensao from gel_escudos e where e.gel_clube_id = GelClube.id limit 1",
-    );
+        //'escudo' => "select dimensao from gel_escudos e where e.gel_clube_id = GelClube.id limit 1",
+    ];
     
     public $order = 'GelClube.nome asc';
 

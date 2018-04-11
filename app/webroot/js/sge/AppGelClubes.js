@@ -116,8 +116,7 @@
                     p._loadConsGelClube();
                 }
             });
-
-        });
+        }, undefined, true);
     };
 
     p._adicionarImagemGelClube = function (id) {

@@ -50,9 +50,42 @@ class GelClubesController extends AppController {
         $this->layout = 'ajax';
 
         if ($this->request->is('post') || $this->request->is('put')) {
+
+            $this->StartTransaction();
+
+            //Pegando o arquivo
+            $file = $this->request->data['GelClube']['escudo'];
+            //Removendo o arquivo para salvar o registro
+            unset($this->request->data['GelClube']['escudo']);
+            
             if ($this->GelClube->save($this->request->data)) {
-                $this->Session->setFlash('Registro salvo com sucesso.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-success'));
+
+                
+                $parts = pathinfo($file['name']);
+                $tempFile = $file['tmp_name'];
+                $targetPath = 'files/Soccer_Expert_Clubes/escudos/';
+                //$newFileName = $user_id.'-'.date('ymdHis').'.'.$parts['extension'];
+                $newFileName = $this->GelClube->id . '.' . strtolower($parts['extension']);
+                $targetFile = $targetPath . $newFileName;
+                $error = 0;
+
+                if (move_uploaded_file($tempFile, $targetFile)) {
+                    // SALVA NO BANCO NO NOME DA IMAGEM                    
+                    $escudo['GelClube']['escudo'] = $targetFile; 
+                    $this->GelClube->save($escudo);                   
+                    $error = 0;
+                } else {
+                    $error = 1;
+                }
+                
+                if($error == 0) {
+                    $this->validaTransacao(true);
+                    $this->Session->setFlash('Registro salvo com sucesso.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-success'));                  
+                } else {
+                    $this->Session->setFlash('Não foi possível editar o registro. Favor tentar novamente.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-danger'));
+                }
             } else {
+                $this->validaTransacao(false);  
                 $this->Session->setFlash('Não foi possível editar o registro. Favor tentar novamente.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-danger'));
             }
         }
@@ -63,6 +96,39 @@ class GelClubesController extends AppController {
         $this->layout = 'ajax';
 
         if (!empty($_FILES)) {
+            $parts = pathinfo($_FILES['file']['name']);
+            $tempFile = $_FILES['file']['tmp_name'];
+            $targetPath = 'files/Soccer_Expert_Clubes/escudos/';
+            //$newFileName = $user_id.'-'.date('ymdHis').'.'.$parts['extension'];
+            $newFileName = $idClube . '.' . strtolower($parts['extension']);
+            $targetFile = $targetPath . $newFileName;
+            $error = 0;
+
+            if (move_uploaded_file($tempFile, $targetFile)) {
+                // SALVA NO BANCO NO NOME DA IMAGEM
+                $data['GelEscudo']['gel_clube_id'] = $idClube;
+                $data['GelEscudo']['dimensao'] = $targetFile;
+                $data['GelEscudo']['modified'] = date('d/m/Y H:i:s');
+                
+                
+                $this->GelEscudo->id = $this->GelEscudo->field('id', array('GelEscudo.gel_clube_id' => $idClube));
+                $this->GelEscudo->gel_clube_id = $idClube;
+                $this->GelEscudo->save($data, false);
+//                $this->Session->write('Auth.User.photo', $data['User']['photo']);
+                $error = 0;
+            } else {
+                $error = 1;
+            }
+
+            echo json_encode(compact('error'));
+            exit;
+        }else{
+            $this->loadModel('GelEscudo');
+            $dados = $this->GelEscudo->find('first', array('conditions' => array('GelEscudo.gel_clube_id' => $idClube)));
+            $this->set(compact('dados'));
+        }
+
+        /*if (!empty($_FILES)) {
             $parts = pathinfo($_FILES['file']['name']);
             $tempFile = $_FILES['file']['tmp_name'];
             $targetPath = 'files/Soccer_Expert_Clubes/escudos/';
@@ -93,7 +159,7 @@ class GelClubesController extends AppController {
             $this->loadModel('GelEscudo');
             $dados = $this->GelEscudo->find('first', array('conditions' => array('GelEscudo.gel_clube_id' => $idClube)));
             $this->set(compact('dados'));
-        }
+        }*/
     }
 
     public function addCartola() {
@@ -150,13 +216,46 @@ class GelClubesController extends AppController {
 
         if ($this->request->is('post') || $this->request->is('put')) {
             $this->request->data['GelClube']['id'] = $id;
+
+            $this->StartTransaction();
+
+            //Pegando o arquivo
+            $file = $this->request->data['GelClube']['escudo'];
+            //Removendo o arquivo para salvar o registro
+            unset($this->request->data['GelClube']['escudo']);
+            
+            //Salvo os dados
             if ($this->GelClube->save($this->request->data)) {
-                $this->Session->setFlash('Registro salvo com sucesso.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-success'));
+
+                //Verifico se possue arquivo
+                if(isset($file)) {
+                    $parts = pathinfo($file['name']);
+                    $tempFile = $file['tmp_name'];
+                    $targetPath = 'files/Soccer_Expert_Clubes/escudos/';
+                    //$newFileName = $user_id.'-'.date('ymdHis').'.'.$parts['extension'];
+                    $newFileName = $id . '.' . strtolower($parts['extension']);
+                    $targetFile = $targetPath . $newFileName;
+                    $error = 0;
+
+                    //Movendo arquivo
+                    if (move_uploaded_file($tempFile, $targetFile)) {
+                        // SALVA NO BANCO NO NOME DA IMAGEM                    
+                        $escudo['GelClube']['escudo'] = $targetFile; 
+                        $escudo['GelClube']['id'] = $id; 
+                        $this->GelClube->save($escudo);                   
+                        $error = 0;
+                    } else {
+                        $error = 1;
+                    }
+                }
+                
+                $this->validaTransacao(true);
+                $this->Session->setFlash('Registro salvo com sucesso.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-success'));                
             } else {
+                $this->validaTransacao(false);
                 $this->Session->setFlash('Não foi possível editar o registro. Favor tentar novamente.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-danger'));
             }
         } else {
-
             $this->request->data = $this->GelClube->read(null, $id);
         }
     }
