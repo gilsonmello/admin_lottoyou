@@ -2,6 +2,19 @@
 
 class GelClubesController extends AppController {
 
+    public function beforeRender() {
+        parent::beforeRender();
+        $targetPath = 'files/Soccer_Expert_Clubes';
+        if(!is_dir($targetPath)) {
+            mkdir($targetPath, 0777);
+        }
+
+        $targetPath = 'files/Soccer_Expert_Clubes/escudos';
+        if(!is_dir($targetPath)) {
+            mkdir($targetPath, 0777);
+        }
+    }
+
     public function beforeFilter() {
         parent::beforeFilter();
 
@@ -52,7 +65,7 @@ class GelClubesController extends AppController {
         if (!empty($_FILES)) {
             $parts = pathinfo($_FILES['file']['name']);
             $tempFile = $_FILES['file']['tmp_name'];
-            $targetPath = 'img/escudos/';
+            $targetPath = 'files/Soccer_Expert_Clubes/escudos/';
             //$newFileName = $user_id.'-'.date('ymdHis').'.'.$parts['extension'];
             $newFileName = $idClube . '.' . strtolower($parts['extension']);
             $targetFile = $targetPath . $newFileName;
@@ -61,7 +74,7 @@ class GelClubesController extends AppController {
             if (move_uploaded_file($tempFile, $targetFile)) {
                 // SALVA NO BANCO NO NOME DA IMAGEM
                 $data['GelEscudo']['gel_clube_id'] = $idClube;
-                $data['GelEscudo']['dimensao'] = strtolower($newFileName);
+                $data['GelEscudo']['dimensao'] = $targetFile;
                 $data['GelEscudo']['modified'] = date('d/m/Y H:i:s');
                 
                 $this->loadModel('GelEscudo');

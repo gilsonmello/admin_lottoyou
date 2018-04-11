@@ -6,7 +6,7 @@ class SocCategoriasController extends AppController {
         parent::beforeRender();
         $targetPath = 'files/Soccer_Expert_Temas';
         if(!is_dir($targetPath)) {
-            mkdir($targetPath);
+            mkdir($targetPath, 0777);
         }
     }
 

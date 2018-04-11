@@ -1,4 +1,4 @@
-<?php echo $this->element('forms/title', array('title' => '<i class="fa fa-edit"></i> Cadastrar iamgem do Clube')); ?>
+<?php echo $this->element('forms/title', array('title' => '<i class="fa fa-edit"></i> Cadastrar Escudo do Clube')); ?>
 <?php echo $this->Form->hidden('id'); ?>
 <div class="card-body">
     <div class="row">
@@ -6,10 +6,10 @@
         <div class="col-md-2">
             <div class="pull-left width-3 clearfix hidden-xs">
                 <?php
-                $photo = !empty($dados['GelEscudo']) ? $dados['GelEscudo']['dimensao'] : '';
-                $file = (is_file('img/escudos/' . $photo)) ? $photo : 'default.png';
+                    $photo = !empty($dados['GelEscudo']) ? $dados['GelEscudo']['dimensao'] : '';
+                    $file = (is_file($photo)) ? $photo : 'default.png';
                 ?>
-                <img class="img-circle size-2" src="<?php echo $this->Html->url('../img/avatar/' . $file) ?>" alt="">                
+                <img class="img-circle size-2 img-target" src="<?php echo $this->Html->url('/' . $file) ?>" alt="">                
             </div>
         </div>
 
