@@ -2,7 +2,7 @@
 /app/webroot/files/Raspadinha_Lotes
 /app/webroot/files/Soccer_Expert_Rodadas
 /app/webroot/files/Soccer_Expert_Temas
-/app/webroot/files/Soccer_Expert_Clubes
+/app/webroot/files/Soccer_Expert_Clubes/*
 /app/webroot/files/temp
 /app/tmp/cache/models
 /app/tmp/cache/persistent

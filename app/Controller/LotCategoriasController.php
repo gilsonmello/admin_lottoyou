@@ -4,6 +4,14 @@ class LotCategoriasController extends AppController {
 
     public $components = array('App');
 
+    public function beforeRender() {
+        parent::beforeRender();
+        $targetPath = 'files/Loterias_Temas';
+        if(!is_dir($targetPath)) {
+            mkdir($targetPath, 0777);
+        }
+    }
+
     public function index($modal = 0) {
         // CARREGA FUNÇÕES BÁSICAS DE PESQUISA E ORDENAÇÃO
         $options = parent::_index();
@@ -75,7 +83,7 @@ class LotCategoriasController extends AppController {
         if (!empty($_FILES)) {
             $parts = pathinfo($_FILES['file']['name']);
             $tempFile = $_FILES['file']['tmp_name'];
-            $targetPath = 'img/loterias/categorias/';
+            $targetPath = 'files/Loterias_Temas/';
             //$newFileName = $user_id.'-'.date('ymdHis').'.'.$parts['extension'];
             $newFileName = $id . '.' . strtolower($parts['extension']);
             $targetFile = $targetPath . $newFileName;
@@ -83,7 +91,7 @@ class LotCategoriasController extends AppController {
 
             if (move_uploaded_file($tempFile, $targetFile)) {
                 // SALVA NO BANCO NO NOME DA IMAGEM
-                $data['LotCategoria']['img_loteria'] = strtolower($newFileName);
+                $data['LotCategoria']['img_loteria'] = $targetFile;
                 $data['LotCategoria']['modified'] = date('d/m/Y H:i:s');
 
                 $this->loadModel('LotCategoria');
