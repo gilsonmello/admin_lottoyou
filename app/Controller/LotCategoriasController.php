@@ -6,7 +6,7 @@ class LotCategoriasController extends AppController {
 
     public function beforeRender() {
         parent::beforeRender();
-        $targetPath = 'files/Loterias_Temas';
+        $targetPath = 'files/Loteria_Temas';
         if(!is_dir($targetPath)) {
             mkdir($targetPath, 0777);
         }
@@ -83,7 +83,7 @@ class LotCategoriasController extends AppController {
         if (!empty($_FILES)) {
             $parts = pathinfo($_FILES['file']['name']);
             $tempFile = $_FILES['file']['tmp_name'];
-            $targetPath = 'files/Loterias_Temas/';
+            $targetPath = 'files/Loteria_Temas/';
             //$newFileName = $user_id.'-'.date('ymdHis').'.'.$parts['extension'];
             $newFileName = $id . '.' . strtolower($parts['extension']);
             $targetFile = $targetPath . $newFileName;
