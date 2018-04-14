@@ -8,9 +8,9 @@
             <div class="pull-left width-3 clearfix hidden-xs">
                 <?php
                 $photo = !empty($dados['LotCategoria']) ? $dados['LotCategoria']['img_loteria'] : '';
-                $file = (is_file('img/loterias/categorias/' . $photo)) ? $photo : 'default.png';
+                $file = (is_file($photo)) ? $photo : 'default.png';
                 ?>
-                <img class="img-circle size-2" src="<?php echo $this->Html->url('../img/loterias/categorias/' . $file) ?>" alt="">                
+                <img class="img-circle size-2" src="<?php echo $this->Html->url('/' . $file) ?>" alt="">                
             </div>
         </div>
         
