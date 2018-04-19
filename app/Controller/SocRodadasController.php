@@ -83,8 +83,12 @@ class SocRodadasController extends AppController {
         $this->loadModel('SocCategoria');
         $this->SocCategoria->recursive = -1;
         $optionsCategorias = $this->SocCategoria->find('list');
+
+        $this->loadModel('SocCiclo');
+        $this->SocCiclo->recursive = -1;
+        $optionsCiclos = $this->SocCiclo->find('list');
         
-        $this->set(compact('optionsBoloes', 'optionsCategorias'));
+        $this->set(compact('optionsBoloes', 'optionsCategorias', 'optionsCiclos'));
         if ($this->request->is('post') || $this->request->is('put')) {
             $this->request->data['SocRodada']['valor'] = $this->App->formataValorDouble($this->request->data['SocRodada']['valor']);
             if ($this->SocRodada->save($this->request->data)) {
@@ -104,8 +108,12 @@ class SocRodadasController extends AppController {
         
         $this->loadModel('SocCategoria');
         $optionsCategorias = $this->SocCategoria->find('list');
-        
-        $this->set(compact('optionsBoloes', 'optionsCategorias'));
+
+        $this->loadModel('SocCiclo');
+        $this->SocCiclo->recursive = -1;
+        $optionsCiclos = $this->SocCiclo->find('list');
+
+        $this->set(compact('optionsBoloes', 'optionsCategorias', 'optionsCiclos'));
         
         $this->SocRodada->id = $id;
         if (!$this->SocRodada->exists()) {

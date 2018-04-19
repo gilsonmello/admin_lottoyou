@@ -165,7 +165,17 @@
 
                 divClone.attr('id', 'card-' + qtdTotal);
                 divClone.css('display', 'block');
-                divClone.find('input#SocJogoData').attr('name', 'data[SocJogo][' + qtdTotal + '][data]').setMask({mask: '99/99/9999', autoTab: false});
+                divClone.find('input#SocJogoData')
+                .attr('name', 'data[SocJogo][' + qtdTotal + '][data]')
+                .datepicker({
+                    autoclose: true, 
+                    todayHighlight: true, 
+                    format: "dd/mm/yyyy", 
+                    todayBtn: "linked", 
+                    language: "pt-BR"
+                }).on('changeDate', function (e) {
+            
+                });
 //                divClone.find('input#SocJogoData').datepicker();
 //                divClone.find('input#SocJogoData').datepicker({
 //                    dateFormat: 'dd/mm/yy',

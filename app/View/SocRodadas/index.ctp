@@ -64,9 +64,10 @@
                        style="margin-bottom:0;">
                     <thead>
                         <tr>
-                            <th style="width:40%;">Nome</th>
+                            <th style="width: 15%;">Nome</th>
                             <th>Categoria</th>
                             <th>Gênero</th>
+                            <th>Ciclo</th>
                             <th class="text-center">Tipo</th>
                             <th class="text-center">Qtd. Mínima</th>
                             <th class="text-center">Qtd. Limite</th>
@@ -81,6 +82,7 @@
                                 <td><?= $v['SocRodada']['nome']; ?></td>
                                 <td><?= $v['SocRodada']['categoria_name']; ?> </td>
                                 <td><?= $v['SocRodada']['bolao']; ?> </td>
+                                <td><?= $v['SocCiclo']['identificacao']; ?> </td>
                                 <td class="text-center">
                                     <?= $v['SocRodada']['tipo_name']; ?>
                                 </td>

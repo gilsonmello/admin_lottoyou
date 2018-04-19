@@ -274,6 +274,7 @@ class AppController extends Controller {
                     throw new CakeException('Erro desconhecido.');
                 }
             }
+            
         } catch (Exception $exception) {
             $error = 1;
             $code = $exception->getCode();

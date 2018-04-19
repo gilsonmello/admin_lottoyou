@@ -406,7 +406,18 @@ class RasLotesController extends AppController {
     }
 
     public function delete($id = null) {
-        parent::_delete($id);
+        $ras_lotes_numeros = $this->RasLotesNumero->find('all', [
+            'conditions' => [
+                'ras_lote_id' => $id
+            ]
+        ]);
+
+        foreach ($ras_lotes_numeros as $key => $value) {
+            unlink(WWW_ROOT. $value['RasLotesNumero']['img']);
+            //$this->RasLotesNumero->delete($value['RasLotesNumero']['id']);          
+        }
+
+        parent::_delete($id, true);
     }
 
 }

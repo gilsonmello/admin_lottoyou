@@ -42,7 +42,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group" style="margin-bottom: 0px;">
-                                <?php echo $this->Form->input('data', array('label' => 'Data', 'class' => 'form-control date data', 'required' => true)); ?>
+                                <?php echo $this->Form->input('data', array('label' => 'Data', 'class' => 'form-control date', 'required' => true)); ?>
                             </div>
                         </div>
                         <div class="col-md-4">

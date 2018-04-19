@@ -45,6 +45,13 @@ class SocRodada extends AppModel {
             'conditions' => '',
             'fields' => '',
             'order' => ''
+        ],
+        'SocCiclo' => [
+            'className' => 'SocCiclo',
+            'foreignKey' => 'soc_ciclo_id',
+            'conditions' => '',
+            'fields' => '',
+            'order' => ''
         ]
     ];
 
@@ -92,6 +99,17 @@ class SocRodada extends AppModel {
         'soc_categoria_id' => array(
             'required' => array(
                 'rule' => array('checkVazio', 'soc_categoria_id'),
+                'required' => true,
+                'message' => 'Campo obrigatório'
+            ),
+            /*'unique' => array(
+                'rule' => 'isUnique',
+                'message' => 'Categoria em uso. Favor informar outro.'
+            ),*/
+        ),
+        'soc_ciclo_id' => array(
+            'required' => array(
+                'rule' => array('checkVazio', 'soc_ciclo_id'),
                 'required' => true,
                 'message' => 'Campo obrigatório'
             ),

@@ -203,11 +203,11 @@
                 $('.linha-'+(length - 1)).after(clone);
 
                 $('.remover-numero').off('click');
-                remover_numero($('.remover-numero'));
+                //remover_numero($('.remover-numero'));
             });
 
             $('.remover-numero').off('click');
-            remover_numero($('.remover-numero'));
+            //remover_numero($('.remover-numero'));
             
 
             modalObject.off('hide.bs.modal');

@@ -43,6 +43,12 @@
                             Cartela
                         </div>
                     </div>
+                    <div class="col-sm-2">
+                        <div id="socCiclos" class="text-center hover" style="cursor:pointer;" data-toggle="tooltip" data-placement="bottom" title="Gerenciar Ciclos">
+                            <i class="md md-security" style="font-size:24px;display:block;"></i> 
+                            Ciclos
+                        </div>
+                    </div>
                 </div>
 
                 <br/>

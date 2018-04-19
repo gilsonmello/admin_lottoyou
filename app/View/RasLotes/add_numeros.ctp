@@ -35,9 +35,9 @@
                 <div class="col-lg-2">
                     <img src="<?php echo BASE . '/'. $numero['RasLotesNumero']['img']; ?>" class="img-responsive img-target" style="height: 100px;width: 100px;">
                 </div>
-                <div class="col-lg-1">
+                <!-- <div class="col-lg-1">
                     <span class="btn remover-numero" data-line=".linha-<?php echo $key; ?>" data-id="<?php echo $numero['RasLotesNumero']['id']; ?>"><i class="glyphicon glyphicon-minus"></i></span>
-                </div>
+                </div> -->
             </div>
         <?php } ?>
     <?php } else if(count($numeros) > 0 && count($numeros) < 5) { ?>
@@ -69,9 +69,9 @@
                 <div class="col-lg-2">
                     <img src="<?php echo BASE . '/'. $numero['RasLotesNumero']['img']; ?>" class="img-responsive img-target" style="height: 100px;width: 100px;">
                 </div>
-                <div class="col-lg-1">
+                <!-- <div class="col-lg-1">
                     <span class="btn remover-numero" data-line=".linha-<?php echo $key; ?>" data-id="<?php echo $numero['RasLotesNumero']['id']; ?>"><i class="glyphicon glyphicon-minus"></i></span>
-                </div>
+                </div> -->
             </div>
         <?php } ?>
         <?php $key = count($numeros); for($i = 0; $i < 5 - count($numeros); $i++) { ?>
