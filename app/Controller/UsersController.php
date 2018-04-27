@@ -14,7 +14,15 @@ class UsersController extends AppController {
         
 
         #Permitindo que os usuários se registrem
-        $this->Auth->allow('assign', 'logout', 'login', 'keepalive', 'forgot_password', 'recover_password', 'confirm_password', 'deny_password_recover', 'access_denied', 'change_photo', 'lock', 'check', 'contatos', 'auth_login', 'auth_callback');
+        $this->Auth->allow('apiEdit', 'assign', 'logout', 'login', 'keepalive', 'forgot_password', 'recover_password', 'confirm_password', 'deny_password_recover', 'access_denied', 'change_photo', 'lock', 'check', 'contatos', 'auth_login', 'auth_callback');
+    }
+
+
+
+    //Método responsável por receber requisição do servidor de frontend
+    public function apiEdit() {
+        CakeLog::info(print_r($_POST, true));
+
     }
 
     /*

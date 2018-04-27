@@ -8,6 +8,11 @@ class SocRodadasController extends AppController {
     {
         parent::beforeRender();
         $this->SocRodada->recursive = -1;
+
+        $targetPath = 'files/Soccer_Expert_Rodadas_Imagem_Modal';
+        if(!is_dir($targetPath)) {
+            mkdir($targetPath, 0777);
+        }
     }
     
     public function index($modal = 0) {
@@ -33,6 +38,26 @@ class SocRodadasController extends AppController {
         $this->set(compact('dados','modal'));
     }
 
+    public function carregarImagemModal($id) {
+        if($this->request->is('post')) {
+
+            $this->request->data['SocRodada']['id'] = $id;
+            unset($this->SocRodada->validate);
+
+            $this->SocRodada->create(false);
+
+            //die(var_dump($this->request->data));
+            if($this->uploadFileImagemModal($_FILES['imagem_modal'], $id)) {
+                $this->SocRodada->save($this->request->data);
+                die(json_encode(true));
+            }
+            die(json_encode(false));
+        } else {
+            $dados = $this->SocRodada->read(null, $id);
+            $this->set('dados', $dados);
+        }
+    }
+
     public function carregarImagem($id) {
         if($this->request->is('post')) {
 
@@ -51,6 +76,26 @@ class SocRodadasController extends AppController {
             $dados = $this->SocRodada->read(null, $id);
             $this->set('dados', $dados);
         }
+    }
+
+    private function uploadFileImagemModal($parametros = null, $id){
+
+        $parts = pathinfo($parametros['name']);
+
+        $newFileName = $id . '.' . strtolower($parts['extension']);
+
+        $targetFile = 'files/Soccer_Expert_Rodadas_Imagem_Modal/'. $newFileName;
+
+        if(!is_dir('files/Soccer_Expert_Rodadas_Imagem_Modal')){
+            mkdir('files/Soccer_Expert_Rodadas_Imagem_Modal', 0777);
+        }
+
+        if(@move_uploaded_file($parametros['tmp_name'], $targetFile)){
+            $this->request->data['SocRodada']['imagem_modal'] = $targetFile;
+            return true;
+        }
+
+        return false;
     }
 
     private function uploadFile($parametros = null, $id){

@@ -8,23 +8,17 @@
             </div>
 
             <div class="card-body" style="min-height:500px;">
-                <?php if ($this->Session->read("Auth.User.group_id") == 1) { ?>
-                    <h4 class="pull-left" style="padding-right:5px;">Geral</h4>
-                    <hr style="margin-top:21px" />
-                    <div class="row">
-                        <div class="col-sm-2">
-                            <div id="gelClubes" class="text-center hover" style="cursor:pointer;" data-toggle="tooltip" data-placement="bottom" title="Gerenciamento dos Clubes">
-                                <i class="md md-store" style="font-size:24px;display:block;"></i> 
-                                Clubes
-                            </div>
-                        </div>
-                    </div>
-
-                    <br/>
-                <?php } ?>
                 <h4 class="pull-left" style="padding-right:5px;">SOCCER EXPERT</h4>
                 <hr style="margin-top:21px" />
                 <div class="row">
+                    <?php if ($this->Session->read("Auth.User.group_id") == 1) { ?>
+                        <div class="col-sm-2">
+                            <div id="gelClubes" class="text-center hover" style="cursor:pointer;" data-toggle="tooltip" data-placement="bottom" title="Gerenciamento dos Clubes">
+                                <i class="md md-store" style="font-size:24px;display:block;"></i>
+                                Clubes
+                            </div>
+                        </div>
+                    <?php } ?>
                     <div class="col-sm-2">
                         <div id="socBoloes" class="text-center hover" style="cursor:pointer;" data-toggle="tooltip" data-placement="bottom" title="Gerenciamento dos Gêneros">
                             <i class="md md-security" style="font-size:24px;display:block;"></i> 

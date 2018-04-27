@@ -69,6 +69,10 @@
             p._carregarImagem($(this).attr('id'));
         });
 
+        $(AppSocRodadas.objectId + ' .btnImagemModal').click(function () {
+            p._carregarImagemModal($(this).attr('id'));
+        });
+
         $(AppSocRodadas.objectId + ' .btnCadastrarJogo').click(function () {
             p._loadAddJogo($(this).attr('id'));
         });
@@ -263,6 +267,89 @@
                             }
                         },
 
+                    });
+                } else {
+                    //Caso aconteça tudo normal
+                    //Remove as classes e texto de erro
+                    imagem.parent().addClass('has-error');
+                    imagem.parent().find('.help-block').css({
+                        display: 'block'
+                    });
+                }
+            });
+        });
+    };
+
+    p._carregarImagemModal = function (id) {
+        var modalObject = $(AppSocRodadas.modalFormId);
+
+        var url = 'socRodadas/carregarImagemModal/' + id;
+
+        window.materialadmin.AppForm.loadModal(modalObject, url, '50%', function () {
+            modalObject.off('hide.bs.modal');
+            modalObject.on('hide.bs.modal', function () {
+
+            });
+
+            modalObject.find('.carregar_imagem').off('click');
+
+            modalObject.find('form').off('submit');
+
+            modalObject.find('.carregar_imagem').on('click', function (event) {
+
+                //Input imagem selecionado pelo usuário
+                var imagem = modalObject.find('#SocRodadaCarregarImagemModalForm').find('#SocRodadaImagemModal');
+
+                //Botão clicado pelo usuário para salvar o formulário
+                var btn = $(this);
+                //Ícone loader ajax
+                var loader = btn.attr('data-loading-text');
+                //Texto do botão
+                var text = btn.text();
+                //Se não houver imagem selecionada
+                if (imagem.val() != '') {
+                    //Evitando propagação do evento
+                    event.preventDefault();
+                    event.stopPropagation();
+
+                    //Adiciona a classe de erro ao seu parente
+                    imagem.parent().removeClass('has-error');
+                    //Ativa o componente que mostra o texto (Campo obrigatório)
+                    imagem.parent().find('.help-block').css({
+                        display: 'none'
+                    });
+                    //Instância do tipo dados de formulário
+                    var formData = new FormData();
+                    //Adicionando a imagem ao form data
+                    formData.append('imagem_modal', imagem[0].files[0]);
+                    //Enviando requisição para salvar a imagem
+                    $.ajax({
+                        method: 'post',
+                        url: $(document).find('#SocRodadaCarregarImagemModalForm').attr('action'),
+                        contentType: false,
+                        cache: false,
+                        processData: false,
+                        data: formData,
+                        beforeSend: function () {
+                            //Ativa o ajax loader
+                            loader = btn.attr('data-loading-text');
+                            btn.html(loader);
+                            btn.attr('disabled', 'disabled');
+                        },
+                        success: function (data) {
+                            if (data == "true") {
+                                //Desativa o ajax loader
+                                btn.html(text);
+                                btn.removeAttr('disabled');
+                                toastr.success("Imagem enviada com sucesso");
+                                modalObject.modal('hide');
+                            } else {
+                                //Desativa o ajax loader
+                                btn.html(text);
+                                btn.removeAttr('disabled');
+                                toastr.error("Erro ao enviar mensagem. Tente novamente.");
+                            }
+                        }
                     });
                 } else {
                     //Caso aconteça tudo normal

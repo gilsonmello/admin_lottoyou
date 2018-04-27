@@ -109,6 +109,9 @@
                                                 <?= $this->Html->link('<i class="md md-extension"></i>&nbsp Cadastrar Jogo', 'javascript: void(0)', array("escape" => false, 'id' => $v['SocRodada']['id'], 'class' => 'btnCadastrarJogo')) ?>
                                                 <?php echo $this->Html->link('<i class="md md-create"></i>&nbsp Adicionar Imagem', 'javascript: void(0)', array("escape" => false, 'id' => $v['SocRodada']['id'], 'class' => 'btnImagem')) ?>
                                             </li>
+                                            <li>
+                                                <?php echo $this->Html->link('<i class="md md-create"></i>&nbsp Adicionar Imagem do Modal', 'javascript: void(0)', array("escape" => false, 'id' => $v['SocRodada']['id'], 'class' => 'btnImagemModal')) ?>
+                                            </li>
                                             <li class="divider"></li>
                                             <li><?= $this->Html->link('<i class="md md-create"></i>&nbsp Editar', 'javascript: void(0)', array("escape" => false, 'id' => $v['SocRodada']['id'], 'class' => 'btnEditar')) ?></li>
                                             <li><?= $this->Html->link('<i class="md md-delete"></i>&nbsp Excluir', 'javascript: void(0)', array("escape" => false, 'id' => $v['SocRodada']['id'], 'class' => 'btnDeletar')) ?></li>
