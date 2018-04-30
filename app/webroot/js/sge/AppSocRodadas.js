@@ -138,7 +138,7 @@
         var modalObject = $(AppSocRodadas.modalFormId);
         var url = baseUrl + 'socConfRodadas/add/' + socRodadaId;
 
-        window.materialadmin.AppForm.loadModal(modalObject, url, '80%', function () {
+        window.materialadmin.AppForm.loadModal(modalObject, url, '95%', function () {
             modalObject.off('hide.bs.modal');
             modalObject.on('hide.bs.modal', function () {
                 if (window.materialadmin.AppForm.getFormState()) {
