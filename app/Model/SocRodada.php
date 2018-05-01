@@ -191,14 +191,11 @@ class SocRodada extends AppModel {
         parent::afterSave($created);
         if($created) {
             if(isset($this->data['SocRodada']['tipo'])) {
-                //Se for do tipo limitado, faço criação de um grupo para a rodada
-                if($this->data['SocRodada']['tipo'] != 0) {
-                    $this->SocRodadasGrupo->create();
-                    $socRodadasGrupo['soc_rodada_id'] = $this->id;
-                    $socRodadasGrupo['active'] = 1;
-                    $socRodadasGrupo['status'] = 1;
-                    $this->SocRodadasGrupo->save($socRodadasGrupo);
-                }
+                $this->SocRodadasGrupo->create();
+                $socRodadasGrupo['soc_rodada_id'] = $this->id;
+                $socRodadasGrupo['active'] = 1;
+                $socRodadasGrupo['status'] = 1;
+                $this->SocRodadasGrupo->save($socRodadasGrupo);
             }
         }
     }
