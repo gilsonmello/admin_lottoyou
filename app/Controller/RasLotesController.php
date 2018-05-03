@@ -376,11 +376,13 @@ class RasLotesController extends AppController {
         $this->loadModel('TemasRaspadinha');
         $optionsTemas = $this->TemasRaspadinha->find('list');
         $this->set(compact('optionsTemas'));
-
+        $this->RasLote->recursive = -1;
         $this->RasLote->id = $id;
         if (!$this->RasLote->exists()) {
             throw new NotFoundException('Registro inexistente', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-danger'));
         }
+
+
 
         if ($this->request->is('post') || $this->request->is('put')) {
             $this->request->data['RasLote']['id'] = $id;
@@ -403,6 +405,8 @@ class RasLotesController extends AppController {
         }
 
         $this->request->data = $this->RasLote->read(null, $id);
+
+        die(var_dump($this->request->data));
     }
 
     public function delete($id = null) {

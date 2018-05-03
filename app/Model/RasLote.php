@@ -21,7 +21,14 @@ class RasLote extends AppModel {
 
     public $belongsTo = array('TemasRaspadinha');
 
-    public $hasMany = array('RasLotesNumero', 
+    public $hasMany = array(
+        'RasLotesNumero' => [
+            'className' => 'RasLotesNumero',
+            'foreignKey' => 'ras_lote_id',
+            'conditions' => '',
+            'fields' => '',
+            'order' => ''
+        ], 
         'Raspadinha' => array(
             'className' => 'Raspadinha',
             'foreignKey' => 'lote',
