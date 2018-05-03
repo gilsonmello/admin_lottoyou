@@ -19,9 +19,9 @@ class RasLote extends AppModel {
     
     public $displayField = 'nome';
 
-    public $belongsTo = array('TemasRaspadinha');
+    public $belongsTo = ['TemasRaspadinha'];
 
-    public $hasMany = array(
+    public $hasMany = [
         'RasLotesNumero' => [
             'className' => 'RasLotesNumero',
             'foreignKey' => 'ras_lote_id',
@@ -29,27 +29,27 @@ class RasLote extends AppModel {
             'fields' => '',
             'order' => ''
         ], 
-        'Raspadinha' => array(
+        'Raspadinha' => [
             'className' => 'Raspadinha',
             'foreignKey' => 'lote',
             'conditions' => '',
             'fields' => '',
             'order' => ''
-        ),
-        'RasDemo' => array(
+        ],
+        'RasDemo' => [
             'className' => 'RasDemo',
             'foreignKey' => 'lote_id',
             'conditions' => '',
             'fields' => '',
             'order' => ''
-        ),
-    );
+        ],
+    ];
 
     //public $hasMany = array(
     //    'RaspadinhaCapaPremiacao'
     //);
 
-    public $validate = array(
+    public $validate = [
         'nome' => array(
             'required' => array(
                 'rule' => 'notEmpty',
@@ -61,39 +61,39 @@ class RasLote extends AppModel {
                 'message' => 'Nome em uso. Favor informar outro nome'
             ),
         ),
-        'qtd_raspadinhas' => array(
-            'required' => array(
-                'rule' => array('notEmpty'),
+        'qtd_raspadinhas' => [
+            'required' => [
+                'rule' => ['notEmpty'],
                 'required' => true,
                 'message' => 'Campo obrigatório'
-            ),
-        ),
-        'valor_premio' => array(
-            'required' => array(
-                'rule' => array('notEmpty'),
+            ],
+        ],
+        'valor_premio' => [
+            'required' => [
+                'rule' => ['notEmpty'],
                 'required' => true,
                 'message' => 'Campo obrigatório'
-            ),            
+            ],            
             'lessThenOrEqual' => [
                 'rule' => ['lessThenOrEqual', 'valor_premio', 'qtd_raspadinhas'],
                 'message' => 'Qtd. de premiados deve ser menor ou igual a Qtd. total'
             ]
-        ),        
-        'value' => array(
-            'required' => array(
+        ],        
+        'value' => [
+            'required' => [
                 'on' => 'create',
                 'rule' => 'notEmpty',
                 'message' => 'Campo obrigatório',
                 'required' => true
-            )
-        ),
-        'temas_raspadinha_id' => array(
-            'unique' => array(
+            ]
+        ],
+        'temas_raspadinha_id' => [
+            'unique' => [
                 'rule' => 'isUnique',
                 'message' => 'Tema em uso.'
-            ),
-        ),
-    );
+            ],
+        ],
+    ];
 
     private function numerosPossiveis($premiada = false, $valor_premio = 0.00, $numeros_possiveis = [], $begin = 0, $end = 0) {
 

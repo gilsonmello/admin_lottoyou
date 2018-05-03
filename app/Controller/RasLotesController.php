@@ -116,6 +116,7 @@ class RasLotesController extends AppController {
 
         
         $this->RasLote->RasDemo->recursive = -1;
+        $this->RasLote->recursive = -1;
 
         
         $this->set('lote', $this->RasLote->read(null, $id));
