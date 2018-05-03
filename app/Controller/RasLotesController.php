@@ -406,7 +406,6 @@ class RasLotesController extends AppController {
 
         $this->request->data = $this->RasLote->read(null, $id);
 
-        die(var_dump($this->request->data));
     }
 
     public function delete($id = null) {
