@@ -19,7 +19,7 @@
             </div>
         </div>
 
-        <div class="card card-collapsed" style="min-height:500px;">
+        <div class="card card-collapsed" style="min-height:700px;">
             <div class="card-head card-head-sm" style="border-bottom:1px solid #f2f3f3;">
                 <div class="tools">
                     <div class="btn-group" style="margin-right: 0px;">
