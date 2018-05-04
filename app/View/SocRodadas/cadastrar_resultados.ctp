@@ -98,7 +98,7 @@
                 <div class="form-group">
                     <div class="input-group">
                         <span class="input-group-addon">
-                            <img class="img_time text-center" src="/<?php echo @$v['escudo_clube_fora'] ?>"/>
+                            <img class="img_time text-center" src="/<?php echo @$v['SocJogo']['escudo_clube_fora'] ?>"/>
                         </span>
                         <div class="input-group-content">
                             <?= $this->Form->hidden($v['SocJogo']['id'] . '.gel_clube_fora_id', [
