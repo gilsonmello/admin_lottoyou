@@ -90,7 +90,7 @@ class DATABASE_CONFIG {
     public $default = array(
         'datasource' => 'Database/Mysql',
         'persistent' => false,
-        'host' => '198.71.227.33',
+        'host' => '107.180.3.212',
         'login' => 'gilsonmello',
         'password' => 'lottoyou@2018',
         'database' => 'lottoyou',

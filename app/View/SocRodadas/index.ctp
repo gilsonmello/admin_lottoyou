@@ -112,9 +112,18 @@
                                             <li>
                                                 <?php echo $this->Html->link('<i class="md md-create"></i>&nbsp Adicionar Imagem do Modal', 'javascript: void(0)', array("escape" => false, 'id' => $v['SocRodada']['id'], 'class' => 'btnImagemModal')) ?>
                                             </li>
+                                            <li>
+                                                <?php echo $this->Html->link('<i class="md md-create"></i>&nbsp Cadastrar Resultados', 'javascript: void(0)', array("escape" => false, 'id' => $v['SocRodada']['id'], 'class' => 'btnCadastrarResultados')) ?>
+                                            </li>
                                             <li class="divider"></li>
                                             <li><?= $this->Html->link('<i class="md md-create"></i>&nbsp Editar', 'javascript: void(0)', array("escape" => false, 'id' => $v['SocRodada']['id'], 'class' => 'btnEditar')) ?></li>
-                                            <li><?= $this->Html->link('<i class="md md-delete"></i>&nbsp Excluir', 'javascript: void(0)', array("escape" => false, 'id' => $v['SocRodada']['id'], 'class' => 'btnDeletar')) ?></li>
+                                            <li>
+                                                <?= $this->Html->link('<i class="md md-delete"></i>&nbsp Excluir', 'javascript: void(0)', [
+                                                    "escape" => false, 
+                                                    'id' => $v['SocRodada']['id'], 
+                                                    'class' => 'btnDeletar'
+                                                ]) ?>
+                                            </li>
                                             <li style="background: #F1F1F1; font-size: 9px; text-align: center;">Atualizado em: <?= @$v['SocRodada']['modified'] ?></li>
                                         </ul>
                                     </div>

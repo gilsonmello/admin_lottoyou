@@ -60,13 +60,17 @@
                 <div class="col-lg-4 col-xs-4 col-sm-4 col-md-4">
                     <div class="content">
                         <?php echo $this->Html->image($v['SocJogo']['escudo_clube_casa'], array('class' => 'img_time')) ?>
-                        <p class="text-center text-team text-white"><?php echo @$v['SocJogo']['nome_clube_casa'] ?></p>
+                        <p class="text-center text-team text-white">
+                            <?= @$v['SocJogo']['nome_clube_casa'] ?>
+                        </p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-xs-4 col-sm-4 col-md-4">
                     <div class="row">
                         <div class="col-lg-12 no-padding">
-                            <p class="text-date text-center text-white"><?php echo $this->App->dataExtenso(@$v['SocJogo']['data']) .' às '. @$v['SocJogo']['hora']?></p>
+                            <p class="text-date text-center text-white">
+                                <?= $this->App->dataExtenso(@$v['SocJogo']['data']) .' às '. @$v['SocJogo']['hora']?>
+                            </p>
                             <!--<p class="text-date text-center text-white">DOM, 02/07/2017 16:00</p>-->
                         </div>
                     </div>

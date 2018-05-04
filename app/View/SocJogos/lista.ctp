@@ -1,15 +1,15 @@
 <?php echo $this->Form->create('SocAposta', array('class' => 'form form-validate floating-label', 'role' => 'form ')); ?>
 <?php echo $this->element('forms/title', array('title' => '<i class="fa fa-plus-square"></i> Apostar')); ?>
 <style type="text/css">
-    .img_time{
+    .img_time {
         width: 35px;
     }
     .vcenter {
         display: flex;
         align-items: center;
     }
-    @media (max-width: 330px){
-        .input-group-addon{
+    @media (max-width: 330px) {
+        .input-group-addon {
             display: block !important;
             min-width: 100% !important;
             margin-left: 0 !important;
@@ -17,8 +17,8 @@
         }
     }
 
-    @media (max-width: 432px){
-        label{
+    @media (max-width: 432px) {
+        label {
             font-size: 12px !important;
         }
     }
@@ -42,7 +42,12 @@
                     <li>
                         <?php echo $value['SocRodada']['bolao'] ?>
                     </li>
-                    <li class=""><?php echo $value['SocRodada']['nome'] ?> <label class="label label-info"><?php echo $value['SocRodada']['tipo_name'] ?> </label></li>
+                    <li class="">
+                        <?php echo $value['SocRodada']['nome'] ?> 
+                        <label class="label label-info">
+                            <?php echo $value['SocRodada']['tipo_name'] ?> 
+                        </label>
+                    </li>
                 </ol>
             </div>
         </div>
@@ -57,9 +62,16 @@
                                 <img class="img_time text-center" src="<?php echo @$v['escudo_clube_casa'] ?>"/>
                             </span>
                             <div class="input-group-content">
-                                <?php echo $this->Form->hidden($v['id'] . '.soc_rodada_id', array('value' => $soc_rodada_id)); ?>
-                                <?php echo $this->Form->hidden($v['id'] . '.soc_clube_casa_id', array('value' => $v['gel_clube_casa_id'])); ?>
-                                <?php echo $this->Form->input($v['id'] . '.resultado_clube_casa', array('label' => @$v['nome_clube_casa'], 'class' => 'form-control')) ?>
+                                <?= $this->Form->hidden($v['id'] . '.soc_rodada_id', [
+                                    'value' => $soc_rodada_id
+                                ]); ?>
+                                <?= $this->Form->hidden($v['id'] . '.soc_clube_casa_id', [
+                                    'value' => $v['gel_clube_casa_id']
+                                ]); ?>
+                                <?= $this->Form->input($v['id'] . '.resultado_clube_casa', [
+                                    'label' => @$v['nome_clube_casa'], 
+                                    'class' => 'form-control'
+                                ]) ?>
                             </div>
                         </div>
                     </div>

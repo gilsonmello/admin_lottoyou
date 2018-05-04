@@ -73,6 +73,10 @@
             p._carregarImagemModal($(this).attr('id'));
         });
 
+        $(AppSocRodadas.objectId + ' .btnCadastrarResultados').click(function () {
+            p._cadastrarResultados($(this).attr('id'));
+        });
+
         $(AppSocRodadas.objectId + ' .btnCadastrarJogo').click(function () {
             p._loadAddJogo($(this).attr('id'));
         });
@@ -86,6 +90,53 @@
             window.materialadmin.AppGrid.delete(url, function () {
                 p._loadConsSocRodada();
             });
+        });
+    };
+
+    p._atualizarPontuacao = function(id) {
+        // CHAMA A FUNÇÃO MODAL
+        var modalObject = $(AppSocRodadas.modalFormId);
+        var url = 'socRodadas/atualizarPontuacao/' + id;
+
+        // INSTANCIA VARIÁREIS
+
+        $.ajax({
+            url: url,
+            method: 'POST',
+            dataType: 'JSON',
+            beforeSend: function() {
+
+            },
+            success: function(data) {
+                if(data.status == "ok") {
+                    toastr.success(data.msg);
+                } else {
+                    toastr.error(data.msg);
+                }
+            },
+            error: function (error) {
+                toastr.error(error.responseJSON.msg);
+            }
+        });
+    };
+
+    p._cadastrarResultados = function(id) {
+        // CHAMA A FUNÇÃO MODAL
+        var modalObject = $(AppSocRodadas.modalFormId);
+        var url = 'socRodadas/cadastrarResultados/' + id;
+
+        window.materialadmin.AppForm.loadModal(modalObject, url, '70%', function () {
+            modalObject.off('hide.bs.modal');
+            modalObject.on('hide.bs.modal', function () {
+                if (window.materialadmin.AppForm.getFormState()) {
+                    p._loadConsSocRodada();
+                }
+            });
+            
+            
+            $(AppSocRodadas.modalFormId + ' .btnAtualizarPontuacao').click(function () {
+                p._atualizarPontuacao($(this).attr('id'));
+            }); 
         });
     };
 
