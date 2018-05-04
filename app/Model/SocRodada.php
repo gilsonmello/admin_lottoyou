@@ -18,7 +18,7 @@ class SocRodada extends AppModel {
         'bolao' => "select nome from soc_boloes b where SocRodada.soc_bolao_id = b.id",
         'tipo_name' => "CASE WHEN SocRodada.tipo = 1 THEN 'Limitado' ELSE 'Ilimitado' END",
         'categoria_name' => 'select nome from soc_categorias s where s.id = SocRodada.soc_categoria_id',
-        'qtd_apostas' => 'SELECT count(DISTINCt(user_id)) FROM soc_apostas aposta WHERE aposta.soc_rodada_id = SocRodada.id'
+        'qtd_apostas' => 'SELECT count(DISTINCt(owner_id)) FROM soc_apostas aposta WHERE aposta.soc_rodada_id = SocRodada.id'
     );
 
     public $hasOne = array(
