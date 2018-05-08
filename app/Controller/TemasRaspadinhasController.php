@@ -96,7 +96,7 @@ class TemasRaspadinhasController extends AppController {
             ),
         ));
 
-        if (empty($verificaRaspadinhas)) {
+        if (count($verificaRaspadinhas) == 0) {
             parent::_delete($id);
         } else {
             $msg = 'Não foi possível excluir o registro selecionado, pois o mesmo tem raspadinhas vinculadas.';

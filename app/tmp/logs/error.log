@@ -12205,3 +12205,13 @@ Stack Trace:
 #1 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(SocJogosController), Object(CakeRequest), Object(CakeResponse))
 #2 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #3 {main}
+2018-05-08 20:43:06 Error: Fatal Error (1): Call to a member function attached() on null in [/var/www/html/admin_lottoyou/app/Controller/AppController.php, line 125]
+2018-05-08 20:43:06 Error: [FatalErrorException] Call to a member function attached() on null
+Request URL: /admin_lottoyou/app/webroot/files/RaspadinhasTemas/PIRATE%20TREASURE/imagemIndex.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/html/a...', 125)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/html/a...', 125, Array)
+#2 /var/www/html/admin_lottoyou/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/html/a...', 125, Array)
+#3 /var/www/html/admin_lottoyou/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
