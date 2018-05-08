@@ -38,7 +38,7 @@ class SocJogosController extends AppController {
         $this->SocAposta->recursive = -1;
         $minhasRodadas = $this->SocAposta->find('list', array(
             'fields' => array('SocAposta.soc_rodada_id'),
-            'conditions' => array('SocAposta.user_id' => $this->Session->read('Auth.User.id')),
+            'conditions' => array('SocAposta.owner_id' => $this->Session->read('Auth.User.id')),
             'group' => array('SocAposta.soc_rodada_id')
         ));
 
@@ -255,7 +255,7 @@ class SocJogosController extends AppController {
             if (!empty($userId)) {
                 $this->loadModel('SocAposta');
                 $this->SocAposta->recursive = 0;
-                $dadosUser = $this->SocAposta->find('all', array('conditions' => array('SocAposta.soc_rodada_id' => $id, 'SocAposta.user_id' => $userId)));
+                $dadosUser = $this->SocAposta->find('all', array('conditions' => array('SocAposta.soc_rodada_id' => $id, 'SocAposta.owner_id' => $userId)));
 
                 $this->set(compact('dadosUser'));
                 $this->render('lista_user');
