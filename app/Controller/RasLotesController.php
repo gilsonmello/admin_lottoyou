@@ -410,6 +410,9 @@ class RasLotesController extends AppController {
     }
 
     public function delete($id = null) {
+
+        $this->loadModel('RasLotesNumero');
+        $this->RasLotesNumero->recursive = -1;
         $ras_lotes_numeros = $this->RasLotesNumero->find('all', [
             'conditions' => [
                 'ras_lote_id' => $id
@@ -417,7 +420,10 @@ class RasLotesController extends AppController {
         ]);
 
         foreach ($ras_lotes_numeros as $key => $value) {
-            unlink(WWW_ROOT. $value['RasLotesNumero']['img']);
+            if(is_dir(WWW_ROOT. $value['RasLotesNumero']['img']) && file_exists(WWW_ROOT. $value['RasLotesNumero']['img'])) {
+
+                unlink(WWW_ROOT. $value['RasLotesNumero']['img']);   
+            }
             //$this->RasLotesNumero->delete($value['RasLotesNumero']['id']);          
         }
 
