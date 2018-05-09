@@ -272,10 +272,11 @@ class SocRodadasController extends AppController {
     public function carregarImagemModal($id) {
         if($this->request->is('post')) {
 
-            $this->request->data['SocRodada']['id'] = $id;
+            $this->request->data = $this->SocRodada->read(null, $id);
             unset($this->SocRodada->validate);
 
             $this->SocRodada->create(false);
+
 
             //die(var_dump($this->request->data));
             if($this->uploadFileImagemModal($_FILES['imagem_modal'], $id)) {
@@ -315,10 +316,15 @@ class SocRodadasController extends AppController {
 
         $newFileName = $id . '.' . strtolower($parts['extension']);
 
+        
         $targetFile = 'files/Soccer_Expert_Rodadas_Imagem_Modal/'. $newFileName;
 
         if(!is_dir('files/Soccer_Expert_Rodadas_Imagem_Modal')){
             mkdir('files/Soccer_Expert_Rodadas_Imagem_Modal', 0777);
+        }
+
+        if(file_exists(WWW_ROOT.$this->request->data['SocRodada']['imagem_modal'])) {
+            unlink(WWW_ROOT.$this->request->data['SocRodada']['imagem_modal']);
         }
 
         if(@move_uploaded_file($parametros['tmp_name'], $targetFile)){

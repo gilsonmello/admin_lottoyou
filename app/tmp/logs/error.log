@@ -12215,3 +12215,68 @@ Stack Trace:
 #3 /var/www/html/admin_lottoyou/lib/Cake/Core/App.php(902): App::_checkFatalError()
 #4 [internal function]: App::shutdown()
 #5 {main}
+2018-05-08 20:45:56 Error: Fatal Error (1): Call to a member function attached() on null in [/var/www/html/admin_lottoyou/app/Controller/AppController.php, line 125]
+2018-05-08 20:45:56 Error: [FatalErrorException] Call to a member function attached() on null
+Request URL: /admin_lottoyou/app/webroot/files/RaspadinhasTemas/PIRATE%20TREASURE/imagemIndex.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/html/a...', 125)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/html/a...', 125, Array)
+#2 /var/www/html/admin_lottoyou/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/html/a...', 125, Array)
+#3 /var/www/html/admin_lottoyou/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-05-08 20:46:13 Error: Fatal Error (1): Call to a member function attached() on null in [/var/www/html/admin_lottoyou/app/Controller/AppController.php, line 125]
+2018-05-08 20:46:13 Error: [FatalErrorException] Call to a member function attached() on null
+Request URL: /admin_lottoyou/app/webroot/files/RaspadinhasTemas/PIRATE%20TREASURE/imagemIndex.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/html/a...', 125)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/html/a...', 125, Array)
+#2 /var/www/html/admin_lottoyou/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/html/a...', 125, Array)
+#3 /var/www/html/admin_lottoyou/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-05-08 21:35:28 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-05-08 21:35:28 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-05-08 21:35:28 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-05-08 21:35:28 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-05-08 21:35:57 Error: [MissingControllerException] Controller class FilesController could not be found.
+Exception Attributes: array (
+  'class' => 'FilesController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/files/Soccer_Expert_Rodadas_Imagem_Modal/2.jpg
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
