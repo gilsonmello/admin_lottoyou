@@ -60,7 +60,6 @@ class AppModel extends Model {
                             $this->data[$model][$field] = $value[0];
                         }
                     } else {
-                        die(var_dump($schema[$field], $value));
                         if ($schema[$field]['type'] == 'integer' && $schema[$field]['null'] == false && ($value == null || $value == '')){
                             $this->data[$model][$field] = 0;
                         }
