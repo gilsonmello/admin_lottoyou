@@ -321,7 +321,7 @@ class SocRodadasController extends AppController {
             mkdir('files/Soccer_Expert_Rodadas_Imagem_Modal', 0777);
         }
 
-        if(file_exists(WWW_ROOT.$this->request->data['SocRodada']['imagem_modal'])) {
+        if(file_exists(WWW_ROOT.$this->request->data['SocRodada']['imagem_modal']) && $this->request->data['SocRodada']['imagem_modal'] != null) {
             unlink(WWW_ROOT.$this->request->data['SocRodada']['imagem_modal']);
         }
 
