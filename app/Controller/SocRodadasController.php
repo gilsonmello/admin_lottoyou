@@ -269,26 +269,6 @@ class SocRodadasController extends AppController {
         $this->set(compact('dados','modal'));
     }
 
-    public function carregarImagemModal($id) {
-        if($this->request->is('post')) {
-
-            $this->request->data = $this->SocRodada->read(null, $id);
-            unset($this->SocRodada->validate);
-
-            $this->SocRodada->create(false);
-
-
-            //die(var_dump($this->request->data));
-            if($this->uploadFileImagemModal($_FILES['imagem_modal'], $id)) {
-                $this->SocRodada->save($this->request->data);
-                die(json_encode(true));
-            }
-            die(json_encode(false));
-        } else {
-            $dados = $this->SocRodada->read(null, $id);
-            $this->set('dados', $dados);
-        }
-    }
 
     public function carregarImagem($id) {
         if($this->request->is('post')) {
@@ -300,6 +280,24 @@ class SocRodadasController extends AppController {
 
             //die(var_dump($this->request->data));
             if($this->uploadFile($_FILES['imagem_capa'], $id)) {
+                $this->SocRodada->save($this->request->data);
+                die(json_encode(true));
+            }
+            die(json_encode(false));
+        } else {
+            $dados = $this->SocRodada->read(null, $id);
+            $this->set('dados', $dados);
+        }
+    }
+
+    public function carregarImagemModal($id) {
+        if($this->request->is('post')) {
+
+            $this->request->data = $this->SocRodada->read(null, $id);
+            unset($this->SocRodada->validate);
+
+            //die(var_dump($this->request->data));
+            if($this->uploadFileImagemModal($_FILES['imagem_modal'], $id)) {
                 $this->SocRodada->save($this->request->data);
                 die(json_encode(true));
             }
