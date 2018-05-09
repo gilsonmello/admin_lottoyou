@@ -57,6 +57,7 @@ class AppModel extends Model {
                 if (in_array($field, array_keys($schema))) {
                     if (is_array($value)){
                         if ($schema[$field]['type'] == 'integer') {
+                            die(var_dump($value));
                             $this->data[$model][$field] = $value[0];
                         }
                     } else {
