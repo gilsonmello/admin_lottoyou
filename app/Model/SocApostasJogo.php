@@ -6,12 +6,19 @@ App::uses('AppModel', 'Model');
  * CakePHP ModuloModel
  * @author 
  */
-class SocAposta extends AppModel {
+class SocApostasJogo extends AppModel {
 
     public $belongsTo = [
-    	'SocRodada' => [
-            'className' => 'SocRodada',
-            'foreignKey' => 'soc_rodada_id',
+    	'SocJogo' => [
+            'className' => 'SocJogo',
+            'foreignKey' => 'soc_jogo_id',
+            'conditions' => '',
+            'fields' => '',
+            'order' => ''
+        ],
+        'SocAposta' => [
+            'className' => 'SocAposta',
+            'foreignKey' => 'soc_aposta_id',
             'conditions' => '',
             'fields' => '',
             'order' => ''
