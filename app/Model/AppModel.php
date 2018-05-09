@@ -54,10 +54,10 @@ class AppModel extends Model {
                         
         foreach($this->data as $model => $data){
             foreach ($data as $field => $value) {
-                if (in_array($field, array_keys($schema))){
+                if (in_array($field, array_keys($schema))) {
+                    die(var_dump($field, $value));
                     if (is_array($value)){
                         if ($schema[$field]['type'] == 'integer') {
-                            die(var_dump($this->data[$model][$field], $value));
                             $this->data[$model][$field] = $value[0];
                         }
                     } else {
