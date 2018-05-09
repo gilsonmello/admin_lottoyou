@@ -51,6 +51,7 @@ class AppModel extends Model {
         $schema = $this->schema();
 
         // ON CREATE AND ON UPDATE: TRATA CAMPOS CHECKBOX ANTES DE SALVAR
+                        die(var_dump($this->data));
         foreach($this->data as $model => $data){
             foreach ($data as $field => $value) {
                 if (in_array($field, array_keys($schema))){
