@@ -51,13 +51,11 @@ class AppModel extends Model {
         $schema = $this->schema();
 
         // ON CREATE AND ON UPDATE: TRATA CAMPOS CHECKBOX ANTES DE SALVAR
-                        
         foreach($this->data as $model => $data){
             foreach ($data as $field => $value) {
-                if (in_array($field, array_keys($schema))) {
+                if (in_array($field, array_keys($schema))){
                     if (is_array($value)){
-                        if ($schema[$field]['type'] == 'integer') {
-                            die(var_dump($value));
+                        if ($schema[$field]['type'] == 'integer'){
                             $this->data[$model][$field] = $value[0];
                         }
                     } else {
