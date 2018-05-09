@@ -12280,3 +12280,79 @@ Request URL: /admin_lottoyou/files/Soccer_Expert_Rodadas_Imagem_Modal/2.jpg
 Stack Trace:
 #0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2018-05-08 22:03:25 Error: [MissingConnectionException] Database connection "Mysql" is missing, or could not be created.
+Exception Attributes: array (
+  'class' => 'Mysql',
+  'message' => 'SQLSTATE[HY000] [2002] Connection timed out',
+  'enabled' => true,
+)
+Request URL: /admin_lottoyou/socRodadas/carregarImagemModal/2
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Model/Datasource/DboSource.php(260): Mysql->connect()
+#1 /var/www/html/admin_lottoyou/lib/Cake/Model/ConnectionManager.php(105): DboSource->__construct(Array)
+#2 /var/www/html/admin_lottoyou/lib/Cake/Model/Model.php(3471): ConnectionManager::getDataSource('default')
+#3 /var/www/html/admin_lottoyou/lib/Cake/Model/Model.php(1126): Model->setDataSource('default')
+#4 /var/www/html/admin_lottoyou/lib/Cake/Model/Model.php(3493): Model->setSource('soc_rodadas')
+#5 /var/www/html/admin_lottoyou/lib/Cake/Model/Model.php(1353): Model->getDataSource()
+#6 /var/www/html/admin_lottoyou/lib/Cake/Model/Model.php(1377): Model->schema()
+#7 /var/www/html/admin_lottoyou/app/Model/Behavior/DateFormatterBehavior.php(41): Model->getColumnTypes()
+#8 /var/www/html/admin_lottoyou/app/Model/Behavior/DateFormatterBehavior.php(69): DateFormatterBehavior->_changeDate(Array, 'Y-m-d', Object(SocRodada), 'F')
+#9 [internal function]: DateFormatterBehavior->beforeFind(Object(SocRodada), Array)
+#10 /var/www/html/admin_lottoyou/lib/Cake/Utility/ObjectCollection.php(132): call_user_func_array(Array, Array)
+#11 [internal function]: ObjectCollection->trigger(Object(CakeEvent))
+#12 /var/www/html/admin_lottoyou/lib/Cake/Event/CakeEventManager.php(247): call_user_func(Array, Object(CakeEvent))
+#13 /var/www/html/admin_lottoyou/lib/Cake/Model/Model.php(2949): CakeEventManager->dispatch(Object(CakeEvent))
+#14 /var/www/html/admin_lottoyou/lib/Cake/Model/Model.php(2864): Model->buildQuery('first', Array)
+#15 /var/www/html/admin_lottoyou/lib/Cake/Model/Model.php(1592): Model->find('first', Array)
+#16 /var/www/html/admin_lottoyou/app/Controller/SocRodadasController.php(296): Model->read(NULL, '2')
+#17 [internal function]: SocRodadasController->carregarImagemModal('2')
+#18 /var/www/html/admin_lottoyou/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(SocRodadasController), Array)
+#19 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#20 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(SocRodadasController), Object(CakeRequest), Object(CakeResponse))
+#21 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#22 {main}
+2018-05-08 22:03:38 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-05-08 22:03:38 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-05-08 22:03:38 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-05-08 22:03:38 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-05-08 22:03:46 Error: [MissingControllerException] Controller class FilesController could not be found.
+Exception Attributes: array (
+  'class' => 'FilesController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/files/Soccer_Expert_Rodadas_Imagem_Modal/2.jpg
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
