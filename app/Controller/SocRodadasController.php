@@ -295,7 +295,7 @@ class SocRodadasController extends AppController {
 
             $this->request->data = $this->SocRodada->read(null, $id);
             unset($this->SocRodada->validate);
-
+            $this->SocRodada->create(false);
             //die(var_dump($this->request->data));
             if($this->uploadFileImagemModal($_FILES['imagem_modal'], $id)) {
                 $this->SocRodada->save($this->request->data);
