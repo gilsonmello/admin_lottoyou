@@ -80,7 +80,7 @@ echo $this->element('forms/title', array('title' => '<i class="fa fa-plus-square
     <div class="row" style="text-align: center;">
         <p><b>Background (900 x 600)</b> somente suporta imagem do tipo <b>.JPG(JPEG)</b> </p>
         <p><b>Capa (128 x 128)</b> e a <b>Imagem do Index (307 x 150)</b> só suportam <b>.PNG</b></p>
-        <p>Tamanho máximo da imagem de  <b>5 megabytes</b></p>
+        <p>Tamanho máximo da imagem de  <b>1,5 megabytes</b></p>
     </div>
 </div>
 <div class="modal-footer">

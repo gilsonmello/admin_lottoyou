@@ -56,13 +56,16 @@ class SocRodadasController extends AppController {
                 $this->_stop();
             }
 
+            //Pegando todas as cartelas do usuário
             $apostas = $this->SocAposta->find('all', [
                 'conditions' => [
                     'soc_rodada_id' => $id
                 ]
             ]);
 
+            //Percorrendo todas as cartelas feitas
             foreach ($apostas as $a => $aposta) {
+                //Pegando os jogos da cartela
                 $aposta_jogos = $this->SocApostasJogo->find('all', [
                     'conditions' => [
                         'SocApostasJogo.soc_aposta_id'
@@ -71,7 +74,10 @@ class SocRodadasController extends AppController {
 
                 $pontuacao = 0;
 
+                //Percorrendo os jogos da cartela
                 foreach ($aposta_jogos as $ap => $aposta_jogo) {
+
+                    //Pesquisando resultado do jogo
                     $jogo = $this->SocJogo->find('first', [
                         'conditions' => [
                             'id' => $aposta_jogo['SocApostasJogo']['soc_jogo_id']
