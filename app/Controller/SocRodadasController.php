@@ -17,6 +17,122 @@ class SocRodadasController extends AppController {
         }
     }
 
+    private function salvarPremiacao($grupo, $dado, $porcentagem)
+    {
+        
+        $owner = $this->User->read(null, $dado['SocAposta']['owner_id']);
+
+        $saldo = $this->Balance->find('first', [
+            'conditions' => [
+                'Balance.owner_id' => $owner['User']['id']
+            ]
+        ]);               
+
+        $historico['HistoricBalance']['balance_id'] = $saldo['Balance']['id'];
+        $historico['HistoricBalance']['owner_id'] = $owner['User']['id'];
+        $historico['HistoricBalance']['from'] = $saldo['Balance']['value'];
+        
+
+        $saldo['Balance']['value'] += $grupo['SocRodadasGrupo']['arrecadado'] * $porcentagem / 100;
+
+        $this->Balance->save($saldo);
+
+        $historico['HistoricBalance']['to'] = $saldo['Balance']['value'];
+        $this->HistoricBalance->create();
+        $this->HistoricBalance->save($historico);
+
+        $historico_soccer['HistoricBalanceSoccer']['historic_balance_id'] = $this->HistoricBalance->id;
+        $historico_soccer['HistoricBalanceSoccer']['soc_aposta_id'] = $dado['SocAposta']['id'];
+        $historico_soccer['HistoricBalanceSoccer']['soc_rodada_grupo_id'] = $grupo['SocRodadasGrupo']['id'];
+        $historico_soccer['HistoricBalanceSoccer']['value'] = $grupo['SocRodadasGrupo']['arrecadado'] * $porcentagem / 100;
+        $this->HistoricBalanceSoccer->create();
+        $this->HistoricBalanceSoccer->save($historico_soccer);
+        
+    }
+
+    public function gerarPremiacao($id) 
+    {
+        // CONFIGURA LAYOUT
+        $this->layout = 'ajax';
+        $this->SocRodada->recursive = -1;
+
+
+        $this->loadModel('SocAposta');
+        $this->loadModel('SocApostasJogo');
+        $this->loadModel('SocRodadasGrupo');
+        $this->loadModel('Balance');
+        $this->loadModel('HistoricBalance');
+        $this->loadModel('HistoricBalanceSoccer');
+        $this->loadModel('User');
+        $this->SocRodadasGrupo->recursive = -1;
+        $this->SocAposta->recursive = -1;
+        $this->SocApostasJogo->recursive = -1;
+        $this->Balance->recursive = -1;
+        $this->HistoricBalance->recursive = -1;
+        $this->User->recursive = -1;
+        $this->HistoricBalanceSoccer->recursive = -1;
+
+        $this->render = false;
+
+        $rodada = $this->SocRodada->read(null, $id);
+
+        $grupos = $this->SocRodadasGrupo->find('all', [
+            'conditions' => [
+                'soc_rodada_id' => $id
+            ]
+        ]);
+
+        $posicao = 1;
+
+        foreach ($grupos as $key => $grupo) {
+
+            /*if($grupo['SocRodadasGrupo']['count'] < $rodada['SocRodada']['minimo']) {
+                continue;
+            }*/
+
+            $apostas = $this->SocAposta->find('all', [
+                'conditions' => [
+                    'soc_rodada_id' => $grupo['SocRodadasGrupo']['soc_rodada_id'],
+                ],
+                'order' => 'pontuacao desc',
+                'limit' => 20
+            ]);
+
+            foreach ($apostas as $key => $aposta) {
+                
+                if($aposta['SocAposta']['empatado'] != null) {
+
+                } else {
+                    if($aposta['SocAposta']['posicao'] == 1) {
+                        $this->salvarPremiacao($grupo, $aposta, 50);
+                    }else if($aposta['SocAposta']['posicao'] == 2) {
+                        $this->salvarPremiacao($grupo, $aposta, 10);
+                    } else if($aposta['SocAposta']['posicao'] == 3) {
+                        $this->salvarPremiacao($grupo, $aposta, 5);
+                    } else if($aposta['SocAposta']['posicao'] >= 4 && $aposta['SocAposta']['posicao'] <= 10) {
+                        $this->salvarPremiacao($grupo, $aposta, 1);
+                    } else if($aposta['SocAposta']['posicao'] > 10 && $aposta['SocAposta']['posicao'] <= 20) {
+                        $this->salvarPremiacao($grupo, $aposta, 0.5);
+                    }
+                }
+            }
+
+
+            
+        }
+
+        //$rodada['SocRodada']['active'] = 0;
+        //$this->SocRodada->save($rodada);
+
+        $this->response->body(json_encode([
+            'msg' => 'Premiação atualizada com sucesso', 
+            'status' => 'ok'
+        ]));
+
+        $this->response->send();
+        $this->_stop();
+    }
+
     public function atualizarPontuacao($id) 
     {
         // CONFIGURA LAYOUT
@@ -68,7 +184,7 @@ class SocRodadasController extends AppController {
                 //Pegando os jogos da cartela
                 $aposta_jogos = $this->SocApostasJogo->find('all', [
                     'conditions' => [
-                        'SocApostasJogo.soc_aposta_id'
+                        'SocApostasJogo.soc_aposta_id' => $aposta['SocAposta']['id']
                     ]
                 ]);
 
@@ -137,9 +253,45 @@ class SocRodadasController extends AppController {
                     ],
                     'order' => 'SocAposta.pontuacao DESC'
                 ]);
-                foreach ($apostas as $a => $aposta) {
-                    $aposta['SocAposta']['posicao'] = $a + 1;
-                    $this->SocAposta->save($aposta);
+                for ($i = 0; $i < count($apostas); $i++) {
+
+                    if($apostas[$i]['SocAposta']['posicao'] == null) {
+                        $apostas[$i]['SocAposta']['posicao'] = $i + 1;
+                    }
+                    
+
+                    for($j = $i + 1; $j < count($apostas); $j++) {
+                        if($apostas[$i]['SocAposta']['pontuacao'] == $apostas[$j]['SocAposta']['pontuacao']) {
+                            
+                            //$apostas[$j]['SocAposta']['posicao'] = $apostas[$i]['SocAposta']['posicao']; 
+                            $apostas[$i]['SocAposta']['empatado'] = '';                
+                            $apostas[$i]['SocAposta']['empatado'] .= $apostas[$j]['SocAposta']['id'].';';
+                        } /*else if($apostas[$i]['SocAposta']['pontuacao'] > $apostas[$j]['SocAposta']['pontuacao']) {
+                            $apostas[$j]['SocAposta']['posicao'] = $apostas[$i]['SocAposta']['posicao'] + 1;
+                            $this->SocAposta->save($apostas[$j]);
+                        }*/
+                        
+                    }
+
+
+                    $this->SocAposta->save($apostas[$i]);
+                    
+                    /*if($apostas[$i]['SocAposta']['posicao'] == null) {
+                        $apostas[$i]['SocAposta']['posicao'] = $i + 1;
+                    }
+                    
+                    $this->SocAposta->save($apostas[$i]);
+
+                    for($j = $i + 1; $j < count($apostas); $j++) {
+                        if($apostas[$i]['SocAposta']['pontuacao'] == $apostas[$j]['SocAposta']['pontuacao']) {
+
+                            $apostas[$j]['SocAposta']['posicao'] = $apostas[$i]['SocAposta']['posicao'];                 
+                            
+                        } else if($apostas[$i]['SocAposta']['pontuacao'] > $apostas[$j]['SocAposta']['pontuacao']) {
+                            $apostas[$j]['SocAposta']['posicao'] = $apostas[$i]['SocAposta']['posicao'] + 1;
+                        }
+                        $this->SocAposta->save($apostas[$j]);
+                    }*/
                 }
             }
 

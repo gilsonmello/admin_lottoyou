@@ -109,12 +109,15 @@
                                                 <?= $this->Html->link('<i class="md md-extension"></i>&nbsp Cadastrar Jogo', 'javascript: void(0)', array("escape" => false, 'id' => $v['SocRodada']['id'], 'class' => 'btnCadastrarJogo')) ?>
                                                 <?php echo $this->Html->link('<i class="md md-create"></i>&nbsp Adicionar Imagem', 'javascript: void(0)', array("escape" => false, 'id' => $v['SocRodada']['id'], 'class' => 'btnImagem')) ?>
                                             </li>
+
+                                            <?php if($v['SocRodada']['active'] == 1) { ?> 
                                             <li>
                                                 <?php echo $this->Html->link('<i class="md md-create"></i>&nbsp Adicionar Imagem do Modal', 'javascript: void(0)', array("escape" => false, 'id' => $v['SocRodada']['id'], 'class' => 'btnImagemModal')) ?>
                                             </li>
                                             <li>
                                                 <?php echo $this->Html->link('<i class="md md-create"></i>&nbsp Cadastrar Resultados', 'javascript: void(0)', array("escape" => false, 'id' => $v['SocRodada']['id'], 'class' => 'btnCadastrarResultados')) ?>
                                             </li>
+                                            <?php }?>
                                             <li class="divider"></li>
                                             <li><?= $this->Html->link('<i class="md md-create"></i>&nbsp Editar', 'javascript: void(0)', array("escape" => false, 'id' => $v['SocRodada']['id'], 'class' => 'btnEditar')) ?></li>
                                             <li>

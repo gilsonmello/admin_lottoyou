@@ -97,6 +97,8 @@
         // CHAMA A FUNÇÃO MODAL
         var modalObject = $(AppSocRodadas.modalFormId);
         var url = 'socRodadas/atualizarPontuacao/' + id;
+        var btn = $(AppSocRodadas.modalFormId + ' .btnAtualizarPontuacao');
+        var btnPremiacao = $(AppSocRodadas.modalFormId + ' .btnGerarPremiacao');
 
         // INSTANCIA VARIÁREIS
 
@@ -105,7 +107,8 @@
             method: 'POST',
             dataType: 'JSON',
             beforeSend: function() {
-
+                btn.button('loading');
+                btnPremiacao.addClass('hide');
             },
             success: function(data) {
                 if(data.status == "ok") {
@@ -113,9 +116,52 @@
                 } else {
                     toastr.error(data.msg);
                 }
+                btn.button('reset');
+                btnPremiacao.removeClass('hide');
             },
             error: function (error) {
                 toastr.error(error.responseJSON.msg);
+                btn.button('reset');
+                btnPremiacao.removeClass('hide');
+            }
+        });
+    };
+
+    p._gerarPremiacao = function(id) {
+        // CHAMA A FUNÇÃO MODAL
+        var modalObject = $(AppSocRodadas.modalFormId);
+        var url = 'socRodadas/gerarPremiacao/' + id;
+        var btn = $(AppSocRodadas.modalFormId + ' .btnGerarPremiacao');
+        var btnPontuacao = $(AppSocRodadas.modalFormId + ' .btnAtualizarPontuacao');
+
+        // INSTANCIA VARIÁREIS
+
+        $.ajax({
+            url: url,
+            method: 'POST',
+            dataType: 'JSON',
+            beforeSend: function() {
+                btn.button('loading');
+                btnPontuacao.addClass('hide');
+                modalObject.off('hide.bs.modal');
+                modalObject.on('hide.bs.modal', function () {
+                    p._loadConsSocRodada();
+                });
+            },
+            success: function(data) {
+                if(data.status == "ok") {
+                    toastr.success(data.msg);
+                    modalObject.modal('hide');
+                } else {
+                    toastr.error(data.msg);
+                }
+                btn.button('reset');
+                btnPontuacao.removeClass('hide');
+            },
+            error: function (error) {
+                toastr.error(error.responseJSON.msg);
+                btn.button('reset');
+                btnPontuacao.removeClass('hide');
             }
         });
     };
@@ -126,17 +172,13 @@
         var url = 'socRodadas/cadastrarResultados/' + id;
 
         window.materialadmin.AppForm.loadModal(modalObject, url, '70%', function () {
-            modalObject.off('hide.bs.modal');
-            modalObject.on('hide.bs.modal', function () {
-                if (window.materialadmin.AppForm.getFormState()) {
-                    p._loadConsSocRodada();
-                }
-            });
-            
-            
             $(AppSocRodadas.modalFormId + ' .btnAtualizarPontuacao').click(function () {
                 p._atualizarPontuacao($(this).attr('id'));
             }); 
+
+            $(AppSocRodadas.modalFormId + ' .btnGerarPremiacao').click(function () {
+                p._gerarPremiacao($(this).attr('id'));
+            });
         });
     };
 

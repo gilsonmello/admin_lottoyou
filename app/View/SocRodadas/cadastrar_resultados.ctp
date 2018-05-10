@@ -5,9 +5,6 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="padding-right:24px;padding-top:14px;"><span aria-hidden="true">&times;</span></button>
         <header>
             <i class="fa fa-plus-square"></i> Cadastrar Resultados
-            <button id="<?= $categoria['SocRodada']['id'] ;?>" type="button" class="btn btn-xs btn-info btnAtualizarPontuacao">
-                Atualizar Pontuação
-            </button>
         </header>
     </div>
 </div>
@@ -48,6 +45,19 @@
         }*/
 </style>
 <div class="card-body">
+    
+    <?php if($categoria['SocRodada']['active'] == 1) { ?>
+        <div class="row">
+            <div class="col-lg-12">
+                <button id="<?= $categoria['SocRodada']['id'] ;?>" type="button" class="btn btn-loading-state btn-xs btn-info btnAtualizarPontuacao" data-loading-text="<i class='fa fa-spinner fa-spin'></i> Processando...">
+                    Atualizar Pontuação
+                </button>
+                <button id="<?= $categoria['SocRodada']['id'] ;?>" type="button" class="btn btn-loading-state btn-xs btn-info btnGerarPremiacao" data-loading-text="<i class='fa fa-spinner fa-spin'></i> Processando...">
+                    Gerar Premiação
+                </button>
+            </div>
+        </div>
+    <?php } ?>
     
     <div class="row">
         <div class="col-xs-12 col-md-12 col-lg-12">
