@@ -23,35 +23,15 @@ class RasLotesNumero extends AppModel {
     //);
 
     public $validate = array(
-        'nome' => array(
+        'number' => array(
             'required' => array(
-                'rule' => 'notEmpty',
-                'message' => 'Nome obrigatório',
-                'required' => true
+                'rule' => array('notEmpty'),
+                'required' => true,
+                'message' => 'Campo obrigatório'
             ),
             'unique' => array(
                 'rule' => 'isUnique',
                 'message' => 'Nome em uso. Favor informar outro nome'
-            ),
-        ),
-        'qtd_raspadinhas' => array(
-            'required' => array(
-                'rule' => array('notEmpty'),
-                'required' => true,
-                'message' => 'Campo obrigatório'
-            ),
-        ),
-        'valor_premio' => array(
-            'required' => array(
-                'rule' => array('notEmpty'),
-                'required' => true,
-                'message' => 'Campo obrigatório'
-            ),
-        ),
-        'temas_raspadinha_id' => array(
-            'unique' => array(
-                'rule' => 'isUnique',
-                'message' => 'Tema em uso.'
             ),
         ),
     );

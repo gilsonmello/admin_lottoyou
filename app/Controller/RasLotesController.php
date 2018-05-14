@@ -184,6 +184,21 @@ class RasLotesController extends AppController {
 
                 }
 
+                $validate_number = $this->RasLotesNumero->find('all', [
+                    'conditions' => [
+                        'RasLotesNumero.number =' => $data['number'],
+                        'RasLotesNumero.ras_lote_id =' => $id,
+                        'RasLotesNumero.id <>' => $data['id']
+                    ]
+                ]);
+
+
+                if(count($validate_number) >= 1) {
+                    $msg = "Número ". $validate_number[0]['RasLotesNumero']['number']." já existe. Por favor informe outro.";
+                    $class = "alert alert-danger";
+                    break;
+                }
+
 
                 $img = $this->moveArquivos($id, $data);
                 
@@ -207,7 +222,7 @@ class RasLotesController extends AppController {
 
                     $this->RasLotesNumero->create(true);
                     $this->RasLotesNumero->save($save_data);
-                }else {
+                } else {
 
                     $save_data['RasLotesNumero']['number'] = $data['number'];
                     $save_data['RasLotesNumero']['ras_lote_id'] = $id;
@@ -218,6 +233,7 @@ class RasLotesController extends AppController {
             }
             
             $this->Session->setFlash($msg, 'alert', array('plugin' => 'BoostCake', 'class' => $class));
+            $this->render(false);
 
         } else {
             $numeros = $this->RasLotesNumero->find('all', array(

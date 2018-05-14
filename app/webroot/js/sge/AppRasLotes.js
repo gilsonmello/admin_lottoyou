@@ -212,17 +212,17 @@
 
             modalObject.off('hide.bs.modal');
             modalObject.on('hide.bs.modal', function () {
-                if (window.materialadmin.AppForm.getFormState()) {
-                    p._loadConsRasLote();
-                }
+                p._loadConsRasLote();
             });
 
-        }, undefined, true, false, function() {
+        }, function() {
+            p._loadGerarNumeros(id, clonar);
+        }, true, false, function() {
             modalObject.find('form').submit(function() {
                 if($('.linha').length < 5) {
                     return false;
                 }
-            })
+            });
         });
     };
 
