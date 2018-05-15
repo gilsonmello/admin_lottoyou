@@ -145,13 +145,13 @@
                 btnPontuacao.addClass('hide');
                 modalObject.off('hide.bs.modal');
                 modalObject.on('hide.bs.modal', function () {
-                    p._loadConsSocRodada();
+                    //p._loadConsSocRodada();
                 });
             },
             success: function(data) {
                 if(data.status == "ok") {
                     toastr.success(data.msg);
-                    modalObject.modal('hide');
+                    //modalObject.modal('hide');
                 } else {
                     toastr.error(data.msg);
                 }
