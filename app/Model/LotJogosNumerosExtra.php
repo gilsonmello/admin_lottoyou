@@ -15,7 +15,7 @@ class LotJogosNumerosExtra extends AppModel {
     public $belongsTo = [
     	'LotJogosResultado' => [
             'className' => 'LotJogosResultado',
-            'foreignKey' => 'lot_jogo_id',
+            'foreignKey' => 'lot_jogos_resultado_id',
             'conditions' => '',
             'fields' => '',
             'order' => ''

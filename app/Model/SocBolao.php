@@ -27,7 +27,7 @@ class SocBolao extends AppModel {
         ]
     ];
 
-     public $hasMany = [
+    public $hasMany = [
         'SocRodada' => [
             'className' => 'SocRodada',
             'foreignKey' => 'soc_bolao_id',

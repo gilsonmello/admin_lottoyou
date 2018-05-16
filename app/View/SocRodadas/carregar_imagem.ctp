@@ -3,7 +3,7 @@
 <div class="card-body">
     <div class="row">
     	<div class="col-sm-8 col-lg-4 col-md-4 col-xs-12">
-    		<img src="<?= $this->Html->url('/' . $dados['SocRodada']['imagem_capa']); ?>" class="img-responsive">
+    		<img src="<?= $this->Html->url('/' . $dados['SocRodada']['imagem_capa']). '?' . time(); ?>" class="img-responsive">
     	</div>
         <div class="col-sm-8 col-lg-8 col-md-8 col-xs-12">
             <div class="form-group">
