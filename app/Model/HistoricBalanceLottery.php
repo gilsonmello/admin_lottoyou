@@ -6,10 +6,30 @@ App::uses('AppModel', 'Model');
  * CakePHP ModuloModel
  * @author 
  */
-class HistoricBalanceSoccer extends AppModel {
+class HistoricBalanceLottery extends AppModel {
 
     public $belongsTo = [
-
+        'HistoricBalance' => [
+            'className' => 'HistoricBalance',
+            'foreignKey' => 'historic_balance_id',
+            'conditions' => '',
+            'fields' => '',
+            'order' => ''
+        ],
+        'LotUserJogo' => [
+            'className' => 'LotUserJogo',
+            'foreignKey' => 'lot_user_jogo_id',
+            'conditions' => '',
+            'fields' => '',
+            'order' => ''
+        ],
+        'LotCategoria' => [
+            'className' => 'LotCategoria',
+            'foreignKey' => 'lot_categoria_id',
+            'conditions' => '',
+            'fields' => '',
+            'order' => ''
+        ],
 	];
 
 	public $hasMany = [

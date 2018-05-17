@@ -67,6 +67,10 @@
             p._showGanhadores($(this).attr('id'));
         });
 
+        $(AppLotJogos.objectId + ' .btnPremiar').click(function () {
+            p._showPremiar($(this));
+        });
+
         $(AppLotJogos.objectId + ' .btnEditar').click(function () {
             p._loadFormLotJogo($(this).attr('id'));
         });
@@ -77,6 +81,45 @@
                 p._loadConsLotJogo();
             });
         });
+    };
+
+    p._showPremiar = function (btn) {
+        var id = btn.attr('id');
+        var modalObject = $(AppLotJogos.modalFormId);
+        var url = 'lotJogos/premiar/' + id;
+        
+        $.ajax({
+            method: 'post',
+            url: url,
+            beforeSend: function() {
+                btn.button('loading');
+            },
+            success: function(data) {
+                p._checkErros(data);
+            },
+            error: function(error) {
+                btn.button('reset');
+            }
+        });
+    };
+
+    p._checkErros = function (html) {
+        // INICIA VARIÁVEIS
+        var o = $(html).find('.alert');
+        var error = 1;
+        o.find('a').hide();
+
+        // VERIFICA TIPO DA MENSAGEM E EXIBE MENSAGEM
+        if (o.hasClass('alert-success')) {
+            toastr.options.timeOut = 2000;
+            toastr.success(o.html());
+            error = 0;
+        } else {
+            toastr.options.timeOut = 7000;
+            toastr.error(o.html());
+        }
+
+        return error;
     };
 
     // =========================================================================

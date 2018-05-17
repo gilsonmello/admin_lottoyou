@@ -68,7 +68,7 @@
                             <th>Sorteio</th>
                             <th style="">Premiação</th>
                             <th style="width:200px;">Data/Hora limite</th>
-                            <th style="width:50px;">Ações</th>
+                            <th style="width:100px;">Ações</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -93,12 +93,77 @@
                                 <td><?php echo $label . $v['LotJogo']['data_fim'] . ' ' . $v['LotJogo']['hora_fim'] . $label2; ?></td>
                                 <td>
                                     <div class="btn-group">
+                                        <?= $this->Html->link(
+                                            '<i class="md md-attach-money"></i>&nbsp',
+                                            'javascript: void(0)',
+                                            [
+                                                'title' => 'Premiar Ganhadores',
+                                                'data-hover' => 'tooltip',
+                                                "escape" => false,
+                                                'id' => $v['LotJogo']['id'],
+                                                'class' => 'btnPremiar btn btn-xs btn-primary',
+                                                'data-loading-text' => "<i class='fa fa-spinner fa-spin'></i> Processando..."
+                                            ]
+                                        ) ?>
                                         <button type="button" class="btn btn-icon-toggle dropdown-toggle" data-toggle="dropdown"><i class="fa fa-gear"></i></button>
                                         <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                                            <li><?php echo $this->Html->link('<i class="md md-language"></i>&nbsp Resultado', 'javascript: void(0)', array("escape" => false, 'id' => $v['LotJogo']['id'], 'ret' => $v['LotJogo']['lot_jogos_resultado_id'], 'class' => 'btnResultado')) ?></li>
-                                            <li><?php echo $this->Html->link('<i class="md md-grain"></i>&nbsp Ganhadores', 'javascript: void(0)', array("escape" => false, 'id' => $v['LotJogo']['id'], 'class' => 'btnGanhadores')) ?></li>
-                                            <li><?php echo $this->Html->link('<i class="md md-create"></i>&nbsp Editar', 'javascript: void(0)', array("escape" => false, 'id' => $v['LotJogo']['id'], 'class' => 'btnEditar')) ?></li>
-                                            <li><?php echo $this->Html->link('<i class="md md-delete"></i>&nbsp Excluir', 'javascript: void(0)', array("escape" => false, 'id' => $v['LotJogo']['id'], 'class' => 'btnDeletar')) ?></li>
+                                            <li>
+                                                <?= $this->Html->link(
+                                                    '<i class="md md-language"></i>&nbsp Resultado', 
+                                                    'javascript: void(0)', 
+                                                    [
+                                                        "escape" => false, 
+                                                        'id' => $v['LotJogo']['id'], 
+                                                        'ret' => $v['LotJogo']['lot_jogos_resultado_id'], 
+                                                        'class' => 'btnResultado'
+                                                    ]
+                                                ) ?>                                                    
+                                            </li>
+                                            <!--<li>
+                                                <?/*= $this->Html->link(
+                                                    '<i class="md md-grain"></i>&nbsp Premiar Ganhadores', 
+                                                    'javascript: void(0)', 
+                                                    [
+                                                        "escape" => false, 
+                                                        'id' => $v['LotJogo']['id'], 
+                                                        'class' => 'btnPremiar',
+                                                        'data-loading-text' => "<i class='fa fa-spinner fa-spin'></i> Processando..."
+                                                    ]
+                                                ) */?>
+                                            </li>-->
+                                            <li>
+                                                <?= $this->Html->link(
+                                                    '<i class="md md-grain"></i>&nbsp Ganhadores', 
+                                                    'javascript: void(0)', 
+                                                    [
+                                                        "escape" => false, 
+                                                        'id' => $v['LotJogo']['id'], 
+                                                        'class' => 'btnGanhadores'
+                                                    ]
+                                                ) ?>
+                                            </li>
+                                            <li>
+                                                <?= $this->Html->link(
+                                                    '<i class="md md-create"></i>&nbsp Editar', 
+                                                    'javascript: void(0)', 
+                                                    [
+                                                        "escape" => false, 
+                                                        'id' => $v['LotJogo']['id'], 
+                                                        'class' => 'btnEditar'
+                                                    ]
+                                                ) ?>
+                                            </li>
+                                            <li>
+                                                <?= $this->Html->link(
+                                                    '<i class="md md-delete"></i>&nbsp Excluir', 
+                                                    'javascript: void(0)', 
+                                                    [
+                                                        "escape" => false, 
+                                                        'id' => $v['LotJogo']['id'], 
+                                                        'class' => 'btnDeletar'
+                                                    ]
+                                                ) ?>
+                                            </li>
                                             <li style="background: #F1F1F1; font-size: 9px; text-align: center;">Atualizado em: <?php echo @$v['LotJogo']['modified'] ?></li>
                                         </ul>
                                     </div>

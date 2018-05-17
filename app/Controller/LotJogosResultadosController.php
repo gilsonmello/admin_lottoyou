@@ -35,6 +35,25 @@ class LotJogosResultadosController extends AppController {
         if ($this->request->is('post') || $this->request->is('put')) {
             if (!empty($this->request->data['LotJogosResultado']['concurso_data']) && !empty($this->request->data['LotJogosResultado']['lot_jogo_id'])) {
 
+                //Pegando os dados do sorteio
+                $this->loadModel('LotJogo');
+                $this->LotJogo->recursive = -1;
+                $jogo = $this->LotJogo->find('first', [
+                    'conditions' => [
+                        'LotJogo.id' => $lotJogoId
+                    ]
+                ]);
+
+                //Pegando os dados da categoria
+                $this->loadModel('LotCategoria');
+                $this->LotCategoria->recursive = -1;
+                $categoria = $this->LotCategoria->find('first', [
+                    'conditions' => [
+                        'LotCategoria.id' => $jogo['LotJogo']['lot_categoria_id']
+                    ]
+                ]);
+
+                //Atualizando o resultado do jogo
                 $data['LotJogosResultado'] = $this->request->data['LotJogosResultado'];
                 $data['LotJogosResultado']['user_id'] = $this->Session->read('Auth.User.id');
 
@@ -50,6 +69,11 @@ class LotJogosResultadosController extends AppController {
                 
                 //$data['LotJogosResultado']['numeros_sorteados'] = '';
                 //$data['LotJogosResultado']['contador'] = 0;
+                /*
+                 * Serve para percorrer os números, verifica se não é vazio
+                 * Insere o número na tabela de números do jogo
+                 *
+                 */
                 foreach ($this->request->data['D'] as $v) {
                     if (!is_array($v) && !empty($v)) {
                         $this->LotJogosNumero->create();
@@ -60,6 +84,11 @@ class LotJogosResultadosController extends AppController {
                 }
                 //$data['LotJogosResultado']['numeros_sorteados_extra'] = '';
 
+                /*
+                 * Serve para percorrer os números extras, verifica se não é vazio
+                 * Insere o número extra na tabela de números extras do jogo
+                 *
+                 */
                 if(isset($this->request->data['d'])) { 
                     foreach ($this->request->data['d'] as $v) {
                         if (!is_array($v) && !empty($v)) {
@@ -71,6 +100,7 @@ class LotJogosResultadosController extends AppController {
                     }
                 }
 
+                //
                 $this->loadModel('LotUserJogo');
                 $this->loadModel('LotUserNumero');
                 $this->loadModel('LotUserNumerosExtras');
@@ -78,20 +108,33 @@ class LotJogosResultadosController extends AppController {
                 $this->LotUserNumero->recursive = -1;
                 $this->LotUserNumerosExtras->recursive = -1;
 
+                /*
+                 * Pegando as apostas feitas pelos os usuários
+                 */
                 $users_jogos = $this->LotUserJogo->find('all', [
                     'conditions' => [
                         'LotUserJogo.lot_jogo_id' => $lotJogoId
                     ]
                 ]);
 
-                
+                /*
+                 * Percorrendo as apostas
+                 */
                 foreach ($users_jogos as $key => $value) {
+                    /*
+                     * Pegando os números da aposta do usuário
+                     */
                     $user_numeros = $this->LotUserNumero->find('all', [
                         'conditions' => [
                             'LotUserNumero.lot_users_jogo_id' => $value['LotUserJogo']['id']
                         ]
                     ]);
 
+                    /*
+                     * Loop para comparar se os números do jogo sorteado são iguais a do usuário
+                     * Se acertou, incrementa a variável
+                     * Variável para contar quantos números o usuário acertou
+                     */
                     $contador1 = 0;
                     //Número sorteados
                     if(isset($this->request->data['D'])) { 
@@ -105,13 +148,20 @@ class LotJogosResultadosController extends AppController {
                         
                     }
 
-                    
+                    /*
+                     * Pegando os números extras da aposta do usuário
+                     */
                     $user_numeros_extras = $this->LotUserNumerosExtras->find('all', [
                         'conditions' => [
                             'LotUserNumerosExtras.lot_users_jogo_id' => $value['LotUserJogo']['id']
                         ]
                     ]);
 
+                    /*
+                     * Loop para comparar se os números extra do jogo sorteado são iguais a do usuário
+                     * Se acertou, incrementa a variável
+                     * Variável para contar quantos números extras o usuário acertou
+                     */
                     $contador2 = 0;
                     if(isset($this->request->data['d'])) { 
                         foreach ($this->request->data['d'] as $v) {
@@ -123,8 +173,20 @@ class LotJogosResultadosController extends AppController {
                         }
                     }
 
+                    //Quantos números o usuário acertou
                     $value['LotUserJogo']['num_acerto'] = $contador1;
+                    //Quantos números extras o usuário acertou
                     $value['LotUserJogo']['num_acerto_extra'] = $contador2;
+                    //Número total de acerto
+                    $value['LotUserJogo']['num_total'] = $contador1;
+                    /*
+                     * Caso o usuário acertou todos os números possíveis, fazer a soma dos números normais e extras
+                     */
+                    if($contador1 == $categoria['LotCategoria']['max_assertos']) {
+                        $value['LotUserJogo']['num_total'] = $contador1 + $contador2;
+                    }
+
+                    //Salvando as informações da aposta
                     $this->LotUserJogo->save($value);
                     
                 }

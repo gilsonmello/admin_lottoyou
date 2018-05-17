@@ -93,6 +93,117 @@ class LotJogosController extends AppController {
         parent::_delete($id);
     }
 
+    public function premiar($jogoId = null) {
+        $this->LotJogo->recursive = -1;
+
+        $this->loadModel('LotUserJogo');
+        $this->loadModel('LotUserNumero');
+        $this->loadModel('LotUserNumerosExtras');
+        $this->loadModel('LotCategoria');
+        $this->LotUserJogo->recursive = -1;
+        $this->LotUserNumero->recursive = -1;
+        $this->LotUserNumerosExtras->recursive = -1;
+        $this->LotCategoria->recursive = -1;
+
+        $jogo = $this->LotJogo->read(null, $jogoId);
+        $categoria = $this->LotCategoria->find('first', [
+            'conditions' => [
+                'LotCategoria.id' => $jogo['LotJogo']['lot_categoria_id']
+            ]
+        ]);
+
+        $pontuacoes = $this->LotUserJogo->find('all', [
+            'fields' => 'LotUserJogo.num_total',
+            'conditions' => [
+                'LotUserJogo.lot_jogo_id' => $jogoId
+            ],
+            'order' => 'LotUserJogo.num_total DESC',
+            'group' => [
+                'LotUserJogo.num_total'
+            ],
+            'limit' => 5
+        ]);
+
+
+        $premiacao = [
+            0 => 20000.000,
+            1 => 20.00,
+            2 => 2.00,
+            3 => 1.00,
+            4 => 0.50
+        ];
+
+        $this->loadModel('HistoricBalanceLottery');
+        $this->loadModel('Balance');
+        $this->loadModel('HistoricBalance');
+        $this->loadModel('User');
+        $this->HistoricBalanceLottery->recursive = -1;
+        $this->Balance->recursive = -1;
+        $this->HistoricBalance->recursive = -1;
+        $this->User->recursive = -1;
+
+        $ok = true;
+        $msg = 'Registro salvo com sucesso.';
+        $class = 'alert-success';
+        $this->StartTransaction();
+        foreach ($pontuacoes as $key => $pontuacao) {
+
+            $users_jogos = $this->LotUserJogo->find('all', [
+                'conditions' => [
+                    'LotUserJogo.num_total' => $pontuacao['LotUserJogo']['num_total']
+                ]
+            ]);
+
+            foreach ($users_jogos as $user_jogo) {
+
+                $user_jogo['LotUserJogo']['vencedor'] = 1;
+                $user_jogo['LotUserJogo']['posicao'] = $key + 1;
+                $ok = $this->LotUserJogo->save($user_jogo) ? true : false;
+
+
+                $jogador = $this->User->read(null, $user_jogo['LotUserJogo']['jogador_id']);
+
+                $saldo = $this->Balance->find('first', [
+                    'conditions' => [
+                        'Balance.owner_id' => $jogador['User']['id']
+                    ]
+                ]);
+
+                $historico['HistoricBalance']['balance_id'] = $saldo['Balance']['id'];
+                $historico['HistoricBalance']['owner_id'] = $jogador['User']['id'];
+                $historico['HistoricBalance']['from'] = $saldo['Balance']['value'];
+
+                $saldo['Balance']['value'] += $premiacao[$key];
+
+                $ok = $this->Balance->save($saldo) ? true : false;
+
+                $historico['HistoricBalance']['to'] = $saldo['Balance']['value'];
+                $this->HistoricBalance->create();
+
+                $ok = $this->HistoricBalance->save($historico) ? true : false;
+
+                $historico_lottery['HistoricBalanceLottery']['historic_balance_id'] = $this->HistoricBalance->id;
+                $historico_lottery['HistoricBalanceLottery']['lot_categoria_id'] = $categoria['LotCategoria']['id'];
+                $historico_lottery['HistoricBalanceLottery']['lot_user_jogo_id'] = $user_jogo['LotUserJogo']['id'];
+                $historico_lottery['HistoricBalanceLottery']['value'] = $premiacao[$key];
+                $this->HistoricBalanceLottery->create();
+
+                $ok = $this->HistoricBalanceLottery->save($historico_lottery) ? true : false;
+            }
+        }
+
+        $this->validaTransacao($ok);
+
+        if(!$ok) {
+            $msg = 'Erro ao salvar registros.';
+            $class = 'alert-danger';
+        }
+
+        $this->Session->setFlash($msg, 'alert', array('plugin' => 'BoostCake', 'class' => $class));
+        $this->render(false);
+
+    }
+
     public function vencedores($jogoId = null) {
         $this->loadModel('LotJogo');
         $this->LotJogo->recursive = 2;
