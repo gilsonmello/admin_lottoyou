@@ -45,6 +45,8 @@ class UsersController extends AppController {
                 unset($options['conditions'][$field]);
             }
         }
+
+        $options['conditions']['deleted'] = null;
         
         // PEGA REQUISIÇÕES CADASTRADOS
         $dados = $this->User->find('all', $options);
@@ -180,7 +182,24 @@ class UsersController extends AppController {
     }
 
     public function delete($id = null) {
-        parent::_delete($id);
+
+        $this->autoRender =  false;
+        $user = $this->User->read(null, $id);
+        $user['User']['deleted'] = date('Y-m-d H:i:s');
+
+        $msg = 'Error ao deletar usuário';
+        $error = 1;
+
+        $this->User->validate = [];
+
+        if ($this->User->save($user)) {
+            $msg = 'Registro excluído com sucesso.';
+            $error = 0;
+        }
+
+        echo json_encode(compact('error', 'msg', 'exception', 'code'));
+        exit;
+
     }
 
     /*

@@ -23,7 +23,7 @@ class LotUserJogosController extends AppController {
                 'LotUserJogo.jogador_id' => $this->Session->read('Auth.User.id')
             ]
         ]);
-        
+
         $this->set(compact('dados', 'modal', 'userJogos'));
     }
 

@@ -194,6 +194,12 @@ class LotJogosController extends AppController {
 
         $this->validaTransacao($ok);
 
+        if($ok) {
+            $jogo['LotJogo']['active'] = 0;
+            $this->LotJogo->validate = [];
+            $this->LotJogo->save($jogo);
+        }
+
         if(!$ok) {
             $msg = 'Erro ao salvar registros.';
             $class = 'alert-danger';

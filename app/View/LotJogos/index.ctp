@@ -68,6 +68,7 @@
                             <th>Sorteio</th>
                             <th style="">Premiação</th>
                             <th style="width:200px;">Data/Hora limite</th>
+                            <th>Ativo</th>
                             <th style="width:100px;">Ações</th>
                         </tr>
                     </thead>
@@ -89,22 +90,29 @@
                                     $label2 = '</label>';
                                 }
                                 ?>
-                                <td><?php echo $v['LotJogo']['premio']; ?></td>
+                                <td>$<?php echo $v['LotJogo']['premio']; ?></td>
                                 <td><?php echo $label . $v['LotJogo']['data_fim'] . ' ' . $v['LotJogo']['hora_fim'] . $label2; ?></td>
                                 <td>
+                                    <label class="label label-<?php echo ($v['LotJogo']['ativo'] == 'Sim') ? 'success' : 'danger'; ?>">
+                                        <?php echo $v['LotJogo']['ativo']; ?>
+                                    </label>
+                                </td>
+                                <td>
                                     <div class="btn-group">
-                                        <?= $this->Html->link(
-                                            '<i class="md md-attach-money"></i>&nbsp',
-                                            'javascript: void(0)',
-                                            [
-                                                'title' => 'Premiar Ganhadores',
-                                                'data-hover' => 'tooltip',
-                                                "escape" => false,
-                                                'id' => $v['LotJogo']['id'],
-                                                'class' => 'btnPremiar btn btn-xs btn-primary',
-                                                'data-loading-text' => "<i class='fa fa-spinner fa-spin'></i> Processando..."
-                                            ]
-                                        ) ?>
+                                        <?php if($v['LotJogo']['ativo'] == 'Sim') {
+                                            $this->Html->link(
+                                                '<i class="md md-attach-money"></i>&nbsp',
+                                                'javascript: void(0)',
+                                                [
+                                                    'title' => 'Premiar Ganhadores',
+                                                    'data-hover' => 'tooltip',
+                                                    "escape" => false,
+                                                    'id' => $v['LotJogo']['id'],
+                                                    'class' => 'btnPremiar btn btn-xs btn-primary',
+                                                    'data-loading-text' => "<i class='fa fa-spinner fa-spin'></i> Processando..."
+                                                ]
+                                            );
+                                        } ?>
                                         <button type="button" class="btn btn-icon-toggle dropdown-toggle" data-toggle="dropdown"><i class="fa fa-gear"></i></button>
                                         <ul class="dropdown-menu dropdown-menu-right" role="menu">
                                             <li>

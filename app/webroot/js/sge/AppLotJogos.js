@@ -95,7 +95,10 @@
                 btn.button('loading');
             },
             success: function(data) {
-                p._checkErros(data);
+                if(p._checkErros(data) === 0) {
+                    p._loadConsLotJogo();
+                }
+                btn.button('reset');
             },
             error: function(error) {
                 btn.button('reset');
