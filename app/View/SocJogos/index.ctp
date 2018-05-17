@@ -110,7 +110,7 @@
                                                                                     <label><?php echo @$vl['nome_clube_casa'] ?></label>
                                                                                 </div>
                                                                                 <span class="input-group-addon">
-                                                                                    <img class="img_time text-center" style="width: 25px;" src="<?php echo @$vl['escudo_clube_casa'] ?>"/>
+                                                                                    <img class="img_time text-center" style="width: 25px;" src="/<?php echo @$vl['escudo_clube_casa'] ?>"/>
                                                                                 </span>
                                                                             </div>
                                                                         <!--</div>-->
@@ -124,7 +124,7 @@
                                                                         <!--<div class="form-group">-->
                                                                             <div class="input-group">
                                                                                 <span class="input-group-addon"  style="text-align: left">
-                                                                                    <img class="img_time text-center" style="width: 25px;" src="<?php echo @$vl['escudo_clube_fora'] ?>"/>
+                                                                                    <img class="img_time text-center" style="width: 25px;" src="/<?php echo @$vl['escudo_clube_fora'] ?>"/>
                                                                                 </span>                                                                            
                                                                                 <div class="input-group-content">
                                                                                     <label><?php echo @$vl['nome_clube_fora'] ?></label>

@@ -59,7 +59,7 @@
                     <div class="form-group">
                         <div class="input-group">
                             <span class="input-group-addon">
-                                <img class="img_time text-center" src="<?php echo @$v['escudo_clube_casa'] ?>"/>
+                                <img class="img_time text-center" src="/<?php echo @$v['escudo_clube_casa'] ?>"/>
                             </span>
                             <div class="input-group-content">
                                 <?= $this->Form->hidden($v['id'] . '.soc_rodada_id', [
@@ -84,7 +84,7 @@
                     <div class="form-group">
                         <div class="input-group">
                             <span class="input-group-addon">
-                                <img class="img_time text-center" src="<?php echo @$v['escudo_clube_fora'] ?>"/>
+                                <img class="img_time text-center" src="/<?php echo @$v['escudo_clube_fora'] ?>"/>
                             </span>
                             <div class="input-group-content">
                                 <?php echo $this->Form->hidden($v['id'] . '.soc_clube_fora_id', array('value' => $v['gel_clube_fora_id'])); ?>
