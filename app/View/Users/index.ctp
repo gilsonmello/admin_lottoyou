@@ -64,8 +64,9 @@
                        style="margin-bottom:0;">
                     <thead>
                         <tr>
-                            <th style="width:40%">Nome</th>
+                            <th>Nome</th>
                             <th>E-mail</th>
+                            <th>Perfil</th>
                             <th>Criado Em</th>
                             <th>Último Acesso em</th>
                             <th style="width:80px;">Ativo</th>
@@ -77,6 +78,7 @@
                             <tr>
                                 <td><?php echo $v['User']['name']; ?></td>
                                 <td><?php echo $v['User']['username']; ?></td>
+                                <td><?php echo $v['User']['grupo']; ?></td>
                                 <td><?php echo $v['User']['created']; ?></td>
                                 <td><?php echo $v['User']['last_login']; ?></td>
                                 <td><label class="label label-<?php echo ($v['User']['ativo'] == 'Sim') ? 'success' : 'danger'; ?>"><?php echo $v['User']['ativo']; ?></label></td>
