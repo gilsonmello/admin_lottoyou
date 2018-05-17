@@ -46,10 +46,9 @@ class SocRodadasController extends AppController {
         $historico_soccer['HistoricBalanceSoccer']['value'] = $grupo['SocRodadasGrupo']['arrecadado'] * $porcentagem / 100;
         $this->HistoricBalanceSoccer->create();
         $this->HistoricBalanceSoccer->save($historico_soccer);
-        
     }
 
-    public function gerarPremiacao($id) 
+    public function gerarPremiacao($id)
     {
         // CONFIGURA LAYOUT
         $this->layout = 'ajax';
@@ -62,6 +61,7 @@ class SocRodadasController extends AppController {
         $this->loadModel('Balance');
         $this->loadModel('HistoricBalance');
         $this->loadModel('HistoricBalanceSoccer');
+        $this->loadModel('HistoricBalanceDevolution');
         $this->loadModel('User');
         $this->SocRodadasGrupo->recursive = -1;
         $this->SocAposta->recursive = -1;
@@ -70,17 +70,38 @@ class SocRodadasController extends AppController {
         $this->HistoricBalance->recursive = -1;
         $this->User->recursive = -1;
         $this->HistoricBalanceSoccer->recursive = -1;
+        $this->HistoricBalanceDevolution->recursive = -1;
 
         $this->render = false;
 
         $rodada = $this->SocRodada->read(null, $id);
 
-        $grupos = $this->SocRodadasGrupo->find('all', [
+        $grupos = null;
+        $grupo_sem_qtd_minima = null;
+
+        if($rodada['SocRodada']['minimo'] != null) {
+            $grupos = $this->SocRodadasGrupo->find('all', [
+                'conditions' => [
+                    'SocRodadasGrupo.soc_rodada_id' => $id,
+                    'SocRodadasGrupo.count >=' => $rodada['SocRodada']['minimo']
+                ]
+            ]);
+        } else {
+            $grupos = $this->SocRodadasGrupo->find('all', [
+                'conditions' => [
+                    'SocRodadasGrupo.soc_rodada_id' => $id
+                ]
+            ]);
+        }
+
+        $grupo_sem_qtd_minima = $this->SocRodadasGrupo->find('all', [
             'conditions' => [
-                'soc_rodada_id' => $id
+                'SocRodadasGrupo.soc_rodada_id' => $id,
+                'SocRodadasGrupo.count <' => $rodada['SocRodada']['minimo']
             ]
         ]);
-        
+
+
         foreach ($grupos as $key => $grupo) {
 
             $total_prc = 77;
@@ -174,7 +195,7 @@ class SocRodadasController extends AppController {
 
             $primeiros = $this->SocAposta->find('all', [
                 'conditions' => [
-                    'SocAposta.soc_rodada_id' => $grupo['SocRodadasGrupo']['soc_rodada_id'],
+                    'SocAposta.soc_rodada_grupo_id' => $grupo['SocRodadasGrupo']['id'],
                     'SocAposta.posicao =' => 1
                 ],
                 'order' => 'SocAposta.posicao DESC'
@@ -182,7 +203,7 @@ class SocRodadasController extends AppController {
 
             if(count($primeiros) >= 20) {
                 foreach ($primeiros as $key => $primeiro) {
-                   $this->salvarPremiacao($grupo, $primeiro, count($primeiros) / 77);
+                    $this->salvarPremiacao($grupo, $primeiro, count($primeiros) / 77);
                 }   
                 continue;
             } else if(count($primeiros) == 0) {
@@ -213,10 +234,9 @@ class SocRodadasController extends AppController {
             }
 
 
-
             $segundos = $this->SocAposta->find('all', [
                 'conditions' => [
-                    'SocAposta.soc_rodada_id' => $grupo['SocRodadasGrupo']['soc_rodada_id'],
+                    'SocAposta.soc_rodada_grupo_id' => $grupo['SocRodadasGrupo']['id'],
                     'SocAposta.posicao =' => 2,
                 ],
                 'order' => 'SocAposta.posicao DESC'
@@ -245,7 +265,7 @@ class SocRodadasController extends AppController {
 
             $terceiros = $this->SocAposta->find('all', [
                 'conditions' => [
-                    'SocAposta.soc_rodada_id' => $grupo['SocRodadasGrupo']['soc_rodada_id'],
+                    'SocAposta.soc_rodada_grupo_id' => $grupo['SocRodadasGrupo']['id'],
                     'SocAposta.posicao =' => 3,
                 ],
                 'order' => 'SocAposta.posicao DESC'
@@ -273,7 +293,7 @@ class SocRodadasController extends AppController {
 
             $quartos = $this->SocAposta->find('all', [
                 'conditions' => [
-                    'SocAposta.soc_rodada_id' => $grupo['SocRodadasGrupo']['soc_rodada_id'],
+                    'SocAposta.soc_rodada_grupo_id' => $grupo['SocRodadasGrupo']['id'],
                     'SocAposta.posicao >=' => 4,
                     'SocAposta.posicao <=' => 10,
                 ],
@@ -304,7 +324,7 @@ class SocRodadasController extends AppController {
 
             $decimo_primeiros = $this->SocAposta->find('all', [
                 'conditions' => [
-                    'SocAposta.soc_rodada_id' => $grupo['SocRodadasGrupo']['soc_rodada_id'],
+                    'SocAposta.soc_rodada_grupo_id' => $grupo['SocRodadasGrupo']['id'],
                     'SocAposta.posicao >=' => 11,
                     'SocAposta.posicao <=' => 20,
                 ],
@@ -333,6 +353,53 @@ class SocRodadasController extends AppController {
             }
 
             //$this->salvarPremiacao($grupo, $apostas);
+        }
+
+
+        foreach ($grupo_sem_qtd_minima as $k => $grupo) {
+
+            $apostas = $this->SocAposta->find('all', [
+                'conditions' => [
+                    'SocAposta.soc_rodada_grupo_id' => $grupo['SocRodadasGrupo']['id'],
+                ],
+            ]);
+
+            foreach ($apostas as $key => $aposta) {
+
+                $owner = $this->User->read(null, $aposta['SocAposta']['owner_id']);
+
+                $saldo = $this->Balance->find('first', [
+                    'conditions' => [
+                        'Balance.owner_id' => $owner['User']['id']
+                    ]
+                ]);
+
+                $historico['HistoricBalance']['balance_id'] = $saldo['Balance']['id'];
+                $historico['HistoricBalance']['owner_id'] = $owner['User']['id'];
+                $historico['HistoricBalance']['from'] = $saldo['Balance']['value'];
+
+
+                $saldo['Balance']['value'] += $rodada['SocRodada']['valor'];
+
+                $this->Balance->save($saldo);
+
+                $historico['HistoricBalance']['to'] = $saldo['Balance']['value'];
+                $this->HistoricBalance->create();
+                $this->HistoricBalance->save($historico);
+
+                $historico_soccer['HistoricBalanceDevolution']['historic_balance_id'] = $this->HistoricBalance->id;
+                $historico_soccer['HistoricBalanceDevolution']['soc_aposta_id'] = $aposta['SocAposta']['id'];
+                $historico_soccer['HistoricBalanceDevolution']['soc_rodada_grupo_id'] = $grupo['SocRodadasGrupo']['id'];
+                $historico_soccer['HistoricBalanceDevolution']['value'] = $rodada['SocRodada']['valor'];
+                $this->HistoricBalanceSoccer->create();
+                $this->HistoricBalanceSoccer->save($historico_soccer);
+
+
+
+
+            }
+
+
         }
 
         $rodada['SocRodada']['active'] = 0;
