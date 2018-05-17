@@ -6,7 +6,7 @@ App::uses('AppModel', 'Model');
  * CakePHP LotJogoResultado
  * @author Jorge Silva
  */
-class LotUserNumerosExtras extends AppModel {
+class LotUserNumeroExtra extends AppModel {
     
     public $useTable = 'lot_users_numeros_extras';
     

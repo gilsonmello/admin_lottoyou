@@ -26,8 +26,8 @@ class LotUserJogo extends AppModel {
             'fields' => '',
             'order' => ''
         ],
-        'LotUserNumerosExtra' => [
-            'className' => 'LotUserNumerosExtra',
+        'LotUserNumeroExtra' => [
+            'className' => 'LotUserNumeroExtra',
             'foreignKey' => 'lot_users_jogo_id',
             'conditions' => '',
             'fields' => '',

@@ -14,9 +14,13 @@ class LotJogo extends AppModel {
         'data_label' => "CASE WHEN LotJogo.data_fim > NOW() THEN 'success' ELSE 'danger' END",
         'url_image' => "select img_loteria from lot_categorias cat where cat.id = LotJogo.lot_categoria_id",
     );
+
     public $belongsTo = array('LotCategoria', 'LotJogosResultado');
+
     public $order = 'LotJogo.sorteio asc';
+
     public $displayField = 'sorteio';
+
     public $validate = array(
         'sorteio' => array(
             'required' => array(

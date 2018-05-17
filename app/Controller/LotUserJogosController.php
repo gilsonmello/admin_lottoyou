@@ -11,11 +11,19 @@ class LotUserJogosController extends AppController {
     public function index($modal = 0) {
         $this->loadModel('LotJogo');
         $this->LotJogo->recursive = 0;
-        $dados = $this->LotJogo->find('all', array('conditions' => array('LotJogo.active' => '1', 'LotJogo.data_fim >=' => date('Y-m-d'))));
+        $dados = $this->LotJogo->find('all', [
+            'conditions' => [
+                'LotJogo.active' => '1', 'LotJogo.data_fim >=' => date('Y-m-d')
+            ]
+        ]);
 
         $this->LotUserJogo->recursive = 2;
-        $userJogos = $this->LotUserJogo->find('all', array('conditions' => array('LotUserJogo.jogador_id' => $this->Session->read('Auth.User.id'))));
-
+        $userJogos = $this->LotUserJogo->find('all', [
+            'conditions' => [
+                'LotUserJogo.jogador_id' => $this->Session->read('Auth.User.id')
+            ]
+        ]);
+        
         $this->set(compact('dados', 'modal', 'userJogos'));
     }
 
