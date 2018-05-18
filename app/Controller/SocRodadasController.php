@@ -387,16 +387,21 @@ class SocRodadasController extends AppController {
 
                 $this->Balance->save($saldo);
 
+                $historico['HistoricBalance']['soccer_expert_bet_id'] = $aposta['SocAposta']['id'];
+                $historico['HistoricBalance']['type'] = 1;
+                $historico['HistoricBalance']['devolution'] = 1;
+                $historico['HistoricBalance']['amount'] = $rodada['SocRodada']['valor'];
+                $historico['HistoricBalance']['description'] = 'soccer_expert';
                 $historico['HistoricBalance']['to'] = $saldo['Balance']['value'];
                 $this->HistoricBalance->create();
                 $this->HistoricBalance->save($historico);
 
-                $historico_soccer['HistoricBalanceDevolution']['historic_balance_id'] = $this->HistoricBalance->id;
-                $historico_soccer['HistoricBalanceDevolution']['soc_aposta_id'] = $aposta['SocAposta']['id'];
-                $historico_soccer['HistoricBalanceDevolution']['soc_rodada_grupo_id'] = $grupo['SocRodadasGrupo']['id'];
-                $historico_soccer['HistoricBalanceDevolution']['value'] = $rodada['SocRodada']['valor'];
-                $this->HistoricBalanceSoccer->create();
-                $this->HistoricBalanceSoccer->save($historico_soccer);
+                //$historico_soccer['HistoricBalanceDevolution']['historic_balance_id'] = $this->HistoricBalance->id;
+                //$historico_soccer['HistoricBalanceDevolution']['soc_aposta_id'] = $aposta['SocAposta']['id'];
+                //$historico_soccer['HistoricBalanceDevolution']['soc_rodada_grupo_id'] = $grupo['SocRodadasGrupo']['id'];
+                //$historico_soccer['HistoricBalanceDevolution']['value'] = $rodada['SocRodada']['valor'];
+                //$this->HistoricBalanceSoccer->create();
+                //$this->HistoricBalanceSoccer->save($historico_soccer);
 
 
 

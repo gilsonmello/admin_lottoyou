@@ -100,7 +100,7 @@
                                 <td>
                                     <div class="btn-group">
                                         <?php if($v['LotJogo']['ativo'] == 'Sim') {
-                                            $this->Html->link(
+                                            echo $this->Html->link(
                                                 '<i class="md md-attach-money"></i>&nbsp',
                                                 'javascript: void(0)',
                                                 [

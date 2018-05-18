@@ -103,7 +103,7 @@ class LotJogosResultadosController extends AppController {
                 //
                 $this->loadModel('LotUserJogo');
                 $this->loadModel('LotUserNumero');
-                $this->loadModel('LotUserNumerosExtras');
+                $this->loadModel('LotUserNumeroExtra');
                 $this->LotUserJogo->recursive = -1;
                 $this->LotUserNumero->recursive = -1;
                 $this->LotUserNumerosExtras->recursive = -1;
@@ -151,9 +151,9 @@ class LotJogosResultadosController extends AppController {
                     /*
                      * Pegando os números extras da aposta do usuário
                      */
-                    $user_numeros_extras = $this->LotUserNumerosExtras->find('all', [
+                    $user_numeros_extras = $this->LotUserNumeroExtra->find('all', [
                         'conditions' => [
-                            'LotUserNumerosExtras.lot_users_jogo_id' => $value['LotUserJogo']['id']
+                            'LotUserNumeroExtra.lot_users_jogo_id' => $value['LotUserJogo']['id']
                         ]
                     ]);
 
@@ -166,7 +166,7 @@ class LotJogosResultadosController extends AppController {
                     if(isset($this->request->data['d'])) { 
                         foreach ($this->request->data['d'] as $v) {
                             foreach ($user_numeros_extras as $key => $numero_extra) {                            
-                                if($v == $numero_extra['LotUserNumerosExtras']['numero']) { 
+                                if($v == $numero_extra['LotUserNumeroExtra']['numero']) {
                                     $contador2++;
                                 }
                             }

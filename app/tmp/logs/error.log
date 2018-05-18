@@ -19077,3 +19077,131 @@ Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fi
 Stack Trace:
 #0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2018-05-18 19:30:28 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-05-18 19:30:28 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-05-18 19:30:28 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-05-18 19:30:28 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-05-18 19:42:11 Error: [MissingTableException] Table lot_user_numeros_extras for model LotUserNumerosExtras was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'lot_user_numeros_extras',
+  'class' => 'LotUserNumerosExtras',
+  'ds' => 'default',
+)
+Request URL: /admin_lottoyou/lotJogosResultados/add/1
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Model/Model.php(3493): Model->setSource('lot_user_numero...')
+#1 /var/www/html/admin_lottoyou/lib/Cake/Model/Model.php(1353): Model->getDataSource()
+#2 /var/www/html/admin_lottoyou/lib/Cake/Model/Model.php(1377): Model->schema()
+#3 /var/www/html/admin_lottoyou/app/Model/Behavior/DateFormatterBehavior.php(41): Model->getColumnTypes()
+#4 /var/www/html/admin_lottoyou/app/Model/Behavior/DateFormatterBehavior.php(69): DateFormatterBehavior->_changeDate(Array, 'Y-m-d', Object(AppModel), 'F')
+#5 [internal function]: DateFormatterBehavior->beforeFind(Object(AppModel), Array)
+#6 /var/www/html/admin_lottoyou/lib/Cake/Utility/ObjectCollection.php(132): call_user_func_array(Array, Array)
+#7 [internal function]: ObjectCollection->trigger(Object(CakeEvent))
+#8 /var/www/html/admin_lottoyou/lib/Cake/Event/CakeEventManager.php(247): call_user_func(Array, Object(CakeEvent))
+#9 /var/www/html/admin_lottoyou/lib/Cake/Model/Model.php(2949): CakeEventManager->dispatch(Object(CakeEvent))
+#10 /var/www/html/admin_lottoyou/lib/Cake/Model/Model.php(2864): Model->buildQuery('all', Array)
+#11 /var/www/html/admin_lottoyou/app/Controller/LotJogosResultadosController.php(158): Model->find('all', Array)
+#12 [internal function]: LotJogosResultadosController->add('1')
+#13 /var/www/html/admin_lottoyou/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(LotJogosResultadosController), Array)
+#14 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#15 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(LotJogosResultadosController), Object(CakeRequest), Object(CakeResponse))
+#16 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#17 {main}
+2018-05-18 19:43:26 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1' for key 'lot_jogo_id_UNIQUE'
+Request URL: /admin_lottoyou/lotJogosResultados/add/1
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Model/Datasource/DboSource.php(462): PDOStatement->execute(Array)
+#1 /var/www/html/admin_lottoyou/lib/Cake/Model/Datasource/DboSource.php(424): DboSource->_execute('INSERT INTO `lo...', Array)
+#2 /var/www/html/admin_lottoyou/lib/Cake/Model/Datasource/DboSource.php(1007): DboSource->execute('INSERT INTO `lo...')
+#3 /var/www/html/admin_lottoyou/lib/Cake/Model/Model.php(1830): DboSource->create(Object(LotJogosResultado), Array, Array)
+#4 /var/www/html/admin_lottoyou/app/Controller/LotJogosResultadosController.php(61): Model->save(Array)
+#5 [internal function]: LotJogosResultadosController->add('1')
+#6 /var/www/html/admin_lottoyou/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(LotJogosResultadosController), Array)
+#7 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#8 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(LotJogosResultadosController), Object(CakeRequest), Object(CakeResponse))
+#9 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2018-05-18 19:43:58 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'LotJogosNumerosExtra.lot_users_jogo_id' in 'where clause'
+Request URL: /admin_lottoyou/lotJogosResultados/add/1
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Model/Datasource/DboSource.php(462): PDOStatement->execute(Array)
+#1 /var/www/html/admin_lottoyou/lib/Cake/Model/Datasource/DboSource.php(424): DboSource->_execute('SELECT `LotJogo...', Array)
+#2 /var/www/html/admin_lottoyou/lib/Cake/Model/Datasource/DboSource.php(668): DboSource->execute('SELECT `LotJogo...', Array, Array)
+#3 /var/www/html/admin_lottoyou/lib/Cake/Model/Datasource/DboSource.php(1080): DboSource->fetchAll('SELECT `LotJogo...', false)
+#4 /var/www/html/admin_lottoyou/lib/Cake/Model/Model.php(2897): DboSource->read(Object(LotJogosNumerosExtra), Array)
+#5 /var/www/html/admin_lottoyou/lib/Cake/Model/Model.php(2869): Model->_readDataSource('all', Array)
+#6 /var/www/html/admin_lottoyou/app/Controller/LotJogosResultadosController.php(158): Model->find('all', Array)
+#7 [internal function]: LotJogosResultadosController->add('1')
+#8 /var/www/html/admin_lottoyou/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(LotJogosResultadosController), Array)
+#9 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#10 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(LotJogosResultadosController), Object(CakeRequest), Object(CakeResponse))
+#11 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2018-05-18 19:48:07 Error: Fatal Error (1): Call to a member function find() on null in [/var/www/html/admin_lottoyou/app/Controller/LotJogosResultadosController.php, line 154]
+2018-05-18 19:48:07 Error: [FatalErrorException] Call to a member function find() on null
+Request URL: /admin_lottoyou/lotJogosResultados/add/1
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/html/a...', 154)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/html/a...', 154, Array)
+#2 /var/www/html/admin_lottoyou/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/html/a...', 154, Array)
+#3 /var/www/html/admin_lottoyou/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-05-18 19:48:44 Error: [MissingTableException] Table lot_user_numero_extras for model LotUserNumeroExtras was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'lot_user_numero_extras',
+  'class' => 'LotUserNumeroExtras',
+  'ds' => 'default',
+)
+Request URL: /admin_lottoyou/lotJogosResultados/add/1
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Model/Model.php(3493): Model->setSource('lot_user_numero...')
+#1 /var/www/html/admin_lottoyou/lib/Cake/Model/Model.php(1353): Model->getDataSource()
+#2 /var/www/html/admin_lottoyou/lib/Cake/Model/Model.php(1377): Model->schema()
+#3 /var/www/html/admin_lottoyou/app/Model/Behavior/DateFormatterBehavior.php(41): Model->getColumnTypes()
+#4 /var/www/html/admin_lottoyou/app/Model/Behavior/DateFormatterBehavior.php(69): DateFormatterBehavior->_changeDate(Array, 'Y-m-d', Object(AppModel), 'F')
+#5 [internal function]: DateFormatterBehavior->beforeFind(Object(AppModel), Array)
+#6 /var/www/html/admin_lottoyou/lib/Cake/Utility/ObjectCollection.php(132): call_user_func_array(Array, Array)
+#7 [internal function]: ObjectCollection->trigger(Object(CakeEvent))
+#8 /var/www/html/admin_lottoyou/lib/Cake/Event/CakeEventManager.php(247): call_user_func(Array, Object(CakeEvent))
+#9 /var/www/html/admin_lottoyou/lib/Cake/Model/Model.php(2949): CakeEventManager->dispatch(Object(CakeEvent))
+#10 /var/www/html/admin_lottoyou/lib/Cake/Model/Model.php(2864): Model->buildQuery('all', Array)
+#11 /var/www/html/admin_lottoyou/app/Controller/LotJogosResultadosController.php(158): Model->find('all', Array)
+#12 [internal function]: LotJogosResultadosController->add('1')
+#13 /var/www/html/admin_lottoyou/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(LotJogosResultadosController), Array)
+#14 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#15 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(LotJogosResultadosController), Object(CakeRequest), Object(CakeResponse))
+#16 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#17 {main}
