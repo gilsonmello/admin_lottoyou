@@ -226,7 +226,9 @@ class LotJogosResultadosController extends AppController {
                 ]);
 
                 $numeros_extras = $this->LotJogosNumerosExtras->find('all', [
-                    'LotJogosNumerosExtras.lot_jogos_resultado_id' => $exits['LotJogosResultado']['id']
+                    'conditions' => [
+                        'LotJogosNumerosExtras.lot_jogos_resultado_id' => $exits['LotJogosResultado']['id']
+                    ]
                 ]);
 
                 $dezenas = array();
