@@ -542,18 +542,48 @@ class SocRodadasController extends AppController {
 
             $grupos = $this->SocRodadasGrupo->find('all', [
                 'conditions' => [
-                    'soc_rodada_id' => $id
+                    'SocRodadasGrupo.soc_rodada_id =' => $id
                 ]
             ]);
 
+
+
+            $t = 1;
+            $grupo_cont = 1;
             foreach ($grupos as $key => $grupo) {
-                $apostas = $this->SocAposta->find('all', [
+                $pontuacoes = $this->SocAposta->find('all', [
+                    'fields' => 'SocAposta.pontuacao',
                     'conditions' => [
-                        'soc_rodada_id' => $grupo['SocRodadasGrupo']['soc_rodada_id']
+                        'SocAposta.soc_rodada_grupo_id =' => $grupo['SocRodadasGrupo']['id'],
+                        'SocAposta.soc_rodada_id' => $grupo['SocRodadasGrupo']['soc_rodada_id']
                     ],
-                    'order' => 'SocAposta.pontuacao DESC'
+                    'order' => 'SocAposta.pontuacao DESC',
+                    'group' => [
+                        'SocAposta.pontuacao'
+                    ]
                 ]);
-                for ($i = 0; $i < count($apostas); $i++) {
+
+                foreach ($pontuacoes as $p => $pontuacao) {
+                    $apostas = $this->SocAposta->find('all', [
+                        'conditions' => [
+                            'SocAposta.soc_rodada_grupo_id =' => $grupo['SocRodadasGrupo']['id'],
+                            'SocAposta.soc_rodada_id =' => $grupo['SocRodadasGrupo']['soc_rodada_id'],
+                            'SocAposta.pontuacao =' => $pontuacao['SocAposta']['pontuacao']
+                        ],
+                    ]);
+
+                    foreach ($apostas as $ap => $aposta) {
+                        $aposta['SocAposta']['posicao'] = $p + 1;
+                        $aposta['SocAposta']['ordem'] = $grupo_cont;
+                        $grupo_cont++;
+                        $this->SocAposta->save($aposta);
+                    }
+
+                }
+                $grupo_cont = 1;
+
+
+                /*for ($i = 0; $i < count($apostas); $i++) {
                     
                     if($apostas[$i]['SocAposta']['posicao'] == null) {
                         $apostas[$i]['SocAposta']['posicao'] = $i + 1;
@@ -568,7 +598,7 @@ class SocRodadasController extends AppController {
                             $apostas[$j]['SocAposta']['empatado'] = true;
                             
                         } else if($apostas[$i]['SocAposta']['pontuacao'] > $apostas[$j]['SocAposta']['pontuacao']) {
-                            $apostas[$j]['SocAposta']['posicao'] = $i + 2;
+                            $apostas[$j]['SocAposta']['posicao'] = $t + 2;
                         }
                         $this->SocAposta->save($apostas[$j]);
                     }
@@ -576,7 +606,7 @@ class SocRodadasController extends AppController {
                     $apostas[$i]['SocAposta']['ordem'] = $i + 1;
 
                     $this->SocAposta->save($apostas[$i]);
-                }
+                }*/
             }
 
             $this->response->body(json_encode([

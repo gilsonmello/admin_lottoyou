@@ -21,20 +21,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="LotJogosController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Controller/LotJogosController.php">
+      <file leaf-file-name="SocRodadasController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Controller/SocRodadasController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="894">
-              <caret line="198" column="42" selection-start-line="198" selection-start-column="42" selection-end-line="198" selection-end-column="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LotJogosResultadosController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Controller/LotJogosResultadosController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="24">
-              <caret line="229" column="24" selection-start-line="229" selection-start-column="24" selection-end-line="229" selection-end-column="24" />
+            <state relative-caret-position="377">
+              <caret line="574" column="24" selection-start-line="574" selection-start-column="24" selection-end-line="574" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -72,6 +63,7 @@
       <find>toas</find>
       <find>table</find>
       <find>delet</find>
+      <find>atualizar</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -119,8 +111,8 @@
         <option value="$PROJECT_DIR$/app/View/LotJogos/index.ctp" />
         <option value="$PROJECT_DIR$/app/Model/HistoricBalanceDevolution.php" />
         <option value="$PROJECT_DIR$/app/View/Users/index.ctp" />
-        <option value="$PROJECT_DIR$/app/Controller/SocRodadasController.php" />
         <option value="$PROJECT_DIR$/app/Controller/LotJogosResultadosController.php" />
+        <option value="$PROJECT_DIR$/app/Controller/SocRodadasController.php" />
       </list>
     </option>
   </component>
@@ -168,37 +160,7 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="admin_lottoyou" type="b2602c69:ProjectViewProjectNode" />
-              <item name="admin_lottoyou" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="admin_lottoyou" type="b2602c69:ProjectViewProjectNode" />
-              <item name="admin_lottoyou" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="admin_lottoyou" type="b2602c69:ProjectViewProjectNode" />
-              <item name="admin_lottoyou" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="admin_lottoyou" type="b2602c69:ProjectViewProjectNode" />
-              <item name="admin_lottoyou" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="tmp" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -252,12 +214,12 @@
       <workItem from="1526589086237" duration="5324000" />
       <workItem from="1526596227541" duration="1329000" />
       <workItem from="1526603222741" duration="526000" />
-      <workItem from="1526606801380" duration="277000" />
+      <workItem from="1526606801380" duration="3108000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57798000" />
+    <option name="totallyTimeSpent" value="60629000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-3" y="0" width="1372" height="738" extended-state="6" />
@@ -632,10 +594,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Controller/SocRodadasController.php">
+    <entry file="file://$PROJECT_DIR$/app/Controller/LotJogosResultadosController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="532" selection-start-line="532" selection-end-line="532" />
+        <state relative-caret-position="114">
+          <caret line="229" column="24" selection-start-line="229" selection-start-column="24" selection-end-line="229" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -646,10 +608,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Controller/LotJogosResultadosController.php">
+    <entry file="file://$PROJECT_DIR$/app/Controller/SocRodadasController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
-          <caret line="229" column="24" selection-start-line="229" selection-start-column="24" selection-end-line="229" selection-end-column="24" />
+        <state relative-caret-position="377">
+          <caret line="574" column="24" selection-start-line="574" selection-start-column="24" selection-end-line="574" selection-end-column="24" />
         </state>
       </provider>
     </entry>
