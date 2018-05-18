@@ -488,29 +488,48 @@ class SocRodadasController extends AppController {
                    
                     $aposta_jogo['SocApostasJogo']['pontuacao'] = 0;
 
+                    /**
+                     * Não acertar vencedor
+                     */
                     if(!$this->acertouVencedor($jogo, $aposta_jogo)) {
                         $aposta_jogo['SocApostasJogo']['pontuacao'] = $config_rodada['SocConfRodada']['nao_acertar_vencedor_jogo'];
                     }
-                    
+
+                    /*
+                     * Acertou vencedor
+                     */
                     if($this->acertouVencedor($jogo, $aposta_jogo)) {
                         $aposta_jogo['SocApostasJogo']['pontuacao'] = $config_rodada['SocConfRodada']['acertar_vencedor_jogo'];
                     }
-                                      
+
+                    /*
+                     * Acertou o empate, mas houve vencedor
+                     */
                     if($this->empateComVendedor($jogo, $aposta_jogo)) {
                         $aposta_jogo['SocApostasJogo']['pontuacao'] = $config_rodada['SocConfRodada']['empate_com_vencedor'];
                     }
 
+                    /*
+                     * Acertou o empate sem exatidão, ex: 1x1 mas o jogo foi 2x2
+                     */
                     if($this->empateSemExatidao($jogo, $aposta_jogo)) {
                         $aposta_jogo['SocApostasJogo']['pontuacao'] = $config_rodada['SocConfRodada']['acertar_empate_sem_exatidao'];
                     }
 
+                    /*
+                     * Acertou vecendor e diferença de gols
+                     */
                     if($this->acertouDiferenca($jogo, $aposta_jogo) && $this->acertouVencedor($jogo, $aposta_jogo)) {
                         $aposta_jogo['SocApostasJogo']['pontuacao'] = $config_rodada['SocConfRodada']['acertar_jogo_e_diferenca_gols'];
                     }
 
+                    /*
+                     * Acertou o placar
+                     */
                     if($this->acertouPlacar($jogo, $aposta_jogo)) {
                         $aposta_jogo['SocApostasJogo']['pontuacao'] = $config_rodada['SocConfRodada']['acertar_placar'];
                     }
+
 
                     $pontuacao += $aposta_jogo['SocApostasJogo']['pontuacao'];
 
