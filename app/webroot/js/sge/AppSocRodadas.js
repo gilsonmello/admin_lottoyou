@@ -151,7 +151,7 @@
             success: function(data) {
                 if(data.status == "ok") {
                     toastr.success(data.msg);
-                    //modalObject.modal('hide');
+                    modalObject.modal('hide');
                 } else {
                     toastr.error(data.msg);
                 }

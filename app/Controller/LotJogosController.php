@@ -172,6 +172,10 @@ class LotJogosController extends AppController {
                 $historico['HistoricBalance']['balance_id'] = $saldo['Balance']['id'];
                 $historico['HistoricBalance']['owner_id'] = $jogador['User']['id'];
                 $historico['HistoricBalance']['from'] = $saldo['Balance']['value'];
+                $historico['HistoricBalance']['type'] = 1;
+                $historico['HistoricBalance']['description'] = 'lottery';
+                $historico['HistoricBalance']['lottery_bet_id'] = $user_jogo['LotUserJogo']['id'];
+                $historico['HistoricBalance']['amount'] = $premiacao[$key];
 
                 $saldo['Balance']['value'] += $premiacao[$key];
 
@@ -182,13 +186,13 @@ class LotJogosController extends AppController {
 
                 $ok = $this->HistoricBalance->save($historico) ? true : false;
 
-                $historico_lottery['HistoricBalanceLottery']['historic_balance_id'] = $this->HistoricBalance->id;
-                $historico_lottery['HistoricBalanceLottery']['lot_categoria_id'] = $categoria['LotCategoria']['id'];
-                $historico_lottery['HistoricBalanceLottery']['lot_user_jogo_id'] = $user_jogo['LotUserJogo']['id'];
-                $historico_lottery['HistoricBalanceLottery']['value'] = $premiacao[$key];
-                $this->HistoricBalanceLottery->create();
+                //$historico_lottery['HistoricBalanceLottery']['historic_balance_id'] = $this->HistoricBalance->id;
+                //$historico_lottery['HistoricBalanceLottery']['lot_categoria_id'] = $categoria['LotCategoria']['id'];
+                //$historico_lottery['HistoricBalanceLottery']['lot_user_jogo_id'] = $user_jogo['LotUserJogo']['id'];
+                //$historico_lottery['HistoricBalanceLottery']['value'] = $premiacao[$key];
+                //$this->HistoricBalanceLottery->create();
 
-                $ok = $this->HistoricBalanceLottery->save($historico_lottery) ? true : false;
+                //$ok = $this->HistoricBalanceLottery->save($historico_lottery) ? true : false;
             }
         }
 

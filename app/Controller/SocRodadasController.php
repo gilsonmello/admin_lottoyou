@@ -36,16 +36,20 @@ class SocRodadasController extends AppController {
 
         $this->Balance->save($saldo);
 
+        $historico['HistoricBalance']['soccer_expert_bet_id'] = $dado['SocAposta']['id'];
+        $historico['HistoricBalance']['amount'] = $grupo['SocRodadasGrupo']['arrecadado'] * $porcentagem / 100;
         $historico['HistoricBalance']['to'] = $saldo['Balance']['value'];
+        $historico['HistoricBalance']['type'] = 1;
+        $historico['HistoricBalance']['description'] = 'soccer_expert';
         $this->HistoricBalance->create();
         $this->HistoricBalance->save($historico);
 
-        $historico_soccer['HistoricBalanceSoccer']['historic_balance_id'] = $this->HistoricBalance->id;
-        $historico_soccer['HistoricBalanceSoccer']['soc_aposta_id'] = $dado['SocAposta']['id'];
-        $historico_soccer['HistoricBalanceSoccer']['soc_rodada_grupo_id'] = $grupo['SocRodadasGrupo']['id'];
-        $historico_soccer['HistoricBalanceSoccer']['value'] = $grupo['SocRodadasGrupo']['arrecadado'] * $porcentagem / 100;
-        $this->HistoricBalanceSoccer->create();
-        $this->HistoricBalanceSoccer->save($historico_soccer);
+        //$historico_soccer['HistoricBalanceSoccer']['historic_balance_id'] = $this->HistoricBalance->id;
+        //$historico_soccer['HistoricBalanceSoccer']['soc_aposta_id'] = $dado['SocAposta']['id'];
+        //$historico_soccer['HistoricBalanceSoccer']['soc_rodada_grupo_id'] = $grupo['SocRodadasGrupo']['id'];
+        //$historico_soccer['HistoricBalanceSoccer']['value'] = $grupo['SocRodadasGrupo']['arrecadado'] * $porcentagem / 100;
+        //$this->HistoricBalanceSoccer->create();
+        //$this->HistoricBalanceSoccer->save($historico_soccer);
     }
 
     public function gerarPremiacao($id)
@@ -201,9 +205,10 @@ class SocRodadasController extends AppController {
                 'order' => 'SocAposta.posicao DESC'
             ]);
 
+            $prc_maxima = 77;
             if(count($primeiros) >= 20) {
                 foreach ($primeiros as $key => $primeiro) {
-                    $this->salvarPremiacao($grupo, $primeiro, count($primeiros) / 77);
+                    $this->salvarPremiacao($grupo, $primeiro, count($primeiros) / $prc_maxima);
                 }   
                 continue;
             } else if(count($primeiros) == 0) {
@@ -211,7 +216,6 @@ class SocRodadasController extends AppController {
             }
 
             $primeiro_pct = 0;
-            $prc_maxima = 77;
             
             $pos_disponivel = 0;
 
