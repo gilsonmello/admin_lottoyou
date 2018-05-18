@@ -18304,3 +18304,267 @@ Request URL: /admin_lottoyou/images/icons/favicon.ico
 Stack Trace:
 #0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2018-05-17 22:23:49 Error: [MissingActionException] Action UsersController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'img',
+)
+Request URL: /admin_lottoyou/users/img/icons/favicon-32x32.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2018-05-17 22:23:49 Error: [MissingActionException] Action UsersController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'img',
+)
+Request URL: /admin_lottoyou/users/img/icons/favicon-16x16.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2018-05-17 22:23:49 Error: [MissingActionException] Action UsersController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'img',
+)
+Request URL: /admin_lottoyou/users/img/icons/favicon-96x96.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2018-05-17 22:23:49 Error: [MissingActionException] Action UsersController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'img',
+)
+Request URL: /admin_lottoyou/users/img/icons/android-icon-192x192.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2018-05-17 22:23:49 Error: [MissingActionException] Action UsersController::images() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'images',
+)
+Request URL: /admin_lottoyou/users/images/icons/favicon.ico
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2018-05-17 22:23:55 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-05-17 22:23:55 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-05-17 22:23:55 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-05-17 22:23:55 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-05-17 22:24:01 Error: [MissingActionException] Action LotUserJogosController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'LotUserJogosController',
+  'action' => 'img',
+)
+Request URL: /admin_lottoyou/lotUserJogos/img/icons/favicon-32x32.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(LotUserJogosController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2018-05-17 22:24:01 Error: [MissingActionException] Action LotUserJogosController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'LotUserJogosController',
+  'action' => 'img',
+)
+Request URL: /admin_lottoyou/lotUserJogos/img/icons/favicon-16x16.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(LotUserJogosController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2018-05-17 22:24:01 Error: [MissingActionException] Action LotUserJogosController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'LotUserJogosController',
+  'action' => 'img',
+)
+Request URL: /admin_lottoyou/lotUserJogos/img/icons/favicon-96x96.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(LotUserJogosController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2018-05-17 22:24:01 Error: [MissingActionException] Action LotUserJogosController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'LotUserJogosController',
+  'action' => 'img',
+)
+Request URL: /admin_lottoyou/lotUserJogos/img/icons/android-icon-192x192.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(LotUserJogosController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2018-05-17 22:24:01 Error: [MissingActionException] Action LotUserJogosController::images() could not be found.
+Exception Attributes: array (
+  'controller' => 'LotUserJogosController',
+  'action' => 'images',
+)
+Request URL: /admin_lottoyou/lotUserJogos/images/icons/favicon.ico
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(LotUserJogosController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2018-05-17 22:24:12 Error: [MissingControllerException] Controller class AdminLottoyouController could not be found.
+Exception Attributes: array (
+  'class' => 'AdminLottoyouController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/admin_lottoyou/files/Soccer_Expert_Temas/1.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-05-17 22:24:12 Error: [MissingControllerException] Controller class AdminLottoyouController could not be found.
+Exception Attributes: array (
+  'class' => 'AdminLottoyouController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/admin_lottoyou/files/Soccer_Expert_Temas/2.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-05-17 22:24:12 Error: [MissingControllerException] Controller class AdminLottoyouController could not be found.
+Exception Attributes: array (
+  'class' => 'AdminLottoyouController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/admin_lottoyou/files/Soccer_Expert_Temas/3.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-05-17 22:24:12 Error: [MissingActionException] Action SocJogosController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'SocJogosController',
+  'action' => 'img',
+)
+Request URL: /admin_lottoyou/socJogos/img/icons/favicon-32x32.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(SocJogosController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2018-05-17 22:24:12 Error: [MissingActionException] Action SocJogosController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'SocJogosController',
+  'action' => 'img',
+)
+Request URL: /admin_lottoyou/socJogos/img/icons/favicon-16x16.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(SocJogosController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2018-05-17 22:24:12 Error: [MissingActionException] Action SocJogosController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'SocJogosController',
+  'action' => 'img',
+)
+Request URL: /admin_lottoyou/socJogos/img/icons/favicon-96x96.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(SocJogosController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2018-05-17 22:24:12 Error: [MissingActionException] Action SocJogosController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'SocJogosController',
+  'action' => 'img',
+)
+Request URL: /admin_lottoyou/socJogos/img/icons/android-icon-192x192.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(SocJogosController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2018-05-17 22:24:12 Error: [MissingActionException] Action SocJogosController::images() could not be found.
+Exception Attributes: array (
+  'controller' => 'SocJogosController',
+  'action' => 'images',
+)
+Request URL: /admin_lottoyou/socJogos/images/icons/favicon.ico
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(SocJogosController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2018-05-17 22:25:16 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-05-17 22:25:16 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-05-17 22:25:16 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-05-17 22:25:16 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}

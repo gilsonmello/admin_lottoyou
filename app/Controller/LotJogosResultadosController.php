@@ -214,13 +214,15 @@ class LotJogosResultadosController extends AppController {
                     'LotJogosResultado.lot_jogo_id' => $lotJogoId
                 ]
             ]);
-            
+
             if (count($exits) > 0) {
 
                 $this->request->data['LotJogosResultado'] = $exits['LotJogosResultado'];
                 //$numb = explode(' + ', $exits['LotJogosResultado']['numeros_sorteados']);
                 $numeros = $this->LotJogosNumero->find('all', [
-                    'LotJogosNumero.lot_jogos_resultado_id' => $exits['LotJogosResultado']['id']
+                    'conditions' => [
+                        'LotJogosNumero.lot_jogos_resultado_id' => $exits['LotJogosResultado']['id']
+                    ]
                 ]);
 
                 $numeros_extras = $this->LotJogosNumerosExtras->find('all', [
