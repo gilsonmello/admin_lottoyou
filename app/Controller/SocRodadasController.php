@@ -539,6 +539,10 @@ class SocRodadasController extends AppController {
                         $aposta_jogo['SocApostasJogo']['pontuacao'] = $config_rodada['SocConfRodada']['acertar_placar'];
                     }
 
+                    if($aposta_jogo['SocApostasJogo']['bola_ouro'] == 1) {
+                        $aposta_jogo['SocApostasJogo']['pontuacao'] = $aposta_jogo['SocApostasJogo']['pontuacao'] * 2;
+                    }
+
 
                     $pontuacao += $aposta_jogo['SocApostasJogo']['pontuacao'];
 
