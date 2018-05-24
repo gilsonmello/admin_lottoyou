@@ -44,6 +44,7 @@ class SocRodadasController extends AppController {
         $this->HistoricBalance->create();
         $this->HistoricBalance->save($historico);
 
+
         //$historico_soccer['HistoricBalanceSoccer']['historic_balance_id'] = $this->HistoricBalance->id;
         //$historico_soccer['HistoricBalanceSoccer']['soc_aposta_id'] = $dado['SocAposta']['id'];
         //$historico_soccer['HistoricBalanceSoccer']['soc_rodada_grupo_id'] = $grupo['SocRodadasGrupo']['id'];
@@ -200,68 +201,101 @@ class SocRodadasController extends AppController {
             $primeiros = $this->SocAposta->find('all', [
                 'conditions' => [
                     'SocAposta.soc_rodada_grupo_id' => $grupo['SocRodadasGrupo']['id'],
-                    'SocAposta.posicao =' => 1
+                    'SocAposta.posicao =' => 1,
+                    'SocAposta.pontuacao >' => 0,
                 ],
                 'order' => 'SocAposta.posicao DESC'
             ]);
 
             $prc_maxima = 77;
+            //Verifico se todos ficaram em primeiro
+            //Caso sim, a porcentagem máxima é de 77%
             if(count($primeiros) >= 20) {
-                foreach ($primeiros as $key => $primeiro) {
+                foreach ($primeiros as $k => $primeiro) {
                     $this->salvarPremiacao($grupo, $primeiro, count($primeiros) / $prc_maxima);
-                }   
+                    $dado['SocAposta']['quantia'] = ($grupo['SocRodadasGrupo']['arrecadado'] * (count($primeiros) / $prc_maxima)) / 100;
+                    $dado['SocAposta']['vencedor'] = 1;
+                    $this->SocAposta->save($dado);
+                }
+                //Passo pro próximo grupo porque já premiei os usuários
                 continue;
             } else if(count($primeiros) == 0) {
+                //Caso não encontrei ningúem em primeiro nesse grupo, passo pro próximo grupo
                 continue;
             }
 
+            //Porcentagem dos primeiros colocados
             $primeiro_pct = 0;
-            
+
+            //Posicão do array
+            //Pega a premiação na posição disponível no vetor
             $pos_disponivel = 0;
 
-            for ($i = 0; $i < count($primeiros); $i++) { 
+            //Percorre todos os primeiros colocados
+            for ($i = 0; $i < count($primeiros); $i++) {
+                //Caso não encontre mais nenhuma posição no vetor é porque todos são primeiros colocados
                 if(!isset($prc[$i])) {
+                    //Caso sim, a porcentagem máxima é de 77%
                     $primeiro_pct = 77;
                     break;
                 }
                 $primeiro_pct += $prc[$i]['prc'];
                 $prc[$i]['status'] = 0;
+                //Próxima posição de premiação disponível
                 $pos_disponivel = $i + 1;
             }
 
-            foreach ($primeiros as $key => $primeiro) {
+            //Percorrendo todos os primeiros colocados
+            foreach ($primeiros as $k => $primeiro) {
+                //Salvo a premiação para o usuário com base na porcentagem encontrada
                 $this->salvarPremiacao($grupo, $primeiro, $primeiro_pct / count($primeiros));
+                $primeiro['SocAposta']['quantia'] = ($grupo['SocRodadasGrupo']['arrecadado'] * ($primeiro_pct / count($primeiros))) / 100;
+                $primeiro['SocAposta']['vencedor'] = 1;
+                $this->SocAposta->save($primeiro);
             }
 
+            //Caso sim, a porcentagem máxima é de 77%, passo pro próximo grupo da cartela
             if($primeiro_pct == 77) {
                 continue;
             }
 
-
+            //Pegando todos em segundo lugar
             $segundos = $this->SocAposta->find('all', [
                 'conditions' => [
                     'SocAposta.soc_rodada_grupo_id' => $grupo['SocRodadasGrupo']['id'],
                     'SocAposta.posicao =' => 2,
+                    'SocAposta.pontuacao >' => 0,
                 ],
                 'order' => 'SocAposta.posicao DESC'
             ]);
+
             $segundos_pct = 0; 
             $prc_maxima = 28;
 
-            for ($i = $pos_disponivel; $i < count($primeiros) + count($segundos); $i++) { 
+            //Iniciando $i com a última posição encontrada no vetor de premiações e pego todas as posições com base no total
+            //De usuário na segunda posição
+            for ($i = $pos_disponivel; $i < count($primeiros) + count($segundos); $i++) {
+                //Caso já tenha ultrapassado o limite de premiações
+                //O máximo de porcentagem do segundo é 28
+                //Sai do loop
                 if(!isset($prc[$i])) {
                     $segundos_pct = 28;
                     break;
                 }
+                //Porcentagem
                 $segundos_pct += $prc[$i]['prc'];
                 $prc[$i]['status'] = 0;
                 $pos_disponivel = $i + 1;
             }
 
-            foreach ($segundos as $key => $segundo) {
+            foreach ($segundos as $k => $segundo) {
                 $this->salvarPremiacao($grupo, $primeiro, $segundos_pct / count($segundos));
+                $segundo['SocAposta']['quantia'] = ($grupo['SocRodadasGrupo']['arrecadado'] * ($segundos_pct / count($segundos))) / 100;
+                $segundo['SocAposta']['vencedor'] = 0;
+                $this->SocAposta->save($segundo);
             }
 
+            //Caso sim, a porcentagem máxima é de 28%, passo pro próximo grupo da cartela
             if($segundos_pct == 28) {
                 continue;
             }
@@ -271,6 +305,7 @@ class SocRodadasController extends AppController {
                 'conditions' => [
                     'SocAposta.soc_rodada_grupo_id' => $grupo['SocRodadasGrupo']['id'],
                     'SocAposta.posicao =' => 3,
+                    'SocAposta.pontuacao >' => 0,
                 ],
                 'order' => 'SocAposta.posicao DESC'
             ]);
@@ -288,8 +323,11 @@ class SocRodadasController extends AppController {
                 $pos_disponivel = $i + 1;
             }
 
-            foreach ($terceiros as $key => $terceiro) {
+            foreach ($terceiros as $k => $terceiro) {
                 $this->salvarPremiacao($grupo, $primeiro, $terceiros_pct / count($terceiros));
+                $terceiro['SocAposta']['quantia'] = ($grupo['SocRodadasGrupo']['arrecadado'] * ($terceiros_pct / count($terceiros))) / 100;
+                $terceiro['SocAposta']['vencedor'] = 0;
+                $this->SocAposta->save($terceiro);
             }
             if($terceiros_pct == 18) {
                 continue;
@@ -300,6 +338,7 @@ class SocRodadasController extends AppController {
                     'SocAposta.soc_rodada_grupo_id' => $grupo['SocRodadasGrupo']['id'],
                     'SocAposta.posicao >=' => 4,
                     'SocAposta.posicao <=' => 10,
+                    'SocAposta.pontuacao >' => 0,
                 ],
                 'order' => 'SocAposta.posicao DESC'
             ]);
@@ -317,8 +356,11 @@ class SocRodadasController extends AppController {
                 $pos_disponivel = $i + 1;
             }
 
-            foreach ($quartos as $key => $quarto) {
+            foreach ($quartos as $k => $quarto) {
                 $this->salvarPremiacao($grupo, $primeiro, $quartos_pct / count($quartos));
+                $quarto['SocAposta']['quantia'] = ($grupo['SocRodadasGrupo']['arrecadado'] * ($quartos_pct / count($quartos))) / 100;
+                $quarto['SocAposta']['vencedor'] = 0;
+                $this->SocAposta->save($quarto);
             }
 
             if($quartos_pct == 11) {
@@ -331,6 +373,7 @@ class SocRodadasController extends AppController {
                     'SocAposta.soc_rodada_grupo_id' => $grupo['SocRodadasGrupo']['id'],
                     'SocAposta.posicao >=' => 11,
                     'SocAposta.posicao <=' => 20,
+                    'SocAposta.pontuacao >' => 0,
                 ],
                 'order' => 'SocAposta.posicao DESC'
             ]);
@@ -348,8 +391,11 @@ class SocRodadasController extends AppController {
                 $pos_disponivel = $i + 1;
             }
 
-            foreach ($decimo_primeiros as $key => $decimo_primeiro) {
+            foreach ($decimo_primeiros as $k => $decimo_primeiro) {
                 $this->salvarPremiacao($grupo, $primeiro, $decimo_primeiro_pct / count($decimo_primeiros));
+                $decimo_primeiro['SocAposta']['quantia'] = ($grupo['SocRodadasGrupo']['arrecadado'] * ($decimo_primeiro_pct / count($decimo_primeiros))) / 100;
+                $decimo_primeiro['SocAposta']['vencedor'] = 0;
+                $this->SocAposta->save($decimo_primeiro);
             }
 
             if($decimo_primeiro_pct == 6) {
@@ -360,6 +406,8 @@ class SocRodadasController extends AppController {
         }
 
 
+        //Fazendo devolução do dinheiro para os usuários
+        //Porque estes grupos não possuia uma quantidade mínima de usuários
         foreach ($grupo_sem_qtd_minima as $k => $grupo) {
 
             $apostas = $this->SocAposta->find('all', [
@@ -391,7 +439,7 @@ class SocRodadasController extends AppController {
                 $historico['HistoricBalance']['type'] = 1;
                 $historico['HistoricBalance']['devolution'] = 1;
                 $historico['HistoricBalance']['amount'] = $rodada['SocRodada']['valor'];
-                $historico['HistoricBalance']['description'] = 'soccer_expert';
+                $historico['HistoricBalance']['description'] = 'devolution';
                 $historico['HistoricBalance']['to'] = $saldo['Balance']['value'];
                 $this->HistoricBalance->create();
                 $this->HistoricBalance->save($historico);

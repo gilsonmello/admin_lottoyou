@@ -145,7 +145,7 @@
                 btnPontuacao.addClass('hide');
                 modalObject.off('hide.bs.modal');
                 modalObject.on('hide.bs.modal', function () {
-                    //p._loadConsSocRodada();
+                    p._loadConsSocRodada();
                 });
             },
             success: function(data) {
