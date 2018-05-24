@@ -18,7 +18,9 @@ class SocRodadasController extends AppController {
     }
 
     private function salvarPremiacao($grupo, $dado, $porcentagem)
-    {        
+    {
+        $ok = true;
+        $this->StartTransaction();
         $owner = $this->User->read(null, $dado['SocAposta']['owner_id']);
 
         $saldo = $this->Balance->find('first', [
@@ -34,15 +36,17 @@ class SocRodadasController extends AppController {
 
         $saldo['Balance']['value'] += $grupo['SocRodadasGrupo']['arrecadado'] * $porcentagem / 100;
 
-        $this->Balance->save($saldo);
-
+        $ok = $this->Balance->save($saldo);
+        $this->HistoricBalance->create();
         $historico['HistoricBalance']['soccer_expert_bet_id'] = $dado['SocAposta']['id'];
         $historico['HistoricBalance']['amount'] = $grupo['SocRodadasGrupo']['arrecadado'] * $porcentagem / 100;
         $historico['HistoricBalance']['to'] = $saldo['Balance']['value'];
         $historico['HistoricBalance']['type'] = 1;
         $historico['HistoricBalance']['description'] = 'award';
-        $this->HistoricBalance->create();
-        $this->HistoricBalance->save($historico);
+
+        $ok = $this->HistoricBalance->save($historico);
+
+        $this->validaTransacao($ok);
 
 
         //$historico_soccer['HistoricBalanceSoccer']['historic_balance_id'] = $this->HistoricBalance->id;
@@ -405,6 +409,8 @@ class SocRodadasController extends AppController {
             //$this->salvarPremiacao($grupo, $apostas);
         }
 
+        $this->StartTransaction();
+        $ok = true;
 
         //Fazendo devolução do dinheiro para os usuários
         //Porque estes grupos não possuia uma quantidade mínima de usuários
@@ -433,16 +439,17 @@ class SocRodadasController extends AppController {
 
                 $saldo['Balance']['value'] += $rodada['SocRodada']['valor'];
 
-                $this->Balance->save($saldo);
+                $ok = $this->Balance->save($saldo);
 
+                $this->HistoricBalance->create();
                 $historico['HistoricBalance']['soccer_expert_bet_id'] = $aposta['SocAposta']['id'];
                 $historico['HistoricBalance']['type'] = 1;
                 $historico['HistoricBalance']['devolution'] = 1;
                 $historico['HistoricBalance']['amount'] = $rodada['SocRodada']['valor'];
                 $historico['HistoricBalance']['description'] = 'devolution';
                 $historico['HistoricBalance']['to'] = $saldo['Balance']['value'];
-                $this->HistoricBalance->create();
-                $this->HistoricBalance->save($historico);
+
+                $ok = $this->HistoricBalance->save($historico);
 
                 //$historico_soccer['HistoricBalanceDevolution']['historic_balance_id'] = $this->HistoricBalance->id;
                 //$historico_soccer['HistoricBalanceDevolution']['soc_aposta_id'] = $aposta['SocAposta']['id'];
@@ -450,17 +457,15 @@ class SocRodadasController extends AppController {
                 //$historico_soccer['HistoricBalanceDevolution']['value'] = $rodada['SocRodada']['valor'];
                 //$this->HistoricBalanceSoccer->create();
                 //$this->HistoricBalanceSoccer->save($historico_soccer);
-
-
-
-
             }
 
 
         }
 
         $rodada['SocRodada']['active'] = 0;
-        $this->SocRodada->save($rodada);
+        $ok = $this->SocRodada->save($rodada);
+
+        $this->validaTransacao($ok);
 
         $this->response->body(json_encode([
             'msg' => 'Premiação atualizada com sucesso', 
