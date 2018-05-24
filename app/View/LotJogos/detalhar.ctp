@@ -11,28 +11,43 @@
                     <th>Email</th>
                     <th>Nome</th>
                     <th>Dezenas</th>
+                    <th>Dezenas Extras</th>
                     <th>Data</th>
-                    <th>Assertos</th>
+                    <th>Acertos</th>
+                    <th>Acertos Extras</th>
+                    <th>Total de Acertos</th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach ($usersJogos as $k => $v) { ?>
                     <tr>
-                        <td style="text-align: center;"><?php echo $v['users']['username']; ?></td>
-                        <td><?php echo $v['users']['name']; ?></td>&nbsp;&nbsp;
-                        <td><?php
-                            $numb = explode(' + ', $v['LotUserJogo']['numeros']);
-                            $numero = explode(' - ', $numb[0]);
-                            unset($numb[0]);
-                            $numeros = array_merge($numero, $numb);
-                            $btnNum = '';
-                            foreach ($numeros as $k => $x) {
-                                $btnNum .= '<button type="button" class="btn btn-xs ink-reaction btn-floating-action">' . $x . '</button>&nbsp;&nbsp;';
-                            }
-                            echo $btnNum;
-                            ?></td>
-                        <td><?php echo $v['LotUserJogo']['modified']; ?></td>
-                        <td><?php echo $v['LotUserJogo']['num_acerto']; ?></td>
+                        <td style="text-align: center;"><?php echo $v['User']['username']; ?></td>
+                        <td><?php echo $v['User']['name']; ?></td>&nbsp;&nbsp;
+                        <td>
+                            <?php
+                                $btnNum = '';
+                                foreach ($v['LotUserNumero'] as $k => $x) {
+                                    $btnNum .= '<button type="button" class="btn btn-xs ink-reaction btn-floating-action">' . $x['numero'] . '</button>&nbsp;&nbsp;';
+                                }
+                                foreach ($v['LotUserNumeroExtra'] as $k => $x) {
+                                    $btnNum .= '<button type="button" class="btn btn-xs ink-reaction btn-floating-action">' . $x['numero'] . '</button>&nbsp;&nbsp;';
+                                }
+                                echo $btnNum;
+                            ?>
+                        </td>
+                        <td>
+                            <?php
+                                $btnNum = '';
+                                foreach ($v['LotUserNumeroExtra'] as $k => $x) {
+                                    $btnNum .= '<button type="button" class="btn btn-xs ink-reaction btn-floating-action">' . $x['numero'] . '</button>&nbsp;&nbsp;';
+                                }
+                                echo $btnNum == '' ? 'Não há dezenas extras' : $btnNum;
+                            ?>
+                        </td>
+                        <td><?= $v['LotUserJogo']['num_acerto']; ?></td>
+                        <td><?= $v['LotUserJogo']['num_acerto_extra']; ?></td>
+                        <td><?= $v['LotUserJogo']['num_acerto'] + $v['LotUserJogo']['num_acerto_extra']; ?></td>
+                        <td><?= $v['LotUserJogo']['modified']; ?></td>
                     </tr>
                 <?php } ?>
             </tbody>

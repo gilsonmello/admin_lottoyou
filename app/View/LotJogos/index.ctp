@@ -99,7 +99,7 @@
                                 </td>
                                 <td>
                                     <div class="btn-group">
-                                        <?php if($v['LotJogo']['ativo'] == 'Sim') {
+                                        <?php if($v['LotJogo']['ativo'] == 'Sim' && $v['LotJogosResultado']['lot_jogo_id'] != null) {
                                             echo $this->Html->link(
                                                 '<i class="md md-attach-money"></i>&nbsp',
                                                 'javascript: void(0)',

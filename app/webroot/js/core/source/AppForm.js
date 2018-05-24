@@ -674,11 +674,10 @@
 
                             if(modal_hide == true || modal_hide == undefined)
                                 divForm.modal('hide');
-
-                            // EXECUTA FUNÇÃO APÓS SUCESSO
-                            if (typeof onSuccess !== 'undefined'){
-                                onSuccess();
-                            }
+                        }
+                        // EXECUTA FUNÇÃO APÓS SUCESSO
+                        if (typeof onSuccess !== 'undefined'){
+                            onSuccess();
                         }
                     },
                     error: function(data) {

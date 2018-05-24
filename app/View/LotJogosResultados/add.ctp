@@ -159,7 +159,9 @@
     </div>
 </div>
 <div class="modal-footer" style="padding:14px 22px;">
-    <button class="btn btn-primary btn-loading-state btnSalvarLotJogosResultados" type="button" data-loading-text="<i class='fa fa-spinner fa-spin'></i> Processando...">SALVAR</button>
+    <?php if($informado == 0) { ?>
+        <button class="btn btn-primary btn-loading-state btnSalvarLotJogosResultados" type="button" data-loading-text="<i class='fa fa-spinner fa-spin'></i> Processando...">SALVAR</button>
+    <?php } ?>
     <button class="btn btn-default pull-left" type="button" data-dismiss="modal" style="margin:0;">FECHAR</button>
 </div>
 

@@ -11,7 +11,14 @@ class LotUserJogo extends AppModel {
     public $useTable = 'lot_users_jogos';
     
     public $belongsTo = [
-        'LotJogo'
+        'LotJogo',
+        'User' => [
+            'className' => 'User',
+            'foreignKey' => 'jogador_id',
+            'conditions' => '',
+            'fields' => '',
+            'order' => ''
+        ],
     ];
     
     public $virtualFields = [

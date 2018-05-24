@@ -27,6 +27,7 @@ class LotJogosController extends AppController {
 
         // PEGA REQUISIÇÕES CADASTRADOS
         $dados = $this->LotJogo->find('all', $options);
+
         fb($dados, '$dados');
         // ENVIA DADOS PARA A SESSÃO
         $this->set(compact('dados', 'modal'));
@@ -115,7 +116,8 @@ class LotJogosController extends AppController {
         $pontuacoes = $this->LotUserJogo->find('all', [
             'fields' => 'LotUserJogo.num_total',
             'conditions' => [
-                'LotUserJogo.lot_jogo_id' => $jogoId
+                'LotUserJogo.lot_jogo_id' => $jogoId,
+                'LotUserJogo.num_total >=' => $categoria['LotCategoria']['min_assertos']
             ],
             'order' => 'LotUserJogo.num_total DESC',
             'group' => [
@@ -150,7 +152,7 @@ class LotJogosController extends AppController {
 
             $users_jogos = $this->LotUserJogo->find('all', [
                 'conditions' => [
-                    'LotUserJogo.num_total' => $pontuacao['LotUserJogo']['num_total']
+                    'LotUserJogo.num_total' => $pontuacao['LotUserJogo']['num_total'],
                 ]
             ]);
 
@@ -215,52 +217,52 @@ class LotJogosController extends AppController {
     }
 
     public function vencedores($jogoId = null) {
-        $this->loadModel('LotJogo');
-        $this->LotJogo->recursive = 2;
+
+        $this->LotJogo->recursive = 1;
         $dados = $this->LotJogo->find('first', array(
             'conditions' => array('LotJogo.id' => $jogoId)
         ));
+
+
         fb($dados, 'all $dados');
         if (!empty($dados['LotCategoria']['min_assertos'])) {
-            $options['conditions']['LotUsersJogo.num_acerto >='] = $dados['LotCategoria']['min_assertos'];
+            $options['conditions']['LotUserJogo.num_acerto >='] = $dados['LotCategoria']['min_assertos'];
         } else {
-            $options['conditions']['LotUsersJogo.num_acerto >='] = 0;
+            $options['conditions']['LotUserJogo.num_acerto >='] = 0;
         }
         if (!empty($dados['LotCategoria']['max_assertos'])) {
-            $options['conditions']['LotUsersJogo.num_acerto <='] = $dados['LotCategoria']['max_assertos'];
+            $options['conditions']['LotUserJogo.num_acerto <='] = $dados['LotCategoria']['max_assertos'];
         }
         if (!empty($dados['LotCategoria']['zero_assertos'])) {
-            $options['conditions']['LotUsersJogo.num_acerto'] = 0;
+            $options['conditions']['LotUserJogo.num_acerto'] = 0;
         }
         if (!empty($dados['LotCategoria']['extra_assertos'])) {
-            $options['conditions']['LotUsersJogo.num_acerto_extra'] = $dados['LotCategoria']['extra_assertos'];
+            $options['conditions']['LotUserJogo.num_acerto_extra'] = $dados['LotCategoria']['extra_assertos'];
         }
 
-        $options['conditions']['LotUsersJogo.lot_jogo_id'] = $jogoId;
-        $options['fields'] = array('count(LotUsersJogo.id) as contador', 'LotUsersJogo.num_acerto', 'LotUsersJogo.lot_jogo_id');
-        $options['group'] = array('LotUsersJogo.num_acerto');
-        $this->loadModel('LotUsersJogo');
-        $lotUserJogos = $this->LotUsersJogo->find('all', $options);
-        $this->set(compact('dados', 'lotUserJogos'));
+        $options['conditions']['LotUserJogo.lot_jogo_id'] = $jogoId;
+        $options['fields'] = array('count(LotUserJogo.id) as contador', 'LotUserJogo.num_acerto', 'LotUserJogo.lot_jogo_id');
+        $options['group'] = array('LotUserJogo.num_acerto');
+        $this->loadModel('LotUserJogo');
+        $lotUserJogos = $this->LotUserJogo->find('all', $options);
+
+        $this->set(compact('dados'));
+        $this->set('lotUserJogos', $lotUserJogos);
     }
 
     public function detalhar($lotJogoId = null, $acerto = null) {
         $this->loadModel('LotUserJogo');
 
-        $usersJogos = $this->LotUserJogo->query(
-            'SELECT
-                LotUserJogo.*, users.username, users.name
-            FROM
-                lot_users_jogos AS LotUserJogo
-            LEFT JOIN
-                users ON LotUserJogo.jogador_id = users.id
-            WHERE
-                LotUserJogo.lot_jogo_id = ' . $lotJogoId .
-            ' AND LotUserJogo.num_acerto = ' . $acerto
-        );
-        
+        $usersJogos = $this->LotUserJogo->find('all', [
+            'conditions' => [
+                'LotUserJogo.lot_jogo_id' => $lotJogoId,
+                'LotUserJogo.num_acerto' => $acerto
+            ]
+        ]);
+
+
         $this->set(compact('usersJogos'));
-        fb($usersJogos, 'users');
+
     }
 
 }

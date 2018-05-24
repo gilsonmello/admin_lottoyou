@@ -178,7 +178,7 @@
                 var acertos = $(this).attr('acertos');
                 var modalObject = $('#nivel4');
                 var url = 'lotJogos/detalhar/' + id + '/' + acertos;
-                window.materialadmin.AppForm.loadModal(modalObject, url, '75%', function () {
+                window.materialadmin.AppForm.loadModal(modalObject, url, '85%', function () {
                     modalObject.off('hide.bs.modal');
                     modalObject.on('hide.bs.modal', function () {
                         
@@ -217,6 +217,7 @@
                 if (typeof ($('#qtdNumerosd1').val()) === 'undefined') {
                     if (($('#qtdNumeros1').val() === '0')) {
                         if (confirm('Os números informados estão corretos?')) {
+                            $('.btnSalvarLotJogosResultados').button('loading');
                             $('#LotJogosResultadoAddForm').submit();
                         }
                     } else {
@@ -225,6 +226,7 @@
                 } else {
                     if (($('#qtdNumeros1').val() === '0' && $('#qtdNumerosd1').val() === '0')) {
                         if (confirm('Os números informados estão corretos?')) {
+                            $('.btnSalvarLotJogosResultados').button('loading');
                             $('#LotJogosResultadoAddForm').submit();
                         }
                     } else {
@@ -240,6 +242,8 @@
                 }
             });
 
+        }, function() {
+            $('.btnSalvarLotJogosResultados').button('reset');
         });
     };
 

@@ -36,13 +36,26 @@
                     <tbody>
                         <?php foreach ($lotUserJogos as $k => $v) { ?>
                             <tr>
-                                <td style="padding-left: 12px"><?php echo $v['LotUsersJogo']['num_acerto']; ?></td>
+                                <td style="padding-left: 12px"><?php echo $v['LotUserJogo']['num_acerto']; ?></td>
                                 <td style="padding-left: 12px"><?php echo $v[0]['contador']; ?></td>
                                 <td>
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-icon-toggle dropdown-toggle" data-toggle="dropdown"><i class="fa fa-gear"></i></button>
                                         <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                                            <li><?php echo $this->Html->link('<i class="md md-view-headline"></i>&nbsp Detalhar', 'javascript: void(0)', array("escape" => false, 'id' => $v['LotUsersJogo']['lot_jogo_id'], 'acertos'=>$v['LotUsersJogo']['num_acerto'], 'class' => 'btnDetalhar')) ?></li>
+                                            <li>
+                                                <?=
+                                                    $this->Html->link(
+                                                        '<i class="md md-view-headline"></i>&nbsp Detalhar',
+                                                        'javascript: void(0)',
+                                                        [
+                                                            "escape" => false,
+                                                            'id' => $v['LotUserJogo']['lot_jogo_id'],
+                                                            'acertos'=> $v['LotUserJogo']['num_acerto'],
+                                                            'class' => 'btnDetalhar'
+                                                        ]
+                                                    )
+                                                ?>
+                                            </li>
                                         </ul>
                                     </div>
                                 </td>

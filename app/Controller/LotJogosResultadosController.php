@@ -106,7 +106,7 @@ class LotJogosResultadosController extends AppController {
                 $this->loadModel('LotUserNumeroExtra');
                 $this->LotUserJogo->recursive = -1;
                 $this->LotUserNumero->recursive = -1;
-                $this->LotUserNumerosExtras->recursive = -1;
+                $this->LotUserNumeroExtra->recursive = -1;
 
                 /*
                  * Pegando as apostas feitas pelos os usuários
@@ -179,6 +179,8 @@ class LotJogosResultadosController extends AppController {
                     $value['LotUserJogo']['num_acerto_extra'] = $contador2;
                     //Número total de acerto
                     $value['LotUserJogo']['num_total'] = $contador1;
+
+                    $value['LotUserJogo']['vencedor'] = 0;
                     /*
                      * Caso o usuário acertou todos os números possíveis, fazer a soma dos números normais e extras
                      */
@@ -200,7 +202,7 @@ class LotJogosResultadosController extends AppController {
                 $this->Session->setFlash('Por favor, informe o Campo:<br/> <u>Data do resultado</u>.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-danger'));
             }
         } else {
-            
+
             $this->loadModel('LotJogo');
 
             $dados = $this->LotJogo->find('first', [
@@ -247,11 +249,14 @@ class LotJogosResultadosController extends AppController {
                         }
                     }
                 }
-                $this->set(compact('tiposJogos', 'dados', 'lotJogoId', 'dezenas2', 'dezenas'));
+
+                $informado = 1;
+                $this->set(compact('tiposJogos', 'dados', 'lotJogoId', 'dezenas2', 'dezenas', 'informado'));
 
                 $this->Session->setFlash('Resultado, já informado previamente.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-danger'));
             } else {
-                $this->set(compact('tiposJogos', 'dados', 'lotJogoId'));
+                $informado = 0;
+                $this->set(compact('tiposJogos', 'dados', 'lotJogoId', 'informado'));
             }
         }
     }
