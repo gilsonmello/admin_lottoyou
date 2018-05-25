@@ -102,29 +102,31 @@
 
         // INSTANCIA VARIÁREIS
 
-        $.ajax({
-            url: url,
-            method: 'POST',
-            dataType: 'JSON',
-            beforeSend: function() {
-                btn.button('loading');
-                btnPremiacao.addClass('hide');
-            },
-            success: function(data) {
-                if(data.status == "ok") {
-                    toastr.success(data.msg);
-                } else {
-                    toastr.error(data.msg);
+        if(confirm('Você realmente deseja atualizar as pontuações?')) {
+            $.ajax({
+                url: url,
+                method: 'POST',
+                dataType: 'JSON',
+                beforeSend: function () {
+                    btn.button('loading');
+                    btnPremiacao.addClass('hide');
+                },
+                success: function (data) {
+                    if (data.status == "ok") {
+                        toastr.success(data.msg);
+                    } else {
+                        toastr.error(data.msg);
+                    }
+                    btn.button('reset');
+                    btnPremiacao.removeClass('hide');
+                },
+                error: function (error) {
+                    toastr.error(error.responseJSON.msg);
+                    btn.button('reset');
+                    btnPremiacao.removeClass('hide');
                 }
-                btn.button('reset');
-                btnPremiacao.removeClass('hide');
-            },
-            error: function (error) {
-                toastr.error(error.responseJSON.msg);
-                btn.button('reset');
-                btnPremiacao.removeClass('hide');
-            }
-        });
+            });
+        }
     };
 
     p._gerarPremiacao = function(id) {
@@ -134,36 +136,39 @@
         var btn = $(AppSocRodadas.modalFormId + ' .btnGerarPremiacao');
         var btnPontuacao = $(AppSocRodadas.modalFormId + ' .btnAtualizarPontuacao');
 
-        // INSTANCIA VARIÁREIS
-
-        $.ajax({
-            url: url,
-            method: 'POST',
-            dataType: 'JSON',
-            beforeSend: function() {
-                btn.button('loading');
-                btnPontuacao.addClass('hide');
-                modalObject.off('hide.bs.modal');
-                modalObject.on('hide.bs.modal', function () {
-                    p._loadConsSocRodada();
-                });
-            },
-            success: function(data) {
-                if(data.status == "ok") {
-                    toastr.success(data.msg);
-                    modalObject.modal('hide');
-                } else {
-                    toastr.error(data.msg);
+        if(confirm('Você realmente deseja gerar as premiações?')) {
+            // INSTANCIA VARIÁREIS
+            $.ajax({
+                url: url,
+                method: 'POST',
+                dataType: 'JSON',
+                beforeSend: function() {
+                    btn.button('loading');
+                    btnPontuacao.addClass('hide');
+                    modalObject.off('hide.bs.modal');
+                    modalObject.on('hide.bs.modal', function () {
+                        p._loadConsSocRodada();
+                    });
+                },
+                success: function(data) {
+                    if(data.status == "ok") {
+                        toastr.success(data.msg);
+                        modalObject.modal('hide');
+                    } else {
+                        toastr.error(data.msg);
+                    }
+                    btn.button('reset');
+                    btnPontuacao.removeClass('hide');
+                },
+                error: function (error) {
+                    toastr.error(error.responseJSON.msg);
+                    btn.button('reset');
+                    btnPontuacao.removeClass('hide');
                 }
-                btn.button('reset');
-                btnPontuacao.removeClass('hide');
-            },
-            error: function (error) {
-                toastr.error(error.responseJSON.msg);
-                btn.button('reset');
-                btnPontuacao.removeClass('hide');
-            }
-        });
+            });
+        }
+
+
     };
 
     p._cadastrarResultados = function(id) {
