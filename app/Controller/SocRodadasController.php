@@ -533,6 +533,7 @@ class SocRodadasController extends AppController {
 
                 $pontuacao = 0;
 
+
                 //Percorrendo os jogos da cartela
                 foreach ($aposta_jogos as $ap => $aposta_jogo) {
 
@@ -542,6 +543,7 @@ class SocRodadasController extends AppController {
                             'id' => $aposta_jogo['SocApostasJogo']['soc_jogo_id']
                         ]
                     ]);
+
 
                     if($jogo['SocJogo']['resultado_clube_casa'] == null
                         || $jogo['SocJogo']['resultado_clube_fora'] == null) {
@@ -595,11 +597,8 @@ class SocRodadasController extends AppController {
                     if($aposta_jogo['SocApostasJogo']['bola_ouro'] == 1 && $aposta_jogo['SocApostasJogo']['pontuacao'] > 0) {
                         $pontuacao_bola_ouro = $aposta_jogo['SocApostasJogo']['pontuacao'] + (($aposta_jogo['SocApostasJogo']['pontuacao'] * 25) / 100);
                         $aposta_jogo['SocApostasJogo']['pontuacao'] = $pontuacao_bola_ouro;
-                    } else {
-                        $aposta_jogo['SocApostasJogo']['pontuacao'] = 0;
                     }
-
-
+                    
                     $pontuacao += $aposta_jogo['SocApostasJogo']['pontuacao'];
 
                     $this->SocApostasJogo->save($aposta_jogo);
@@ -771,7 +770,7 @@ class SocRodadasController extends AppController {
         $aposta_resultado_clube_casa = $aposta['SocApostasJogo']['resultado_clube_casa'];
         $aposta_resultado_clube_fora = $aposta['SocApostasJogo']['resultado_clube_fora'];
         
-        if($vencedor == $vencedorUsuario 
+        if($vencedor == $vencedorUsuario
             && !$this->empate($jogo_resultado_clube_casa, $jogo_resultado_clube_fora)
             && !$this->empate($aposta_resultado_clube_casa, $aposta_resultado_clube_fora)
         ) {

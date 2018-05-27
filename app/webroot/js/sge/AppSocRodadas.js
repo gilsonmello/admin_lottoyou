@@ -111,6 +111,9 @@
                     btn.button('loading');
                     btnPremiacao.addClass('hide');
                 },
+                complete: function() {
+                    btn.button('reset');
+                },
                 success: function (data) {
                     if (data.status == "ok") {
                         toastr.success(data.msg);
