@@ -21,16 +21,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="SocRodadasController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SocRodadasController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Controller/SocRodadasController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="614" column="56" selection-start-line="614" selection-start-column="56" selection-end-line="614" selection-end-column="56" />
+            <state relative-caret-position="255">
+              <caret line="640" column="46" selection-start-line="640" selection-start-column="46" selection-end-line="640" selection-end-column="46" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LotJogosResultadosController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LotJogosResultadosController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Controller/LotJogosResultadosController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="330">
@@ -158,12 +158,12 @@
         <option value="$PROJECT_DIR$/app/webroot/js/core/source/AppForm.js" />
         <option value="$PROJECT_DIR$/app/Controller/LotJogosController.php" />
         <option value="$PROJECT_DIR$/app/webroot/js/sge/AppSocRodadas.js" />
-        <option value="$PROJECT_DIR$/app/Controller/SocRodadasController.php" />
         <option value="$PROJECT_DIR$/app/webroot/js/sge/AppLotJogos.js" />
         <option value="$PROJECT_DIR$/app/Model/LotJogosResultado.php" />
         <option value="$PROJECT_DIR$/app/Controller/LotJogosResultadosController.php" />
         <option value="$PROJECT_DIR$/app/View/LotJogosResultados/index.ctp" />
         <option value="$PROJECT_DIR$/app/View/LotJogos/detalhar.ctp" />
+        <option value="$PROJECT_DIR$/app/Controller/SocRodadasController.php" />
       </list>
     </option>
   </component>
@@ -309,12 +309,12 @@
       <workItem from="1527270447059" duration="2163000" />
       <workItem from="1527307314283" duration="7000" />
       <workItem from="1527387248134" duration="3348000" />
-      <workItem from="1527517449043" duration="2617000" />
+      <workItem from="1527517449043" duration="2931000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="86005000" />
+    <option name="totallyTimeSpent" value="86319000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-3" y="0" width="1372" height="738" extended-state="6" />
@@ -645,13 +645,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Controller/SocRodadasController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="614" column="56" selection-start-line="614" selection-start-column="56" selection-end-line="614" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Model/LotJogo.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
@@ -705,6 +698,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Controller/SocRodadasController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="640" column="46" selection-start-line="640" selection-start-column="46" selection-end-line="640" selection-end-column="46" />
         </state>
       </provider>
     </entry>

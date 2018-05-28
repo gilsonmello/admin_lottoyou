@@ -636,9 +636,9 @@ class SocRodadasController extends AppController {
                         'SocAposta.soc_rodada_grupo_id =' => $grupo['SocRodadasGrupo']['id'],
                         'SocAposta.soc_rodada_id' => $grupo['SocRodadasGrupo']['soc_rodada_id']
                     ],
-                    'order' => 'SocAposta.pontuacao DESC',
+                    'order' => 'SocAposta.total_pontuacao DESC',
                     'group' => [
-                        'SocAposta.pontuacao'
+                        'SocAposta.total_pontuacao',
                     ]
                 ]);
 
