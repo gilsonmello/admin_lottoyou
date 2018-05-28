@@ -27,12 +27,12 @@ class SocRodadasController extends AppController {
             'conditions' => [
                 'Balance.owner_id' => $owner['User']['id']
             ]
-        ]);               
+        ]);
 
         $historico['HistoricBalance']['balance_id'] = $saldo['Balance']['id'];
         $historico['HistoricBalance']['owner_id'] = $owner['User']['id'];
         $historico['HistoricBalance']['from'] = $saldo['Balance']['value'];
-        
+
 
         $saldo['Balance']['value'] += $grupo['SocRodadasGrupo']['arrecadado'] * $porcentagem / 100;
 
@@ -273,7 +273,7 @@ class SocRodadasController extends AppController {
                 'order' => 'SocAposta.posicao DESC'
             ]);
 
-            $segundos_pct = 0; 
+            $segundos_pct = 0;
             $prc_maxima = 28;
 
             //Iniciando $i com a última posição encontrada no vetor de premiações e pego todas as posições com base no total
@@ -317,7 +317,7 @@ class SocRodadasController extends AppController {
             $prc_maxima = 18;
 
 
-            for ($i = $pos_disponivel; $i < count($primeiros) + count($segundos) + count($terceiros); $i++) { 
+            for ($i = $pos_disponivel; $i < count($primeiros) + count($segundos) + count($terceiros); $i++) {
                 if(!isset($prc[$i])) {
                     $terceiros_pct = 18;
                     break;
@@ -346,8 +346,8 @@ class SocRodadasController extends AppController {
                 ],
                 'order' => 'SocAposta.posicao DESC'
             ]);
-            $quartos_pct = 0;    
-            $prc_maxima = 11;     
+            $quartos_pct = 0;
+            $prc_maxima = 11;
 
             $end = count($primeiros) + count($segundos) + count($terceiros) + count($quartos);
             for ($i = $pos_disponivel; $i < $end; $i++) {
@@ -381,11 +381,11 @@ class SocRodadasController extends AppController {
                 ],
                 'order' => 'SocAposta.posicao DESC'
             ]);
-            $decimo_primeiro_pct = 0;  
-            $prc_maxima = 6;         
+            $decimo_primeiro_pct = 0;
+            $prc_maxima = 6;
 
             $end = count($primeiros) + count($segundos) + count($terceiros) + count($quartos) + count($decimo_primeiros);
-            for ($i = $pos_disponivel; $i < $end; $i++) { 
+            for ($i = $pos_disponivel; $i < $end; $i++) {
                 if(!isset($prc[$i])) {
                     $decimo_primeiro_pct = 6;
                     break;
@@ -468,7 +468,7 @@ class SocRodadasController extends AppController {
         $this->validaTransacao($ok);
 
         $this->response->body(json_encode([
-            'msg' => 'Premiação atualizada com sucesso', 
+            'msg' => 'Premiação atualizada com sucesso',
             'status' => 'ok'
         ]));
 
@@ -476,13 +476,13 @@ class SocRodadasController extends AppController {
         $this->_stop();
     }
 
-    public function atualizarPontuacao($id) 
+    public function atualizarPontuacao($id)
     {
         // CONFIGURA LAYOUT
         $this->layout = 'ajax';
         $this->SocRodada->recursive = -1;
 
-        $this->render = false;
+        $this->render(false);
 
         if($this->request->is('post')) {
             $this->loadModel('SocJogo');
@@ -496,7 +496,7 @@ class SocRodadasController extends AppController {
             $this->SocApostasJogo->recursive = -1;
             $this->SocRodadasGrupo->recursive = -1;
 
-            
+
 
             $config_rodada = $this->SocConfRodada->find('first', [
                 'conditions' => [
@@ -507,7 +507,7 @@ class SocRodadasController extends AppController {
 
             if(!$config_rodada) {
                 $this->response->body(json_encode([
-                    'msg' => 'Não existe configuração cadastrada para a cartela', 
+                    'msg' => 'Não existe configuração cadastrada para a cartela',
                     'status' => 'error'
                 ]));
                 $this->response->statusCode(400);
@@ -522,6 +522,7 @@ class SocRodadasController extends AppController {
                 ]
             ]);
 
+
             //Percorrendo todas as cartelas feitas
             foreach ($apostas as $a => $aposta) {
                 //Pegando os jogos da cartela
@@ -533,8 +534,7 @@ class SocRodadasController extends AppController {
 
                 $pontuacao = 0;
                 $qtd_acertos_placares = 0;
-                $qtd_acertos_diferenca_gols = 0;
-                $qtd_empates = 0;
+                $qtd_acertos_diferenca_gols_ou_empates = 0;
                 $qtd_pontuacao_bola_ouro = 0;
 
 
@@ -549,11 +549,17 @@ class SocRodadasController extends AppController {
                     ]);
 
 
+                    $jogo_resultado_clube_casa = $jogo['SocJogo']['resultado_clube_casa'];
+                    $jogo_resultado_clube_fora = $jogo['SocJogo']['resultado_clube_fora'];
+                    $aposta_resultado_clube_casa = $aposta_jogo['SocApostasJogo']['resultado_clube_casa'];
+                    $aposta_resultado_clube_fora = $aposta_jogo['SocApostasJogo']['resultado_clube_fora'];
+
+
                     if($jogo['SocJogo']['resultado_clube_casa'] == null
                         || $jogo['SocJogo']['resultado_clube_fora'] == null) {
                         continue;
                     }
-                   
+
                     $aposta_jogo['SocApostasJogo']['pontuacao'] = 0;
 
                     /**
@@ -581,7 +587,6 @@ class SocRodadasController extends AppController {
                      * Acertou o empate sem exatidão, ex: 1x1 mas o jogo foi 2x2
                      */
                     if($this->empateSemExatidao($jogo, $aposta_jogo)) {
-                        $qtd_empates++;
                         $aposta_jogo['SocApostasJogo']['pontuacao'] = $config_rodada['SocConfRodada']['acertar_empate_sem_exatidao'];
                     }
 
@@ -589,8 +594,15 @@ class SocRodadasController extends AppController {
                      * Acertou vecendor e diferença de gols
                      */
                     if($this->acertouDiferenca($jogo, $aposta_jogo) && $this->acertouVencedor($jogo, $aposta_jogo)) {
-                        $qtd_acertos_diferenca_gols++;
                         $aposta_jogo['SocApostasJogo']['pontuacao'] = $config_rodada['SocConfRodada']['acertar_jogo_e_diferenca_gols'];
+                    }
+
+                    /*
+                     * Acertou vecendor e diferença de gols
+                     */
+                    if($this->acertouDiferenca($jogo, $aposta_jogo)
+                    ) {
+                        $qtd_acertos_diferenca_gols_ou_empates++;
                     }
 
                     /*
@@ -618,21 +630,21 @@ class SocRodadasController extends AppController {
                  * A bola de ouro vale mais que todos os outros
                  * Sabendo disso, faço a soma de todos os acertos mais a bola de ouro, sendo assim ela será sempre maior
                  */
-                $pontuacao_bola_ouro_peso = $qtd_pontuacao_bola_ouro + $qtd_acertos_placares + $qtd_acertos_diferenca_gols;
+                $pontuacao_bola_ouro_peso = $qtd_pontuacao_bola_ouro + $qtd_acertos_placares + $qtd_acertos_diferenca_gols_ou_empates;
 
                 /**
                  * A quantidade de acerto dos placares vale mais do que o Maior número de acertos de diferença de gols ou empates
                  * Sabendo disso, faço a soma de todos os acertos de placares
-                 * Mais a quantidade de acertos de
+                 * Mais a quantidade de acertos de diferença de gols
                  */
-                $acertos_placares_peso = $qtd_acertos_placares + $qtd_acertos_diferenca_gols + $qtd_empates;
+                $acertos_placares_peso = $qtd_acertos_placares + $qtd_acertos_diferenca_gols_ou_empates;
 
+                $acertos_diferenca_gols_ou_empates_peso = $qtd_acertos_diferenca_gols_ou_empates;
 
                 $aposta['SocAposta']['pontuacao'] = $pontuacao;
                 $aposta['SocAposta']['qtd_acertos_placares'] = $qtd_acertos_placares;
-                $aposta['SocAposta']['qtd_acertos_diferenca_gols'] = $qtd_acertos_diferenca_gols;
-                $aposta['SocAposta']['qtd_empates'] = $qtd_empates;
-                $aposta['SocAposta']['total_pontuacao'] = $pontuacao + $pontuacao_bola_ouro_peso + $acertos_placares_peso;
+                $aposta['SocAposta']['qtd_acertos_diferenca_gols_ou_empate'] = $qtd_acertos_diferenca_gols_ou_empates;
+                $aposta['SocAposta']['total_pontuacao'] = $pontuacao + $acertos_placares_peso + $acertos_diferenca_gols_ou_empates_peso + $pontuacao_bola_ouro_peso;
                 $aposta['SocAposta']['pontuacao_bola_ouro'] = $qtd_pontuacao_bola_ouro;
                 $this->SocAposta->save($aposta);
             }
@@ -643,6 +655,7 @@ class SocRodadasController extends AppController {
                 ]
             ]);
 
+            //die(var_dump('ASDA'));
 
 
             $t = 1;
@@ -708,18 +721,18 @@ class SocRodadasController extends AppController {
             }
 
             $this->response->body(json_encode([
-                'msg' => 'Pontuação atualizada com sucesso', 
+                'msg' => 'Pontuação atualizada com sucesso',
                 'status' => 'ok'
             ]));
 
             $this->response->send();
             $this->_stop();
-            
+
         }
 
     }
 
-    private function acertouDiferenca($jogo, $aposta) 
+    private function acertouDiferenca($jogo, $aposta)
     {
         $jogo_resultado_clube_casa = $jogo['SocJogo']['resultado_clube_casa'];
         $jogo_resultado_clube_fora = $jogo['SocJogo']['resultado_clube_fora'];
@@ -731,31 +744,31 @@ class SocRodadasController extends AppController {
 
         $diferenca_aposta = $aposta_resultado_clube_casa - $aposta_resultado_clube_fora;
         $diferenca_aposta = $diferenca_aposta < 0 ? $diferenca_aposta * -1 : $diferenca_aposta;
-        
+
         if(!$this->empate($jogo_resultado_clube_casa, $jogo_resultado_clube_fora) && $diferenca_jogo == $diferenca_aposta) {
             return true;
         }
         return false;
     }
 
-    private function empateSemExatidao($jogo, $aposta) 
+    private function empateSemExatidao($jogo, $aposta)
     {
         $jogo_resultado_clube_casa = $jogo['SocJogo']['resultado_clube_casa'];
         $jogo_resultado_clube_fora = $jogo['SocJogo']['resultado_clube_fora'];
         $aposta_resultado_clube_casa = $aposta['SocApostasJogo']['resultado_clube_casa'];
         $aposta_resultado_clube_fora = $aposta['SocApostasJogo']['resultado_clube_fora'];
         if(
-            $this->empate($jogo_resultado_clube_casa, $jogo_resultado_clube_fora) 
+            $this->empate($jogo_resultado_clube_casa, $jogo_resultado_clube_fora)
             && $this->empate($aposta_resultado_clube_casa, $aposta_resultado_clube_fora)
             && !$this->acertouPlacar($jogo, $aposta)
-        ) 
+        )
         {
             return true;
         }
         return false;
     }
 
-    private function empate($resultado_clube_casa, $resultado_clube_fora) 
+    private function empate($resultado_clube_casa, $resultado_clube_fora)
     {
         if($resultado_clube_casa == $resultado_clube_fora) {
             return true;
@@ -763,53 +776,53 @@ class SocRodadasController extends AppController {
         return false;
     }
 
-    private function empateComVendedor($jogo, $aposta) 
+    private function empateComVendedor($jogo, $aposta)
     {
         $jogo_resultado_clube_casa = $jogo['SocJogo']['resultado_clube_casa'];
         $jogo_resultado_clube_fora = $jogo['SocJogo']['resultado_clube_fora'];
         $aposta_resultado_clube_casa = $aposta['SocApostasJogo']['resultado_clube_casa'];
         $aposta_resultado_clube_fora = $aposta['SocApostasJogo']['resultado_clube_fora'];
         //Verifico se o usuário marcou empate, mas houve um ganhador do jogo
-        if(!$this->empate($jogo_resultado_clube_casa, $jogo_resultado_clube_fora) && 
-            $this->empate($aposta_resultado_clube_casa, $aposta_resultado_clube_fora)) 
+        if(!$this->empate($jogo_resultado_clube_casa, $jogo_resultado_clube_fora) &&
+            $this->empate($aposta_resultado_clube_casa, $aposta_resultado_clube_fora))
         {
             return true;
         }
         return false;
     }
 
-   
-    private function acertouPlacar($jogo, $aposta) 
-    {        
+
+    private function acertouPlacar($jogo, $aposta)
+    {
         if($jogo['SocJogo']['resultado_clube_casa'] == $aposta['SocApostasJogo']['resultado_clube_casa'] && $jogo['SocJogo']['resultado_clube_fora'] == $aposta['SocApostasJogo']['resultado_clube_fora']) {
             return true;
-        } 
+        }
         return false;
     }
 
     private function acertouVencedor($jogo, $aposta) {
-        $vencedor = $jogo['SocJogo']['resultado_clube_casa'] > 
-            $jogo['SocJogo']['resultado_clube_fora'] ? 'casa' : 'fora';
+        $vencedor = $jogo['SocJogo']['resultado_clube_casa'] >
+        $jogo['SocJogo']['resultado_clube_fora'] ? 'casa' : 'fora';
 
 
-        $vencedorUsuario = $aposta['SocApostasJogo']['resultado_clube_casa'] > 
-            $aposta['SocApostasJogo']['resultado_clube_fora'] ? 'casa' : 'fora';
+        $vencedorUsuario = $aposta['SocApostasJogo']['resultado_clube_casa'] >
+        $aposta['SocApostasJogo']['resultado_clube_fora'] ? 'casa' : 'fora';
 
         $jogo_resultado_clube_casa = $jogo['SocJogo']['resultado_clube_casa'];
         $jogo_resultado_clube_fora = $jogo['SocJogo']['resultado_clube_fora'];
         $aposta_resultado_clube_casa = $aposta['SocApostasJogo']['resultado_clube_casa'];
         $aposta_resultado_clube_fora = $aposta['SocApostasJogo']['resultado_clube_fora'];
-        
+
         if($vencedor == $vencedorUsuario
             && !$this->empate($jogo_resultado_clube_casa, $jogo_resultado_clube_fora)
             && !$this->empate($aposta_resultado_clube_casa, $aposta_resultado_clube_fora)
         ) {
             return true;
-        }     
+        }
         return false;
     }
 
-    public function cadastrarResultados($id) 
+    public function cadastrarResultados($id)
     {
         // CONFIGURA LAYOUT
         $this->layout = 'ajax';
@@ -829,11 +842,11 @@ class SocRodadasController extends AppController {
                 $save_data['SocJogo']['resultado_clube_casa'] = $value['resultado_clube_casa'];
                 $save_data['SocJogo']['gel_clube_fora_id'] = $value['gel_clube_fora_id'];
                 $save_data['SocJogo']['resultado_clube_fora'] = $value['resultado_clube_fora'];
-                
+
                 $this->SocJogo->create(false);
                 if(!$this->SocJogo->save($save_data)) {
                     $error = 1;
-                    $this->Session->setFlash('Não foi possível editar o registro. Favor tentar novamente.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-danger'));                      
+                    $this->Session->setFlash('Não foi possível editar o registro. Favor tentar novamente.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-danger'));
                 }
             }
 
@@ -855,10 +868,10 @@ class SocRodadasController extends AppController {
         }
 
     }
-    
+
     public function index($modal = 0) {
         // CARREGA FUNÇÕES BÁSICAS DE PESQUISA E ORDENAÇÃO
-        $options = parent::_index();               
+        $options = parent::_index();
 
         // PREPARA MODEL       
         $this->SocRodada->recursive = 1;
@@ -871,7 +884,7 @@ class SocRodadasController extends AppController {
                 unset($options['conditions'][$field]);
             }
         }
-        
+
         // PEGA REQUISIÇÕES CADASTRADOS
         $dados = $this->SocRodada->find('all', $options);
 
@@ -925,7 +938,7 @@ class SocRodadasController extends AppController {
 
         $newFileName = $id . '.' . strtolower($parts['extension']);
 
-        
+
         $targetFile = 'files/Soccer_Expert_Rodadas_Imagem_Modal/'. $newFileName;
 
         if(!is_dir('files/Soccer_Expert_Rodadas_Imagem_Modal')){
@@ -949,7 +962,7 @@ class SocRodadasController extends AppController {
         $parts = pathinfo($parametros['name']);
 
         $newFileName = $id . '.' . strtolower($parts['extension']);
-        
+
         $targetFile = 'files/Soccer_Expert_Rodadas/'. $newFileName;
 
         if(!is_dir('files/Soccer_Expert_Rodadas')){
@@ -978,7 +991,7 @@ class SocRodadasController extends AppController {
         $this->loadModel('SocCiclo');
         $this->SocCiclo->recursive = -1;
         $optionsCiclos = $this->SocCiclo->find('list');
-        
+
         $this->set(compact('optionsBoloes', 'optionsCategorias', 'optionsCiclos'));
         if ($this->request->is('post') || $this->request->is('put')) {
             $this->request->data['SocRodada']['valor'] = $this->App->formataValorDouble($this->request->data['SocRodada']['valor']);
@@ -996,7 +1009,7 @@ class SocRodadasController extends AppController {
 
         $this->loadModel('SocBolao');
         $optionsBoloes = $this->SocBolao->find('list');
-        
+
         $this->loadModel('SocCategoria');
         $optionsCategorias = $this->SocCategoria->find('list');
 
@@ -1005,7 +1018,7 @@ class SocRodadasController extends AppController {
         $optionsCiclos = $this->SocCiclo->find('list');
 
         $this->set(compact('optionsBoloes', 'optionsCategorias', 'optionsCiclos'));
-        
+
         $this->SocRodada->id = $id;
         if (!$this->SocRodada->exists()) {
             throw new NotFoundException('Registro inexistente', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-danger'));
