@@ -541,20 +541,18 @@ class SocRodadasController extends AppController {
                 //Percorrendo os jogos da cartela
                 foreach ($aposta_jogos as $ap => $aposta_jogo) {
 
-
-                    die(var_dump($aposta_jogos));
-
-                    $jogo_resultado_clube_casa = $aposta_jogo['SocJogo']['resultado_clube_casa'];
-                    $jogo_resultado_clube_fora = $aposta_jogo['SocJogo']['resultado_clube_fora'];
-                    $aposta_resultado_clube_casa = $aposta['SocApostasJogo']['resultado_clube_casa'];
-                    $aposta_resultado_clube_fora = $aposta['SocApostasJogo']['resultado_clube_fora'];
-
                     //Pesquisando resultado do jogo
                     $jogo = $this->SocJogo->find('first', [
                         'conditions' => [
                             'id' => $aposta_jogo['SocApostasJogo']['soc_jogo_id']
                         ]
                     ]);
+
+
+                    $jogo_resultado_clube_casa = $jogo['SocJogo']['resultado_clube_casa'];
+                    $jogo_resultado_clube_fora = $jogo['SocJogo']['resultado_clube_fora'];
+                    $aposta_resultado_clube_casa = $aposta['SocApostasJogo']['resultado_clube_casa'];
+                    $aposta_resultado_clube_fora = $aposta['SocApostasJogo']['resultado_clube_fora'];
 
 
                     if($jogo['SocJogo']['resultado_clube_casa'] == null
