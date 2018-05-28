@@ -654,6 +654,7 @@ class SocRodadasController extends AppController {
                 ]
             ]);
 
+            die(var_dump('ASDA'));
 
 
             $t = 1;
