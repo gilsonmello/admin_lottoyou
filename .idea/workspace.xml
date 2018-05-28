@@ -24,8 +24,8 @@
       <file leaf-file-name="SocRodadasController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Controller/SocRodadasController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3003">
-              <caret line="655" column="14" selection-start-line="655" selection-start-column="14" selection-end-line="655" selection-end-column="14" />
+            <state relative-caret-position="-1257">
+              <caret line="551" column="46" selection-end-line="1043" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -310,12 +310,12 @@
       <workItem from="1527307314283" duration="7000" />
       <workItem from="1527387248134" duration="3348000" />
       <workItem from="1527517449043" duration="3952000" />
-      <workItem from="1527534919879" duration="2893000" />
+      <workItem from="1527534919879" duration="3183000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="90233000" />
+    <option name="totallyTimeSpent" value="90523000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-3" y="0" width="1372" height="738" extended-state="6" />
@@ -690,8 +690,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Controller/SocRodadasController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3003">
-          <caret line="655" column="14" selection-start-line="655" selection-start-column="14" selection-end-line="655" selection-end-column="14" />
+        <state relative-caret-position="-1257">
+          <caret line="551" column="46" selection-end-line="1043" selection-end-column="1" />
         </state>
       </provider>
     </entry>
