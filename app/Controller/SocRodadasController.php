@@ -548,6 +548,11 @@ class SocRodadasController extends AppController {
                         ]
                     ]);
 
+                    $jogo_resultado_clube_casa = $jogo['SocJogo']['resultado_clube_casa'];
+                    $jogo_resultado_clube_fora = $jogo['SocJogo']['resultado_clube_fora'];
+                    $aposta_resultado_clube_casa = $aposta['SocApostasJogo']['resultado_clube_casa'];
+                    $aposta_resultado_clube_fora = $aposta['SocApostasJogo']['resultado_clube_fora'];
+
 
                     if($jogo['SocJogo']['resultado_clube_casa'] == null
                         || $jogo['SocJogo']['resultado_clube_fora'] == null) {
@@ -618,24 +623,21 @@ class SocRodadasController extends AppController {
                  * A bola de ouro vale mais que todos os outros
                  * Sabendo disso, faço a soma de todos os acertos mais a bola de ouro, sendo assim ela será sempre maior
                  */
-                $pontuacao_bola_ouro_peso = $qtd_pontuacao_bola_ouro + $qtd_acertos_placares + $qtd_acertos_diferenca_gols + $qtd_empates;
+                $pontuacao_bola_ouro_peso = $qtd_pontuacao_bola_ouro + $qtd_acertos_placares + $qtd_acertos_diferenca_gols;
 
                 /**
                  * A quantidade de acerto dos placares vale mais do que o Maior número de acertos de diferença de gols ou empates
                  * Sabendo disso, faço a soma de todos os acertos de placares
-                 * Mais a quantidade de acertos de 
+                 * Mais a quantidade de acertos de
                  */
                 $acertos_placares_peso = $qtd_acertos_placares + $qtd_acertos_diferenca_gols + $qtd_empates;
 
-                $df_gols = $qtd_acertos_diferenca_gols;
-                $qtd_acertos_diferenca_gols = $qtd_acertos_diferenca_gols + $qtd_empates;
-                $qtd_empates = $qtd_empates + $df_gols;
 
                 $aposta['SocAposta']['pontuacao'] = $pontuacao;
                 $aposta['SocAposta']['qtd_acertos_placares'] = $qtd_acertos_placares;
                 $aposta['SocAposta']['qtd_acertos_diferenca_gols'] = $qtd_acertos_diferenca_gols;
                 $aposta['SocAposta']['qtd_empates'] = $qtd_empates;
-                $aposta['SocAposta']['total_pontuacao'] = $pontuacao + $acertos_placares_peso + $qtd_acertos_diferenca_gols + $qtd_empates + $pontuacao_bola_ouro_peso;
+                $aposta['SocAposta']['total_pontuacao'] = $pontuacao + $pontuacao_bola_ouro_peso + $acertos_placares_peso;
                 $aposta['SocAposta']['pontuacao_bola_ouro'] = $qtd_pontuacao_bola_ouro;
                 $this->SocAposta->save($aposta);
             }
