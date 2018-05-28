@@ -482,7 +482,7 @@ class SocRodadasController extends AppController {
         $this->layout = 'ajax';
         $this->SocRodada->recursive = -1;
 
-        $this->render = false;
+        $this->render(false);
 
         if($this->request->is('post')) {
             $this->loadModel('SocJogo');
@@ -521,6 +521,8 @@ class SocRodadasController extends AppController {
                     'soc_rodada_id' => $id
                 ]
             ]);
+
+            die(var_dump($apostas));
 
             //Percorrendo todas as cartelas feitas
             foreach ($apostas as $a => $aposta) {
