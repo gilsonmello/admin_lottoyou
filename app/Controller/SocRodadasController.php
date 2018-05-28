@@ -608,7 +608,9 @@ class SocRodadasController extends AppController {
                     /*
                      * Acertou o placar
                      */
-                    if($this->acertouPlacar($jogo, $aposta_jogo)) {
+                    if($this->acertouPlacar($jogo, $aposta_jogo) || ($this->empate($jogo_resultado_clube_casa, $jogo_resultado_clube_fora) &&
+                        $this->empate($aposta_resultado_clube_casa, $aposta_resultado_clube_fora)
+                    )) {
                         $qtd_acertos_placares++;
                         $aposta_jogo['SocApostasJogo']['pontuacao'] = $config_rodada['SocConfRodada']['acertar_placar'];
                     }
