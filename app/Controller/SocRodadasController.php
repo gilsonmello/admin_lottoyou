@@ -599,7 +599,7 @@ class SocRodadasController extends AppController {
                      * Acertou vecendor e diferença de gols
                      */
                     if($this->acertouDiferenca($jogo, $aposta_jogo) || ($this->empate($aposta_resultado_clube_casa, $aposta_resultado_clube_fora)
-                        && $this->$this->empate($jogo_resultado_clube_casa, $jogo_resultado_clube_casa))
+                        && $this->empate($jogo_resultado_clube_casa, $jogo_resultado_clube_casa))
                     ) {
                         $qtd_acertos_diferenca_gols_ou_empates++;
                     }
