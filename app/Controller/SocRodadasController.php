@@ -532,6 +532,9 @@ class SocRodadasController extends AppController {
                 ]);
 
                 $pontuacao = 0;
+                $qtd_acertos_placares = 0;
+                $qtd_acertos_diferenca_gols = 0;
+                $qtd_empates = 0;
 
 
                 //Percorrendo os jogos da cartela
@@ -577,6 +580,7 @@ class SocRodadasController extends AppController {
                      * Acertou o empate sem exatidão, ex: 1x1 mas o jogo foi 2x2
                      */
                     if($this->empateSemExatidao($jogo, $aposta_jogo)) {
+                        $qtd_empates++;
                         $aposta_jogo['SocApostasJogo']['pontuacao'] = $config_rodada['SocConfRodada']['acertar_empate_sem_exatidao'];
                     }
 
@@ -584,6 +588,7 @@ class SocRodadasController extends AppController {
                      * Acertou vecendor e diferença de gols
                      */
                     if($this->acertouDiferenca($jogo, $aposta_jogo) && $this->acertouVencedor($jogo, $aposta_jogo)) {
+                        $qtd_acertos_diferenca_gols++;
                         $aposta_jogo['SocApostasJogo']['pontuacao'] = $config_rodada['SocConfRodada']['acertar_jogo_e_diferenca_gols'];
                     }
 
@@ -591,6 +596,7 @@ class SocRodadasController extends AppController {
                      * Acertou o placar
                      */
                     if($this->acertouPlacar($jogo, $aposta_jogo)) {
+                        $qtd_acertos_placares++;
                         $aposta_jogo['SocApostasJogo']['pontuacao'] = $config_rodada['SocConfRodada']['acertar_placar'];
                     }
 
@@ -598,13 +604,16 @@ class SocRodadasController extends AppController {
                         $pontuacao_bola_ouro = $aposta_jogo['SocApostasJogo']['pontuacao'] + (($aposta_jogo['SocApostasJogo']['pontuacao'] * 25) / 100);
                         $aposta_jogo['SocApostasJogo']['pontuacao'] = $pontuacao_bola_ouro;
                     }
-                    
+
                     $pontuacao += $aposta_jogo['SocApostasJogo']['pontuacao'];
 
                     $this->SocApostasJogo->save($aposta_jogo);
                 }
-
                 $aposta['SocAposta']['pontuacao'] = $pontuacao;
+                $aposta['SocAposta']['qtd_acertos_placares'] = $qtd_acertos_placares;
+                $aposta['SocAposta']['qtd_acertos_diferenca_gols'] = $qtd_acertos_diferenca_gols;
+                $aposta['SocAposta']['qtd_empates'] = $qtd_empates;
+                $aposta['SocAposta']['total_pontuacao'] = $pontuacao + $qtd_acertos_placares + $qtd_acertos_diferenca_gols + $qtd_empates;
                 $this->SocAposta->save($aposta);
             }
 
