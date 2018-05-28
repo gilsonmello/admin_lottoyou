@@ -87,23 +87,25 @@
         var id = btn.attr('id');
         var modalObject = $(AppLotJogos.modalFormId);
         var url = 'lotJogos/premiar/' + id;
-        
-        $.ajax({
-            method: 'post',
-            url: url,
-            beforeSend: function() {
-                btn.button('loading');
-            },
-            success: function(data) {
-                if(p._checkErros(data) === 0) {
-                    p._loadConsLotJogo();
+
+        if(confirm('Você realmente deseja gerar as premiações?')) {
+            $.ajax({
+                method: 'post',
+                url: url,
+                beforeSend: function () {
+                    btn.button('loading');
+                },
+                success: function (data) {
+                    if (p._checkErros(data) === 0) {
+                        p._loadConsLotJogo();
+                    }
+                    btn.button('reset');
+                },
+                error: function (error) {
+                    btn.button('reset');
                 }
-                btn.button('reset');
-            },
-            error: function(error) {
-                btn.button('reset');
-            }
-        });
+            });
+        }
     };
 
     p._checkErros = function (html) {

@@ -65,11 +65,11 @@
                     <thead>
                         <tr>
 
-                            <th style="width:50px;">Concurso</th>
-                            <th style="min-width:90px;">Sorteio</th>
-                            <th style="width:100%">Números Sorteados</th>
-                            <th style="width:90px;">Data</th>
-                            <th style="width:50px;">Ações</th>
+                            <th>Concurso</th>
+                            <th>Sorteio</th>
+                            <th>Números Sorteados</th>
+                            <th>Data</th>
+                            <th>Ações</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -78,14 +78,14 @@
                                 <td><?php echo $v['LotJogo']['concurso']; ?></td>
                                 <td><?php echo $v['LotJogo']['sorteio']; ?></td>
                                 <!--<td><?php echo $v['LotJogosResultado']['numeros_sorteados']; ?></td>-->
-                                <td><?php
-                                    $numb = explode(' + ', $v['LotJogosResultado']['numeros_sorteados']);
-                                    $numero = explode(' - ', $numb[0]);
-                                    unset($numb[0]);
-                                    $numeros = array_merge($numero, $numb);
+                                <td>
+                                    <?php
                                     $btnNum = '';
-                                    foreach ($numeros as $k => $x) {
-                                        $btnNum .= '<button type="button" class="btn btn-xs ink-reaction btn-floating-action">' . $x . '</button>&nbsp;&nbsp;';
+                                    foreach ($v['LotJogosNumero'] as $k => $x) {
+                                        $btnNum .= '<button type="button" class="btn btn-xs ink-reaction btn-floating-action">' . $x['numero'] . '</button>&nbsp;&nbsp;';
+                                    }
+                                    foreach ($v['LotJogosNumerosExtras'] as $k => $x) {
+                                        $btnNum .= '<button type="button" class="btn btn-xs ink-reaction btn-floating-action">' . $x['numero'] . '</button>&nbsp;&nbsp;';
                                     }
                                     echo $btnNum;
                                     ?></td>

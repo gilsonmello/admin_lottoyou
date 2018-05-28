@@ -7,7 +7,7 @@ class LotJogosResultadosController extends AppController {
         $options = parent::_index();
 
         // PREPARA MODEL
-        $this->LotJogosResultado->recursive = 0;
+        $this->LotJogosResultado->recursive = 1;
         $this->LotJogosResultado->validate = array();
 
         // TRATA CONDIÇÕES

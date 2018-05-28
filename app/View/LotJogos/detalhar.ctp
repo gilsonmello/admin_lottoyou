@@ -12,10 +12,10 @@
                     <th>Nome</th>
                     <th>Dezenas</th>
                     <th>Dezenas Extras</th>
-                    <th>Data</th>
                     <th>Acertos</th>
                     <th>Acertos Extras</th>
                     <th>Total de Acertos</th>
+                    <th>Data</th>
                 </tr>
             </thead>
             <tbody>
