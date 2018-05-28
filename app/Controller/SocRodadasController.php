@@ -535,7 +535,7 @@ class SocRodadasController extends AppController {
                 $qtd_acertos_placares = 0;
                 $qtd_acertos_diferenca_gols = 0;
                 $qtd_empates = 0;
-                $pontuacao_bola_ouro = 0;
+                $qtd_pontuacao_bola_ouro = 0;
 
 
                 //Percorrendo os jogos da cartela
@@ -604,6 +604,7 @@ class SocRodadasController extends AppController {
                     if($aposta_jogo['SocApostasJogo']['bola_ouro'] == 1 && $aposta_jogo['SocApostasJogo']['pontuacao'] > 0) {
                         $pontuacao_bola_ouro = $aposta_jogo['SocApostasJogo']['pontuacao'] + (($aposta_jogo['SocApostasJogo']['pontuacao'] * 25) / 100);
                         $aposta_jogo['SocApostasJogo']['pontuacao'] = $pontuacao_bola_ouro;
+                        $qtd_pontuacao_bola_ouro++;
                     }
 
                     $pontuacao += $aposta_jogo['SocApostasJogo']['pontuacao'];
@@ -614,8 +615,8 @@ class SocRodadasController extends AppController {
                 $aposta['SocAposta']['qtd_acertos_placares'] = $qtd_acertos_placares;
                 $aposta['SocAposta']['qtd_acertos_diferenca_gols'] = $qtd_acertos_diferenca_gols;
                 $aposta['SocAposta']['qtd_empates'] = $qtd_empates;
-                $aposta['SocAposta']['total_pontuacao'] = $pontuacao + $qtd_acertos_placares + $qtd_acertos_diferenca_gols + $qtd_empates + $pontuacao_bola_ouro;
-                $aposta['SocAposta']['pontuacao_bola_ouro'] = $pontuacao_bola_ouro;
+                $aposta['SocAposta']['total_pontuacao'] = $pontuacao + $qtd_acertos_placares + $qtd_acertos_diferenca_gols + $qtd_empates + $qtd_pontuacao_bola_ouro;
+                $aposta['SocAposta']['pontuacao_bola_ouro'] = $qtd_pontuacao_bola_ouro;
                 $this->SocAposta->save($aposta);
             }
 
@@ -631,7 +632,7 @@ class SocRodadasController extends AppController {
             $grupo_cont = 1;
             foreach ($grupos as $key => $grupo) {
                 $pontuacoes = $this->SocAposta->find('all', [
-                    'fields' => 'SocAposta.pontuacao',
+                    'fields' => 'SocAposta.pontuacao, SocAposta.total_pontuacao',
                     'conditions' => [
                         'SocAposta.soc_rodada_grupo_id =' => $grupo['SocRodadasGrupo']['id'],
                         'SocAposta.soc_rodada_id' => $grupo['SocRodadasGrupo']['soc_rodada_id']
@@ -647,7 +648,8 @@ class SocRodadasController extends AppController {
                         'conditions' => [
                             'SocAposta.soc_rodada_grupo_id =' => $grupo['SocRodadasGrupo']['id'],
                             'SocAposta.soc_rodada_id =' => $grupo['SocRodadasGrupo']['soc_rodada_id'],
-                            'SocAposta.pontuacao =' => $pontuacao['SocAposta']['pontuacao']
+                            'SocAposta.pontuacao =' => $pontuacao['SocAposta']['pontuacao'],
+                            'SocAposta.total_pontuacao =' => $pontuacao['SocAposta']['total_pontuacao']
                         ],
                     ]);
 

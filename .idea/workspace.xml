@@ -24,8 +24,8 @@
       <file leaf-file-name="SocRodadasController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Controller/SocRodadasController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="640" column="46" selection-start-line="640" selection-start-column="46" selection-end-line="640" selection-end-column="46" />
+            <state relative-caret-position="390">
+              <caret line="617" column="164" selection-start-line="617" selection-start-column="164" selection-end-line="617" selection-end-column="164" />
             </state>
           </provider>
         </entry>
@@ -47,7 +47,7 @@
       <file leaf-file-name="AppSocRodadas.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/webroot/js/sge/AppSocRodadas.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
+            <state relative-caret-position="2115">
               <caret line="141" column="8" selection-start-line="141" selection-start-column="8" selection-end-line="141" selection-end-column="67" />
             </state>
           </provider>
@@ -309,12 +309,13 @@
       <workItem from="1527270447059" duration="2163000" />
       <workItem from="1527307314283" duration="7000" />
       <workItem from="1527387248134" duration="3348000" />
-      <workItem from="1527517449043" duration="2931000" />
+      <workItem from="1527517449043" duration="3952000" />
+      <workItem from="1527534919879" duration="659000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="86319000" />
+    <option name="totallyTimeSpent" value="87999000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-3" y="0" width="1372" height="738" extended-state="6" />
@@ -633,7 +634,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/webroot/js/sge/AppSocRodadas.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
+        <state relative-caret-position="2115">
           <caret line="141" column="8" selection-start-line="141" selection-start-column="8" selection-end-line="141" selection-end-column="67" />
         </state>
       </provider>
@@ -663,14 +664,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="17" column="33" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
-          <folding>
-            <element signature="e#100#106#0" expanded="true" />
-            <element signature="e#106#112#0" expanded="true" />
-            <element signature="e#100#106#0" expanded="true" />
-            <element signature="e#106#112#0" expanded="true" />
-            <element signature="e#100#106#0" expanded="true" />
-            <element signature="e#106#112#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -678,12 +671,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="71" column="31" selection-start-line="71" selection-start-column="31" selection-end-line="71" selection-end-column="31" />
-          <folding>
-            <element signature="e#100#106#0" expanded="true" />
-            <element signature="e#106#112#0" expanded="true" />
-            <element signature="e#100#106#0" expanded="true" />
-            <element signature="e#106#112#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -703,8 +690,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Controller/SocRodadasController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="640" column="46" selection-start-line="640" selection-start-column="46" selection-end-line="640" selection-end-column="46" />
+        <state relative-caret-position="390">
+          <caret line="617" column="164" selection-start-line="617" selection-start-column="164" selection-end-line="617" selection-end-column="164" />
         </state>
       </provider>
     </entry>
