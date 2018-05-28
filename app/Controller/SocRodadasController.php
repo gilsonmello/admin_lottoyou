@@ -548,11 +548,6 @@ class SocRodadasController extends AppController {
                         ]
                     ]);
 
-                    $jogo_resultado_clube_casa = $jogo['SocJogo']['resultado_clube_casa'];
-                    $jogo_resultado_clube_fora = $jogo['SocJogo']['resultado_clube_fora'];
-                    $aposta_resultado_clube_casa = $aposta['SocApostasJogo']['resultado_clube_casa'];
-                    $aposta_resultado_clube_fora = $aposta['SocApostasJogo']['resultado_clube_fora'];
-
 
                     if($jogo['SocJogo']['resultado_clube_casa'] == null
                         || $jogo['SocJogo']['resultado_clube_fora'] == null) {
