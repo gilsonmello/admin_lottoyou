@@ -611,6 +611,13 @@ class SocRodadasController extends AppController {
 
                     $this->SocApostasJogo->save($aposta_jogo);
                 }
+                $qtd_pontuacao_bola_ouro = $qtd_pontuacao_bola_ouro + $qtd_acertos_placares + $qtd_acertos_diferenca_gols + $qtd_empates;
+                $qtd_acertos_placares = $qtd_acertos_placares + $qtd_acertos_diferenca_gols + $qtd_empates;
+
+                $df_gols = $qtd_acertos_diferenca_gols;
+                $qtd_acertos_diferenca_gols = $qtd_acertos_diferenca_gols + $qtd_empates;
+                $qtd_empates = $qtd_empates + $df_gols;
+
                 $aposta['SocAposta']['pontuacao'] = $pontuacao;
                 $aposta['SocAposta']['qtd_acertos_placares'] = $qtd_acertos_placares;
                 $aposta['SocAposta']['qtd_acertos_diferenca_gols'] = $qtd_acertos_diferenca_gols;
