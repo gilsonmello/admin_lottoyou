@@ -522,7 +522,6 @@ class SocRodadasController extends AppController {
                 ]
             ]);
 
-            die(var_dump($apostas));
 
             //Percorrendo todas as cartelas feitas
             foreach ($apostas as $a => $aposta) {
@@ -541,6 +540,9 @@ class SocRodadasController extends AppController {
 
                 //Percorrendo os jogos da cartela
                 foreach ($aposta_jogos as $ap => $aposta_jogo) {
+
+
+                    die(var_dump($aposta_jogos));
 
                     $jogo_resultado_clube_casa = $aposta_jogo['SocJogo']['resultado_clube_casa'];
                     $jogo_resultado_clube_fora = $aposta_jogo['SocJogo']['resultado_clube_fora'];
