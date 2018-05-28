@@ -30,52 +30,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LotJogosResultadosController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="LotJogosResultadosController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Controller/LotJogosResultadosController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="330">
               <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LotJogosResultado.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Model/LotJogosResultado.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="30" column="10" selection-start-line="30" selection-start-column="10" selection-end-line="30" selection-end-column="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.ctp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/View/LotJogosResultados/index.ctp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="71" column="31" selection-start-line="71" selection-start-column="31" selection-end-line="71" selection-end-column="31" />
-              <folding>
-                <element signature="e#100#106#0" expanded="true" />
-                <element signature="e#106#112#0" expanded="true" />
-                <element signature="e#100#106#0" expanded="true" />
-                <element signature="e#106#112#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="detalhar.ctp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/View/LotJogos/detalhar.ctp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="17" column="33" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
-              <folding>
-                <element signature="e#100#106#0" expanded="true" />
-                <element signature="e#106#112#0" expanded="true" />
-                <element signature="e#100#106#0" expanded="true" />
-                <element signature="e#106#112#0" expanded="true" />
-                <element signature="e#100#106#0" expanded="true" />
-                <element signature="e#106#112#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -350,12 +309,12 @@
       <workItem from="1527270447059" duration="2163000" />
       <workItem from="1527307314283" duration="7000" />
       <workItem from="1527387248134" duration="3348000" />
-      <workItem from="1527517449043" duration="2017000" />
+      <workItem from="1527517449043" duration="2617000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="85405000" />
+    <option name="totallyTimeSpent" value="86005000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-3" y="0" width="1372" height="738" extended-state="6" />
@@ -700,24 +659,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Model/LotJogosResultado.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="30" column="10" selection-start-line="30" selection-start-column="10" selection-end-line="30" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Controller/LotJogosResultadosController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/View/LotJogos/vencedores.ctp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-75">
           <caret line="29" column="28" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/View/LotJogos/detalhar.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="17" column="33" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
+          <folding>
+            <element signature="e#100#106#0" expanded="true" />
+            <element signature="e#106#112#0" expanded="true" />
+            <element signature="e#100#106#0" expanded="true" />
+            <element signature="e#106#112#0" expanded="true" />
+            <element signature="e#100#106#0" expanded="true" />
+            <element signature="e#106#112#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -734,18 +694,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/View/LotJogos/detalhar.ctp">
+    <entry file="file://$PROJECT_DIR$/app/Model/LotJogosResultado.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="17" column="33" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
-          <folding>
-            <element signature="e#100#106#0" expanded="true" />
-            <element signature="e#106#112#0" expanded="true" />
-            <element signature="e#100#106#0" expanded="true" />
-            <element signature="e#106#112#0" expanded="true" />
-            <element signature="e#100#106#0" expanded="true" />
-            <element signature="e#106#112#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="315">
+          <caret line="30" column="10" selection-start-line="30" selection-start-column="10" selection-end-line="30" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Controller/LotJogosResultadosController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
         </state>
       </provider>
     </entry>

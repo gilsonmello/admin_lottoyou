@@ -535,6 +535,7 @@ class SocRodadasController extends AppController {
                 $qtd_acertos_placares = 0;
                 $qtd_acertos_diferenca_gols = 0;
                 $qtd_empates = 0;
+                $pontuacao_bola_ouro = 0;
 
 
                 //Percorrendo os jogos da cartela
@@ -613,7 +614,8 @@ class SocRodadasController extends AppController {
                 $aposta['SocAposta']['qtd_acertos_placares'] = $qtd_acertos_placares;
                 $aposta['SocAposta']['qtd_acertos_diferenca_gols'] = $qtd_acertos_diferenca_gols;
                 $aposta['SocAposta']['qtd_empates'] = $qtd_empates;
-                $aposta['SocAposta']['total_pontuacao'] = $pontuacao + $qtd_acertos_placares + $qtd_acertos_diferenca_gols + $qtd_empates;
+                $aposta['SocAposta']['total_pontuacao'] = $pontuacao + $qtd_acertos_placares + $qtd_acertos_diferenca_gols + $qtd_empates + $pontuacao_bola_ouro;
+                $aposta['SocAposta']['pontuacao_bola_ouro'] = $pontuacao_bola_ouro;
                 $this->SocAposta->save($aposta);
             }
 
