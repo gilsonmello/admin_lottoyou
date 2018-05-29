@@ -24,8 +24,8 @@
       <file leaf-file-name="SocRodadasController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Controller/SocRodadasController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-9030">
-              <caret line="19" column="33" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="33" />
+            <state relative-caret-position="345">
+              <caret line="650" column="86" selection-start-line="650" selection-start-column="86" selection-end-line="650" selection-end-column="86" />
             </state>
           </provider>
         </entry>
@@ -153,8 +153,8 @@
         <option value="$PROJECT_DIR$/app/Controller/LotJogosResultadosController.php" />
         <option value="$PROJECT_DIR$/app/View/LotJogosResultados/index.ctp" />
         <option value="$PROJECT_DIR$/app/View/LotJogos/detalhar.ctp" />
-        <option value="$PROJECT_DIR$/app/Controller/SocRodadasController.php" />
         <option value="$PROJECT_DIR$/app/Controller/LotJogosController.php" />
+        <option value="$PROJECT_DIR$/app/Controller/SocRodadasController.php" />
       </list>
     </option>
   </component>
@@ -272,12 +272,12 @@
       <workItem from="1527517449043" duration="3952000" />
       <workItem from="1527534919879" duration="4517000" />
       <workItem from="1527609580635" duration="2887000" />
-      <workItem from="1527620150529" duration="374000" />
+      <workItem from="1527620150529" duration="1036000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="95118000" />
+    <option name="totallyTimeSpent" value="95780000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-3" y="0" width="1372" height="738" extended-state="6" />
@@ -652,8 +652,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Controller/SocRodadasController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-9030">
-          <caret line="19" column="33" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="33" />
+        <state relative-caret-position="345">
+          <caret line="650" column="86" selection-start-line="650" selection-start-column="86" selection-end-line="650" selection-end-column="86" />
         </state>
       </provider>
     </entry>
