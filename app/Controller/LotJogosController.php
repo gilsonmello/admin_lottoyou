@@ -177,7 +177,9 @@ class LotJogosController extends AppController {
                 $historico['HistoricBalance']['type'] = 1;
                 $historico['HistoricBalance']['description'] = 'award';
                 $historico['HistoricBalance']['lottery_bet_id'] = $user_jogo['LotUserJogo']['id'];
-                $historico['HistoricBalance']['amount'] = $premiacao[$user_jogo['LotUserJogo']['num_acerto'] - 1];
+                $historico['HistoricBalance']['amount'] = isset($premiacao[$user_jogo['LotUserJogo']['num_acerto'] - 1])
+                    ? $premiacao[$user_jogo['LotUserJogo']['num_acerto'] - 1]
+                    : 0.00;
 
                 $saldo['Balance']['value'] += $premiacao[$key];
 

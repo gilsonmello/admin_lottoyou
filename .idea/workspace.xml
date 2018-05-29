@@ -56,8 +56,8 @@
       <file leaf-file-name="LotJogosController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Controller/LotJogosController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="179" column="112" selection-start-line="179" selection-start-column="112" selection-end-line="179" selection-end-column="112" />
+            <state relative-caret-position="300">
+              <caret line="180" column="22" selection-start-line="180" selection-start-column="22" selection-end-line="180" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -271,12 +271,12 @@
       <workItem from="1527387248134" duration="3348000" />
       <workItem from="1527517449043" duration="3952000" />
       <workItem from="1527534919879" duration="4517000" />
-      <workItem from="1527609580635" duration="236000" />
+      <workItem from="1527609580635" duration="1006000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="92140000" />
+    <option name="totallyTimeSpent" value="92863000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-3" y="0" width="1372" height="738" extended-state="6" />
@@ -651,8 +651,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Controller/LotJogosController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="179" column="112" selection-start-line="179" selection-start-column="112" selection-end-line="179" selection-end-column="112" />
+        <state relative-caret-position="300">
+          <caret line="180" column="22" selection-start-line="180" selection-start-column="22" selection-end-line="180" selection-end-column="22" />
         </state>
       </provider>
     </entry>
