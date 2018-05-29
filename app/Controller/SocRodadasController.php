@@ -536,6 +536,7 @@ class SocRodadasController extends AppController {
                 $qtd_acertos_placares = 0;
                 $qtd_acertos_diferenca_gols_ou_empates = 0;
                 $qtd_pontuacao_bola_ouro = 0;
+                $pontuacao_bola_ouro = 0;
 
 
                 //Percorrendo os jogos da cartela
