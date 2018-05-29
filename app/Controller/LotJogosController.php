@@ -128,11 +128,11 @@ class LotJogosController extends AppController {
 
 
         $premiacao = [
-            0 => 20000.000,
-            1 => 20.00,
+            0 => 0.50,
+            1 => 1.00,
             2 => 2.00,
-            3 => 1.00,
-            4 => 0.50
+            3 => 20.00,
+            4 => 20000.00,
         ];
 
         $this->loadModel('HistoricBalanceLottery');
@@ -177,7 +177,7 @@ class LotJogosController extends AppController {
                 $historico['HistoricBalance']['type'] = 1;
                 $historico['HistoricBalance']['description'] = 'award';
                 $historico['HistoricBalance']['lottery_bet_id'] = $user_jogo['LotUserJogo']['id'];
-                $historico['HistoricBalance']['amount'] = $premiacao[$key];
+                $historico['HistoricBalance']['amount'] = $premiacao[$user_jogo['LotUserJogo']['num_acerto'] - 1];
 
                 $saldo['Balance']['value'] += $premiacao[$key];
 

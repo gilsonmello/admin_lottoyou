@@ -21,11 +21,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="SocRodadasController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SocRodadasController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Controller/SocRodadasController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="122">
-              <caret line="607" column="22" lean-forward="true" selection-start-line="607" selection-start-column="22" selection-end-line="607" selection-end-column="22" />
+            <state relative-caret-position="15">
+              <caret line="19" column="33" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -53,11 +53,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LotJogosController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="LotJogosController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Controller/LotJogosController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="200" column="8" selection-start-line="200" selection-start-column="8" selection-end-line="200" selection-end-column="36" />
+            <state relative-caret-position="285">
+              <caret line="179" column="112" selection-start-line="179" selection-start-column="112" selection-end-line="179" selection-end-column="112" />
             </state>
           </provider>
         </entry>
@@ -87,7 +87,6 @@
       <find>index('</find>
       <find>vencedor</find>
       <find>add(</find>
-      <find>premia</find>
       <find>resul</find>
       <find>reset</find>
       <find>onSuccess</find>
@@ -96,6 +95,7 @@
       <find>SocApostasJogo</find>
       <find>premi</find>
       <find>confirm</find>
+      <find>premia</find>
     </findStrings>
     <replaceStrings>
       <replace>LotUserNumeroExtras</replace>
@@ -147,7 +147,6 @@
         <option value="$PROJECT_DIR$/app/View/LotJogos/index.ctp" />
         <option value="$PROJECT_DIR$/app/View/LotJogosResultados/add.ctp" />
         <option value="$PROJECT_DIR$/app/webroot/js/core/source/AppForm.js" />
-        <option value="$PROJECT_DIR$/app/Controller/LotJogosController.php" />
         <option value="$PROJECT_DIR$/app/webroot/js/sge/AppSocRodadas.js" />
         <option value="$PROJECT_DIR$/app/webroot/js/sge/AppLotJogos.js" />
         <option value="$PROJECT_DIR$/app/Model/LotJogosResultado.php" />
@@ -155,6 +154,7 @@
         <option value="$PROJECT_DIR$/app/View/LotJogosResultados/index.ctp" />
         <option value="$PROJECT_DIR$/app/View/LotJogos/detalhar.ctp" />
         <option value="$PROJECT_DIR$/app/Controller/SocRodadasController.php" />
+        <option value="$PROJECT_DIR$/app/Controller/LotJogosController.php" />
       </list>
     </option>
   </component>
@@ -270,12 +270,13 @@
       <workItem from="1527307314283" duration="7000" />
       <workItem from="1527387248134" duration="3348000" />
       <workItem from="1527517449043" duration="3952000" />
-      <workItem from="1527534919879" duration="3767000" />
+      <workItem from="1527534919879" duration="4517000" />
+      <workItem from="1527609580635" duration="236000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="91107000" />
+    <option name="totallyTimeSpent" value="92140000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-3" y="0" width="1372" height="738" extended-state="6" />
@@ -641,17 +642,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Controller/LotJogosController.php">
+    <entry file="file://$PROJECT_DIR$/app/Controller/SocRodadasController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="200" column="8" selection-start-line="200" selection-start-column="8" selection-end-line="200" selection-end-column="36" />
+        <state relative-caret-position="15">
+          <caret line="19" column="33" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Controller/SocRodadasController.php">
+    <entry file="file://$PROJECT_DIR$/app/Controller/LotJogosController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="607" column="22" lean-forward="true" selection-start-line="607" selection-start-column="22" selection-end-line="607" selection-end-column="22" />
+        <state relative-caret-position="285">
+          <caret line="179" column="112" selection-start-line="179" selection-start-column="112" selection-end-line="179" selection-end-column="112" />
         </state>
       </provider>
     </entry>
