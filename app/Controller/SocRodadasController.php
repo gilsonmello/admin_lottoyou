@@ -632,7 +632,7 @@ class SocRodadasController extends AppController {
                  * A bola de ouro vale mais que todos os outros
                  * Sabendo disso, faço a soma de todos os acertos mais a bola de ouro, sendo assim ela será sempre maior
                  */
-                $pontuacao_bola_ouro_peso = $qtd_pontuacao_bola_ouro + $qtd_acertos_placares + $qtd_acertos_diferenca_gols_ou_empates;
+                $pontuacao_bola_ouro_peso = $pontuacao_bola_ouro + $qtd_acertos_placares + $qtd_acertos_diferenca_gols_ou_empates;
 
                 /**
                  * A quantidade de acerto dos placares vale mais do que o Maior número de acertos de diferença de gols ou empates
@@ -647,7 +647,7 @@ class SocRodadasController extends AppController {
                 $aposta['SocAposta']['qtd_acertos_placares'] = $qtd_acertos_placares;
                 $aposta['SocAposta']['qtd_acertos_diferenca_gols_ou_empate'] = $qtd_acertos_diferenca_gols_ou_empates;
                 $aposta['SocAposta']['total_pontuacao'] = $pontuacao + $acertos_placares_peso + $acertos_diferenca_gols_ou_empates_peso + $pontuacao_bola_ouro_peso;
-                $aposta['SocAposta']['pontuacao_bola_ouro'] = $qtd_pontuacao_bola_ouro;
+                $aposta['SocAposta']['pontuacao_bola_ouro'] = $pontuacao_bola_ouro;
                 $this->SocAposta->save($aposta);
             }
 
@@ -658,8 +658,6 @@ class SocRodadasController extends AppController {
             ]);
 
             //die(var_dump('ASDA'));
-
-
             $t = 1;
             $grupo_cont = 1;
             foreach ($grupos as $key => $grupo) {
