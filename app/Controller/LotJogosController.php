@@ -181,7 +181,9 @@ class LotJogosController extends AppController {
                     ? $premiacao[$user_jogo['LotUserJogo']['num_acerto'] - 1]
                     : 0.00;
 
-                $saldo['Balance']['value'] += $premiacao[$key];
+                $saldo['Balance']['value'] += isset($premiacao[$user_jogo['LotUserJogo']['num_acerto'] - 1])
+                    ? $premiacao[$user_jogo['LotUserJogo']['num_acerto'] - 1]
+                    : 0.00;
 
                 $ok = $this->Balance->save($saldo) ? true : false;
 
