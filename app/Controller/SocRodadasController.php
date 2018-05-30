@@ -628,9 +628,6 @@ class SocRodadasController extends AppController {
 
                 /**
                  * Desempate calculado com base no peso
-                 */
-
-                /**
                  * A bola de ouro vale mais que todos os outros
                  * Sabendo disso, faço a soma de todos os acertos mais a bola de ouro, sendo assim ela será sempre maior
                  */
