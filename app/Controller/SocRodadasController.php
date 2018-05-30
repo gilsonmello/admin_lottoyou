@@ -684,7 +684,7 @@ class SocRodadasController extends AppController {
             $grupo_cont = 1;
             foreach ($grupos as $key => $grupo) {
                 $pontuacoes = $this->SocAposta->find('all', [
-                    'fields' => 'SocAposta.pontuacao, SocAposta.total_pontuacao',
+                    'fields' => 'SocAposta.total_pontuacao',
                     'conditions' => [
                         'SocAposta.soc_rodada_grupo_id =' => $grupo['SocRodadasGrupo']['id'],
                         'SocAposta.soc_rodada_id' => $grupo['SocRodadasGrupo']['soc_rodada_id']
@@ -700,7 +700,6 @@ class SocRodadasController extends AppController {
                         'conditions' => [
                             'SocAposta.soc_rodada_grupo_id =' => $grupo['SocRodadasGrupo']['id'],
                             'SocAposta.soc_rodada_id =' => $grupo['SocRodadasGrupo']['soc_rodada_id'],
-                            'SocAposta.pontuacao =' => $pontuacao['SocAposta']['pontuacao'],
                             'SocAposta.total_pontuacao =' => $pontuacao['SocAposta']['total_pontuacao']
                         ],
                     ]);
