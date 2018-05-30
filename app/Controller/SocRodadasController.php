@@ -615,7 +615,7 @@ class SocRodadasController extends AppController {
                     $pontuacao_sem_bola_ouro += $aposta_jogo['SocApostasJogo']['pontuacao'];
                     if($aposta_jogo['SocApostasJogo']['bola_ouro'] == 1 && $aposta_jogo['SocApostasJogo']['pontuacao'] > 0) {
                         $pontuacao_bola_ouro += $aposta_jogo['SocApostasJogo']['pontuacao'] + (($aposta_jogo['SocApostasJogo']['pontuacao'] * 25) / 100);
-                        $aposta_jogo['SocApostasJogo']['pontuacao'] = $pontuacao_bola_ouro;
+                        $aposta_jogo['SocApostasJogo']['pontuacao'] = $aposta_jogo['SocApostasJogo']['pontuacao'] + (($aposta_jogo['SocApostasJogo']['pontuacao'] * 25) / 100);
                         //$qtd_pontuacao_bola_ouro += $pontuacao_bola_ouro;
                         $qtd_pontuacao_bola_ouro++;
                     }
