@@ -24,8 +24,8 @@
       <file leaf-file-name="SocRodadasController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Controller/SocRodadasController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="650" column="86" selection-start-line="650" selection-start-column="86" selection-end-line="650" selection-end-column="86" />
+            <state relative-caret-position="-1228">
+              <caret line="537" column="27" selection-start-line="537" selection-start-column="21" selection-end-line="537" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -56,7 +56,7 @@
       <file leaf-file-name="LotJogosController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Controller/LotJogosController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
+            <state relative-caret-position="2775">
               <caret line="185" column="27" selection-start-line="185" selection-start-column="27" selection-end-line="185" selection-end-column="27" />
             </state>
           </provider>
@@ -272,12 +272,13 @@
       <workItem from="1527517449043" duration="3952000" />
       <workItem from="1527534919879" duration="4517000" />
       <workItem from="1527609580635" duration="2887000" />
-      <workItem from="1527620150529" duration="1036000" />
+      <workItem from="1527620150529" duration="3378000" />
+      <workItem from="1527692269369" duration="238000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="95780000" />
+    <option name="totallyTimeSpent" value="98360000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-3" y="0" width="1372" height="738" extended-state="6" />
@@ -577,9 +578,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Model/SocApostasJogo.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/webroot/js/sge/AppSocRodadas.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2115">
@@ -629,13 +627,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Controller/LotJogosResultadosController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Controller/AppController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="555">
@@ -645,15 +636,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Controller/LotJogosController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
+        <state relative-caret-position="2775">
           <caret line="185" column="27" selection-start-line="185" selection-start-column="27" selection-end-line="185" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Model/SocApostasJogo.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Controller/LotJogosResultadosController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Controller/SocRodadasController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="650" column="86" selection-start-line="650" selection-start-column="86" selection-end-line="650" selection-end-column="86" />
+        <state relative-caret-position="-1228">
+          <caret line="537" column="27" selection-start-line="537" selection-start-column="21" selection-end-line="537" selection-end-column="27" />
         </state>
       </provider>
     </entry>
