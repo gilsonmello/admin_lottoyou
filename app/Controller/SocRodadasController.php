@@ -615,7 +615,7 @@ class SocRodadasController extends AppController {
                     $pontuacao_sem_bola_ouro += $aposta_jogo['SocApostasJogo']['pontuacao'];
                     if($aposta_jogo['SocApostasJogo']['bola_ouro'] == 1 && $aposta_jogo['SocApostasJogo']['pontuacao'] > 0) {
                         $pontuacao_bola_ouro += $aposta_jogo['SocApostasJogo']['pontuacao'] + (($aposta_jogo['SocApostasJogo']['pontuacao'] * 25) / 100);
-                        $aposta_jogo['SocApostasJogo']['pontuacao'] = $aposta_jogo['SocApostasJogo']['pontuacao'] + (($aposta_jogo['SocApostasJogo']['pontuacao'] * 25) / 100);
+                        $aposta_jogo['SocApostasJogo']['pontuacao'] = $pontuacao_bola_ouro;
                         //$qtd_pontuacao_bola_ouro += $pontuacao_bola_ouro;
                         $qtd_pontuacao_bola_ouro++;
                     }
@@ -626,7 +626,9 @@ class SocRodadasController extends AppController {
                     $this->SocApostasJogo->save($aposta_jogo);
                 }
 
-                //Desempate calculado com base no peso
+                /**
+                 * Desempate calculado com base no peso
+                 */
 
                 /**
                  * A bola de ouro vale mais que todos os outros
@@ -638,13 +640,12 @@ class SocRodadasController extends AppController {
                 }
 
 
-
-                $acertos_placares_peso = 0;
                 /**
                  * A quantidade de acerto dos placares vale mais do que o Maior número de acertos de diferença de gols ou empates
                  * Sabendo disso, faço a soma de todos os acertos de placares
                  * Mais a quantidade de acertos de diferença de gols
                  */
+                $acertos_placares_peso = 0;
                 if($qtd_acertos_placares > 0) {
                     $acertos_placares_peso = ($qtd_acertos_placares + $qtd_acertos_diferenca_gols_ou_empates);
                 }
