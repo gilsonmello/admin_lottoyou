@@ -645,6 +645,10 @@ class SocRodadasController extends AppController {
 
                 $acertos_diferenca_gols_ou_empates_peso = $qtd_acertos_diferenca_gols_ou_empates;
 
+                if($aposta['SocAposta']['id'] == 31) {
+                    die(var_dump($pontuacao, $acertos_placares_peso, $acertos_diferenca_gols_ou_empates_peso, $pontuacao_bola_ouro_peso));
+                }
+
                 $aposta['SocAposta']['pontuacao'] = $pontuacao;
                 $aposta['SocAposta']['qtd_acertos_placares'] = $qtd_acertos_placares;
                 $aposta['SocAposta']['qtd_acertos_diferenca_gols_ou_empate'] = $qtd_acertos_diferenca_gols_ou_empates;

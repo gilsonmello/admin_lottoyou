@@ -24,8 +24,8 @@
       <file leaf-file-name="SocRodadasController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Controller/SocRodadasController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1228">
-              <caret line="537" column="27" selection-start-line="537" selection-start-column="21" selection-end-line="537" selection-end-column="27" />
+            <state relative-caret-position="47">
+              <caret line="625" column="30" selection-start-line="625" selection-start-column="20" selection-end-line="625" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -66,7 +66,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>description</find>
       <find>vence</find>
       <find>num_acerto</find>
       <find>LotUserNumero</find>
@@ -96,6 +95,7 @@
       <find>premi</find>
       <find>confirm</find>
       <find>premia</find>
+      <find>pontua</find>
     </findStrings>
     <replaceStrings>
       <replace>LotUserNumeroExtras</replace>
@@ -273,12 +273,12 @@
       <workItem from="1527534919879" duration="4517000" />
       <workItem from="1527609580635" duration="2887000" />
       <workItem from="1527620150529" duration="3378000" />
-      <workItem from="1527692269369" duration="238000" />
+      <workItem from="1527692269369" duration="703000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="98360000" />
+    <option name="totallyTimeSpent" value="98825000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-3" y="0" width="1372" height="738" extended-state="6" />
@@ -653,8 +653,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Controller/SocRodadasController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1228">
-          <caret line="537" column="27" selection-start-line="537" selection-start-column="21" selection-end-line="537" selection-end-column="27" />
+        <state relative-caret-position="47">
+          <caret line="625" column="30" selection-start-line="625" selection-start-column="20" selection-end-line="625" selection-end-column="30" />
         </state>
       </provider>
     </entry>
