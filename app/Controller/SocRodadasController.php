@@ -612,9 +612,7 @@ class SocRodadasController extends AppController {
                     /*
                      * Acertou o placar
                      */
-                    if($this->acertouPlacar($jogo, $aposta_jogo) || ($this->empate($jogo_resultado_clube_casa, $jogo_resultado_clube_fora) &&
-                        $this->empate($aposta_resultado_clube_casa, $aposta_resultado_clube_fora)
-                    )) {
+                    if($this->acertouPlacar($jogo, $aposta_jogo)) {
                         $qtd_acertos_placares++;
                         $aposta_jogo['SocApostasJogo']['pontuacao'] = $config_rodada['SocConfRodada']['acertar_placar'];
                     }
@@ -641,7 +639,7 @@ class SocRodadasController extends AppController {
                  */
                 $pontuacao_bola_ouro_peso = 0;
                 if($qtd_pontuacao_bola_ouro > 0) {
-                    $pontuacao_bola_ouro_peso = $qtd_pontuacao_bola_ouro + $qtd_acertos_placares + $qtd_acertos_diferenca_gols_ou_empates;
+                    $pontuacao_bola_ouro_peso = ($qtd_pontuacao_bola_ouro + $qtd_acertos_placares + $qtd_acertos_diferenca_gols_ou_empates) * 3;
                 }
 
 
@@ -653,12 +651,12 @@ class SocRodadasController extends AppController {
                  * Mais a quantidade de acertos de diferença de gols
                  */
                 if($qtd_acertos_placares > 0) {
-                    $acertos_placares_peso = $qtd_acertos_placares + $qtd_acertos_diferenca_gols_ou_empates;
+                    $acertos_placares_peso = ($qtd_acertos_placares + $qtd_acertos_diferenca_gols_ou_empates) * 2;
                 }
 
                 $acertos_diferenca_gols_ou_empates_peso = 0;
                 if($qtd_acertos_diferenca_gols_ou_empates > 0) {
-                    $acertos_diferenca_gols_ou_empates_peso = $qtd_acertos_diferenca_gols_ou_empates;
+                    $acertos_diferenca_gols_ou_empates_peso = $qtd_acertos_diferenca_gols_ou_empates * 1;
                 }
 
                 /*if($aposta['SocAposta']['id'] == 31) {
