@@ -544,6 +544,7 @@ class SocRodadasController extends AppController {
                 //Percorrendo os jogos da cartela
                 foreach ($aposta_jogos as $ap => $aposta_jogo) {
 
+
                     //Pesquisando resultado do jogo
                     $jogo = $this->SocJogo->find('first', [
                         'conditions' => [
@@ -602,7 +603,7 @@ class SocRodadasController extends AppController {
                         $aposta_jogo['SocApostasJogo']['pontuacao'] = $config_rodada['SocConfRodada']['acertar_jogo_e_diferenca_gols'];
                     }
 
-                   
+
                     /*
                      * Acertou o placar
                      */
@@ -613,7 +614,7 @@ class SocRodadasController extends AppController {
 
                     $pontuacao_sem_bola_ouro += $aposta_jogo['SocApostasJogo']['pontuacao'];
                     if($aposta_jogo['SocApostasJogo']['bola_ouro'] == 1 && $aposta_jogo['SocApostasJogo']['pontuacao'] > 0) {
-                        $pontuacao_bola_ouro = $aposta_jogo['SocApostasJogo']['pontuacao'] + (($aposta_jogo['SocApostasJogo']['pontuacao'] * 25) / 100);
+                        $pontuacao_bola_ouro += $aposta_jogo['SocApostasJogo']['pontuacao'] + (($aposta_jogo['SocApostasJogo']['pontuacao'] * 25) / 100);
                         $aposta_jogo['SocApostasJogo']['pontuacao'] = $pontuacao_bola_ouro;
                         //$qtd_pontuacao_bola_ouro += $pontuacao_bola_ouro;
                         $qtd_pontuacao_bola_ouro++;
@@ -661,7 +662,7 @@ class SocRodadasController extends AppController {
                 $aposta['SocAposta']['qtd_acertos_placares'] = $qtd_acertos_placares;
                 $aposta['SocAposta']['qtd_acertos_diferenca_gols_ou_empate'] = $qtd_acertos_diferenca_gols_ou_empates;
                 $aposta['SocAposta']['total_pontuacao'] = $pontuacao_sem_bola_ouro + $acertos_placares_peso + $acertos_diferenca_gols_ou_empates_peso + $pontuacao_bola_ouro_peso;
-                $aposta['SocAposta']['pontuacao_bola_ouro'] = $qtd_pontuacao_bola_ouro;
+                $aposta['SocAposta']['pontuacao_bola_ouro'] = $pontuacao_bola_ouro;
                 $this->SocAposta->save($aposta);
             }
 
