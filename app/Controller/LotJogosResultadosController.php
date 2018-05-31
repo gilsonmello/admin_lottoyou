@@ -141,8 +141,8 @@ class LotJogosResultadosController extends AppController {
                         foreach ($this->request->data['D'] as $v) {
                             foreach ($user_numeros as $key => $numero) {  
                                 if($v == $numero['LotUserNumero']['numero']) {
-                                    $numero_extra['LotUserNumero']['acerto'] = 1;
-                                    $this->LotUserNumero->save($numero_extra);
+                                    $numero['LotUserNumero']['acerto'] = 1;
+                                    $this->LotUserNumero->save($numero);
                                     $contador1++;
                                 }
                             }
