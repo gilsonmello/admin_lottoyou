@@ -639,16 +639,16 @@ class SocRodadasController extends AppController {
 
 
                 if($qtd_acertos_diferenca_gols_ou_empates > 0) {
-                    $criterio += $qtd_acertos_diferenca_gols_ou_empates;
+                    $criterio = $qtd_acertos_diferenca_gols_ou_empates;
                 }
                 
                 if($qtd_acertos_placares > 0) {
                     //$acertos_placares_peso = ($qtd_acertos_placares + $qtd_acertos_diferenca_gols_ou_empates);
-                    $criterio += $qtd_acertos_placares;
+                    $criterio = $qtd_acertos_placares;
                 }                 
 
                 if($qtd_pontuacao_bola_ouro > 0) {
-                    $criterio += $qtd_pontuacao_bola_ouro * 2;
+                    $criterio = $qtd_pontuacao_bola_ouro + $qtd_acertos_diferenca_gols_ou_empates + $qtd_acertos_placares;
                 }
                 
                 //$pontuacao_bola_ouro_peso = $qtd_pontuacao_bola_ouro + $qtd_acertos_placares +    $qtd_acertos_diferenca_gols_ou_empates;
