@@ -633,9 +633,9 @@ class SocRodadasController extends AppController {
                  */
                 $pontuacao_bola_ouro_peso = 0;
                 if($qtd_pontuacao_bola_ouro > 0) {
-                    $pontuacao_bola_ouro_peso = $pontuacao + $qtd_acertos_placares + $qtd_acertos_diferenca_gols_ou_empates;
+                    $pontuacao_bola_ouro_peso = $pontuacao_bola_ouro + $qtd_acertos_placares + $qtd_acertos_diferenca_gols_ou_empates;
                 } else {
-                    $pontuacao_bola_ouro_peso = $pontuacao;
+                    $pontuacao_bola_ouro_peso = 0;
                 }
 
                 /*if($pontuacao_bola_ouro > 0) {
@@ -665,7 +665,7 @@ class SocRodadasController extends AppController {
                 $aposta['SocAposta']['pontuacao'] = $pontuacao;
                 $aposta['SocAposta']['qtd_acertos_placares'] = $qtd_acertos_placares;
                 $aposta['SocAposta']['qtd_acertos_diferenca_gols_ou_empate'] = $qtd_acertos_diferenca_gols_ou_empates;
-                $aposta['SocAposta']['total_pontuacao'] = $pontuacao_sem_bola_ouro + $acertos_placares_peso + $acertos_diferenca_gols_ou_empates_peso + $pontuacao_bola_ouro_peso;
+                $aposta['SocAposta']['total_pontuacao'] = $acertos_placares_peso + $acertos_diferenca_gols_ou_empates_peso + $pontuacao_bola_ouro_peso;
                 $aposta['SocAposta']['pontuacao_bola_ouro'] = $pontuacao_bola_ouro;
                 $this->SocAposta->save($aposta);
             }
