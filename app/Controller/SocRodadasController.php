@@ -677,7 +677,7 @@ class SocRodadasController extends AppController {
                 $aposta['SocAposta']['pontuacao'] = $pontuacao;
                 $aposta['SocAposta']['qtd_acertos_placares'] = $qtd_acertos_placares;
                 $aposta['SocAposta']['qtd_acertos_diferenca_gols_ou_empate'] = $qtd_acertos_diferenca_gols_ou_empates;
-                $aposta['SocAposta']['total_pontuacao'] = $criterio + $pontuacao;
+                $aposta['SocAposta']['total_pontuacao'] = $criterio;
                 $aposta['SocAposta']['pontuacao_bola_ouro'] = $pontuacao_bola_ouro;
                 $this->SocAposta->save($aposta);
             }
