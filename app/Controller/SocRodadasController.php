@@ -648,7 +648,7 @@ class SocRodadasController extends AppController {
                 }     
                 
                 //$acertos_placares_peso = ($qtd_acertos_placares + $qtd_acertos_diferenca_gols_ou_empates);
-                //$criterio += $pontuacao_sem_bola_ouro;
+                $criterio += $pontuacao;
                             
 
                 
