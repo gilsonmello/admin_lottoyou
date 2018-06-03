@@ -559,6 +559,7 @@ class SocRodadasController extends AppController {
                     $aposta_resultado_clube_fora = $aposta_jogo['SocApostasJogo']['resultado_clube_fora'];
 
 
+
                     if($jogo['SocJogo']['resultado_clube_casa'] == null
                         || $jogo['SocJogo']['resultado_clube_fora'] == null) {
                         continue;
@@ -573,10 +574,12 @@ class SocRodadasController extends AppController {
                         $aposta_jogo['SocApostasJogo']['pontuacao'] = $config_rodada['SocConfRodada']['nao_acertar_vencedor_jogo'];
                     }
 
+                    $old_value_placares = $qtd_acertos_placares;
                     /*
                      * Acertou vencedor
                      */
                     if($this->acertouVencedor($jogo, $aposta_jogo)) {
+                        $qtd_acertos_placares += $config_rodada['SocConfRodada']['acertar_placar'];
                         $aposta_jogo['SocApostasJogo']['pontuacao'] = $config_rodada['SocConfRodada']['acertar_vencedor_jogo'];
                     }
 
@@ -611,7 +614,7 @@ class SocRodadasController extends AppController {
                      * Acertou o placar
                      */
                     if($this->acertouPlacar($jogo, $aposta_jogo)) {
-                        $qtd_acertos_placares+=$config_rodada['SocConfRodada']['acertar_placar'];
+                        $qtd_acertos_placares += $config_rodada['SocConfRodada']['acertar_placar'];
                         $aposta_jogo['SocApostasJogo']['pontuacao'] = $config_rodada['SocConfRodada']['acertar_placar'];
                     }
 
