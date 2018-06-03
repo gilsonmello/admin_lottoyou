@@ -577,6 +577,8 @@ class SocRodadasController extends AppController {
                      * Acertou vencedor
                      */
                     if($this->acertouVencedor($jogo, $aposta_jogo)) {
+                        $qtd_acertos_placares++;
+                        $qtd_acertos_diferenca_gols_ou_empates++;
                         $aposta_jogo['SocApostasJogo']['pontuacao'] = $config_rodada['SocConfRodada']['acertar_vencedor_jogo'];
                     }
 
@@ -599,6 +601,7 @@ class SocRodadasController extends AppController {
                      * Acertou vecendor e diferença de gols
                      */
                     if($this->acertouDiferenca($jogo, $aposta_jogo) && $this->acertouVencedor($jogo, $aposta_jogo)) {
+                        $qtd_acertos_placares++;
                         $qtd_acertos_diferenca_gols_ou_empates++;
                         $aposta_jogo['SocApostasJogo']['pontuacao'] = $config_rodada['SocConfRodada']['acertar_jogo_e_diferenca_gols'];
                     }
@@ -639,12 +642,12 @@ class SocRodadasController extends AppController {
 
 
                 if($qtd_acertos_diferenca_gols_ou_empates > 0) {
-                    $criterio = $qtd_acertos_diferenca_gols_ou_empates;
+                    $criterio += $qtd_acertos_diferenca_gols_ou_empates;
                 }
                 
                 if($qtd_acertos_placares > 0) {
                     //$acertos_placares_peso = ($qtd_acertos_placares + $qtd_acertos_diferenca_gols_ou_empates);
-                    $criterio = $qtd_acertos_placares + $qtd_acertos_diferenca_gols_ou_empates;
+                    $criterio += $qtd_acertos_placares + $qtd_acertos_diferenca_gols_ou_empates;
                 }     
                 
                 //$acertos_placares_peso = ($qtd_acertos_placares + $qtd_acertos_diferenca_gols_ou_empates);
