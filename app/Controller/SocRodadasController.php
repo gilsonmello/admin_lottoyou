@@ -642,12 +642,12 @@ class SocRodadasController extends AppController {
 
 
                 if($qtd_acertos_diferenca_gols_ou_empates > 0) {
-                    $criterio += $qtd_acertos_diferenca_gols_ou_empates;
+                    $criterio = $qtd_acertos_diferenca_gols_ou_empates;
                 }
                 
                 if($qtd_acertos_placares > 0) {
                     //$acertos_placares_peso = ($qtd_acertos_placares + $qtd_acertos_diferenca_gols_ou_empates);
-                    $criterio += $qtd_acertos_placares + $qtd_acertos_diferenca_gols_ou_empates;
+                    $criterio = $qtd_acertos_placares + $qtd_acertos_diferenca_gols_ou_empates;
                 }     
                 
                 //$acertos_placares_peso = ($qtd_acertos_placares + $qtd_acertos_diferenca_gols_ou_empates);
