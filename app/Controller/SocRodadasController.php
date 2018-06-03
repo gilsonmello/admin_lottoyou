@@ -649,9 +649,9 @@ class SocRodadasController extends AppController {
 
                 if($qtd_pontuacao_bola_ouro > 0) {
                     //$acertos_placares_peso = ($qtd_acertos_placares + $qtd_acertos_diferenca_gols_ou_empates);
-                    $criterio += 1 + $qtd_acertos_placares + $qtd_acertos_diferenca_gols_ou_empates;
+                    $criterio += $pontuacao_bola_ouro + $qtd_acertos_placares + $qtd_acertos_diferenca_gols_ou_empates;
                 } else {
-                    $criterio += $qtd_acertos_placares + $qtd_acertos_diferenca_gols_ou_empates;
+                    $criterio += $pontuacao_sem_bola_ouro + $qtd_acertos_placares + $qtd_acertos_diferenca_gols_ou_empates;
                 }            
 
                 
@@ -659,7 +659,7 @@ class SocRodadasController extends AppController {
                 
                 
                 //$pontuacao_bola_ouro_peso = $qtd_pontuacao_bola_ouro + $qtd_acertos_placares +    $qtd_acertos_diferenca_gols_ou_empates;
-                $criterio += $pontuacao;
+                //$criterio += $pontuacao;
                 
 
                 /*if($pontuacao_bola_ouro > 0) {
