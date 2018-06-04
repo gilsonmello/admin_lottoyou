@@ -736,7 +736,7 @@ class SocRodadasController extends AppController {
 
                     $count = 0;
                     foreach ($apostas as $ap => $aposta) {
-                        $aposta['SocAposta']['posicao'] = ($p + 1) > 1 ? $last + 1 : 1;
+                        $aposta['SocAposta']['posicao'] = ($p + 1) > 1 ? $last : 1;
                         $aposta['SocAposta']['ordem'] = $grupo_cont;
                         $grupo_cont++;
                         $count++;
@@ -744,7 +744,7 @@ class SocRodadasController extends AppController {
                         $this->SocAposta->save($aposta);
 
                         if((count($aposta) - 1) == $ap) {
-                            $last += $count;
+                            $last += $count + 1;
                         }
                     }
 
