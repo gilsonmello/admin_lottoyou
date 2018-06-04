@@ -734,6 +734,8 @@ class SocRodadasController extends AppController {
                         ],
                     ]);
 
+                    die(var_dump($apostas));
+
                     $count = 0;
                     foreach ($apostas as $ap => $aposta) {
                         $aposta['SocAposta']['posicao'] = ($p + 1) > 1 ? $last : 1;
