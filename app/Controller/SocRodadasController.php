@@ -694,7 +694,7 @@ class SocRodadasController extends AppController {
                 $aposta_empates = $this->SocAposta->find('all', [
                     'conditions' => [
                         'soc_rodada_id.pontuacao =' => $pontuacao['SocAposta']['pontuacao']
-                    ]
+                    ],
                     'order' => 'SocAposta.pontuacao DESC',
                 ]);
 
