@@ -722,7 +722,7 @@ class SocRodadasController extends AppController {
                     ]
                 ]);
 
-                
+                die(var_dump($pontuacoes));
                 $loop_anterior = 0;
                 $last = 1;
                 foreach ($pontuacoes as $p => $pontuacao) {
