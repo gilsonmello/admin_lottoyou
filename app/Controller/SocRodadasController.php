@@ -683,7 +683,7 @@ class SocRodadasController extends AppController {
                 ],
                 'group' => [
                     'SocAposta.pontuacao',
-                ]
+                ],
                 'order' => 'SocAposta.pontuacao DESC',
             ]);
 
