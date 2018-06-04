@@ -756,7 +756,7 @@ class SocRodadasController extends AppController {
             ]);
 
             //die(var_dump('ASDA'));
-            /*$t = 1;
+            $t = 1;
             $grupo_cont = 1;
             foreach ($grupos as $key => $grupo) {
                 $pontuacoes = $this->SocAposta->find('all', [
@@ -798,7 +798,7 @@ class SocRodadasController extends AppController {
                     }
 
                 }
-                $grupo_cont = 1;*/
+                $grupo_cont = 1;
 
 
                 /*for ($i = 0; $i < count($apostas); $i++) {
