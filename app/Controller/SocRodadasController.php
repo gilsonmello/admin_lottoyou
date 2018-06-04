@@ -702,11 +702,11 @@ class SocRodadasController extends AppController {
 
                 for($i = 0; $i < count($aposta_empates); $i++) {
                     for($j = $i + 1; $j < count($aposta_empates); $j++) {
-                        if($aposta_empates[$i]['SocAposta']['pontuacao_bola_ouro'] < $aposta_empates[$j]['SocAposta']['pontuacao_bola_ouro']) {
+                        if($aposta_empates[$i]['SocAposta']['qtd_acertos_placares'] < $aposta_empates[$j]['SocAposta']['qtd_acertos_placares']) {
                             $aux = $aposta_empates[$i];
                             $aposta_empates[$i] = $aposta_empates[$j];
                             $aposta_empates[$j] = $aux;
-                            $aposta_empates[$j]['SocAposta']['pontuacao'] += 1;
+                            $aposta_empates[$j]['SocAposta']['total_pontuacao'] += 1;
                             $this->SocAposta->save($aposta_empates);
                         }
                     }
