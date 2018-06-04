@@ -603,6 +603,7 @@ class SocRodadasController extends AppController {
                         
                         $qtd_acertos_diferenca_gols_ou_empates = $old_value;
                         $qtd_acertos_diferenca_gols_ou_empates++;
+                        $qtd_acertos_placares++;
                         $aposta_jogo['SocApostasJogo']['pontuacao'] = $config_rodada['SocConfRodada']['acertar_jogo_e_diferenca_gols'];
                     }
 
