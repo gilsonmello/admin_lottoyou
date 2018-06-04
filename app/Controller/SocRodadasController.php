@@ -677,14 +677,14 @@ class SocRodadasController extends AppController {
 
             //Pegando todas as cartelas do usuário
             $pontuacoes = $this->SocAposta->find('all', [
-                'fields' => 'SocAposta.pontuacao',
+                'fields' => 'SocAposta.total_pontuacao',
                 'conditions' => [
                     'soc_rodada_id' => $id
                 ],
                 'group' => [
-                    'SocAposta.pontuacao',
+                    'SocAposta.total_pontuacao',
                 ],
-                'order' => 'SocAposta.pontuacao DESC',
+                'order' => 'SocAposta.total_pontuacao DESC',
             ]);
 
 
@@ -707,7 +707,7 @@ class SocRodadasController extends AppController {
                             $aposta_empates[$i] = $aposta_empates[$j];
                             $aposta_empates[$j] = $aux;
                             $aposta_empates[$j]['SocAposta']['total_pontuacao'] += 1;
-                            $this->SocAposta->save($aposta_empates);
+                            $this->SocAposta->save($aposta_empates[$j]);
                         }
                     }
                 }
