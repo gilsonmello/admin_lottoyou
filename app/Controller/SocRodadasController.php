@@ -743,7 +743,8 @@ class SocRodadasController extends AppController {
                         
                         $this->SocAposta->save($aposta);
 
-                        if(count($aposta) == $ap) {
+                        if((count($aposta) - 1) == $ap) {
+                            die(var_dump(count($aposta), $ap));
                             $last += count($aposta);
                         }
                     }
