@@ -722,7 +722,6 @@ class SocRodadasController extends AppController {
                     ]
                 ]);
 
-                die(var_dump($pontuacoes));
                 $loop_anterior = 0;
                 $last = 1;
                 foreach ($pontuacoes as $p => $pontuacao) {
@@ -734,8 +733,7 @@ class SocRodadasController extends AppController {
                         ],
                     ]);
 
-                    die(var_dump($apostas));
-
+                    
                     $count = 0;
                     foreach ($apostas as $ap => $aposta) {
                         $aposta['SocAposta']['posicao'] = ($p + 1) > 1 ? $last : 1;
@@ -745,9 +743,9 @@ class SocRodadasController extends AppController {
                         
                         $this->SocAposta->save($aposta);
 
-                        if((count($aposta) - 1) == $ap) {
-                            die(var_dump(count($aposta), $ap));
-                            $last += count($aposta);
+                        if((count($apostas) - 1) == $ap) {
+                            die(var_dump(count($apostas), $ap));
+                            $last += count($apostas);
                         }
                     }
 
