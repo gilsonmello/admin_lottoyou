@@ -736,6 +736,7 @@ class SocRodadasController extends AppController {
                     $loop_anterior += count($apostas) + 1;
                     foreach ($apostas as $ap => $aposta) {
                         if($p + 1 > 1) {
+                            die(var_dump($loop_anterior));
                             $count = $loop_anterior;
                         }
                         $aposta['SocAposta']['posicao'] = $count;
