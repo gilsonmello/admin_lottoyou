@@ -723,6 +723,7 @@ class SocRodadasController extends AppController {
                 ]);
 
                 $count = 1;
+                $loop_anterior = 0;
                 foreach ($pontuacoes as $p => $pontuacao) {
                     $apostas = $this->SocAposta->find('all', [
                         'conditions' => [
@@ -732,14 +733,16 @@ class SocRodadasController extends AppController {
                         ],
                     ]);
 
-                    
+                    $loop_anterior += count($apostas) + 1;
                     foreach ($apostas as $ap => $aposta) {
-                        $aposta['SocAposta']['posicao'] = $p + 1;
+                        if($p + 1 > 1) {
+                            $count = $loop_anterior;
+                        }
+                        $aposta['SocAposta']['posicao'] = $count;
                         $aposta['SocAposta']['ordem'] = $grupo_cont;
                         $grupo_cont++;
                         $this->SocAposta->save($aposta);
                     }
-                    $count++;
 
                 }
                 $grupo_cont = 1;
