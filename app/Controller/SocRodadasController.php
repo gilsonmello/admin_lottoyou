@@ -539,6 +539,8 @@ class SocRodadasController extends AppController {
                 $pontuacao_bola_ouro = 0;
                 $pontuacao_sem_bola_ouro = 0;
 
+                $pontuacao_bola_ouro_sem_prc = 0;
+
 
 
                 //Percorrendo os jogos da cartela
@@ -603,7 +605,6 @@ class SocRodadasController extends AppController {
                         
                         $qtd_acertos_diferenca_gols_ou_empates = $old_value;
                         $qtd_acertos_diferenca_gols_ou_empates++;
-                        $qtd_acertos_placares++;
                         $aposta_jogo['SocApostasJogo']['pontuacao'] = $config_rodada['SocConfRodada']['acertar_jogo_e_diferenca_gols'];
                     }
 
@@ -618,6 +619,7 @@ class SocRodadasController extends AppController {
 
                     $pontuacao_sem_bola_ouro += $aposta_jogo['SocApostasJogo']['pontuacao'];
                     if($aposta_jogo['SocApostasJogo']['bola_ouro'] == 1 && $aposta_jogo['SocApostasJogo']['pontuacao'] > 0) {
+                        $pontuacao_bola_ouro_sem_prc += $aposta_jogo['SocApostasJogo']['pontuacao'];
                         $pontuacao_bola_ouro += $aposta_jogo['SocApostasJogo']['pontuacao'] + (($aposta_jogo['SocApostasJogo']['pontuacao'] * 25) / 100);
                         $aposta_jogo['SocApostasJogo']['pontuacao'] = $pontuacao_bola_ouro;
                         //$qtd_pontuacao_bola_ouro += $pontuacao_bola_ouro;
@@ -652,7 +654,7 @@ class SocRodadasController extends AppController {
                 }     
                 
                 //$acertos_placares_peso = ($qtd_acertos_placares + $qtd_acertos_diferenca_gols_ou_empates);
-                $criterio += $pontuacao;
+                $criterio += $pontuacao_bola_ouro_sem_prc;
                             
 
                 
