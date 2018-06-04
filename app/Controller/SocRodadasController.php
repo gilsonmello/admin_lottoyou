@@ -824,8 +824,8 @@ class SocRodadasController extends AppController {
                     $apostas[$i]['SocAposta']['ordem'] = $i + 1;
 
                     $this->SocAposta->save($apostas[$i]);
-                }
-            }*/
+                }*/
+            }
 
             $this->response->body(json_encode([
                 'msg' => 'Pontuação atualizada com sucesso',
