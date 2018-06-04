@@ -732,14 +732,14 @@ class SocRodadasController extends AppController {
                         ],
                     ]);
 
+                    
                     foreach ($apostas as $ap => $aposta) {
-                        $aposta['SocAposta']['posicao'] = $count;
+                        $aposta['SocAposta']['posicao'] = $p + 1;
                         $aposta['SocAposta']['ordem'] = $grupo_cont;
-                        $count++;
                         $grupo_cont++;
                         $this->SocAposta->save($aposta);
                     }
-
+                    $count++;
 
                 }
                 $grupo_cont = 1;
