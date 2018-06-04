@@ -675,6 +675,46 @@ class SocRodadasController extends AppController {
                 $this->SocAposta->save($aposta);
             }
 
+            //Pegando todas as cartelas do usuário
+            $pontuacoes = $this->SocAposta->find('all', [
+                'fields' => 'SocAposta.pontuacao',
+                'conditions' => [
+                    'soc_rodada_id' => $id
+                ],
+                'group' => [
+                    'SocAposta.pontuacao',
+                ]
+                'order' => 'SocAposta.pontuacao DESC',
+            ]);
+
+
+            //Percorrendo todas as cartelas feitas
+            foreach ($pontuacoes as $a => $pontuacao) {
+                
+                $aposta_empates = $this->SocAposta->find('all', [
+                    'conditions' => [
+                        'soc_rodada_id.pontuacao =' => $pontuacao['SocAposta']['pontuacao']
+                    ]
+                    'order' => 'SocAposta.pontuacao DESC',
+                ]);
+
+
+                for($i = 0; $i < count($aposta_empates); $i++) {
+                    for($j = $i + 1; $j < count($aposta_empates); $j++) {
+                        if($aposta_empates[$i]['SocAposta']['pontuacao_bola_ouro'] < $aposta_empates[$j]['SocAposta']['pontuacao_bola_ouro']) {
+                            $aux = $aposta_empates[$i];
+                            $aposta_empates[$i] = $aposta_empates[$j];
+                            $aposta_empates[$j] = $aux;
+                            $aposta_empates[$j]['SocAposta']['pontuacao'] += 1;
+                            $this->SocAposta->save($aposta_empates);
+                        }
+                    }
+                }
+            }
+
+
+
+
             $grupos = $this->SocRodadasGrupo->find('all', [
                 'conditions' => [
                     'SocRodadasGrupo.soc_rodada_id =' => $id
@@ -682,7 +722,7 @@ class SocRodadasController extends AppController {
             ]);
 
             //die(var_dump('ASDA'));
-            $t = 1;
+            /*$t = 1;
             $grupo_cont = 1;
             foreach ($grupos as $key => $grupo) {
                 $pontuacoes = $this->SocAposta->find('all', [
@@ -724,7 +764,7 @@ class SocRodadasController extends AppController {
                     }
 
                 }
-                $grupo_cont = 1;
+                $grupo_cont = 1;*/
 
 
                 /*for ($i = 0; $i < count($apostas); $i++) {
