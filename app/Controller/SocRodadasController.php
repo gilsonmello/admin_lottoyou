@@ -559,7 +559,6 @@ class SocRodadasController extends AppController {
                     $aposta_resultado_clube_fora = $aposta_jogo['SocApostasJogo']['resultado_clube_fora'];
 
 
-
                     if($jogo['SocJogo']['resultado_clube_casa'] == null
                         || $jogo['SocJogo']['resultado_clube_fora'] == null) {
                         continue;
@@ -574,7 +573,6 @@ class SocRodadasController extends AppController {
                         $aposta_jogo['SocApostasJogo']['pontuacao'] = $config_rodada['SocConfRodada']['nao_acertar_vencedor_jogo'];
                     }
 
-                    $old_value_placares = $qtd_acertos_placares;
                     /*
                      * Acertou vencedor
                      */
@@ -594,7 +592,7 @@ class SocRodadasController extends AppController {
                      * Acertou o empate sem exatidão, ex: 1x1 mas o jogo foi 2x2
                      */
                     if($this->empateSemExatidao($jogo, $aposta_jogo)) {
-                        $qtd_acertos_diferenca_gols_ou_empates += $config_rodada['SocConfRodada']['acertar_empate_sem_exatidao'];
+                        $qtd_acertos_diferenca_gols_ou_empates++;
                         $aposta_jogo['SocApostasJogo']['pontuacao'] = $config_rodada['SocConfRodada']['acertar_empate_sem_exatidao'];
                     }
 
@@ -602,9 +600,9 @@ class SocRodadasController extends AppController {
                      * Acertou vecendor e diferença de gols
                      */
                     if($this->acertouDiferenca($jogo, $aposta_jogo) && $this->acertouVencedor($jogo, $aposta_jogo)) {
-                        $qtd_acertos_placares += $config_rodada['SocConfRodada']['acertar_jogo_e_diferenca_gols'];
+                        
                         $qtd_acertos_diferenca_gols_ou_empates = $old_value;
-                        $qtd_acertos_diferenca_gols_ou_empates += $config_rodada['SocConfRodada']['acertar_jogo_e_diferenca_gols'];
+                        $qtd_acertos_diferenca_gols_ou_empates++;
                         $aposta_jogo['SocApostasJogo']['pontuacao'] = $config_rodada['SocConfRodada']['acertar_jogo_e_diferenca_gols'];
                     }
 
@@ -613,7 +611,7 @@ class SocRodadasController extends AppController {
                      * Acertou o placar
                      */
                     if($this->acertouPlacar($jogo, $aposta_jogo)) {
-                        $qtd_acertos_placares += $config_rodada['SocConfRodada']['acertar_placar'];
+                        $qtd_acertos_placares++;
                         $aposta_jogo['SocApostasJogo']['pontuacao'] = $config_rodada['SocConfRodada']['acertar_placar'];
                     }
 
@@ -651,7 +649,6 @@ class SocRodadasController extends AppController {
                     //$acertos_placares_peso = ($qtd_acertos_placares + $qtd_acertos_diferenca_gols_ou_empates);
                     $criterio = $qtd_acertos_placares + $qtd_acertos_diferenca_gols_ou_empates;
                 }     
-
                 
                 //$acertos_placares_peso = ($qtd_acertos_placares + $qtd_acertos_diferenca_gols_ou_empates);
                 $criterio += $pontuacao;
