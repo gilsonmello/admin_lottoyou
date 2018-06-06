@@ -249,6 +249,8 @@ class SocRodadasController extends AppController {
                 $pos_disponivel = $i + 1;
             }
 
+
+
             //Percorrendo todos os primeiros colocados
             foreach ($primeiros as $k => $primeiro) {
                 //Salvo a premiação para o usuário com base na porcentagem encontrada
@@ -273,6 +275,7 @@ class SocRodadasController extends AppController {
                 'order' => 'SocAposta.posicao DESC'
             ]);
 
+
             $segundos_pct = 0;
             $prc_maxima = 28;
 
@@ -293,7 +296,7 @@ class SocRodadasController extends AppController {
             }
 
             foreach ($segundos as $k => $segundo) {
-                $this->salvarPremiacao($grupo, $primeiro, $segundos_pct / count($segundos));
+                $this->salvarPremiacao($grupo, $segundo, $segundos_pct / count($segundos));
                 $segundo['SocAposta']['quantia'] = ($grupo['SocRodadasGrupo']['arrecadado'] * ($segundos_pct / count($segundos))) / 100;
                 $segundo['SocAposta']['vencedor'] = 0;
                 $this->SocAposta->save($segundo);
@@ -303,6 +306,7 @@ class SocRodadasController extends AppController {
             if($segundos_pct == 28) {
                 continue;
             }
+
 
 
             $terceiros = $this->SocAposta->find('all', [
@@ -316,7 +320,6 @@ class SocRodadasController extends AppController {
             $terceiros_pct = 0;
             $prc_maxima = 18;
 
-
             for ($i = $pos_disponivel; $i < count($primeiros) + count($segundos) + count($terceiros); $i++) {
                 if(!isset($prc[$i])) {
                     $terceiros_pct = 18;
@@ -328,7 +331,7 @@ class SocRodadasController extends AppController {
             }
 
             foreach ($terceiros as $k => $terceiro) {
-                $this->salvarPremiacao($grupo, $primeiro, $terceiros_pct / count($terceiros));
+                $this->salvarPremiacao($grupo, $terceiro, $terceiros_pct / count($terceiros));
                 $terceiro['SocAposta']['quantia'] = ($grupo['SocRodadasGrupo']['arrecadado'] * ($terceiros_pct / count($terceiros))) / 100;
                 $terceiro['SocAposta']['vencedor'] = 0;
                 $this->SocAposta->save($terceiro);
@@ -361,7 +364,7 @@ class SocRodadasController extends AppController {
             }
 
             foreach ($quartos as $k => $quarto) {
-                $this->salvarPremiacao($grupo, $primeiro, $quartos_pct / count($quartos));
+                $this->salvarPremiacao($grupo, $quarto, $quartos_pct / count($quartos));
                 $quarto['SocAposta']['quantia'] = ($grupo['SocRodadasGrupo']['arrecadado'] * ($quartos_pct / count($quartos))) / 100;
                 $quarto['SocAposta']['vencedor'] = 0;
                 $this->SocAposta->save($quarto);
@@ -396,7 +399,7 @@ class SocRodadasController extends AppController {
             }
 
             foreach ($decimo_primeiros as $k => $decimo_primeiro) {
-                $this->salvarPremiacao($grupo, $primeiro, $decimo_primeiro_pct / count($decimo_primeiros));
+                $this->salvarPremiacao($grupo, $decimo_primeiro, $decimo_primeiro_pct / count($decimo_primeiros));
                 $decimo_primeiro['SocAposta']['quantia'] = ($grupo['SocRodadasGrupo']['arrecadado'] * ($decimo_primeiro_pct / count($decimo_primeiros))) / 100;
                 $decimo_primeiro['SocAposta']['vencedor'] = 0;
                 $this->SocAposta->save($decimo_primeiro);
