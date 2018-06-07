@@ -21862,3 +21862,39 @@ Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fi
 Stack Trace:
 #0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2018-06-07 21:53:05 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-07 21:53:05 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-07 21:53:05 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-07 21:53:05 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}

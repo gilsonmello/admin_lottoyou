@@ -73,6 +73,7 @@
                             <th class="text-center">Qtd. Limite</th>
                             <th>Valor</th>
                             <th class="text-center">Ativo</th>
+                            <th class="text-center">Fechada</th>
                             <th>Ações</th>
                         </tr>
                     </thead>
@@ -96,6 +97,11 @@
                                 <td class="text-center">
                                     <label class="label label-<?php echo $v['SocRodada']['ativo_label']; ?>">
                                         <?php echo $v['SocRodada']['ativo']; ?>
+                                    </label>
+                                </td>
+                                <td class="text-center">
+                                    <label class="label label-<?php echo $v['SocRodada']['fechada_label']; ?>">
+                                        <?php echo $v['SocRodada']['fechada']; ?>
                                     </label>
                                 </td>
                                 <td>

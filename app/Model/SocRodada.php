@@ -15,6 +15,8 @@ class SocRodada extends AppModel {
     public $virtualFields = array(
         'ativo' => "CASE WHEN SocRodada.active = 1 THEN 'Sim' ELSE 'Não' END",
         'ativo_label' => "CASE WHEN SocRodada.active = 1 THEN 'success' ELSE 'danger' END",
+        'fechada' => "CASE WHEN SocRodada.fechada = 1 THEN 'Sim' ELSE 'Não' END",
+        'fechada_label' => "CASE WHEN SocRodada.fechada = 1 THEN 'success' ELSE 'danger' END",
         'bolao' => "select nome from soc_boloes b where SocRodada.soc_bolao_id = b.id",
         'tipo_name' => "CASE WHEN SocRodada.tipo = 1 THEN 'Limitado' ELSE 'Ilimitado' END",
         'categoria_name' => 'select nome from soc_categorias s where s.id = SocRodada.soc_categoria_id',
