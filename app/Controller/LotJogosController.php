@@ -9,12 +9,31 @@ class LotJogosController extends AppController {
         $this->Auth->allow('jogos');
     }
 
+    public function apostas($id = null) {
+        $this->loadModel('LotUserJogo');
+        $this->loadModel('LotUserNumero');
+        $this->loadModel('LotUserNumerosExtras');
+        $this->loadModel('LotCategoria');
+        $this->LotUserJogo->recursive = 1;
+        $this->LotUserNumero->recursive = -1;
+        $this->LotUserNumerosExtras->recursive = -1;
+        $this->LotCategoria->recursive = -1;
+        $sorteio = $this->LotJogo->read(null, $id);
+        $apostas = $this->LotUserJogo->find('all', [
+            'conditions' => [
+                'LotUserJogo.lot_jogo_id' => $id
+            ]
+        ]);
+
+        $this->set('apostas', $apostas);
+    }
+
     public function index($modal = 0) {
         // CARREGA FUNÇÕES BÁSICAS DE PESQUISA E ORDENAÇÃO
         $options = parent::_index();
 
         // PREPARA MODEL
-        $this->LotJogo->recursive = 2;
+        $this->LotJogo->recursive = -1;
         $this->LotJogo->validate = array();
 
         // TRATA CONDIÇÕES

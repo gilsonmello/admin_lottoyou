@@ -117,6 +117,17 @@
                                         <ul class="dropdown-menu dropdown-menu-right" role="menu">
                                             <li>
                                                 <?= $this->Html->link(
+                                                    '<i class="md md-game"></i>&nbsp Apostas', 
+                                                    'javascript: void(0)', 
+                                                    [
+                                                        "escape" => false, 
+                                                        'id' => $v['LotJogo']['id'],
+                                                        'class' => 'btnApostas'
+                                                    ]
+                                                ) ?>                                                    
+                                            </li>
+                                            <li>
+                                                <?= $this->Html->link(
                                                     '<i class="md md-language"></i>&nbsp Resultado', 
                                                     'javascript: void(0)', 
                                                     [

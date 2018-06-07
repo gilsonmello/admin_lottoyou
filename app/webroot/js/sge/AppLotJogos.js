@@ -59,6 +59,10 @@
     };
 
     p._habilitaBotoesConsulta = function () {
+        $(AppLotJogos.objectId + ' .btnApostas').click(function () {
+            p._showApostas($(this).attr('id'));
+        });
+
         $(AppLotJogos.objectId + ' .btnResultado').click(function () {
             p._cadastrarResultado($(this).attr('id'), $(this).attr('ret'));
         });
@@ -81,6 +85,20 @@
                 p._loadConsLotJogo();
             });
         });
+    };
+
+    p._showApostas = function (id) {
+        var modalObject = $(AppLotJogos.modalFormId);
+        var url = 'lotJogos/apostas/' + id;
+
+        window.materialadmin.AppForm.loadModal(modalObject, url, '90%', function () {
+            modalObject.off('hide.bs.modal');
+            modalObject.on('hide.bs.modal', function () {
+                
+            });
+
+        });       
+        
     };
 
     p._showPremiar = function (btn) {
