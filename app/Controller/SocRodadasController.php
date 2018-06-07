@@ -652,7 +652,6 @@ class SocRodadasController extends AppController {
 
             $end += count($decimo_segundos);
 
-            die(var_dump($decimo_segundos, $prc, $pos_disponivel, $end));
             for ($i = $pos_disponivel; $i < $end; $i++) {
                 if(!isset($prc[$i])) {
                     $decimo_segundo_pct = 4.5;
@@ -672,6 +671,7 @@ class SocRodadasController extends AppController {
                 }
             }
 
+            die(var_dump($decimo_segundo_pct));
             if($decimo_segundo_pct == 4.5) {
                 continue;
             }
