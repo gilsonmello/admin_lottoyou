@@ -651,6 +651,8 @@ class SocRodadasController extends AppController {
             $prc_maxima = 4.5;
 
             $end += count($decimo_segundos);
+
+            die(var_dump($decimo_segundos, $prc));
             for ($i = $pos_disponivel; $i < $end; $i++) {
                 if(!isset($prc[$i])) {
                     $decimo_segundo_pct = 4.5;
