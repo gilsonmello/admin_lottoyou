@@ -671,7 +671,6 @@ class SocRodadasController extends AppController {
                 }
             }
 
-            die(var_dump($decimo_segundo_pct));
             if($decimo_segundo_pct == 4.5) {
                 continue;
             }
@@ -699,9 +698,11 @@ class SocRodadasController extends AppController {
                 $pos_disponivel = $i + 1;
             }
 
+            die(var_dump($end, $pos_disponivel, $decimo_terceiro_pct));
             if($decimo_terceiro_pct == 0) {
                 continue;
             }
+
             foreach ($decimo_terceiros as $k => $decimo) {
                 if($decimo_terceiro_pct > 0) {
                     $this->salvarPremiacao($grupo, $decimo, $decimo_terceiro_pct / count($decimo_terceiros));
