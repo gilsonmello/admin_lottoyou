@@ -698,11 +698,6 @@ class SocRodadasController extends AppController {
                 $pos_disponivel = $i + 1;
             }
 
-            die(var_dump($end, $pos_disponivel, $decimo_terceiro_pct));
-            if($decimo_terceiro_pct == 0) {
-                continue;
-            }
-
             foreach ($decimo_terceiros as $k => $decimo) {
                 if($decimo_terceiro_pct > 0) {
                     $this->salvarPremiacao($grupo, $decimo, $decimo_terceiro_pct / count($decimo_terceiros));
@@ -737,10 +732,6 @@ class SocRodadasController extends AppController {
                 $decimo_quarto_pct += $prc[$i]['prc'];
                 $prc[$i]['status'] = 0;
                 $pos_disponivel = $i + 1;
-            }
-
-            if($decimo_quarto_pct == 0) {
-                continue;
             }
 
             foreach ($decimo_quartos as $k => $decimo) {
