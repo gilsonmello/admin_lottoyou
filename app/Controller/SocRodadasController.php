@@ -638,7 +638,7 @@ class SocRodadasController extends AppController {
             }
 
 
-            //Décimo primeiro colocado
+            //Décimo segundo colocado
             $decimo_segundos = $this->SocAposta->find('all', [
                 'conditions' => [
                     'SocAposta.soc_rodada_grupo_id' => $grupo['SocRodadasGrupo']['id'],
@@ -697,6 +697,9 @@ class SocRodadasController extends AppController {
                 $pos_disponivel = $i + 1;
             }
 
+            if($decimo_terceiro_pct == 0) {
+                continue;
+            }
             foreach ($decimo_terceiros as $k => $decimo) {
                 if($decimo_terceiro_pct > 0) {
                     $this->salvarPremiacao($grupo, $decimo, $decimo_terceiro_pct / count($decimo_terceiros));
@@ -731,6 +734,10 @@ class SocRodadasController extends AppController {
                 $decimo_quarto_pct += $prc[$i]['prc'];
                 $prc[$i]['status'] = 0;
                 $pos_disponivel = $i + 1;
+            }
+
+            if($decimo_quarto_pct == 0) {
+                continue;
             }
 
             foreach ($decimo_quartos as $k => $decimo) {
@@ -798,24 +805,24 @@ class SocRodadasController extends AppController {
             $end += count($decimo_sextos);
             for ($i = $pos_disponivel; $i < $end; $i++) {
                 if(!isset($prc[$i])) {
-                    $decimo_quinto_pct = 2.5;
+                    $decimo_sexto_pct = 2.5;
                     break;
                 }
-                $decimo_quinto_pct += $prc[$i]['prc'];
+                $decimo_sexto_pct += $prc[$i]['prc'];
                 $prc[$i]['status'] = 0;
                 $pos_disponivel = $i + 1;
             }
 
             foreach ($decimo_sextos as $k => $decimo) {
-                if($decimo_quinto_pct > 0) {
-                    $this->salvarPremiacao($grupo, $decimo, $decimo_quinto_pct / count($decimo_sextos));
-                    $decimo['SocAposta']['quantia'] = $grupo['SocRodadasGrupo']['arrecadado'] * ($decimo_quinto_pct / count($decimo_sextos)) / 100;
+                if($decimo_sexto_pct > 0) {
+                    $this->salvarPremiacao($grupo, $decimo, $decimo_sexto_pct / count($decimo_sextos));
+                    $decimo['SocAposta']['quantia'] = $grupo['SocRodadasGrupo']['arrecadado'] * ($decimo_sexto_pct / count($decimo_sextos)) / 100;
                     $decimo['SocAposta']['vencedor'] = 0;
                     $this->SocAposta->save($decimo);
                 }
             }
 
-            if($decimo_quinto_pct == 2.5) {
+            if($decimo_sexto_pct == 2.5) {
                 continue;
             }
 
@@ -916,13 +923,17 @@ class SocRodadasController extends AppController {
                 $pos_disponivel = $i + 1;
             }
 
+            if($decimo_nono_pct > 0) {
+                continue;
+            }
+
             foreach ($decimo_nonos as $k => $decimo) {
-                if($decimo_nono_pct > 0) {
-                    $this->salvarPremiacao($grupo, $decimo, $decimo_nono_pct / count($decimo_nonos));
-                    $decimo['SocAposta']['quantia'] = $grupo['SocRodadasGrupo']['arrecadado'] * ($decimo_nono_pct / count($decimo_nonos)) / 100;
-                    $decimo['SocAposta']['vencedor'] = 0;
-                    $this->SocAposta->save($decimo);
-                }
+                
+                $this->salvarPremiacao($grupo, $decimo, $decimo_nono_pct / count($decimo_nonos));
+                $decimo['SocAposta']['quantia'] = $grupo['SocRodadasGrupo']['arrecadado'] * ($decimo_nono_pct / count($decimo_nonos)) / 100;
+                $decimo['SocAposta']['vencedor'] = 0;
+                $this->SocAposta->save($decimo);
+                
             }
 
             if($decimo_nono_pct == 1) {
