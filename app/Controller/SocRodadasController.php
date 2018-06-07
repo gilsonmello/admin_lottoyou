@@ -57,6 +57,10 @@ class SocRodadasController extends AppController {
         //$this->HistoricBalanceSoccer->save($historico_soccer);
     }
 
+    private function saveQuintos() {
+
+    }
+
     public function gerarPremiacao($id)
     {
         // CONFIGURA LAYOUT
@@ -235,8 +239,9 @@ class SocRodadasController extends AppController {
             //Pega a premiação na posição disponível no vetor
             $pos_disponivel = 0;
 
+            $end = count($primeiros);
             //Percorre todos os primeiros colocados
-            for ($i = 0; $i < count($primeiros); $i++) {
+            for ($i = 0; $i < $end; $i++) {
                 //Caso não encontre mais nenhuma posição no vetor é porque todos são primeiros colocados
                 if(!isset($prc[$i])) {
                     //Caso sim, a porcentagem máxima é de 77%
@@ -248,8 +253,6 @@ class SocRodadasController extends AppController {
                 //Próxima posição de premiação disponível
                 $pos_disponivel = $i + 1;
             }
-
-
 
             //Percorrendo todos os primeiros colocados
             foreach ($primeiros as $k => $primeiro) {
@@ -279,6 +282,7 @@ class SocRodadasController extends AppController {
             $segundos_pct = 0;
             $prc_maxima = 28;
 
+            $end += count($segundos);
             //Iniciando $i com a última posição encontrada no vetor de premiações e pego todas as posições com base no total
             //De usuário na segunda posição
             for ($i = $pos_disponivel; $i < count($primeiros) + count($segundos); $i++) {
@@ -296,10 +300,12 @@ class SocRodadasController extends AppController {
             }
 
             foreach ($segundos as $k => $segundo) {
-                $this->salvarPremiacao($grupo, $segundo, $segundos_pct / count($segundos));
-                $segundo['SocAposta']['quantia'] = ($grupo['SocRodadasGrupo']['arrecadado'] * ($segundos_pct / count($segundos))) / 100;
-                $segundo['SocAposta']['vencedor'] = 0;
-                $this->SocAposta->save($segundo);
+                if($segundos_pct > 0) {
+                    $this->salvarPremiacao($grupo, $segundo, $segundos_pct / count($segundos));
+                    $segundo['SocAposta']['quantia'] = ($grupo['SocRodadasGrupo']['arrecadado'] * ($segundos_pct / count($segundos))) / 100;
+                    $segundo['SocAposta']['vencedor'] = 0;
+                    $this->SocAposta->save($segundo);
+                }
             }
 
             //Caso sim, a porcentagem máxima é de 28%, passo pro próximo grupo da cartela
@@ -307,8 +313,7 @@ class SocRodadasController extends AppController {
                 continue;
             }
 
-
-
+            //Terceiro colocado
             $terceiros = $this->SocAposta->find('all', [
                 'conditions' => [
                     'SocAposta.soc_rodada_grupo_id' => $grupo['SocRodadasGrupo']['id'],
@@ -320,7 +325,8 @@ class SocRodadasController extends AppController {
             $terceiros_pct = 0;
             $prc_maxima = 18;
 
-            for ($i = $pos_disponivel; $i < count($primeiros) + count($segundos) + count($terceiros); $i++) {
+            $end += count($terceiros);
+            for ($i = $pos_disponivel; $i < $end; $i++) {
                 if(!isset($prc[$i])) {
                     $terceiros_pct = 18;
                     break;
@@ -331,31 +337,33 @@ class SocRodadasController extends AppController {
             }
 
             foreach ($terceiros as $k => $terceiro) {
-                $this->salvarPremiacao($grupo, $terceiro, $terceiros_pct / count($terceiros));
-                $terceiro['SocAposta']['quantia'] = ($grupo['SocRodadasGrupo']['arrecadado'] * ($terceiros_pct / count($terceiros))) / 100;
-                $terceiro['SocAposta']['vencedor'] = 0;
-                $this->SocAposta->save($terceiro);
+                if($terceiros_pct > 0) {
+                    $this->salvarPremiacao($grupo, $terceiro, $terceiros_pct / count($terceiros));
+                    $terceiro['SocAposta']['quantia'] = ($grupo['SocRodadasGrupo']['arrecadado'] * ($terceiros_pct / count($terceiros))) / 100;
+                    $terceiro['SocAposta']['vencedor'] = 0;
+                    $this->SocAposta->save($terceiro);
+                }
             }
             if($terceiros_pct == 18) {
                 continue;
             }
 
+            //Quarto colocado
             $quartos = $this->SocAposta->find('all', [
                 'conditions' => [
                     'SocAposta.soc_rodada_grupo_id' => $grupo['SocRodadasGrupo']['id'],
-                    'SocAposta.posicao >=' => 4,
-                    'SocAposta.posicao <=' => 10,
+                    'SocAposta.posicao =' => 4,
                     'SocAposta.pontuacao >' => 0,
                 ],
                 'order' => 'SocAposta.posicao DESC'
             ]);
             $quartos_pct = 0;
-            $prc_maxima = 11;
+            $prc_maxima = 12;
 
             $end = count($primeiros) + count($segundos) + count($terceiros) + count($quartos);
             for ($i = $pos_disponivel; $i < $end; $i++) {
                 if(!isset($prc[$i])) {
-                    $quartos_pct = 11;
+                    $quartos_pct = 12;
                     break;
                 }
                 $quartos_pct += $prc[$i]['prc'];
@@ -364,18 +372,600 @@ class SocRodadasController extends AppController {
             }
 
             foreach ($quartos as $k => $quarto) {
-                $this->salvarPremiacao($grupo, $quarto, $quartos_pct / count($quartos));
-                $quarto['SocAposta']['quantia'] = ($grupo['SocRodadasGrupo']['arrecadado'] * ($quartos_pct / count($quartos))) / 100;
-                $quarto['SocAposta']['vencedor'] = 0;
-                $this->SocAposta->save($quarto);
+                if($quartos_pct > 0) {
+                    $this->salvarPremiacao($grupo, $quarto, $quartos_pct / count($quartos));
+                    $quarto['SocAposta']['quantia'] = ($grupo['SocRodadasGrupo']['arrecadado'] * ($quartos_pct / count($quartos))) / 100;
+                    $quarto['SocAposta']['vencedor'] = 0;
+                    $this->SocAposta->save($quarto);
+                }
             }
 
-            if($quartos_pct == 11) {
+            if($quartos_pct == 12) {
+                continue;
+            }
+
+            //Quinto colocado
+            $quintos = $this->SocAposta->find('all', [
+                'conditions' => [
+                    'SocAposta.soc_rodada_grupo_id' => $grupo['SocRodadasGrupo']['id'],
+                    'SocAposta.posicao =' => 5,
+                    'SocAposta.pontuacao >' => 0,
+                ],
+                'order' => 'SocAposta.posicao DESC'
+            ]);
+            $quintos_pct = 0;
+            $prc_maxima = 11;
+
+            $end += count($quintos);
+            for ($i = $pos_disponivel; $i < $end; $i++) {
+                if(!isset($prc[$i])) {
+                    $quintos_pct = 11;
+                    break;
+                }
+                $quintos_pct += $prc[$i]['prc'];
+                $prc[$i]['status'] = 0;
+                $pos_disponivel = $i + 1;
+            }
+
+            foreach ($quintos as $k => $quinto) {
+                if($quintos_pct > 0) {
+                    $this->salvarPremiacao($grupo, $quinto, $quintos_pct / count($quintos));
+                    $quinto['SocAposta']['quantia'] = $grupo['SocRodadasGrupo']['arrecadado'] * ($quintos_pct / count($quintos)) / 100;
+                    $quinto['SocAposta']['vencedor'] = 0;
+                    $this->SocAposta->save($quinto);
+                }
+            }
+
+            if($quintos_pct == 11) {
+                continue;
+            }
+
+            //Sexto colocado
+            $sextos = $this->SocAposta->find('all', [
+                'conditions' => [
+                    'SocAposta.soc_rodada_grupo_id' => $grupo['SocRodadasGrupo']['id'],
+                    'SocAposta.posicao =' => 6,
+                    'SocAposta.pontuacao >' => 0,
+                ],
+                'order' => 'SocAposta.posicao DESC'
+            ]);
+            $sextos_pct = 0;
+            $prc_maxima = 10;
+
+            $end += count($sextos);
+            for ($i = $pos_disponivel; $i < $end; $i++) {
+                if(!isset($prc[$i])) {
+                    $sextos_pct = 10;
+                    break;
+                }
+                $sextos_pct += $prc[$i]['prc'];
+                $prc[$i]['status'] = 0;
+                $pos_disponivel = $i + 1;
+            }
+
+            foreach ($sextos as $k => $sexto) {
+                if($sextos_pct > 0) {
+                    $this->salvarPremiacao($grupo, $sexto, $sextos_pct / count($sextos));
+                    $sexto['SocAposta']['quantia'] = $grupo['SocRodadasGrupo']['arrecadado'] * ($sextos_pct / count($sextos)) / 100;
+                    $sexto['SocAposta']['vencedor'] = 0;
+                    $this->SocAposta->save($sexto);
+                }
+            }
+
+            if($sextos_pct == 10) {
+                continue;
+            }
+
+            //Sétimo colocado
+            $setimos = $this->SocAposta->find('all', [
+                'conditions' => [
+                    'SocAposta.soc_rodada_grupo_id' => $grupo['SocRodadasGrupo']['id'],
+                    'SocAposta.posicao =' => 7,
+                    'SocAposta.pontuacao >' => 0,
+                ],
+                'order' => 'SocAposta.posicao DESC'
+            ]);
+            $setimo_pct = 0;
+            $prc_maxima = 9;
+
+            $end += count($setimos);
+            for ($i = $pos_disponivel; $i < $end; $i++) {
+                if(!isset($prc[$i])) {
+                    $setimo_pct = 9;
+                    break;
+                }
+                $setimo_pct += $prc[$i]['prc'];
+                $prc[$i]['status'] = 0;
+                $pos_disponivel = $i + 1;
+            }
+
+            foreach ($setimos as $k => $setimo) {
+                if($setimo_pct > 0) {
+                    $this->salvarPremiacao($grupo, $setimo, $setimo_pct / count($setimos));
+                    $setimo['SocAposta']['quantia'] = $grupo['SocRodadasGrupo']['arrecadado'] * ($setimo_pct / count($setimos)) / 100;
+                    $setimo['SocAposta']['vencedor'] = 0;
+                    $this->SocAposta->save($setimo);
+                }
+            }
+
+            if($setimo_pct == 9) {
+                continue;
+            }
+
+            //Oitavo colocado
+            $oitavos = $this->SocAposta->find('all', [
+                'conditions' => [
+                    'SocAposta.soc_rodada_grupo_id' => $grupo['SocRodadasGrupo']['id'],
+                    'SocAposta.posicao =' => 8,
+                    'SocAposta.pontuacao >' => 0,
+                ],
+                'order' => 'SocAposta.posicao DESC'
+            ]);
+            $oitavo_pct = 0;
+            $prc_maxima = 8;
+
+            $end += count($oitavos);
+            for ($i = $pos_disponivel; $i < $end; $i++) {
+                if(!isset($prc[$i])) {
+                    $oitavo_pct = 8;
+                    break;
+                }
+                $oitavo_pct += $prc[$i]['prc'];
+                $prc[$i]['status'] = 0;
+                $pos_disponivel = $i + 1;
+            }
+
+            foreach ($oitavos as $k => $oitavo) {
+                if($oitavo_pct > 0) {
+                    $this->salvarPremiacao($grupo, $oitavo, $oitavo_pct / count($oitavos));
+                    $oitavo['SocAposta']['quantia'] = $grupo['SocRodadasGrupo']['arrecadado'] * ($oitavo_pct / count($oitavos)) / 100;
+                    $oitavo['SocAposta']['vencedor'] = 0;
+                    $this->SocAposta->save($oitavo);
+                }
+            }
+
+            if($oitavo_pct == 8) {
+                continue;
+            }
+
+            //Novo colocado
+            $nonos = $this->SocAposta->find('all', [
+                'conditions' => [
+                    'SocAposta.soc_rodada_grupo_id' => $grupo['SocRodadasGrupo']['id'],
+                    'SocAposta.posicao =' => 9,
+                    'SocAposta.pontuacao >' => 0,
+                ],
+                'order' => 'SocAposta.posicao DESC'
+            ]);
+            $nono_pct = 0;
+            $prc_maxima = 7;
+
+            $end += count($nonos);
+            for ($i = $pos_disponivel; $i < $end; $i++) {
+                if(!isset($prc[$i])) {
+                    $nono_pct = 7;
+                    break;
+                }
+                $nono_pct += $prc[$i]['prc'];
+                $prc[$i]['status'] = 0;
+                $pos_disponivel = $i + 1;
+            }
+
+            foreach ($nonos as $k => $nono) {
+                if($nono_pct > 0) {
+                    $this->salvarPremiacao($grupo, $nono, $nono_pct / count($nonos));
+                    $nono['SocAposta']['quantia'] = $grupo['SocRodadasGrupo']['arrecadado'] * ($nono_pct / count($nonos)) / 100;
+                    $nono['SocAposta']['vencedor'] = 0;
+                    $this->SocAposta->save($nono);
+                }
+            }
+
+            if($nono_pct == 7) {
                 continue;
             }
 
 
+            //Décimo colocado
+            $decimos = $this->SocAposta->find('all', [
+                'conditions' => [
+                    'SocAposta.soc_rodada_grupo_id' => $grupo['SocRodadasGrupo']['id'],
+                    'SocAposta.posicao =' => 10,
+                    'SocAposta.pontuacao >' => 0,
+                ],
+                'order' => 'SocAposta.posicao DESC'
+            ]);
+            $oitavo_pct = 0;
+            $prc_maxima = 5;
+
+            $end += count($decimos);
+            for ($i = $pos_disponivel; $i < $end; $i++) {
+                if(!isset($prc[$i])) {
+                    $novo_pct = 5;
+                    break;
+                }
+                $novo_pct += $prc[$i]['prc'];
+                $prc[$i]['status'] = 0;
+                $pos_disponivel = $i + 1;
+            }
+
+            foreach ($decimos as $k => $decimo) {
+                if($novo_pct > 0) {
+                    $this->salvarPremiacao($grupo, $decimo, $novo_pct / count($decimos));
+                    $decimo['SocAposta']['quantia'] = $grupo['SocRodadasGrupo']['arrecadado'] * ($novo_pct / count($decimos)) / 100;
+                    $decimo['SocAposta']['vencedor'] = 0;
+                    $this->SocAposta->save($decimo);
+                }
+            }
+
+            if($novo_pct == 5) {
+                continue;
+            }
+
+            //Décimo primeiro colocado
             $decimo_primeiros = $this->SocAposta->find('all', [
+                'conditions' => [
+                    'SocAposta.soc_rodada_grupo_id' => $grupo['SocRodadasGrupo']['id'],
+                    'SocAposta.posicao =' => 11,
+                    'SocAposta.pontuacao >' => 0,
+                ],
+                'order' => 'SocAposta.posicao DESC'
+            ]);
+            $decimo_primeiro_pct = 0;
+            $prc_maxima = 5;
+
+            $end += count($decimo_primeiros);
+            for ($i = $pos_disponivel; $i < $end; $i++) {
+                if(!isset($prc[$i])) {
+                    $decimo_primeiro_pct = 5;
+                    break;
+                }
+                $decimo_primeiro_pct += $prc[$i]['prc'];
+                $prc[$i]['status'] = 0;
+                $pos_disponivel = $i + 1;
+            }
+
+            foreach ($decimo_primeiros as $k => $decimo) {
+                if($decimo_primeiro_pct > 0) {
+                    $this->salvarPremiacao($grupo, $decimo, $decimo_primeiro_pct / count($decimo_primeiros));
+                    $decimo['SocAposta']['quantia'] = $grupo['SocRodadasGrupo']['arrecadado'] * ($decimo_primeiro_pct / count($decimo_primeiros)) / 100;
+                    $decimo['SocAposta']['vencedor'] = 0;
+                    $this->SocAposta->save($decimo);
+                }
+            }
+
+            if($decimo_primeiro_pct == 5) {
+                continue;
+            }
+
+
+            //Décimo primeiro colocado
+            $decimo_segundos = $this->SocAposta->find('all', [
+                'conditions' => [
+                    'SocAposta.soc_rodada_grupo_id' => $grupo['SocRodadasGrupo']['id'],
+                    'SocAposta.posicao =' => 12,
+                    'SocAposta.pontuacao >' => 0,
+                ],
+                'order' => 'SocAposta.posicao DESC'
+            ]);
+            $decimo_segundo_pct = 0;
+            $prc_maxima = 4.5;
+
+            $end += count($decimo_segundos);
+            for ($i = $pos_disponivel; $i < $end; $i++) {
+                if(!isset($prc[$i])) {
+                    $decimo_segundo_pct = 4.5;
+                    break;
+                }
+                $decimo_segundo_pct += $prc[$i]['prc'];
+                $prc[$i]['status'] = 0;
+                $pos_disponivel = $i + 1;
+            }
+
+            foreach ($decimo_segundos as $k => $decimo) {
+                if($decimo_segundo_pct > 0) {
+                    $this->salvarPremiacao($grupo, $decimo, $decimo_segundo_pct / count($decimo_segundos));
+                    $decimo['SocAposta']['quantia'] = $grupo['SocRodadasGrupo']['arrecadado'] * ($decimo_segundo_pct / count($decimo_segundos)) / 100;
+                    $decimo['SocAposta']['vencedor'] = 0;
+                    $this->SocAposta->save($decimo);
+                }
+            }
+
+            if($decimo_segundo_pct == 4.5) {
+                continue;
+            }
+
+            //Décimo terceiro colocado
+            $decimo_terceiros = $this->SocAposta->find('all', [
+                'conditions' => [
+                    'SocAposta.soc_rodada_grupo_id' => $grupo['SocRodadasGrupo']['id'],
+                    'SocAposta.posicao =' => 13,
+                    'SocAposta.pontuacao >' => 0,
+                ],
+                'order' => 'SocAposta.posicao DESC'
+            ]);
+            $decimo_terceiro_pct = 0;
+            $prc_maxima = 4;
+
+            $end += count($decimo_terceiros);
+            for ($i = $pos_disponivel; $i < $end; $i++) {
+                if(!isset($prc[$i])) {
+                    $decimo_terceiro_pct = 4;
+                    break;
+                }
+                $decimo_terceiro_pct += $prc[$i]['prc'];
+                $prc[$i]['status'] = 0;
+                $pos_disponivel = $i + 1;
+            }
+
+            foreach ($decimo_terceiros as $k => $decimo) {
+                if($decimo_terceiro_pct > 0) {
+                    $this->salvarPremiacao($grupo, $decimo, $decimo_terceiro_pct / count($decimo_terceiros));
+                    $decimo['SocAposta']['quantia'] = $grupo['SocRodadasGrupo']['arrecadado'] * ($decimo_terceiro_pct / count($decimo_terceiros)) / 100;
+                    $decimo['SocAposta']['vencedor'] = 0;
+                    $this->SocAposta->save($decimo);
+                }
+            }
+
+            if($decimo_terceiro_pct == 4) {
+                continue;
+            }
+
+            //Décimo quarto colocado
+            $decimo_quartos = $this->SocAposta->find('all', [
+                'conditions' => [
+                    'SocAposta.soc_rodada_grupo_id' => $grupo['SocRodadasGrupo']['id'],
+                    'SocAposta.posicao =' => 14,
+                    'SocAposta.pontuacao >' => 0,
+                ],
+                'order' => 'SocAposta.posicao DESC'
+            ]);
+            $decimo_quarto_pct = 0;
+            $prc_maxima = 3.5;
+
+            $end += count($decimo_quartos);
+            for ($i = $pos_disponivel; $i < $end; $i++) {
+                if(!isset($prc[$i])) {
+                    $decimo_quarto_pct = 3.5;
+                    break;
+                }
+                $decimo_quarto_pct += $prc[$i]['prc'];
+                $prc[$i]['status'] = 0;
+                $pos_disponivel = $i + 1;
+            }
+
+            foreach ($decimo_quartos as $k => $decimo) {
+                if($decimo_quarto_pct > 0) {
+                    $this->salvarPremiacao($grupo, $decimo, $decimo_quarto_pct / count($decimo_quartos));
+                    $decimo['SocAposta']['quantia'] = $grupo['SocRodadasGrupo']['arrecadado'] * ($decimo_quarto_pct / count($decimo_quartos)) / 100;
+                    $decimo['SocAposta']['vencedor'] = 0;
+                    $this->SocAposta->save($decimo);
+                }
+            }
+
+            if($decimo_quarto_pct == 3.5) {
+                continue;
+            }
+
+
+            //Décimo quinto colocado
+            $decimo_quintos = $this->SocAposta->find('all', [
+                'conditions' => [
+                    'SocAposta.soc_rodada_grupo_id' => $grupo['SocRodadasGrupo']['id'],
+                    'SocAposta.posicao =' => 15,
+                    'SocAposta.pontuacao >' => 0,
+                ],
+                'order' => 'SocAposta.posicao DESC'
+            ]);
+            $decimo_quinto_pct = 0;
+            $prc_maxima = 3;
+
+            $end += count($decimo_quintos);
+            for ($i = $pos_disponivel; $i < $end; $i++) {
+                if(!isset($prc[$i])) {
+                    $decimo_quinto_pct = 3;
+                    break;
+                }
+                $decimo_quinto_pct += $prc[$i]['prc'];
+                $prc[$i]['status'] = 0;
+                $pos_disponivel = $i + 1;
+            }
+
+            foreach ($decimo_quintos as $k => $decimo) {
+                if($decimo_quinto_pct > 0) {
+                    $this->salvarPremiacao($grupo, $decimo, $decimo_quinto_pct / count($decimo_quintos));
+                    $decimo['SocAposta']['quantia'] = $grupo['SocRodadasGrupo']['arrecadado'] * ($decimo_quinto_pct / count($decimo_quintos)) / 100;
+                    $decimo['SocAposta']['vencedor'] = 0;
+                    $this->SocAposta->save($decimo);
+                }
+            }
+
+            if($decimo_quinto_pct == 3) {
+                continue;
+            }
+
+            //Décimo sexto colocado
+            $decimo_sextos = $this->SocAposta->find('all', [
+                'conditions' => [
+                    'SocAposta.soc_rodada_grupo_id' => $grupo['SocRodadasGrupo']['id'],
+                    'SocAposta.posicao =' => 16,
+                    'SocAposta.pontuacao >' => 0,
+                ],
+                'order' => 'SocAposta.posicao DESC'
+            ]);
+            $decimo_sexto_pct = 0;
+            $prc_maxima = 2.5;
+
+            $end += count($decimo_sextos);
+            for ($i = $pos_disponivel; $i < $end; $i++) {
+                if(!isset($prc[$i])) {
+                    $decimo_quinto_pct = 2.5;
+                    break;
+                }
+                $decimo_quinto_pct += $prc[$i]['prc'];
+                $prc[$i]['status'] = 0;
+                $pos_disponivel = $i + 1;
+            }
+
+            foreach ($decimo_sextos as $k => $decimo) {
+                if($decimo_quinto_pct > 0) {
+                    $this->salvarPremiacao($grupo, $decimo, $decimo_quinto_pct / count($decimo_sextos));
+                    $decimo['SocAposta']['quantia'] = $grupo['SocRodadasGrupo']['arrecadado'] * ($decimo_quinto_pct / count($decimo_sextos)) / 100;
+                    $decimo['SocAposta']['vencedor'] = 0;
+                    $this->SocAposta->save($decimo);
+                }
+            }
+
+            if($decimo_quinto_pct == 2.5) {
+                continue;
+            }
+
+
+            //Décimo setimo colocado
+            $decimo_setimos = $this->SocAposta->find('all', [
+                'conditions' => [
+                    'SocAposta.soc_rodada_grupo_id' => $grupo['SocRodadasGrupo']['id'],
+                    'SocAposta.posicao =' => 17,
+                    'SocAposta.pontuacao >' => 0,
+                ],
+                'order' => 'SocAposta.posicao DESC'
+            ]);
+            $decimo_setimo_pct = 0;
+            $prc_maxima = 2;
+
+            $end += count($decimo_setimos);
+            for ($i = $pos_disponivel; $i < $end; $i++) {
+                if(!isset($prc[$i])) {
+                    $decimo_setimo_pct = 2;
+                    break;
+                }
+                $decimo_setimo_pct += $prc[$i]['prc'];
+                $prc[$i]['status'] = 0;
+                $pos_disponivel = $i + 1;
+            }
+
+            foreach ($decimo_setimos as $k => $decimo) {
+                if($decimo_setimo_pct > 0) {
+                    $this->salvarPremiacao($grupo, $decimo, $decimo_setimo_pct / count($decimo_setimos));
+                    $decimo['SocAposta']['quantia'] = $grupo['SocRodadasGrupo']['arrecadado'] * ($decimo_setimo_pct / count($decimo_setimos)) / 100;
+                    $decimo['SocAposta']['vencedor'] = 0;
+                    $this->SocAposta->save($decimo);
+                }
+            }
+
+            if($decimo_setimo_pct == 2) {
+                continue;
+            }
+
+
+            //Décimo oitavo colocado
+            $decimo_oitavos = $this->SocAposta->find('all', [
+                'conditions' => [
+                    'SocAposta.soc_rodada_grupo_id' => $grupo['SocRodadasGrupo']['id'],
+                    'SocAposta.posicao =' => 18,
+                    'SocAposta.pontuacao >' => 0,
+                ],
+                'order' => 'SocAposta.posicao DESC'
+            ]);
+            $decimo_oitavo_pct = 0;
+            $prc_maxima = 1.5;
+
+            $end += count($decimo_oitavos);
+            for ($i = $pos_disponivel; $i < $end; $i++) {
+                if(!isset($prc[$i])) {
+                    $decimo_oitavo_pct = 1.5;
+                    break;
+                }
+                $decimo_oitavo_pct += $prc[$i]['prc'];
+                $prc[$i]['status'] = 0;
+                $pos_disponivel = $i + 1;
+            }
+
+            foreach ($decimo_oitavos as $k => $decimo) {
+                if($decimo_oitavo_pct > 0) {
+                    $this->salvarPremiacao($grupo, $decimo, $decimo_oitavo_pct / count($decimo_oitavos));
+                    $decimo['SocAposta']['quantia'] = $grupo['SocRodadasGrupo']['arrecadado'] * ($decimo_oitavo_pct / count($decimo_oitavos)) / 100;
+                    $decimo['SocAposta']['vencedor'] = 0;
+                    $this->SocAposta->save($decimo);
+                }
+            }
+
+            if($decimo_oitavo_pct == 1.5) {
+                continue;
+            }
+
+            //Décimo nono colocado
+            $decimo_nonos = $this->SocAposta->find('all', [
+                'conditions' => [
+                    'SocAposta.soc_rodada_grupo_id' => $grupo['SocRodadasGrupo']['id'],
+                    'SocAposta.posicao =' => 19,
+                    'SocAposta.pontuacao >' => 0,
+                ],
+                'order' => 'SocAposta.posicao DESC'
+            ]);
+            $decimo_nono_pct = 0;
+            $prc_maxima = 1;
+
+            $end += count($decimo_nonos);
+            for ($i = $pos_disponivel; $i < $end; $i++) {
+                if(!isset($prc[$i])) {
+                    $decimo_nono_pct = 1;
+                    break;
+                }
+                $decimo_nono_pct += $prc[$i]['prc'];
+                $prc[$i]['status'] = 0;
+                $pos_disponivel = $i + 1;
+            }
+
+            foreach ($decimo_nonos as $k => $decimo) {
+                if($decimo_nono_pct > 0) {
+                    $this->salvarPremiacao($grupo, $decimo, $decimo_nono_pct / count($decimo_nonos));
+                    $decimo['SocAposta']['quantia'] = $grupo['SocRodadasGrupo']['arrecadado'] * ($decimo_nono_pct / count($decimo_nonos)) / 100;
+                    $decimo['SocAposta']['vencedor'] = 0;
+                    $this->SocAposta->save($decimo);
+                }
+            }
+
+            if($decimo_nono_pct == 1) {
+                continue;
+            }
+
+
+            //Vigésimo colocado
+            $vigesimos = $this->SocAposta->find('all', [
+                'conditions' => [
+                    'SocAposta.soc_rodada_grupo_id' => $grupo['SocRodadasGrupo']['id'],
+                    'SocAposta.posicao =' => 20,
+                    'SocAposta.pontuacao >' => 0,
+                ],
+                'order' => 'SocAposta.posicao DESC'
+            ]);
+            $vigesimo_pct = 0;
+            $prc_maxima = 0.5;
+
+            $end += count($vigesimos);
+            for ($i = $pos_disponivel; $i < $end; $i++) {
+                if(!isset($prc[$i])) {
+                    $vigesimo_pct = 0.5;
+                    break;
+                }
+                $vigesimo_pct += $prc[$i]['prc'];
+                $prc[$i]['status'] = 0;
+                $pos_disponivel = $i + 1;
+            }
+
+            foreach ($vigesimos as $k => $vigesimo) {
+                if($vigesimo_pct > 0) {
+                    $this->salvarPremiacao($grupo, $vigesimo, $vigesimo_pct / count($vigesimos));
+                    $vigesimo['SocAposta']['quantia'] = $grupo['SocRodadasGrupo']['arrecadado'] * ($vigesimo_pct / count($vigesimos)) / 100;
+                    $vigesimo['SocAposta']['vencedor'] = 0;
+                    $this->SocAposta->save($vigesimo);
+                }
+            }
+
+            if($vigesimo_pct == 0.5) {
+                continue;
+            }
+            /*$decimo_primeiros = $this->SocAposta->find('all', [
                 'conditions' => [
                     'SocAposta.soc_rodada_grupo_id' => $grupo['SocRodadasGrupo']['id'],
                     'SocAposta.posicao >=' => 11,
@@ -407,7 +997,7 @@ class SocRodadasController extends AppController {
 
             if($decimo_primeiro_pct == 6) {
                 continue;
-            }
+            }*/
 
             //$this->salvarPremiacao($grupo, $apostas);
         }
