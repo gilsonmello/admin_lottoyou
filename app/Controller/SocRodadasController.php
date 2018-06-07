@@ -1807,6 +1807,7 @@ class SocRodadasController extends AppController {
         }else{
 
             $this->request->data = $this->SocRodada->read(null, $id);
+            $this->request->data['SocRodada']['fechada'] = $this->request->data['SocRodada']['fechada'] == 'Sim' ? 1 : 0;
         }
     }
 

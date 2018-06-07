@@ -12,7 +12,12 @@
             </div>
         </div>
         <div class="col-md-3 col-lg-3">
-            <?php echo $this->Form->input('fechada', array('type' => 'radio', 'legend' => 'Fechada?', 'class' => 'radio-inline radio-styled tipo', 'options' => array(1 => 'Sim', 0 => 'Não'))); ?>
+            <?php echo $this->Form->input('fechada', [
+                'type' => 'radio', 
+                'legend' => 'Fechada?', 
+                'class' => 'radio-inline radio-styled tipo', 
+                'options' => [1 => 'Sim', 0 => 'Não']
+            ]); ?>
         </div>
         <div class="col-md-3 col-lg-3">
             <?php echo $this->Form->input('active', array('type' => 'radio', 'legend' => 'Ativo', 'class' => 'radio-inline radio-styled tipo', 'options' => array(1 => 'Sim', 0 => 'Não'))); ?>
