@@ -3,7 +3,7 @@
 <?php echo $this->Form->hidden('id'); ?>
 <div class="card-body">
     <div class="row">
-        <div class="col-sm-8">
+        <div class="col-sm-6 col-lg-6">
             <div class="form-group">                
                 <?php echo $this->Form->input('nome', array('label' => 'Nome', 'class' => 'form-control', 'required' => true)); ?>
                 <label for="SocRodadaNome">
@@ -11,7 +11,10 @@
                 </label>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3 col-lg-3">
+            <?php echo $this->Form->input('fechada', array('type' => 'radio', 'legend' => 'Fechada?', 'class' => 'radio-inline radio-styled tipo', 'options' => array(1 => 'Sim', 0 => 'Não'))); ?>
+        </div>
+        <div class="col-md-3 col-lg-3">
             <?php echo $this->Form->input('active', array('type' => 'radio', 'legend' => 'Ativo', 'class' => 'radio-inline radio-styled tipo', 'options' => array(1 => 'Sim', 0 => 'Não'))); ?>
         </div>
     </div>
