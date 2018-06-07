@@ -574,30 +574,30 @@ class SocRodadasController extends AppController {
                 ],
                 'order' => 'SocAposta.posicao DESC'
             ]);
-            $oitavo_pct = 0;
+            $decimo_pct = 0;
             $prc_maxima = 5;
 
             $end += count($decimos);
             for ($i = $pos_disponivel; $i < $end; $i++) {
                 if(!isset($prc[$i])) {
-                    $novo_pct = 5;
+                    $decimo_pct = 5;
                     break;
                 }
-                $novo_pct += $prc[$i]['prc'];
+                $decimo_pct += $prc[$i]['prc'];
                 $prc[$i]['status'] = 0;
                 $pos_disponivel = $i + 1;
             }
 
             foreach ($decimos as $k => $decimo) {
-                if($novo_pct > 0) {
-                    $this->salvarPremiacao($grupo, $decimo, $novo_pct / count($decimos));
-                    $decimo['SocAposta']['quantia'] = $grupo['SocRodadasGrupo']['arrecadado'] * ($novo_pct / count($decimos)) / 100;
+                if($decimo_pct > 0) {
+                    $this->salvarPremiacao($grupo, $decimo, $decimo_pct / count($decimos));
+                    $decimo['SocAposta']['quantia'] = $grupo['SocRodadasGrupo']['arrecadado'] * ($decimo_pct / count($decimos)) / 100;
                     $decimo['SocAposta']['vencedor'] = 0;
                     $this->SocAposta->save($decimo);
                 }
             }
 
-            if($novo_pct == 5) {
+            if($decimo_pct == 5) {
                 continue;
             }
 
