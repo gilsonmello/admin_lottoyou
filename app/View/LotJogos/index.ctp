@@ -104,7 +104,7 @@
                                                 '<i class="md md-attach-money"></i>&nbsp',
                                                 'javascript: void(0)',
                                                 [
-                                                    'title' => 'Premiar Ganhadores',
+                                                    'title' => 'Premiar Vecendores',
                                                     'data-hover' => 'tooltip',
                                                     "escape" => false,
                                                     'id' => $v['LotJogo']['id'],
