@@ -21,20 +21,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="SocRodadasController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SocRodadasController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Controller/SocRodadasController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="1311" column="60" selection-start-line="1311" selection-start-column="60" selection-end-line="1311" selection-end-column="60" />
+            <state relative-caret-position="420">
+              <caret line="1357" column="24" selection-start-line="1357" selection-start-column="24" selection-end-line="1357" selection-end-column="24" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="database.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="database.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Config/database.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="92" column="32" selection-start-line="92" selection-start-column="32" selection-end-line="92" selection-end-column="32" />
+            <state relative-caret-position="420">
+              <caret line="94" column="36" selection-start-line="94" selection-start-column="36" selection-end-line="94" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -130,8 +130,8 @@
         <option value="$PROJECT_DIR$/app/View/LotJogos/detalhar.ctp" />
         <option value="$PROJECT_DIR$/app/Controller/LotJogosController.php" />
         <option value="$PROJECT_DIR$/app/Controller/LotJogosResultadosController.php" />
-        <option value="$PROJECT_DIR$/app/Controller/SocRodadasController.php" />
         <option value="$PROJECT_DIR$/app/Config/database.php" />
+        <option value="$PROJECT_DIR$/app/Controller/SocRodadasController.php" />
       </list>
     </option>
   </component>
@@ -279,12 +279,12 @@
       <workItem from="1527779226077" duration="611000" />
       <workItem from="1528995283868" duration="32000" />
       <workItem from="1529024627710" duration="1134000" />
-      <workItem from="1529072225072" duration="501000" />
+      <workItem from="1529072225072" duration="766000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="108959000" />
+    <option name="totallyTimeSpent" value="109224000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-3" y="0" width="1372" height="738" extended-state="6" />
@@ -652,17 +652,17 @@
     <entry file="file://$PROJECT_DIR$/app/Model/SocApostasJogo.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Controller/SocRodadasController.php">
+    <entry file="file://$PROJECT_DIR$/app/Config/database.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="1311" column="60" selection-start-line="1311" selection-start-column="60" selection-end-line="1311" selection-end-column="60" />
+        <state relative-caret-position="420">
+          <caret line="94" column="36" selection-start-line="94" selection-start-column="36" selection-end-line="94" selection-end-column="36" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Config/database.php">
+    <entry file="file://$PROJECT_DIR$/app/Controller/SocRodadasController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="92" column="32" selection-start-line="92" selection-start-column="32" selection-end-line="92" selection-end-column="32" />
+        <state relative-caret-position="420">
+          <caret line="1357" column="24" selection-start-line="1357" selection-start-column="24" selection-end-line="1357" selection-end-column="24" />
         </state>
       </provider>
     </entry>
