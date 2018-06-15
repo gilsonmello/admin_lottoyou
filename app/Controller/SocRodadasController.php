@@ -1406,14 +1406,13 @@ class SocRodadasController extends AppController {
                             if($aposta_empates[$i]['SocAposta']['qtd_acertos_diferenca_gols_ou_empate'] < $aposta_empates[$j]['SocAposta']['qtd_acertos_diferenca_gols_ou_empate']) {
                                 $aposta_empates[$j]['SocAposta']['total_pontuacao'] += 1;
                                 $this->SocAposta->save($aposta_empates[$j]);
-                                continue;
                             }
 
-                            if($aposta_empates[$i]['SocAposta']['qtd_acertos_diferenca_gols_ou_empate'] > $aposta_empates[$j]['SocAposta']['qtd_acertos_diferenca_gols_ou_empate']) {
+                            /*if($aposta_empates[$i]['SocAposta']['qtd_acertos_diferenca_gols_ou_empate'] > $aposta_empates[$j]['SocAposta']['qtd_acertos_diferenca_gols_ou_empate']) {
                                 $aposta_empates[$i]['SocAposta']['total_pontuacao'] += 1;
                                 $this->SocAposta->save($aposta_empates[$i]);
                                 continue;
-                            }
+                            }*/
                         }
                     }
 
