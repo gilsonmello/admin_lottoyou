@@ -1308,18 +1308,20 @@ class SocRodadasController extends AppController {
                     ]);
 
                     for($i = 0; $i < count($aposta_empates); $i++) {
+                        /*if($aposta_empates[$i]['SocAposta']['id'] == 10) {
+                            die(var_dump($aposta_empates[$i]));
+                        }*/
                         for($j = $i + 1; $j < count($aposta_empates); $j++) {
                             if($aposta_empates[$i]['SocAposta']['pontuacao_bola_ouro'] < $aposta_empates[$j]['SocAposta']['pontuacao_bola_ouro']) {
                                 $aposta_empates[$j]['SocAposta']['total_pontuacao'] += 1;
                                 $this->SocAposta->save($aposta_empates[$j]);
-                                break;
                             }
 
-                            /*if($aposta_empates[$i]['SocAposta']['pontuacao_bola_ouro'] > $aposta_empates[$j]['SocAposta']['pontuacao_bola_ouro']) {
+                            if($aposta_empates[$i]['SocAposta']['pontuacao_bola_ouro'] > $aposta_empates[$j]['SocAposta']['pontuacao_bola_ouro']) {
                                 $aposta_empates[$i]['SocAposta']['total_pontuacao'] += 1;
                                 $this->SocAposta->save($aposta_empates[$i]);
-                                continue;
-                            }*/
+                                break;
+                            }
                         }
                     }
 
@@ -1360,14 +1362,13 @@ class SocRodadasController extends AppController {
                             if($aposta_empates[$i]['SocAposta']['qtd_acertos_placares'] < $aposta_empates[$j]['SocAposta']['qtd_acertos_placares']) {
                                 $aposta_empates[$j]['SocAposta']['total_pontuacao'] += 1;
                                 $this->SocAposta->save($aposta_empates[$j]);
-                                break;
                             }
 
-                            /*if($aposta_empates[$i]['SocAposta']['qtd_acertos_placares'] > $aposta_empates[$j]['SocAposta']['qtd_acertos_placares']) {
+                            if($aposta_empates[$i]['SocAposta']['qtd_acertos_placares'] > $aposta_empates[$j]['SocAposta']['qtd_acertos_placares']) {
                                 $aposta_empates[$i]['SocAposta']['total_pontuacao'] += 1;
                                 $this->SocAposta->save($aposta_empates[$i]);
-                                continue;
-                            }*/
+                                break;
+                            }
                         }
                     }
 
@@ -1393,7 +1394,7 @@ class SocRodadasController extends AppController {
                 ]);
 
                 foreach ($pontuacoes as $p => $pontuacao) {
-
+                    
                     $aposta_empates = $this->SocAposta->find('all', [
                         'conditions' => [
                             'SocAposta.soc_rodada_grupo_id =' => $grupo['SocRodadasGrupo']['id'],
@@ -1406,16 +1407,16 @@ class SocRodadasController extends AppController {
                     for($i = 0; $i < count($aposta_empates); $i++) {
                         for($j = $i + 1; $j < count($aposta_empates); $j++) {
                             if($aposta_empates[$i]['SocAposta']['qtd_acertos_diferenca_gols_ou_empate'] < $aposta_empates[$j]['SocAposta']['qtd_acertos_diferenca_gols_ou_empate']) {
+                                
                                 $aposta_empates[$j]['SocAposta']['total_pontuacao'] += 1;
                                 $this->SocAposta->save($aposta_empates[$j]);
-                                break;
                             }
 
-                            /*if($aposta_empates[$i]['SocAposta']['qtd_acertos_diferenca_gols_ou_empate'] > $aposta_empates[$j]['SocAposta']['qtd_acertos_diferenca_gols_ou_empate']) {
+                            if($aposta_empates[$i]['SocAposta']['qtd_acertos_diferenca_gols_ou_empate'] > $aposta_empates[$j]['SocAposta']['qtd_acertos_diferenca_gols_ou_empate']) {
                                 $aposta_empates[$i]['SocAposta']['total_pontuacao'] += 1;
                                 $this->SocAposta->save($aposta_empates[$i]);
-                                continue;
-                            }*/
+                                break;
+                            }
                         }
                     }
 
