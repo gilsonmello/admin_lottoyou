@@ -1401,13 +1401,16 @@ class SocRodadasController extends AppController {
                             'SocAposta.soc_rodada_id =' => $grupo['SocRodadasGrupo']['soc_rodada_id'],
                             'SocAposta.total_pontuacao =' => $pontuacao['SocAposta']['total_pontuacao']
                         ],
-                        'order' => 'SocAposta.total_pontuacao DESC',
+                        'order' => [
+                            'SocAposta.total_pontuacao DESC',
+                            'SocAposta.qtd_acertos_diferenca_gols_ou_empate DESC'
+                        ],
                     ]);
 
                     for($i = 0; $i < count($aposta_empates); $i++) {
+                        $maior = false;
                         for($j = $i + 1; $j < count($aposta_empates); $j++) {
                             if($aposta_empates[$i]['SocAposta']['qtd_acertos_diferenca_gols_ou_empate'] < $aposta_empates[$j]['SocAposta']['qtd_acertos_diferenca_gols_ou_empate']) {
-                                
                                 $aposta_empates[$j]['SocAposta']['total_pontuacao'] += 1;
                                 $this->SocAposta->save($aposta_empates[$j]);
                             }
@@ -1415,8 +1418,12 @@ class SocRodadasController extends AppController {
                             if($aposta_empates[$i]['SocAposta']['qtd_acertos_diferenca_gols_ou_empate'] > $aposta_empates[$j]['SocAposta']['qtd_acertos_diferenca_gols_ou_empate']) {
                                 $aposta_empates[$i]['SocAposta']['total_pontuacao'] += 1;
                                 $this->SocAposta->save($aposta_empates[$i]);
+                                $maior = true;
                                 break;
                             }
+                        }
+                        if($maior) {
+                            break;
                         }
                     }
 
