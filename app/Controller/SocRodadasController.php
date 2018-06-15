@@ -1422,9 +1422,6 @@ class SocRodadasController extends AppController {
                                 break;
                             }
                         }
-                        if($maior) {
-                            break;
-                        }
                     }
 
                 }
