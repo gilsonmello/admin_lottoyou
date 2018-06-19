@@ -87,12 +87,23 @@ class DATABASE_CONFIG {
     );
 
     # local | linux
-    public $default = array(
+    /*public $default = array(
         'datasource' => 'Database/Mysql',
         'persistent' => false,
         'host' => '107.180.3.212',
         'login' => 'gilsonmello',
         'password' => 'lottoyou@2018',
+        'database' => 'lottoyou',
+        'prefix' => '',
+        'encoding' => 'utf8',
+    );*/
+
+    public $default = array(
+        'datasource' => 'Database/Mysql',
+        'persistent' => false,
+        'host' => 'localhost',
+        'login' => 'root',
+        'password' => 'jun10r1m',
         'database' => 'lottoyou',
         'prefix' => '',
         'encoding' => 'utf8',
