@@ -24,8 +24,17 @@
       <file leaf-file-name="SocRodadasController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Controller/SocRodadasController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="1431" column="29" lean-forward="true" selection-start-line="1431" selection-start-column="29" selection-end-line="1431" selection-end-column="29" />
+            <state relative-caret-position="225">
+              <caret line="1311" column="72" selection-start-line="1311" selection-start-column="58" selection-end-line="1311" selection-end-column="72" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="asdkaç" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Controller/asdkaç">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="579">
+              <caret line="1831" column="1" selection-start-line="1831" selection-start-column="1" selection-end-line="1831" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -34,7 +43,7 @@
         <entry file="file://$PROJECT_DIR$/app/Config/database.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="720">
-              <caret line="98" column="6" lean-forward="true" selection-start-line="98" selection-start-column="6" selection-end-line="98" selection-end-column="6" />
+              <caret line="98" column="6" selection-start-line="98" selection-start-column="6" selection-end-line="98" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -131,6 +140,7 @@
         <option value="$PROJECT_DIR$/app/Controller/LotJogosController.php" />
         <option value="$PROJECT_DIR$/app/Controller/LotJogosResultadosController.php" />
         <option value="$PROJECT_DIR$/app/Config/database.php" />
+        <option value="$PROJECT_DIR$/app/Controller/asdkaç" />
         <option value="$PROJECT_DIR$/app/Controller/SocRodadasController.php" />
       </list>
     </option>
@@ -281,12 +291,12 @@
       <workItem from="1529024627710" duration="1134000" />
       <workItem from="1529072225072" duration="2154000" />
       <workItem from="1529168117599" duration="1208000" />
-      <workItem from="1529433239488" duration="2045000" />
+      <workItem from="1529433239488" duration="2567000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="113865000" />
+    <option name="totallyTimeSpent" value="114387000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-3" y="0" width="1372" height="738" extended-state="6" />
@@ -333,13 +343,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/View/SocRodadas/index.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="112" column="245" selection-start-line="112" selection-start-column="231" selection-end-line="112" selection-end-column="245" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Model/RasTabelasDesconto.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -657,14 +660,21 @@
     <entry file="file://$PROJECT_DIR$/app/Config/database.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="720">
-          <caret line="98" column="6" lean-forward="true" selection-start-line="98" selection-start-column="6" selection-end-line="98" selection-end-column="6" />
+          <caret line="98" column="6" selection-start-line="98" selection-start-column="6" selection-end-line="98" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Controller/asdkaç">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="579">
+          <caret line="1831" column="1" selection-start-line="1831" selection-start-column="1" selection-end-line="1831" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Controller/SocRodadasController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="1431" column="29" lean-forward="true" selection-start-line="1431" selection-start-column="29" selection-end-line="1431" selection-end-column="29" />
+        <state relative-caret-position="225">
+          <caret line="1311" column="72" selection-start-line="1311" selection-start-column="58" selection-end-line="1311" selection-end-column="72" />
         </state>
       </provider>
     </entry>
