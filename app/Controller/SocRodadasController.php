@@ -1314,11 +1314,12 @@ class SocRodadasController extends AppController {
                         /*if($aposta_empates[$i]['SocAposta']['id'] == 10) {
                             die(var_dump($aposta_empates[$i]));
                         }*/
-                        for($j = $i + 1; $j < count($aposta_empates); $j++) {
+                        for($j = 0; $j < count($aposta_empates); $j++) {
                             if($aposta_empates[$i]['SocAposta']['pontuacao_bola_ouro'] < $aposta_empates[$j]['SocAposta']['pontuacao_bola_ouro']) {
                                 $aposta_empates[$j]['SocAposta']['total_pontuacao'] += 0.01;
                                 $this->SocAposta->save($aposta_empates[$j]);
                             }
+
                             if($aposta_empates[$i]['SocAposta']['pontuacao_bola_ouro'] > $aposta_empates[$j]['SocAposta']['pontuacao_bola_ouro']) {
                                 $aposta_empates[$i]['SocAposta']['total_pontuacao'] += 0.01;
                                 $this->SocAposta->save($aposta_empates[$i]);
@@ -1363,7 +1364,7 @@ class SocRodadasController extends AppController {
                     ]);
 
                     for($i = 0; $i < count($aposta_empates); $i++) {
-                        for($j = $i + 1; $j < count($aposta_empates); $j++) {
+                        for($j = 0; $j < count($aposta_empates); $j++) {
                             if($aposta_empates[$i]['SocAposta']['qtd_acertos_placares'] < $aposta_empates[$j]['SocAposta']['qtd_acertos_placares']) {
                                 $aposta_empates[$j]['SocAposta']['total_pontuacao'] += 0.01;
                                 $this->SocAposta->save($aposta_empates[$j]);
@@ -1413,11 +1414,13 @@ class SocRodadasController extends AppController {
 
                     for($i = 0; $i < count($aposta_empates); $i++) {
                         $maior = false;
-                        for($j = $i + 1; $j < count($aposta_empates); $j++) {
+                        for($j = 0; $j < count($aposta_empates); $j++) {
+
                             if($aposta_empates[$i]['SocAposta']['qtd_acertos_diferenca_gols_ou_empate'] < $aposta_empates[$j]['SocAposta']['qtd_acertos_diferenca_gols_ou_empate']) {
                                 $aposta_empates[$j]['SocAposta']['total_pontuacao'] += 0.01;
                                 $this->SocAposta->save($aposta_empates[$j]);
                             }
+
                             if($aposta_empates[$i]['SocAposta']['qtd_acertos_diferenca_gols_ou_empate'] > $aposta_empates[$j]['SocAposta']['qtd_acertos_diferenca_gols_ou_empate']) {
                                 $aposta_empates[$i]['SocAposta']['total_pontuacao'] += 0.01;
                                 $this->SocAposta->save($aposta_empates[$i]);
