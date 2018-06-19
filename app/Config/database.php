@@ -87,7 +87,7 @@ class DATABASE_CONFIG {
     );
 
     # local | linux
-    /*public $default = array(
+    public $default = array(
         'datasource' => 'Database/Mysql',
         'persistent' => false,
         'host' => '107.180.3.212',
@@ -96,9 +96,9 @@ class DATABASE_CONFIG {
         'database' => 'lottoyou',
         'prefix' => '',
         'encoding' => 'utf8',
-    );*/
+    );
 
-    public $default = array(
+    /*public $default = array(
         'datasource' => 'Database/Mysql',
         'persistent' => false,
         'host' => 'localhost',
@@ -107,6 +107,6 @@ class DATABASE_CONFIG {
         'database' => 'lottoyou',
         'prefix' => '',
         'encoding' => 'utf8',
-    );
+    );*/
     
 }
