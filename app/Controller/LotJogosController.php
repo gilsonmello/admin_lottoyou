@@ -133,7 +133,7 @@ class LotJogosController extends AppController {
         ]);
 
         $pontuacoes = $this->LotUserJogo->find('all', [
-            'fields' => 'LotUserJogo.num_total',
+            'fields' => 'LotUserJogo.num_total, LotUserJogo.lot_jogo_id',
             'conditions' => [
                 'LotUserJogo.lot_jogo_id' => $jogoId,
                 'LotUserJogo.num_total >=' => $categoria['LotCategoria']['min_assertos']
@@ -144,6 +144,7 @@ class LotJogosController extends AppController {
             ],
             'limit' => 5
         ]);
+
 
 
         $premiacao = [
@@ -172,6 +173,7 @@ class LotJogosController extends AppController {
             $users_jogos = $this->LotUserJogo->find('all', [
                 'conditions' => [
                     'LotUserJogo.num_total' => $pontuacao['LotUserJogo']['num_total'],
+                    'LotUserJogo.lot_jogo_id' => $jogoId,
                 ]
             ]);
 
