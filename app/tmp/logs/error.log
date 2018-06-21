@@ -23534,3 +23534,3450 @@ Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fi
 Stack Trace:
 #0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2018-06-21 16:44:32 Error: [MissingTableException] Table users for model User was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'users',
+  'class' => 'User',
+  'ds' => 'default',
+)
+Request URL: /admin_lottoyou/users/login
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Model/Model.php(3493): Model->setSource('users')
+#1 /var/www/html/admin_lottoyou/lib/Cake/Model/Model.php(1353): Model->getDataSource()
+#2 /var/www/html/admin_lottoyou/lib/Cake/View/Helper/FormHelper.php(199): Model->schema()
+#3 /var/www/html/admin_lottoyou/lib/Cake/View/Helper/FormHelper.php(451): FormHelper->_introspectModel('User', 'fields')
+#4 /var/www/html/admin_lottoyou/app/View/Users/login.ctp(11): FormHelper->create('User', Array)
+#5 /var/www/html/admin_lottoyou/lib/Cake/View/View.php(929): include('/var/www/html/a...')
+#6 /var/www/html/admin_lottoyou/lib/Cake/View/View.php(891): View->_evaluate('/var/www/html/a...', Array)
+#7 /var/www/html/admin_lottoyou/lib/Cake/View/View.php(460): View->_render('/var/www/html/a...')
+#8 /var/www/html/admin_lottoyou/lib/Cake/Controller/Controller.php(952): View->render(NULL, NULL)
+#9 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(192): Controller->render()
+#10 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#11 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2018-06-21 17:13:28 Error: Fatal Error (64): Cannot use 'String' as class name as it is reserved in [/var/www/html/admin_lottoyou/lib/Cake/Utility/String.php, line 25]
+2018-06-21 17:13:28 Error: [FatalErrorException] Cannot use 'String' as class name as it is reserved
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(64, 'Cannot use 'Str...', '/var/www/html/a...', 25)
+#1 /var/www/html/admin_lottoyou/lib/Cake/Core/App.php(929): ErrorHandler::handleError(64, 'Cannot use 'Str...', '/var/www/html/a...', 25, Array)
+#2 /var/www/html/admin_lottoyou/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2018-06-21 17:13:29 Error: Fatal Error (64): Cannot use 'String' as class name as it is reserved in [/var/www/html/admin_lottoyou/lib/Cake/Utility/String.php, line 25]
+2018-06-21 17:13:29 Error: [FatalErrorException] Cannot use 'String' as class name as it is reserved
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(64, 'Cannot use 'Str...', '/var/www/html/a...', 25)
+#1 /var/www/html/admin_lottoyou/lib/Cake/Core/App.php(929): ErrorHandler::handleError(64, 'Cannot use 'Str...', '/var/www/html/a...', 25, Array)
+#2 /var/www/html/admin_lottoyou/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2018-06-21 17:13:29 Error: Fatal Error (64): Cannot use 'String' as class name as it is reserved in [/var/www/html/admin_lottoyou/lib/Cake/Utility/String.php, line 25]
+2018-06-21 17:13:29 Error: [FatalErrorException] Cannot use 'String' as class name as it is reserved
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(64, 'Cannot use 'Str...', '/var/www/html/a...', 25)
+#1 /var/www/html/admin_lottoyou/lib/Cake/Core/App.php(929): ErrorHandler::handleError(64, 'Cannot use 'Str...', '/var/www/html/a...', 25, Array)
+#2 /var/www/html/admin_lottoyou/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2018-06-21 17:13:29 Error: Fatal Error (64): Cannot use 'String' as class name as it is reserved in [/var/www/html/admin_lottoyou/lib/Cake/Utility/String.php, line 25]
+2018-06-21 17:13:29 Error: [FatalErrorException] Cannot use 'String' as class name as it is reserved
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(64, 'Cannot use 'Str...', '/var/www/html/a...', 25)
+#1 /var/www/html/admin_lottoyou/lib/Cake/Core/App.php(929): ErrorHandler::handleError(64, 'Cannot use 'Str...', '/var/www/html/a...', 25, Array)
+#2 /var/www/html/admin_lottoyou/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2018-06-21 17:13:29 Error: Fatal Error (64): Cannot use 'String' as class name as it is reserved in [/var/www/html/admin_lottoyou/lib/Cake/Utility/String.php, line 25]
+2018-06-21 17:13:29 Error: [FatalErrorException] Cannot use 'String' as class name as it is reserved
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(64, 'Cannot use 'Str...', '/var/www/html/a...', 25)
+#1 /var/www/html/admin_lottoyou/lib/Cake/Core/App.php(929): ErrorHandler::handleError(64, 'Cannot use 'Str...', '/var/www/html/a...', 25, Array)
+#2 /var/www/html/admin_lottoyou/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2018-06-21 17:13:29 Error: Fatal Error (64): Cannot use 'String' as class name as it is reserved in [/var/www/html/admin_lottoyou/lib/Cake/Utility/String.php, line 25]
+2018-06-21 17:13:29 Error: [FatalErrorException] Cannot use 'String' as class name as it is reserved
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(64, 'Cannot use 'Str...', '/var/www/html/a...', 25)
+#1 /var/www/html/admin_lottoyou/lib/Cake/Core/App.php(929): ErrorHandler::handleError(64, 'Cannot use 'Str...', '/var/www/html/a...', 25, Array)
+#2 /var/www/html/admin_lottoyou/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#3 [internal function]: App::shutdown()
+#4 {main}
+2018-06-21 17:13:47 Error: [MissingActionException] Action UsersController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'img',
+)
+Request URL: /admin_lottoyou/users/img/icons/favicon-32x32.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2018-06-21 17:13:47 Error: [MissingActionException] Action UsersController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'img',
+)
+Request URL: /admin_lottoyou/users/img/icons/favicon-16x16.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2018-06-21 17:13:47 Error: [MissingActionException] Action UsersController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'img',
+)
+Request URL: /admin_lottoyou/users/img/icons/favicon-96x96.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2018-06-21 17:13:47 Error: [MissingActionException] Action UsersController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'img',
+)
+Request URL: /admin_lottoyou/users/img/icons/android-icon-192x192.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2018-06-21 17:13:47 Error: [MissingActionException] Action UsersController::images() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'images',
+)
+Request URL: /admin_lottoyou/users/images/icons/favicon.ico
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2018-06-21 17:13:52 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 17:13:52 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 17:13:52 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 17:13:52 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 17:13:53 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/img/icons/favicon-32x32.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 17:13:53 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/img/icons/favicon-16x16.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 17:13:53 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/img/icons/favicon-96x96.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 17:13:53 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/img/icons/android-icon-192x192.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 17:13:53 Error: [MissingControllerException] Controller class ImagesController could not be found.
+Exception Attributes: array (
+  'class' => 'ImagesController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/images/icons/favicon.ico
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 17:13:55 Error: [MissingActionException] Action GelCadastrosController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'GelCadastrosController',
+  'action' => 'img',
+)
+Request URL: /admin_lottoyou/gelCadastros/img/icons/favicon-32x32.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(GelCadastrosController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2018-06-21 17:13:55 Error: [MissingActionException] Action GelCadastrosController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'GelCadastrosController',
+  'action' => 'img',
+)
+Request URL: /admin_lottoyou/gelCadastros/img/icons/favicon-16x16.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(GelCadastrosController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2018-06-21 17:13:55 Error: [MissingActionException] Action GelCadastrosController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'GelCadastrosController',
+  'action' => 'img',
+)
+Request URL: /admin_lottoyou/gelCadastros/img/icons/favicon-96x96.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(GelCadastrosController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2018-06-21 17:13:55 Error: [MissingActionException] Action GelCadastrosController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'GelCadastrosController',
+  'action' => 'img',
+)
+Request URL: /admin_lottoyou/gelCadastros/img/icons/android-icon-192x192.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(GelCadastrosController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2018-06-21 17:13:55 Error: [MissingActionException] Action GelCadastrosController::images() could not be found.
+Exception Attributes: array (
+  'controller' => 'GelCadastrosController',
+  'action' => 'images',
+)
+Request URL: /admin_lottoyou/gelCadastros/images/icons/favicon.ico
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(GelCadastrosController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2018-06-21 17:15:50 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 17:15:50 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 17:15:50 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 17:15:50 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 17:16:24 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 17:16:24 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 17:16:24 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 17:16:24 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 17:16:31 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 17:16:31 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 17:16:31 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 17:16:31 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 17:20:59 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 17:20:59 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 17:20:59 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 17:20:59 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 17:21:14 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 17:21:14 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 17:21:14 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 17:21:14 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 17:22:24 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 17:22:25 Error: [MissingActionException] Action GelCadastrosController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'GelCadastrosController',
+  'action' => 'img',
+)
+Request URL: /admin_lottoyou/gelCadastros/img/icons/favicon-32x32.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(GelCadastrosController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2018-06-21 17:22:25 Error: [MissingActionException] Action GelCadastrosController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'GelCadastrosController',
+  'action' => 'img',
+)
+Request URL: /admin_lottoyou/gelCadastros/img/icons/favicon-16x16.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(GelCadastrosController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2018-06-21 17:22:25 Error: [MissingActionException] Action GelCadastrosController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'GelCadastrosController',
+  'action' => 'img',
+)
+Request URL: /admin_lottoyou/gelCadastros/img/icons/favicon-96x96.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(GelCadastrosController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2018-06-21 17:22:25 Error: [MissingActionException] Action GelCadastrosController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'GelCadastrosController',
+  'action' => 'img',
+)
+Request URL: /admin_lottoyou/gelCadastros/img/icons/android-icon-192x192.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(GelCadastrosController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2018-06-21 17:22:25 Error: [MissingActionException] Action GelCadastrosController::images() could not be found.
+Exception Attributes: array (
+  'controller' => 'GelCadastrosController',
+  'action' => 'images',
+)
+Request URL: /admin_lottoyou/gelCadastros/images/icons/favicon.ico
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(GelCadastrosController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2018-06-21 17:23:00 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/img/icons/favicon-32x32.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 17:23:00 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/img/icons/favicon-16x16.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 17:23:00 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/img/icons/favicon-96x96.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 17:23:00 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/img/icons/android-icon-192x192.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 17:23:00 Error: [MissingControllerException] Controller class ImagesController could not be found.
+Exception Attributes: array (
+  'class' => 'ImagesController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/images/icons/favicon.ico
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 17:28:17 Error: [MissingActionException] Action UsersController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'img',
+)
+Request URL: /admin_lottoyou/users/img/icons/favicon-32x32.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2018-06-21 17:28:17 Error: [MissingActionException] Action UsersController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'img',
+)
+Request URL: /admin_lottoyou/users/img/icons/favicon-16x16.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2018-06-21 17:28:17 Error: [MissingActionException] Action UsersController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'img',
+)
+Request URL: /admin_lottoyou/users/img/icons/favicon-96x96.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2018-06-21 17:28:17 Error: [MissingActionException] Action UsersController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'img',
+)
+Request URL: /admin_lottoyou/users/img/icons/android-icon-192x192.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2018-06-21 17:28:17 Error: [MissingActionException] Action UsersController::images() could not be found.
+Exception Attributes: array (
+  'controller' => 'UsersController',
+  'action' => 'images',
+)
+Request URL: /admin_lottoyou/users/images/icons/favicon.ico
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2018-06-21 17:28:21 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 17:28:21 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 17:28:21 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 17:28:21 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 17:32:51 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 17:32:51 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 17:32:52 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 17:32:52 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 17:32:57 Error: Fatal Error (1): Call to a member function find() on null in [/var/www/html/admin_lottoyou/app/Controller/RelatorioItensController.php, line 35]
+2018-06-21 17:32:57 Error: [FatalErrorException] Call to a member function find() on null
+Request URL: /admin_lottoyou/relatorioItens/index
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/html/a...', 35)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/html/a...', 35, Array)
+#2 /var/www/html/admin_lottoyou/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/html/a...', 35, Array)
+#3 /var/www/html/admin_lottoyou/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-06-21 17:39:48 Error: Fatal Error (1): Call to a member function find() on null in [/var/www/html/admin_lottoyou/app/Controller/RelatorioItensController.php, line 69]
+2018-06-21 17:39:48 Error: [FatalErrorException] Call to a member function find() on null
+Request URL: /admin_lottoyou/relatorioItens/index
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/html/a...', 69)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/html/a...', 69, Array)
+#2 /var/www/html/admin_lottoyou/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/html/a...', 69, Array)
+#3 /var/www/html/admin_lottoyou/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-06-21 17:40:23 Error: Fatal Error (1): Allowed memory size of 536870912 bytes exhausted (tried to allocate 13727711 bytes) in [/var/www/html/admin_lottoyou/lib/Cake/Utility/String.php, line 241]
+2018-06-21 17:40:23 Error: [FatalErrorException] Allowed memory size of 536870912 bytes exhausted (tried to allocate 13727711 bytes)
+Request URL: /admin_lottoyou/relatorioItens/index
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Allowed memory ...', '/var/www/html/a...', 241)
+#1 [internal function]: ErrorHandler::handleError(1, 'Allowed memory ...', '/var/www/html/a...', 241, Array)
+#2 /var/www/html/admin_lottoyou/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Allowed memory ...', '/var/www/html/a...', 241, Array)
+#3 /var/www/html/admin_lottoyou/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-06-21 17:48:13 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 17:48:13 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 17:48:13 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 17:48:13 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 17:48:15 Error: [MissingModelException] Noticia
+Request URL: /admin_lottoyou/relatorioItens/index
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Controller/Controller.php(1079): PaginatorComponent->paginate('Noticia', Array, Array)
+#1 /var/www/html/admin_lottoyou/app/Controller/RelatorioItensController.php(57): Controller->paginate('Noticia')
+#2 [internal function]: RelatorioItensController->index()
+#3 /var/www/html/admin_lottoyou/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(RelatorioItensController), Array)
+#4 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#5 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(RelatorioItensController), Object(CakeRequest), Object(CakeResponse))
+#6 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#7 {main}
+2018-06-21 17:49:04 Error: Fatal Error (1): Allowed memory size of 536870912 bytes exhausted (tried to allocate 140049024 bytes) in [/var/www/html/admin_lottoyou/lib/Cake/View/View.php, line 926]
+2018-06-21 17:49:04 Error: [FatalErrorException] Allowed memory size of 536870912 bytes exhausted (tried to allocate 140049024 bytes)
+Request URL: /admin_lottoyou/relatorioItens/index
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Allowed memory ...', '/var/www/html/a...', 926)
+#1 [internal function]: ErrorHandler::handleError(1, 'Allowed memory ...', '/var/www/html/a...', 926, Array)
+#2 /var/www/html/admin_lottoyou/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Allowed memory ...', '/var/www/html/a...', 926, Array)
+#3 /var/www/html/admin_lottoyou/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-06-21 17:58:16 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 17:58:16 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 17:58:16 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 17:58:16 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:03:01 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:03:01 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:03:01 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:03:01 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:19:41 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/jquery.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:19:41 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:19:41 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:19:41 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/jquery.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:19:41 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:19:41 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:19:45 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/jquery.js?_=1529605181518
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:20:11 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/jquery.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:20:11 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:20:11 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:20:11 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/jquery.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:20:11 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:20:11 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:20:26 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:20:26 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:20:26 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:20:26 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:20:29 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/jquery.js?_=1529605226288
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:21:16 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:21:16 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:21:16 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:21:16 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:21:18 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/jquery.js?_=1529605276165
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:21:41 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/jquery.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:21:41 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:21:41 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:21:41 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/jquery.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:21:41 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:21:41 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:26:17 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/jquery.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:26:17 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:26:17 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:26:17 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/jquery.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:26:17 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:26:17 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:26:21 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/jquery.js?_=1529605577462
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:26:31 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/jquery.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:26:31 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:26:31 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:26:31 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/jquery.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:26:31 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:26:31 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:26:34 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:26:35 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:26:35 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:26:35 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:26:38 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/jquery.js?_=1529605595088
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:29:40 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:29:40 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:29:40 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:29:40 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:29:44 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/jquery.js?_=1529605780252
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:30:07 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/jquery.js?_=1529605780252
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:30:07 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:30:07 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:30:08 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:30:08 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:30:08 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/img/icons/favicon-32x32.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:30:08 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/img/icons/favicon-16x16.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:30:08 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/img/icons/favicon-96x96.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:30:08 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/img/icons/android-icon-192x192.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:30:08 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/images/icons/favicon.ico
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:31:16 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:31:16 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:31:16 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:31:16 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:31:27 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/jquery.js?_=1529605876690
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:33:24 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:33:24 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:33:24 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:33:24 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:33:35 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:33:35 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:33:35 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:33:35 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:33:44 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:33:44 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:33:44 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:33:44 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:34:45 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:34:45 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:34:45 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:34:45 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:36:50 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:36:50 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:36:51 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:36:51 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:37:01 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:37:01 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:37:01 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:37:01 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:37:30 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:37:30 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:37:30 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:37:30 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:37:36 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:37:36 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:37:36 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:37:36 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:38:00 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:38:00 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:38:00 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:38:00 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:38:20 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:38:25 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:38:25 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:38:25 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:38:25 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:38:27 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:39:17 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:39:17 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:39:18 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:39:18 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:40:02 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:40:03 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:40:03 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:40:03 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:41:08 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:41:08 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:41:08 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:41:08 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:42:34 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:42:34 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:42:34 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:42:34 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:42:40 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:42:40 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:42:40 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:42:40 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:44:20 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:44:20 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:44:20 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:44:20 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:44:21 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1055 Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'lottoyou.SocAposta.id' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+Request URL: /admin_lottoyou/socJogos/
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Model/Datasource/DboSource.php(462): PDOStatement->execute(Array)
+#1 /var/www/html/admin_lottoyou/lib/Cake/Model/Datasource/DboSource.php(424): DboSource->_execute('SELECT `SocApos...', Array)
+#2 /var/www/html/admin_lottoyou/lib/Cake/Model/Datasource/DboSource.php(668): DboSource->execute('SELECT `SocApos...', Array, Array)
+#3 /var/www/html/admin_lottoyou/lib/Cake/Model/Datasource/DboSource.php(1080): DboSource->fetchAll('SELECT `SocApos...', false)
+#4 /var/www/html/admin_lottoyou/lib/Cake/Model/Model.php(2897): DboSource->read(Object(SocAposta), Array)
+#5 /var/www/html/admin_lottoyou/lib/Cake/Model/Model.php(2869): Model->_readDataSource('list', Array)
+#6 /var/www/html/admin_lottoyou/app/Controller/SocJogosController.php(43): Model->find('list', Array)
+#7 [internal function]: SocJogosController->index()
+#8 /var/www/html/admin_lottoyou/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(SocJogosController), Array)
+#9 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#10 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(SocJogosController), Object(CakeRequest), Object(CakeResponse))
+#11 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2018-06-21 18:48:54 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:48:54 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:48:54 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:48:54 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:54:38 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:54:38 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:54:38 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:54:38 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:55:18 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:55:18 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:55:18 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:55:18 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:55:55 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:55:55 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:55:55 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:55:55 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:56:47 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:56:47 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:56:47 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:56:47 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:56:50 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:56:50 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:56:50 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:56:51 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:59:23 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:59:23 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:59:23 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:59:23 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:59:24 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1055 Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'lottoyou.SocAposta.id' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+Request URL: /admin_lottoyou/socJogos/
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Model/Datasource/DboSource.php(462): PDOStatement->execute(Array)
+#1 /var/www/html/admin_lottoyou/lib/Cake/Model/Datasource/DboSource.php(424): DboSource->_execute('SELECT `SocApos...', Array)
+#2 /var/www/html/admin_lottoyou/lib/Cake/Model/Datasource/DboSource.php(668): DboSource->execute('SELECT `SocApos...', Array, Array)
+#3 /var/www/html/admin_lottoyou/lib/Cake/Model/Datasource/DboSource.php(1080): DboSource->fetchAll('SELECT `SocApos...', false)
+#4 /var/www/html/admin_lottoyou/lib/Cake/Model/Model.php(2897): DboSource->read(Object(SocAposta), Array)
+#5 /var/www/html/admin_lottoyou/lib/Cake/Model/Model.php(2869): Model->_readDataSource('list', Array)
+#6 /var/www/html/admin_lottoyou/app/Controller/SocJogosController.php(43): Model->find('list', Array)
+#7 [internal function]: SocJogosController->index()
+#8 /var/www/html/admin_lottoyou/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(SocJogosController), Array)
+#9 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#10 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(SocJogosController), Object(CakeRequest), Object(CakeResponse))
+#11 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2018-06-21 18:59:32 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:59:32 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:59:32 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 18:59:33 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 19:00:11 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 19:00:11 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 19:00:12 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 19:00:12 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 19:01:42 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 19:01:42 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 19:01:42 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 19:01:42 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 19:01:43 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1055 Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'lottoyou.SocAposta.id' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+Request URL: /admin_lottoyou/socJogos/
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Model/Datasource/DboSource.php(462): PDOStatement->execute(Array)
+#1 /var/www/html/admin_lottoyou/lib/Cake/Model/Datasource/DboSource.php(424): DboSource->_execute('SELECT `SocApos...', Array)
+#2 /var/www/html/admin_lottoyou/lib/Cake/Model/Datasource/DboSource.php(668): DboSource->execute('SELECT `SocApos...', Array, Array)
+#3 /var/www/html/admin_lottoyou/lib/Cake/Model/Datasource/DboSource.php(1080): DboSource->fetchAll('SELECT `SocApos...', false)
+#4 /var/www/html/admin_lottoyou/lib/Cake/Model/Model.php(2897): DboSource->read(Object(SocAposta), Array)
+#5 /var/www/html/admin_lottoyou/lib/Cake/Model/Model.php(2869): Model->_readDataSource('list', Array)
+#6 /var/www/html/admin_lottoyou/app/Controller/SocJogosController.php(43): Model->find('list', Array)
+#7 [internal function]: SocJogosController->index()
+#8 /var/www/html/admin_lottoyou/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(SocJogosController), Array)
+#9 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#10 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(SocJogosController), Object(CakeRequest), Object(CakeResponse))
+#11 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2018-06-21 19:02:16 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 19:02:16 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 19:02:16 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 19:02:16 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 19:02:22 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 19:02:22 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 19:02:22 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 19:02:22 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 19:03:14 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 19:03:14 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 19:03:14 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 19:03:14 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 19:03:29 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 19:03:29 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 19:03:29 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 19:03:29 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 19:10:28 Error: Fatal Error (1): Call to a member function attached() on null in [/var/www/html/admin_lottoyou/app/Controller/AppController.php, line 131]
+2018-06-21 19:10:28 Error: [FatalErrorException] Call to a member function attached() on null
+Request URL: /admin_lottoyou/app/webroot/files/RaspadinhasTemas/Pirates%20Treasure/imagemIndex.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/html/a...', 131)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/html/a...', 131, Array)
+#2 /var/www/html/admin_lottoyou/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/html/a...', 131, Array)
+#3 /var/www/html/admin_lottoyou/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-06-21 19:10:28 Error: Fatal Error (1): Call to a member function attached() on null in [/var/www/html/admin_lottoyou/app/Controller/AppController.php, line 131]
+2018-06-21 19:10:28 Error: [FatalErrorException] Call to a member function attached() on null
+Request URL: /admin_lottoyou/app/webroot/files/RaspadinhasTemas/Golden%20Goal/imagemIndex.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/html/a...', 131)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/html/a...', 131, Array)
+#2 /var/www/html/admin_lottoyou/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/html/a...', 131, Array)
+#3 /var/www/html/admin_lottoyou/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-06-21 19:12:37 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 19:12:37 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 19:12:37 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 19:12:37 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 19:12:39 Error: [MissingActionException] Action LotUserJogosController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'LotUserJogosController',
+  'action' => 'img',
+)
+Request URL: /admin_lottoyou/lotUserJogos/img/icons/favicon-32x32.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(LotUserJogosController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2018-06-21 19:12:39 Error: [MissingActionException] Action LotUserJogosController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'LotUserJogosController',
+  'action' => 'img',
+)
+Request URL: /admin_lottoyou/lotUserJogos/img/icons/favicon-16x16.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(LotUserJogosController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2018-06-21 19:12:39 Error: [MissingActionException] Action LotUserJogosController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'LotUserJogosController',
+  'action' => 'img',
+)
+Request URL: /admin_lottoyou/lotUserJogos/img/icons/favicon-96x96.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(LotUserJogosController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2018-06-21 19:12:39 Error: [MissingActionException] Action LotUserJogosController::img() could not be found.
+Exception Attributes: array (
+  'controller' => 'LotUserJogosController',
+  'action' => 'img',
+)
+Request URL: /admin_lottoyou/lotUserJogos/img/icons/android-icon-192x192.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(LotUserJogosController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2018-06-21 19:12:39 Error: [MissingActionException] Action LotUserJogosController::images() could not be found.
+Exception Attributes: array (
+  'controller' => 'LotUserJogosController',
+  'action' => 'images',
+)
+Request URL: /admin_lottoyou/lotUserJogos/images/icons/favicon.ico
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(LotUserJogosController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2018-06-21 19:12:57 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 19:12:57 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 19:12:57 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 19:12:57 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 19:12:59 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1055 Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'lottoyou.SocAposta.id' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+Request URL: /admin_lottoyou/socJogos/
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Model/Datasource/DboSource.php(462): PDOStatement->execute(Array)
+#1 /var/www/html/admin_lottoyou/lib/Cake/Model/Datasource/DboSource.php(424): DboSource->_execute('SELECT `SocApos...', Array)
+#2 /var/www/html/admin_lottoyou/lib/Cake/Model/Datasource/DboSource.php(668): DboSource->execute('SELECT `SocApos...', Array, Array)
+#3 /var/www/html/admin_lottoyou/lib/Cake/Model/Datasource/DboSource.php(1080): DboSource->fetchAll('SELECT `SocApos...', false)
+#4 /var/www/html/admin_lottoyou/lib/Cake/Model/Model.php(2897): DboSource->read(Object(SocAposta), Array)
+#5 /var/www/html/admin_lottoyou/lib/Cake/Model/Model.php(2869): Model->_readDataSource('list', Array)
+#6 /var/www/html/admin_lottoyou/app/Controller/SocJogosController.php(43): Model->find('list', Array)
+#7 [internal function]: SocJogosController->index()
+#8 /var/www/html/admin_lottoyou/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(SocJogosController), Array)
+#9 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#10 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(SocJogosController), Object(CakeRequest), Object(CakeResponse))
+#11 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2018-06-21 21:34:53 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 21:34:53 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 21:34:53 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 21:34:53 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 21:39:25 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 21:39:25 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 21:39:49 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 21:39:49 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 21:39:49 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 21:39:49 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 21:46:02 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 21:46:02 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 21:46:02 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 21:46:02 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 21:46:44 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 21:46:44 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 21:46:44 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 21:46:44 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 21:47:12 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 21:47:12 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 21:47:12 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 21:47:12 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 21:47:14 Error: Fatal Error (1): Call to a member function attached() on null in [/var/www/html/admin_lottoyou/app/Controller/AppController.php, line 131]
+2018-06-21 21:47:14 Error: [FatalErrorException] Call to a member function attached() on null
+Request URL: /admin_lottoyou/app/webroot/files/RaspadinhasTemas/Golden%20Goal/imagemIndex.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/html/a...', 131)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/html/a...', 131, Array)
+#2 /var/www/html/admin_lottoyou/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/html/a...', 131, Array)
+#3 /var/www/html/admin_lottoyou/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-06-21 21:47:14 Error: Fatal Error (1): Call to a member function attached() on null in [/var/www/html/admin_lottoyou/app/Controller/AppController.php, line 131]
+2018-06-21 21:47:14 Error: [FatalErrorException] Call to a member function attached() on null
+Request URL: /admin_lottoyou/app/webroot/files/RaspadinhasTemas/Pirates%20Treasure/imagemIndex.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/html/a...', 131)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/html/a...', 131, Array)
+#2 /var/www/html/admin_lottoyou/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/html/a...', 131, Array)
+#3 /var/www/html/admin_lottoyou/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-06-21 21:47:27 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 21:47:27 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 21:47:27 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 21:47:27 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 22:06:51 Error: [MissingTableException] Table relatorio_itens for model RelatorioIten was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'relatorio_itens',
+  'class' => 'RelatorioIten',
+  'ds' => 'default',
+)
+Request URL: /admin_lottoyou/relatorioItens/index
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Model/Model.php(3493): Model->setSource('relatorio_itens')
+#1 /var/www/html/admin_lottoyou/lib/Cake/Model/Model.php(1353): Model->getDataSource()
+#2 /var/www/html/admin_lottoyou/app/Model/AppModel.php(42): Model->schema()
+#3 [internal function]: AppModel->beforeFind(Array)
+#4 /var/www/html/admin_lottoyou/lib/Cake/Event/CakeEventManager.php(245): call_user_func_array(Array, Array)
+#5 /var/www/html/admin_lottoyou/lib/Cake/Model/Model.php(2949): CakeEventManager->dispatch(Object(CakeEvent))
+#6 /var/www/html/admin_lottoyou/lib/Cake/Model/Model.php(2864): Model->buildQuery('all', Array)
+#7 /var/www/html/admin_lottoyou/lib/Cake/Controller/Component/PaginatorComponent.php(196): Model->find('all', Array)
+#8 /var/www/html/admin_lottoyou/lib/Cake/Controller/Controller.php(1079): PaginatorComponent->paginate(NULL, Array, Array)
+#9 /var/www/html/admin_lottoyou/app/Controller/RelatorioItensController.php(73): Controller->paginate()
+#10 [internal function]: RelatorioItensController->index()
+#11 /var/www/html/admin_lottoyou/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(RelatorioItensController), Array)
+#12 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#13 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(RelatorioItensController), Object(CakeRequest), Object(CakeResponse))
+#14 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#15 {main}
+2018-06-21 22:11:53 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'users User INNER Array  WHERE 1 = 1   ORDER BY `OrderItem`.`id` desc  LIMIT 10' at line 1
+Request URL: /admin_lottoyou/relatorioItens/index
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Model/Datasource/DboSource.php(462): PDOStatement->execute(Array)
+#1 /var/www/html/admin_lottoyou/lib/Cake/Model/Datasource/DboSource.php(424): DboSource->_execute('SELECT `OrderIt...', Array)
+#2 /var/www/html/admin_lottoyou/lib/Cake/Model/Datasource/DboSource.php(668): DboSource->execute('SELECT `OrderIt...', Array, Array)
+#3 /var/www/html/admin_lottoyou/lib/Cake/Model/Datasource/DboSource.php(1080): DboSource->fetchAll('SELECT `OrderIt...', false)
+#4 /var/www/html/admin_lottoyou/lib/Cake/Model/Model.php(2897): DboSource->read(Object(OrderItem), Array)
+#5 /var/www/html/admin_lottoyou/lib/Cake/Model/Model.php(2869): Model->_readDataSource('all', Array)
+#6 /var/www/html/admin_lottoyou/lib/Cake/Controller/Component/PaginatorComponent.php(196): Model->find('all', Array)
+#7 /var/www/html/admin_lottoyou/lib/Cake/Controller/Controller.php(1079): PaginatorComponent->paginate('OrderItem', Array, Array)
+#8 /var/www/html/admin_lottoyou/app/Controller/RelatorioItensController.php(76): Controller->paginate('OrderItem')
+#9 [internal function]: RelatorioItensController->index()
+#10 /var/www/html/admin_lottoyou/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(RelatorioItensController), Array)
+#11 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#12 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(RelatorioItensController), Object(CakeRequest), Object(CakeResponse))
+#13 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#14 {main}
+2018-06-21 22:18:05 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 22:18:05 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 22:18:05 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 22:18:05 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 22:18:30 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 22:18:30 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 22:18:30 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 22:18:30 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 22:18:33 Error: Fatal Error (1): Call to a member function attached() on null in [/var/www/html/admin_lottoyou/app/Controller/AppController.php, line 131]
+2018-06-21 22:18:33 Error: [FatalErrorException] Call to a member function attached() on null
+Request URL: /admin_lottoyou/app/webroot/files/RaspadinhasTemas/Golden%20Goal/imagemIndex.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/html/a...', 131)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/html/a...', 131, Array)
+#2 /var/www/html/admin_lottoyou/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/html/a...', 131, Array)
+#3 /var/www/html/admin_lottoyou/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-06-21 22:18:33 Error: Fatal Error (1): Call to a member function attached() on null in [/var/www/html/admin_lottoyou/app/Controller/AppController.php, line 131]
+2018-06-21 22:18:33 Error: [FatalErrorException] Call to a member function attached() on null
+Request URL: /admin_lottoyou/app/webroot/files/RaspadinhasTemas/Pirates%20Treasure/imagemIndex.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/html/a...', 131)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/html/a...', 131, Array)
+#2 /var/www/html/admin_lottoyou/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/html/a...', 131, Array)
+#3 /var/www/html/admin_lottoyou/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-06-21 22:19:37 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 22:19:37 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 22:19:37 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 22:19:37 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 22:19:39 Error: Fatal Error (1): Call to a member function attached() on null in [/var/www/html/admin_lottoyou/app/Controller/AppController.php, line 131]
+2018-06-21 22:19:39 Error: [FatalErrorException] Call to a member function attached() on null
+Request URL: /admin_lottoyou/app/webroot/files/RaspadinhasTemas/Golden%20Goal/imagemIndex.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/html/a...', 131)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/html/a...', 131, Array)
+#2 /var/www/html/admin_lottoyou/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/html/a...', 131, Array)
+#3 /var/www/html/admin_lottoyou/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-06-21 22:19:39 Error: Fatal Error (1): Call to a member function attached() on null in [/var/www/html/admin_lottoyou/app/Controller/AppController.php, line 131]
+2018-06-21 22:19:39 Error: [FatalErrorException] Call to a member function attached() on null
+Request URL: /admin_lottoyou/app/webroot/files/RaspadinhasTemas/Pirates%20Treasure/imagemIndex.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/html/a...', 131)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/html/a...', 131, Array)
+#2 /var/www/html/admin_lottoyou/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/html/a...', 131, Array)
+#3 /var/www/html/admin_lottoyou/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-06-21 22:21:43 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 22:21:43 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 22:21:44 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 22:21:44 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 22:21:55 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 22:21:55 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 22:21:55 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 22:21:55 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 22:24:16 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 22:24:16 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 22:24:16 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 22:24:16 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 22:24:17 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1055 Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'lottoyou.SocAposta.id' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+Request URL: /admin_lottoyou/socJogos/
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Model/Datasource/DboSource.php(462): PDOStatement->execute(Array)
+#1 /var/www/html/admin_lottoyou/lib/Cake/Model/Datasource/DboSource.php(424): DboSource->_execute('SELECT `SocApos...', Array)
+#2 /var/www/html/admin_lottoyou/lib/Cake/Model/Datasource/DboSource.php(668): DboSource->execute('SELECT `SocApos...', Array, Array)
+#3 /var/www/html/admin_lottoyou/lib/Cake/Model/Datasource/DboSource.php(1080): DboSource->fetchAll('SELECT `SocApos...', false)
+#4 /var/www/html/admin_lottoyou/lib/Cake/Model/Model.php(2897): DboSource->read(Object(SocAposta), Array)
+#5 /var/www/html/admin_lottoyou/lib/Cake/Model/Model.php(2869): Model->_readDataSource('list', Array)
+#6 /var/www/html/admin_lottoyou/app/Controller/SocJogosController.php(43): Model->find('list', Array)
+#7 [internal function]: SocJogosController->index()
+#8 /var/www/html/admin_lottoyou/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(SocJogosController), Array)
+#9 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(185): Controller->invokeAction(Object(CakeRequest))
+#10 /var/www/html/admin_lottoyou/lib/Cake/Routing/Dispatcher.php(160): Dispatcher->_invoke(Object(SocJogosController), Object(CakeRequest), Object(CakeResponse))
+#11 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2018-06-21 22:24:22 Error: Fatal Error (1): Call to a member function attached() on null in [/var/www/html/admin_lottoyou/app/Controller/AppController.php, line 131]
+2018-06-21 22:24:22 Error: [FatalErrorException] Call to a member function attached() on null
+Request URL: /admin_lottoyou/app/webroot/files/RaspadinhasTemas/Golden%20Goal/imagemIndex.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/html/a...', 131)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/html/a...', 131, Array)
+#2 /var/www/html/admin_lottoyou/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/html/a...', 131, Array)
+#3 /var/www/html/admin_lottoyou/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-06-21 22:24:22 Error: Fatal Error (1): Call to a member function attached() on null in [/var/www/html/admin_lottoyou/app/Controller/AppController.php, line 131]
+2018-06-21 22:24:22 Error: [FatalErrorException] Call to a member function attached() on null
+Request URL: /admin_lottoyou/app/webroot/files/RaspadinhasTemas/Pirates%20Treasure/imagemIndex.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/html/a...', 131)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/html/a...', 131, Array)
+#2 /var/www/html/admin_lottoyou/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/html/a...', 131, Array)
+#3 /var/www/html/admin_lottoyou/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-06-21 22:24:53 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 22:24:53 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 22:24:54 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 22:24:54 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 22:32:45 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 22:32:45 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 22:32:45 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/vendor/jquery.fileupload-validate.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 22:32:45 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /admin_lottoyou/js/core/libs/jQuery-File-Upload-9.19.1/js/jquery.fileupload-process.js
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/app/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-06-21 22:46:05 Error: Fatal Error (1): Allowed memory size of 536870912 bytes exhausted (tried to allocate 13763067 bytes) in [/var/www/html/admin_lottoyou/lib/Cake/Utility/String.php, line 241]
+2018-06-21 22:46:05 Error: [FatalErrorException] Allowed memory size of 536870912 bytes exhausted (tried to allocate 13763067 bytes)
+Request URL: /admin_lottoyou/relatorioItens/index
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Allowed memory ...', '/var/www/html/a...', 241)
+#1 [internal function]: ErrorHandler::handleError(1, 'Allowed memory ...', '/var/www/html/a...', 241, Array)
+#2 /var/www/html/admin_lottoyou/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Allowed memory ...', '/var/www/html/a...', 241, Array)
+#3 /var/www/html/admin_lottoyou/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-06-21 22:46:39 Error: Fatal Error (1): Allowed memory size of 536870912 bytes exhausted (tried to allocate 13733131 bytes) in [/var/www/html/admin_lottoyou/lib/Cake/Utility/String.php, line 241]
+2018-06-21 22:46:39 Error: [FatalErrorException] Allowed memory size of 536870912 bytes exhausted (tried to allocate 13733131 bytes)
+Request URL: /admin_lottoyou/relatorioItens/index
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Allowed memory ...', '/var/www/html/a...', 241)
+#1 [internal function]: ErrorHandler::handleError(1, 'Allowed memory ...', '/var/www/html/a...', 241, Array)
+#2 /var/www/html/admin_lottoyou/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Allowed memory ...', '/var/www/html/a...', 241, Array)
+#3 /var/www/html/admin_lottoyou/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-06-21 23:06:48 Error: Fatal Error (1): Call to a member function attached() on null in [/var/www/html/admin_lottoyou/app/Controller/AppController.php, line 131]
+2018-06-21 23:06:48 Error: [FatalErrorException] Call to a member function attached() on null
+Request URL: /admin_lottoyou/app/webroot/files/RaspadinhasTemas/Pirates%20Treasure/imagemIndex.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/html/a...', 131)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/html/a...', 131, Array)
+#2 /var/www/html/admin_lottoyou/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/html/a...', 131, Array)
+#3 /var/www/html/admin_lottoyou/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-06-21 23:06:48 Error: Fatal Error (1): Call to a member function attached() on null in [/var/www/html/admin_lottoyou/app/Controller/AppController.php, line 131]
+2018-06-21 23:06:48 Error: [FatalErrorException] Call to a member function attached() on null
+Request URL: /admin_lottoyou/app/webroot/files/RaspadinhasTemas/Golden%20Goal/imagemIndex.png
+Stack Trace:
+#0 /var/www/html/admin_lottoyou/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/html/a...', 131)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/html/a...', 131, Array)
+#2 /var/www/html/admin_lottoyou/lib/Cake/Core/App.php(929): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/html/a...', 131, Array)
+#3 /var/www/html/admin_lottoyou/lib/Cake/Core/App.php(902): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}

@@ -37,6 +37,8 @@ class AppController extends Controller {
     public $components = array(
         'Session',
         'Cookie',
+        'RequestHandler',
+        'Paginator',
         'Auth' => array(
             'authorize' => array(
                 'Controller',
@@ -64,8 +66,12 @@ class AppController extends Controller {
         'Session',
         'Html' => array('className' => 'BoostCake.BoostCakeHtml'),
         'Form' => array('className' => 'BoostCake.BoostCakeForm'),
+        'Js' => ['Jquery'],
+        'Paginator'
             //'Paginator' => array('className' => 'BoostCake.BoostCakePaginator'),
     );
+
+
     public $meses = array(
         "01" => "Janeiro",
         "02" => "Fevereiro",

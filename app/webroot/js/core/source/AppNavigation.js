@@ -112,7 +112,7 @@
 		} else {
 			element.html('<section><div class="section-body alert alert-callout alert-warning" role="alert"><strong>Carregando...</strong> <i class="fa fa-spinner fa-spin"></i></div></section>');
 		}
-	}
+	};
 
 	// =========================================================================
 	// EVENTS

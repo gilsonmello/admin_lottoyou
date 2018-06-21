@@ -27,7 +27,7 @@ Configure::write('Config.language', 'pt-br');
 Configure::write('App.encoding', 'UTF-8');
 FB::info('DEBUG HABILITADO !');
 //FB::info(date('H:i:s'),'date');
-date_default_timezone_set('America/Argentina/Buenos_Aires');
+date_default_timezone_set('UTC');
 
 /**
  * Configure the Error handler used to handle errors for your application. By default

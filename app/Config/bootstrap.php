@@ -149,4 +149,4 @@ CakeLog::config('error', array(
 define('BASE', str_replace("/webroot", "", dirname($_SERVER['PHP_SELF']) == "/" ? "" : dirname($_SERVER['PHP_SELF'])));
 ini_set('memory_limit', '512M');
 ini_set('max_execution_time', '1200');
-date_default_timezone_set('UTC');
+

@@ -104,7 +104,25 @@
                     </div>   -->              
                 </div>
 
-                <br/>
+
+                <h4 class="pull-left" style="padding-right:5px;">Relatórios</h4>
+                <hr style="margin-top:21px" />
+                <div class="row">
+                    <div class="col-sm-2">
+                        <div id="relatorioItens" class="text-center hover" style="cursor:pointer;" data-toggle="tooltip" data-placement="bottom" title="Relatórios de Itens comprados">
+                            <i class="md md-view-quilt" style="font-size:24px; display:block;"></i>
+                            Itens Comprados
+                        </div>
+                    </div>
+                    <!-- <div class="col-sm-2">
+                        <div id="rasDemos" class="text-center hover" style="cursor:pointer;" data-toggle="tooltip" data-placement="bottom" title="Gerenciar Demos das Raspadinhas">
+                            <i class="md md-view-quilt" style="font-size:24px;display:block;"></i>
+                            Demos das Raspadinhas
+                        </div>
+                    </div>   -->
+                </div>
+
+
 
                 <?php if ($this->Session->read("Auth.User.group_id") == 1) { ?>                  
 
