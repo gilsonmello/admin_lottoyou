@@ -1,7 +1,7 @@
 (function (namespace, $) {
     "use strict";
 
-    var AppRelatorioItens = function () {
+    var AppRelatorioPagSeguroDepositos = function () {
         // Create reference to this instance
         var o = this;
 
@@ -11,16 +11,16 @@
         });
     };
 
-    var p = AppRelatorioItens.prototype;
+    var p = AppRelatorioPagSeguroDepositos.prototype;
 
     // =========================================================================
     // CONFIG
     // =========================================================================
 
-    AppRelatorioItens.objectId = '#AppRelatorioItens';
-    AppRelatorioItens.modalFormId = '#nivel3';
-    AppRelatorioItens.controller = 'relatorioItens';
-    AppRelatorioItens.model = 'RasTabelasDesconto';
+    AppRelatorioPagSeguroDepositos.objectId = '#AppRelatorioPagSeguroDepositos';
+    AppRelatorioPagSeguroDepositos.modalFormId = '#nivel3';
+    AppRelatorioPagSeguroDepositos.controller = 'relatorioPagSeguroDepositos';
+    AppRelatorioPagSeguroDepositos.model = 'RasTabelasDesconto';
 
     // =========================================================================
     // INIT
@@ -29,7 +29,7 @@
     p.initialize = function () {
         // CARREGA DEPENDÊNCIAS
         //window.materialadmin.App.initialize();
-        window.materialadmin.AppForm.initialize($(AppRelatorioItens.objectId));
+        window.materialadmin.AppForm.initialize($(AppRelatorioPagSeguroDepositos.objectId));
         window.materialadmin.AppGrid.initialize();
         window.materialadmin.AppVendor.initialize();
         window.materialadmin.Demo.initialize();
@@ -51,10 +51,10 @@
                 url: this.href,
                 method: 'get',
                 beforeSend: function() {
-                    window.materialadmin.AppNavigation.carregando($('#gridRelatorioItens'));
+                    window.materialadmin.AppNavigation.carregando($('#gridRelatorioPagSeguroDepositos'));
                 },
                 success: function (data) {
-                    $('#gridRelatorioItens').html(data);
+                    $('#gridRelatorioPagSeguroDepositos').html(data);
                 },
                 error: function (error) {
 
@@ -68,24 +68,24 @@
 
         p._habilitaBotoesPaginate();
 
-        $(AppRelatorioItens.objectId + ' #voltar').click(function () {
+        $(AppRelatorioPagSeguroDepositos.objectId + ' #voltar').click(function () {
             window.materialadmin.AppGelCadastros.carregarCadastros();
         });
 
-        $(AppRelatorioItens.objectId + ' #pesquisarRelatorioItens').submit(function () {
-            p._loadRelatorioItens();
+        $(AppRelatorioPagSeguroDepositos.objectId + ' #pesquisarRelatorioPagSeguroDepositos').submit(function () {
+            p._loadRelatorioPagSeguroDepositos();
             return false;
         });
     };
 
     
     p._habilitaBotoesConsulta = function () {
-        $(AppRelatorioItens.objectId + ' .btnEditar').click(function () {
+        $(AppRelatorioPagSeguroDepositos.objectId + ' .btnEditar').click(function () {
             p._loadFormRasTabelasDesconto($(this).attr('id'));
         });
 
-        $(AppRelatorioItens.objectId + ' .btnDeletar').click(function () {
-            var url = baseUrl + 'relatorioItens/delete/' + $(this).attr('id');
+        $(AppRelatorioPagSeguroDepositos.objectId + ' .btnDeletar').click(function () {
+            var url = baseUrl + 'relatorioPagSeguroDepositos/delete/' + $(this).attr('id');
             window.materialadmin.AppGrid.delete(url, function () {
                 p._loadConsRasTabelasDesconto();
             });
@@ -97,11 +97,11 @@
     // CARREGA CONSULTA 
     // =========================================================================
 
-    p._loadRelatorioItens = function () {
+    p._loadRelatorioPagSeguroDepositos = function () {
         // INSTANCIA VARIÁREIS
-        var form = $(AppRelatorioItens.objectId + ' #pesquisarRelatorioItens');
-        var table = $(AppRelatorioItens.objectId + ' #gridRelatorioItens');
-        var url = baseUrl + 'relatorioItens/index';
+        var form = $(AppRelatorioPagSeguroDepositos.objectId + ' #pesquisarRelatorioPagSeguroDepositos');
+        var table = $(AppRelatorioPagSeguroDepositos.objectId + ' #gridRelatorioPagSeguroDepositos');
+        var url = baseUrl + 'relatorioPagSeguroDepositos/index';
 
         window.materialadmin.AppNavigation.carregando(table);
 
@@ -121,9 +121,9 @@
 
     p._loadFormRasTabelasDesconto = function (id, clonar) {
         // CHAMA A FUNÇÃO MODAL
-        var modalObject = $(AppRelatorioItens.modalFormId);
+        var modalObject = $(AppRelatorioPagSeguroDepositos.modalFormId);
         var action = (typeof clonar !== 'undefined') ? 'add' : 'edit';
-        var url = (typeof id === 'undefined') ? 'relatorioItens/add' : 'relatorioItens/' + action + '/' + id;
+        var url = (typeof id === 'undefined') ? 'relatorioPagSeguroDepositos/add' : 'relatorioPagSeguroDepositos/' + action + '/' + id;
         var i = 0;
 
         window.materialadmin.AppForm.loadModal(modalObject, url, '75%', function () {
@@ -141,5 +141,5 @@
     // DEFINE NAMESPACE
     // =========================================================================
 
-    window.materialadmin.AppRelatorioItens = new AppRelatorioItens;
+    window.materialadmin.AppRelatorioPagSeguroDepositos = new AppRelatorioPagSeguroDepositos;
 }(this.materialadmin, jQuery)); // pass in (namespace, jQuery):

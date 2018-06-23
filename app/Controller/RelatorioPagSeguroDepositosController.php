@@ -1,6 +1,6 @@
 <?php
 
-class RelatorioItensController extends AppController {
+class RelatorioPagSeguroDepositosController extends AppController {
 
     public $components = array('App');
 
@@ -13,7 +13,12 @@ class RelatorioItensController extends AppController {
         // CARREGA FUNÇÕES BÁSICAS DE PESQUISA E ORDENAÇÃO
 
         $options = array(
-            'conditions' => [],
+            'conditions' => [
+                'BalanceOrder.submit' => 1,
+                'NOT' => [
+                    'BalanceOrder.status_pagseguro' => null,
+                ]
+            ],
             'limit' => 10,
             'order' => array('id' => 'desc'),
             'contain' => [],
@@ -22,48 +27,47 @@ class RelatorioItensController extends AppController {
                     'alias' => 'User',
                     'table' => 'users',
                     'type' => 'INNER',
-                    'conditions' => 'User.id = OrderItem.user_id'
+                    'conditions' => 'User.id = BalanceOrder.owner_id'
                 ),
             ],
-            'fields' => array('User.*', 'OrderItem.*'),
+            'fields' => array('User.*', 'BalanceOrder.*'),
         );
 
 
-        $this->loadModel('OrderItem');
-        $this->OrderItem->recursive = -1;
-        $this->OrderItem->validate = [];
+        $this->loadModel('BalanceOrder');
+        $this->BalanceOrder->recursive = -1;
+        $this->BalanceOrder->validate = [];
 
         if(isset($query['nome'])) {
             $options['conditions']['User.name LIKE'] = '%'.$query['nome'].'%';
+        }
+
+        if(isset($query['status']) && $query['status'] != '') {
+            $options['conditions']['BalanceOrder.status_pagseguro'] = $query['status'];
         }
 
         if(isset($query['email'])) {
             $options['conditions']['User.username LIKE'] = '%'.$query['email'].'%';
         }
 
-        if(isset($query['modalidade']) && $query['modalidade'] != '') {
-            if($query['modalidade'] == 0) {
-                $options['conditions']['NOT'] = ['OrderItem.soccer_expert_id' => null];
-            } else if($query['modalidade'] == 1) {
-                $options['conditions']['NOT'] = ['OrderItem.lottery_id' => null];
-            } else if($query['modalidade'] == 2) {
-                $options['conditions']['NOT'] = ['OrderItem.scratch_card_id' => null];
-            }
+        if(isset($query['valor']) && $query['valor'] != '') {
+            $valor = $this->App->formataValorDouble($query['valor']);
+            $options['conditions']['BalanceOrder.sub_total'] = $valor;
         }
 
         if(isset($query['dt_inicio']) && !empty($query['dt_inicio'])) {
             $dt_inicio = implode('-', array_reverse(explode('/', $query['dt_inicio'])));
-            $options['conditions']['OrderItem.created_at >='] = $dt_inicio . ' 00:00:00';
+            $options['conditions']['BalanceOrder.created >='] = $dt_inicio . ' 00:00:00';
         }
 
         if(isset($query['dt_fim']) && !empty($query['dt_fim'])) {
             $dt_fim = implode('-', array_reverse(explode('/', $query['dt_fim'])));
-            $options['conditions']['OrderItem.created_at <='] = $dt_fim . ' 23:59:59';
+            $options['conditions']['BalanceOrder.created <='] = $dt_fim . ' 23:59:59';
         }
 
         $this->paginate = $options;
 
-        $dados = $this->paginate('OrderItem');
+        $dados = $this->paginate('BalanceOrder');
 
         // ENVIA DADOS PARA A SESSÃO
         $this->set(compact('dados', 'modal'));

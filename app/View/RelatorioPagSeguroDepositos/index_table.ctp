@@ -6,42 +6,51 @@
        style="margin-bottom:0;">
     <thead>
     <tr>
-        <th>Usuário</th>
-        <th>Modalidade</th>
+        <th>Status</th>
+        <th>Nome</th>
+        <th>E-mail</th>
         <th>Valor</th>
         <th>Data</th>
-        <th>Ações</th>
+        <!--<th>Ações</th>-->
     </tr>
     </thead>
     <tbody>
     <?php foreach ($dados as $k => $v) { ?>
         <tr>
             <td>
-                <?= $v['User']['username']; ?>
-            </td>
-            <td>
                 <?php
-                if($v['OrderItem']['type'] == "scratch_card") echo "Raspadinha";
-                else if($v['OrderItem']['type'] == "soccer_expert") echo "Soccer Expert";
-                else echo "Loteria";
+                    if($v['BalanceOrder']['status_pagseguro'] == 1) echo "Aguardando pagamento";
+                    else if($v['BalanceOrder']['status_pagseguro'] == 2) echo "Em análise";
+                    else if($v['BalanceOrder']['status_pagseguro'] == 3) echo "Paga";
+                    else if($v['BalanceOrder']['status_pagseguro'] == 4) echo "Disponível";
+                    else if($v['BalanceOrder']['status_pagseguro'] == 5) echo "Em disputa";
+                    else if($v['BalanceOrder']['status_pagseguro'] == 6) echo "Devolvida";
+                    else if($v['BalanceOrder']['status_pagseguro'] == 7) echo "Cancelada";
+                    else if($v['BalanceOrder']['status_pagseguro'] == 0) echo "Em progresso";
                 ?>
             </td>
             <td>
-                $<?= $v['OrderItem']['amount']; ?>
+                <?= $v['User']['name']; ?>
             </td>
             <td>
-                <?= $this->Time->format($v['OrderItem']['created_at'], '%d/%m/%Y %H:%M'); ?>
+                <?= $v['User']['username']; ?>
             </td>
             <td>
+                $<?= $v['BalanceOrder']['sub_total']; ?>
+            </td>
+            <td>
+                <?= $this->Time->format($v['BalanceOrder']['created'], '%d/%m/%Y %H:%M'); ?>
+            </td>
+            <!--<td>
                 <div class="btn-group">
                     <button type="button" class="btn btn-icon-toggle dropdown-toggle" data-toggle="dropdown"><i class="fa fa-gear"></i></button>
                     <ul class="dropdown-menu dropdown-menu-right" role="menu">
                         <li>
-                            <?php /*echo $this->Html->link('<i class="fa fa-cart-plus"></i>&nbsp Gerar Prêmios', 'javascript: void(0)', array("escape" => false, 'id' => $v['RasLote']['id'], 'class' => 'btnGerarNumeros')) */?>
+                            <?php /*echo $this->Html->link('<i class="fa fa-cart-plus"></i>&nbsp Histórico', 'javascript: void(0)', array("escape" => false, 'id' => $v['RasLote']['id'], 'class' => 'btnGerarNumeros')) */?>
                         </li>
                     </ul>
                 </div>
-            </td>
+            </td>-->
         </tr>
     <?php } ?>
     </tbody>

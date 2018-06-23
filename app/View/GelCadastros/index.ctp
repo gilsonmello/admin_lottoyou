@@ -114,6 +114,18 @@
                             Itens Comprados
                         </div>
                     </div>
+                    <div class="col-sm-2">
+                        <div id="relatorioPagSeguroDepositos" class="text-center hover" style="cursor:pointer;" data-toggle="tooltip" data-placement="bottom" title="Relatórios de Depósitos Pague Seguro">
+                            <i class="md md-view-quilt" style="font-size:24px; display:block;"></i>
+                            Depósitos Pague Seguro
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div id="relatorioPaypalDepositos" class="text-center hover" style="cursor:pointer;" data-toggle="tooltip" data-placement="bottom" title="Relatórios de Depósitos Pague Seguro">
+                            <i class="md md-view-quilt" style="font-size:24px; display:block;"></i>
+                            Depósitos PayPal
+                        </div>
+                    </div>
                     <!-- <div class="col-sm-2">
                         <div id="rasDemos" class="text-center hover" style="cursor:pointer;" data-toggle="tooltip" data-placement="bottom" title="Gerenciar Demos das Raspadinhas">
                             <i class="md md-view-quilt" style="font-size:24px;display:block;"></i>

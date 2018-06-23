@@ -1,9 +1,9 @@
-<section id="AppRelatorioItens" <?php echo ($modal == 1) ? 'style="padding:0;"' : '' ?>>
+<section id="AppRelatorioPaypalDepositos" <?php echo ($modal == 1) ? 'style="padding:0;"' : '' ?>>
     <div class="section-body" <?php echo ($modal == 1) ? 'style="margin:0;"' : '' ?>>
         <div class="card-head card-head-sm style-primary">
             <header>
                 <i class="md md-apps" style="margin-bottom:0;"></i> Relatório
-                <i class="md md-navigate-next" style="margin-bottom:0;"></i> <b>Itens Comprados</b>
+                <i class="md md-navigate-next" style="margin-bottom:0;"></i> <b>Paypal Depósitos</b>
             </header>
             <div class="tools">
                 <button id="voltar" type="button" class="btn ink-reaction btn-flat btn-default-bright" data-dismiss="modal">
@@ -29,17 +29,26 @@
                 </header>
             </div>
             <div class="card-body style-default-light" style="display: none;padding-top:10px;padding-bottom:10px;">
-                <?php echo $this->Form->create('search', array('id' => 'pesquisarRelatorioItens', 'class' => 'form', 'role' => 'form', 'type' => 'get')); ?>
+                <?php echo $this->Form->create('search', array('id' => 'pesquisarRelatorioPaypalDepositos', 'class' => 'form', 'role' => 'form', 'type' => 'get')); ?>
                 <div class="row">
                     <div class="col-lg-3">
                         <div class="form-group">
-                            <?= $this->Form->input('modalidade', [
-                                'label' => 'Modalidade',
+                            <?= $this->Form->input('status', [
+                                'label' => 'Status',
                                 'class' => 'form-control chosen',
                                 'options' => [
-                                    0 => 'Soccer Expert',
-                                    1 => 'Loteria',
-                                    2 => 'Raspadinha'
+                                    'Canceled_Reversal' => 'Reversão cancelada',
+                                    'Completed' => 'Concluído',
+                                    'Created' => 'Criado',
+                                    'Denied' => 'Negado',
+                                    'Expired' => 'Expirado',
+                                    'Failed' => 'Falhou',
+                                    'Pending' => 'Pendente',
+                                    'Refunded' => 'Reembolso',
+                                    'Reversed' => 'Reversão',
+                                    'Processed' => 'Pagamento aceito',
+                                    'Voided' => 'Anulado',
+                                    'In progress' => 'Em progresso',
                                 ],
                                 'empty' => 'Selecione',
                                 'required' => false
@@ -54,6 +63,11 @@
                     <div class="col-lg-3">
                         <div class="form-group ">
                             <?= $this->Form->input('email', ['label' => 'E-mail', 'class' => 'form-control', 'required' => false]); ?>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="form-group ">
+                            <?= $this->Form->input('valor', ['label' => 'Valor', 'class' => 'form-control money', 'required' => false]); ?>
                         </div>
                     </div>
                     <div class="col-lg-3">
@@ -77,7 +91,7 @@
                 </div>
                 <?php echo $this->Form->end(); ?>
             </div>
-            <div id="gridRelatorioItens" style="padding: 24px;">
+            <div id="gridRelatorioPaypalDepositos" style="padding: 24px;">
                 <h4>Total de registros: <?= $this->Paginator->params()['count']; ?></h4>
                 <table id=""
                        class="table table-condensed table-hover"
@@ -86,42 +100,55 @@
                        style="margin-bottom:0;">
                     <thead>
                         <tr>
-                            <th>Usuário</th>
-                            <th>Modalidade</th>
+                            <th>Status</th>
+                            <th>Nome</th>
+                            <th>E-mail</th>
                             <th>Valor</th>
-                            <th>Data</th>
-                            <th>Ações</th>
+                            <th>Data de depósito</th>
+                            <!--<th>Ações</th>-->
                         </tr>
                     </thead>
                     <tbody>
                     <?php foreach ($dados as $k => $v) { ?>
                         <tr>
                             <td>
-                                <?= $v['User']['username']; ?>
-                            </td>
-                            <td>
                                 <?php
-                                    if($v['OrderItem']['type'] == "scratch_card") echo "Raspadinha";
-                                    else if($v['OrderItem']['type'] == "soccer_expert") echo "Soccer Expert";
-                                    else echo "Loteria";
+                                    if($v['BalanceOrder']['status_paypal'] == 'Canceled_Reversal') echo "Reversão cancelada";
+                                    else if($v['BalanceOrder']['status_paypal'] == 'Completed') echo "Concluído";
+                                    else if($v['BalanceOrder']['status_paypal'] == 'Created') echo "Criado";
+                                    else if($v['BalanceOrder']['status_paypal'] == 'Denied') echo "Negado";
+                                    else if($v['BalanceOrder']['status_paypal'] == 'Expired') echo "Expirado";
+                                    else if($v['BalanceOrder']['status_paypal'] == 'Failed') echo "Falhou";
+                                    else if($v['BalanceOrder']['status_paypal'] == 'Pending') echo "Pendente";
+                                    else if($v['BalanceOrder']['status_paypal'] == 'Refunded') echo "Reembolso";
+                                    else if($v['BalanceOrder']['status_paypal'] == 'Reversed') echo "Reversão";
+                                    else if($v['BalanceOrder']['status_paypal'] == 'Processed') echo "Pagamento aceito";
+                                    else if($v['BalanceOrder']['status_paypal'] == 'Voided') echo "Anulado";
+                                    else if($v['BalanceOrder']['status_paypal'] == 'In progress') echo "Pendente de pagamento";
                                 ?>
                             </td>
                             <td>
-                                $<?= $v['OrderItem']['amount']; ?>
+                                <?= $v['User']['name']; ?>
                             </td>
                             <td>
-                                <?= $this->Time->format($v['OrderItem']['created_at'], '%d/%m/%Y %H:%M'); ?>
+                                <?= $v['User']['username']; ?>
                             </td>
                             <td>
+                                $<?= $v['BalanceOrder']['sub_total']; ?>
+                            </td>
+                            <td>
+                                <?= $this->Time->format($v['BalanceOrder']['created'], '%d/%m/%Y %H:%M'); ?>
+                            </td>
+                            <!--<td>
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-icon-toggle dropdown-toggle" data-toggle="dropdown"><i class="fa fa-gear"></i></button>
                                     <ul class="dropdown-menu dropdown-menu-right" role="menu">
                                         <li>
-                                            <?php /*echo $this->Html->link('<i class="fa fa-cart-plus"></i>&nbsp Gerar Prêmios', 'javascript: void(0)', array("escape" => false, 'id' => $v['RasLote']['id'], 'class' => 'btnGerarNumeros')) */?>
+                                            <?php /*echo $this->Html->link('<i class="fa fa-cart-plus"></i>&nbsp Histórico', 'javascript: void(0)', array("escape" => false, 'id' => $v['RasLote']['id'], 'class' => 'btnGerarNumeros')) */?>
                                         </li>
                                     </ul>
                                 </div>
-                            </td>
+                            </td>-->
                         </tr>
                     <?php } ?>
                     </tbody>
@@ -129,10 +156,10 @@
                 <div class="">
                     <ul class="pagination">
                         <?php
-                        $this->Paginator->options(array('url' =>  $query));
-                        echo $this->Paginator->prev('«', array('tag' => 'li'), null, ['tag' => 'li', 'class' => 'disabled', 'disabledTag' => 'a']);
-                        echo $this->Paginator->numbers(['separator' => '','currentTag' => 'a', 'currentClass' => 'active', 'tag' => 'li', 'first' => 1]);
-                        echo $this->Paginator->next(__('»'), array('tag' => 'li', 'currentClass' => 'disabled'), null, ['tag' => 'li', 'class' => 'disabled', 'disabledTag' => 'a']);
+                            $this->Paginator->options(array('url' =>  $query));
+                            echo $this->Paginator->prev('«', array('tag' => 'li'), null, ['tag' => 'li', 'class' => 'disabled', 'disabledTag' => 'a']);
+                            echo $this->Paginator->numbers(['separator' => '','currentTag' => 'a', 'currentClass' => 'active', 'tag' => 'li', 'first' => 1]);
+                            echo $this->Paginator->next(__('»'), array('tag' => 'li', 'currentClass' => 'disabled'), null, ['tag' => 'li', 'class' => 'disabled', 'disabledTag' => 'a']);
                         ?>
                     </ul>
                 </div>
