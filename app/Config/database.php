@@ -75,7 +75,7 @@ class DATABASE_CONFIG {
     );*/
 	
 	# local | windows
-    public $default2 = array(
+    /*public $default2 = array(
         'datasource' => 'Database/Mysql',
         'persistent' => false,
         'host' => '127.0.0.1',
@@ -84,9 +84,21 @@ class DATABASE_CONFIG {
         'database' => 'lottoyou',
         'prefix' => '',
         'encoding' => 'utf8',
-    );
+    );*/
 
     # local | linux
+    /*public $default = array(
+        'datasource' => 'Database/Mysql',
+        'persistent' => false,
+        'host' => '198.71.227.53',
+        'login' => 'gilsonmello2',
+        'password' => 'lottoyou@2018',
+        'database' => 'dev_lottoyou',
+        'prefix' => '',
+        'encoding' => 'utf8',
+    );*/
+
+    # produção | linux
     public $default = array(
         'datasource' => 'Database/Mysql',
         'persistent' => false,
@@ -97,16 +109,5 @@ class DATABASE_CONFIG {
         'prefix' => '',
         'encoding' => 'utf8',
     );
-
-    /*public $default = array(
-        'datasource' => 'Database/Mysql',
-        'persistent' => false,
-        'host' => 'localhost',
-        'login' => 'root',
-        'password' => 'jun10r1m',
-        'database' => 'lottoyou',
-        'prefix' => '',
-        'encoding' => 'utf8',
-    );*/
     
 }

@@ -6,22 +6,22 @@ App::uses('AppModel', 'Model');
  * CakePHP ModuloModel
  * @author 
  */
-class Contato extends AppModel {
+class ContatoCategoria extends AppModel {
 
-    public $useTable = 'contacts';
+    public $useTable = 'contact_categories';
 
     public $belongsTo = [
-    	'ContatoCategoria' => [
-            'className' => 'ContatoCategoria',
+
+	];
+
+	public $hasMany = [
+        'Contato' => [
+            'className' => 'Contato',
             'foreignKey' => 'category_id',
             'conditions' => '',
             'fields' => '',
             'order' => ''
         ],
-	];
-
-	public $hasMany = [
-    	
 	];
 
 

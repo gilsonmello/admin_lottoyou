@@ -40,6 +40,19 @@
  */
 class EmailConfig {
 
+    public $mailgun = [
+        'transport' => 'Smtp',
+        'from' => ['contacts@lottoyou.bet' => 'Lottoyou'],
+        'host' => 'tls://smtp.mailgun.org',
+        'port' => 587,
+        'timeout' => 30,
+        'username' => 'postmaster@lottoyou.bet',
+        'password' => 'lottoyou@2018',
+        'client' => null,
+        'log' => false,
+
+    ];
+
     public $fast = array(
         'from' => 'you@localhost',
         'sender' => null,
