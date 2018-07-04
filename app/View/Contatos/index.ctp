@@ -61,7 +61,7 @@
                             'type' => 'radio',
                             'legend' => 'Respondido?',
                             'class' => 'radio-inline radio-styled tipo',
-                            'options' => [1 => 'Sim', 0 => 'Não']
+                            'options' => [1 => 'Sim', 0 => 'Não', '' => 'Todos']
                         ]); ?>
                     </div>
                 </div>
@@ -106,7 +106,7 @@
                                 <?= $v['Contato']['subject']; ?>
                             </td>
                             <td>
-                                $<?= $v['Contato']['description']; ?>
+                                <?= $v['Contato']['description']; ?>
                             </td>
                             <td>
                                 <?= $v['Contato']['answered'] == 1 ? 'Sim' : 'Não'; ?>

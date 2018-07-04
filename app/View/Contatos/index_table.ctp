@@ -28,7 +28,7 @@
                 <?= $v['Contato']['subject']; ?>
             </td>
             <td>
-                $<?= $v['Contato']['description']; ?>
+                <?= $v['Contato']['description']; ?>
             </td>
             <td>
                 <?= $v['Contato']['answered'] == 1 ? 'Sim' : 'Não'; ?>

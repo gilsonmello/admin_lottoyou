@@ -38,7 +38,7 @@
     <div class="row">
         <div class="col-md-12 col-lg-12">
             <?php if($this->request->data['Contato']['file'] != null) { ?>
-                <a href="<?= $this->request->data['Contato']['file'] ?>" target="_blank" class="btn btn-xs btn-info">
+                <a href="<?= $this->request->data['Contato']['domain'] . $this->request->data['Contato']['file'] ?>" target="_blank" class="btn btn-xs btn-info">
                     Clique aqui para visualizar o arquivo
                 </a>
             <?php } else { ?>
@@ -46,6 +46,7 @@
             <?php } ?>
         </div>
     </div>
+    <br>
     <div class="row">
         <div class="col-lg-12">
             <?= $this->Form->label('description', 'Descrição do Contato'); ?>
@@ -54,7 +55,8 @@
                 'type' => 'textarea',
                 'label' => false,
                 'class' => 'form-control',
-                'disabled' => true, 'readonly' => true
+                'disabled' => true,
+                'readonly' => true
             ]); ?>
         </div>
     </div>
@@ -65,10 +67,16 @@
                 'escape' => false,
                 'type' => 'textarea',
                 'label' => false,
+                'disabled' => $this->request->data['Contato']['answered'] == 1 ? true : false,
+                'readonly' => $this->request->data['Contato']['answered'] == 1 ? true : false,
                 'class' => 'form-control',
             ]); ?>
         </div>
     </div>
 </div>
-<?php echo $this->element('formsButtons') ?>
+<?php if($this->request->data['Contato']['answered'] == 1) { ?>
+    <?php echo $this->element('formsButtons', ['disabled' => true]) ?>
+<?php } else { ?>
+    <?php echo $this->element('formsButtons') ?>
+<?php } ?>
 <?php echo $this->Form->end(); ?>

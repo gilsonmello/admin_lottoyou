@@ -199,10 +199,10 @@
 
         window.materialadmin.AppNavigation.carregando(table);
 
-        $.post(url, form.serialize(), function (html, textStatus, jqXHR) {
+        $.get(url, form.serialize(), function (html, textStatus, jqXHR) {
             if (jqXHR.status == 200) {
                 // RECARREGA FORMULÁRIO
-                table.html($(html).find('#' + table.attr('id') + ' >'));
+                table.html($(html));
 
                 // HABILITA BOTÕES DA CONSULTA
                 p._habilitaBotoesConsulta();
