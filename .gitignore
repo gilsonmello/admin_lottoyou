@@ -14,6 +14,6 @@
 /app/tmp/cache/logs
 /app/tmp/cache/sessions
 /app/tmp/logs/*
-app/tmp/logs/error.log
-app/webroot/error_log
+/app/tmp/logs/error.log
+/app/webroot/error_log
 /app/webroot/files/Soccer_Expert_Rodadas_Imagem_Modal
