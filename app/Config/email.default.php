@@ -42,12 +42,12 @@ class EmailConfig {
 
     public $mailgun = [
         'transport' => 'Smtp',
-        'from' => ['contacts@lottoyou.bet' => 'Lottoyou'],
-        'host' => 'smtp.mailgun.org',
+        'from' => ['' => ''],
+        'host' => 'g',
         'port' => 587,
         'timeout' => 30,
-        'username' => 'postmaster@lottoyou.bet',
-        'password' => 'lottoyou.bet@2018',
+        'username' => '',
+        'password' => '',
         'client' => null,
         'log' => false,
     ];

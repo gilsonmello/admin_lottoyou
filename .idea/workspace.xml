@@ -24,7 +24,7 @@
       <file leaf-file-name="SocRodadasController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Controller/SocRodadasController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3982">
+            <state relative-caret-position="555">
               <caret line="948" column="19" selection-start-line="948" selection-start-column="12" selection-end-line="948" selection-end-column="19" />
             </state>
           </provider>
@@ -34,8 +34,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>paginate</find>
-      <find>carregando</find>
       <find>RequestHandler</find>
       <find>Paginator</find>
       <find>AppRasTabelasDescontos</find>
@@ -64,6 +62,8 @@
       <find>send(</find>
       <find>answered</find>
       <find>pesquisarContatos</find>
+      <find>premia</find>
+      <find>$end +=</find>
     </findStrings>
     <replaceStrings>
       <replace>LotUserNumeroExtras</replace>
@@ -137,8 +137,8 @@
         <option value="$PROJECT_DIR$/app/View/Contatos/index.ctp" />
         <option value="$PROJECT_DIR$/app/Controller/ContatosController.php" />
         <option value="$PROJECT_DIR$/app/View/Contatos/answer.ctp" />
-        <option value="$PROJECT_DIR$/app/Config/database.php" />
         <option value="$PROJECT_DIR$/app/Controller/SocRodadasController.php" />
+        <option value="$PROJECT_DIR$/app/Config/database.php" />
       </list>
     </option>
   </component>
@@ -293,12 +293,13 @@
       <workItem from="1530671380346" duration="195000" />
       <workItem from="1530728562850" duration="4655000" />
       <workItem from="1530739468181" duration="13000" />
-      <workItem from="1530755553913" duration="220000" />
+      <workItem from="1530755553913" duration="402000" />
+      <workItem from="1530813266132" duration="4000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="161447000" />
+    <option name="totallyTimeSpent" value="161583000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-3" y="0" width="1372" height="738" extended-state="6" />
@@ -601,13 +602,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Config/database.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="945">
-          <caret line="98" column="6" lean-forward="true" selection-start-line="98" selection-start-column="6" selection-end-line="98" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Config/email.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -650,9 +644,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Config/database.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="98" column="6" lean-forward="true" selection-start-line="89" selection-start-column="4" selection-end-line="98" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Controller/SocRodadasController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3982">
+        <state relative-caret-position="555">
           <caret line="948" column="19" selection-start-line="948" selection-start-column="12" selection-end-line="948" selection-end-column="19" />
         </state>
       </provider>
