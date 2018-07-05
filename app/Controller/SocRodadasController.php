@@ -285,7 +285,7 @@ class SocRodadasController extends AppController {
             $end += count($segundos);
             //Iniciando $i com a última posição encontrada no vetor de premiações e pego todas as posições com base no total
             //De usuário na segunda posição
-            for ($i = $pos_disponivel; $i < count($primeiros) + count($segundos); $i++) {
+            for ($i = $pos_disponivel; $i < $end; $i++) {
                 //Caso já tenha ultrapassado o limite de premiações
                 //O máximo de porcentagem do segundo é 28
                 //Sai do loop
@@ -360,7 +360,7 @@ class SocRodadasController extends AppController {
             $quartos_pct = 0;
             $prc_maxima = 12;
 
-            $end = count($primeiros) + count($segundos) + count($terceiros) + count($quartos);
+            $end += count($quartos);
             for ($i = $pos_disponivel; $i < $end; $i++) {
                 if(!isset($prc[$i])) {
                     $quartos_pct = 12;
@@ -651,7 +651,6 @@ class SocRodadasController extends AppController {
             $prc_maxima = 4.5;
 
             $end += count($decimo_segundos);
-
             for ($i = $pos_disponivel; $i < $end; $i++) {
                 if(!isset($prc[$i])) {
                     $decimo_segundo_pct = 4.5;
