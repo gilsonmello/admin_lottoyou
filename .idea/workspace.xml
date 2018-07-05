@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/app/Controller/SocRodadasController.php" line="1372" mnemonic="4" />
+    <bookmark url="file://$PROJECT_DIR$/app/Controller/SocRodadasController.php" line="1371" mnemonic="4" />
   </component>
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="874fb61d-c8ac-48e3-8c26-152410ce39c2" name="Default" comment="" />
@@ -187,6 +187,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -198,7 +199,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -298,7 +298,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="161177000" />
+    <option name="totallyTimeSpent" value="161447000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-3" y="0" width="1372" height="738" extended-state="6" />

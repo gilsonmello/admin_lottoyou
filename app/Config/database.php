@@ -87,7 +87,7 @@ class DATABASE_CONFIG {
     );*/
 
     # local | linux
-    public $default = array(
+    /*public $default = array(
         'datasource' => 'Database/Mysql',
         'persistent' => false,
         'host' => '198.71.227.53',
@@ -96,10 +96,10 @@ class DATABASE_CONFIG {
         'database' => 'dev_lottoyou',
         'prefix' => '',
         'encoding' => 'utf8',
-    );
+    );*/
 
     # produção | linux
-    /*public $default = [
+    public $default = [
         'datasource' => 'Database/Mysql',
         'persistent' => false,
         'host' => '107.180.3.212',
@@ -108,6 +108,6 @@ class DATABASE_CONFIG {
         'database' => 'lottoyou',
         'prefix' => '',
         'encoding' => 'utf8',
-    ];*/
+    ];
     
 }
