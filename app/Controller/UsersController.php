@@ -174,7 +174,9 @@ class UsersController extends AppController {
             $grupo_tipo = CakeSession::read('Auth.User.Group.tipo');
 
             // PEGA LISTA DE GRUPOS ATIVOS
-            $this->set('groups', $this->User->Group->find('list', array('conditions' => array('Group.tipo' => $grupo_tipo))));
+            /*$this->set('groups', $this->User->Group->find('list', array('conditions' => array('Group.tipo' => $grupo_tipo))));*/
+
+            $this->set('groups', $this->User->Group->find('list', array('conditions' => array())));
 
             // ENVIA DADOS PARA A VIEW
             $this->set(compact('grupo_tipo'));
