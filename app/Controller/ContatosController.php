@@ -26,6 +26,7 @@ class ContatosController extends AppController {
                 $contato = $this->Contato->read(null, $id);
 
                 $email = new CakeEmail('mailgun');
+                die(var_dump($email->getHeaders()));
                 $email->to([$contato['Contato']['email'] => $contato['Contato']['name']])
                     ->template('resposta_contato', null)
                     ->emailFormat('html')
