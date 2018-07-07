@@ -26,13 +26,13 @@ class ContatosController extends AppController {
                 $contato = $this->Contato->read(null, $id);
 
                 $email = new CakeEmail('mailgun');
-                die(var_dump($email->getHeaders()));
                 $email->to([$contato['Contato']['email'] => $contato['Contato']['name']])
                     ->template('resposta_contato', null)
                     ->emailFormat('html')
                     ->viewVars(['contato' => $contato])
-                    ->subject('resposta')
-                    ->send();
+                    ->subject('resposta');
+                    //->send();
+                die(var_dump($email->getHeaders()));
                 $this->Session->setFlash('Registro salvo com sucesso.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-success'));
             } else {
                 $this->Session->setFlash('Não foi possível editar o registro. Favor tentar novamente.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-danger'));

@@ -21,20 +21,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="email.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="email.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Config/email.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="49" column="31" selection-start-line="49" selection-start-column="31" selection-end-line="49" selection-end-column="31" />
+            <state relative-caret-position="90">
+              <caret line="45" column="25" selection-start-line="45" selection-start-column="25" selection-end-line="45" selection-end-column="25" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ContatosController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ContatosController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Controller/ContatosController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="855">
-              <caret line="66" selection-start-line="66" selection-end-line="66" />
+            <state relative-caret-position="345">
+              <caret line="32" column="42" selection-start-line="32" selection-start-column="42" selection-end-line="32" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -143,11 +143,11 @@
         <option value="$PROJECT_DIR$/app/View/Contatos/index_table.ctp" />
         <option value="$PROJECT_DIR$/app/webroot/js/sge/AppContatos.js" />
         <option value="$PROJECT_DIR$/app/View/Contatos/index.ctp" />
-        <option value="$PROJECT_DIR$/app/Controller/ContatosController.php" />
         <option value="$PROJECT_DIR$/app/View/Contatos/answer.ctp" />
         <option value="$PROJECT_DIR$/app/Controller/SocRodadasController.php" />
         <option value="$PROJECT_DIR$/app/Config/database.php" />
         <option value="$PROJECT_DIR$/app/Config/email.php" />
+        <option value="$PROJECT_DIR$/app/Controller/ContatosController.php" />
       </list>
     </option>
   </component>
@@ -315,12 +315,12 @@
       <workItem from="1530739468181" duration="13000" />
       <workItem from="1530755553913" duration="402000" />
       <workItem from="1530813266132" duration="4000" />
-      <workItem from="1531001377399" duration="2899000" />
+      <workItem from="1531001377399" duration="3238000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="164482000" />
+    <option name="totallyTimeSpent" value="164821000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-3" y="0" width="1372" height="738" extended-state="6" />
@@ -663,17 +663,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Controller/ContatosController.php">
+    <entry file="file://$PROJECT_DIR$/app/Config/email.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="855">
-          <caret line="66" selection-start-line="66" selection-end-line="66" />
+        <state relative-caret-position="90">
+          <caret line="45" column="25" selection-start-line="45" selection-start-column="25" selection-end-line="45" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Config/email.php">
+    <entry file="file://$PROJECT_DIR$/app/Controller/ContatosController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="49" column="31" selection-start-line="49" selection-start-column="31" selection-end-line="49" selection-end-column="31" />
+        <state relative-caret-position="345">
+          <caret line="32" column="42" selection-start-line="32" selection-start-column="42" selection-end-line="32" selection-end-column="42" />
         </state>
       </provider>
     </entry>
