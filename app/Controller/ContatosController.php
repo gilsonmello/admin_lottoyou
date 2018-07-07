@@ -30,9 +30,8 @@ class ContatosController extends AppController {
                     ->template('resposta_contato', null)
                     ->emailFormat('html')
                     ->viewVars(['contato' => $contato])
-                    ->subject('resposta');
-                    //->send();
-                die(var_dump($email->getHeaders()));
+                    ->subject('resposta')
+                    ->send();
                 $this->Session->setFlash('Registro salvo com sucesso.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-success'));
             } else {
                 $this->Session->setFlash('Não foi possível editar o registro. Favor tentar novamente.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-danger'));
