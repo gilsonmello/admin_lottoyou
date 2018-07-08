@@ -9,26 +9,23 @@ class ContatosController extends AppController {
     public $helpers = array('Time');
 
     private function sendEmail($id) {
+        // Get cURL resource
+        $curl = curl_init();
+        // Set some options - we are passing in a useragent too here
+        curl_setopt_array($curl, array(
+            CURLOPT_RETURNTRANSFER => 1,
+            CURLOPT_URL => 'https://lottoyou.bet/api/contacts/'.$id.'/reply_email',
+            CURLOPT_POST => 1,
+        ));
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        // Send the request & save response to $resp
+        $resp = curl_exec($curl);
 
-        //open connection
-        $ch = curl_init();
-
-        //set the url, number of POST vars, POST data
-        curl_setopt($ch,CURLOPT_URL, 'https://lottoyou.bet/api/contacts/'.$id.'/reply_email');
-        curl_setopt($ch,CURLOPT_POST, 1);
-        curl_setopt($ch,CURLOPT_POSTFIELDS, []);
-
-        //execute post
-        $result = curl_exec($ch);
-
-        //close connection
-        curl_close($result);
-
-        die(var_dump($result));
+        die(var_dump($resp));
         // Close request to clear up some resources
+        curl_close($curl);
 
-
-        return $result;
+        return $resp;
     }
 
     public function answer($id = null) {
