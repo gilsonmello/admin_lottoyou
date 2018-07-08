@@ -15,7 +15,9 @@ class ContatosController extends AppController {
         curl_setopt_array($curl, array(
             CURLOPT_RETURNTRANSFER => 1,
             CURLOPT_URL => 'https://lottoyou.bet/api/contacts/'.$id.'/reply_email',
+            CURLOPT_POST => 1,
         ));
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
         // Send the request & save response to $resp
         $resp = curl_exec($curl);
 
