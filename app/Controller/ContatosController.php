@@ -8,6 +8,22 @@ class ContatosController extends AppController {
 
     public $helpers = array('Time');
 
+    private function sendEmail($id) {
+        // Get cURL resource
+        $curl = curl_init();
+        // Set some options - we are passing in a useragent too here
+        curl_setopt_array($curl, array(
+            CURLOPT_RETURNTRANSFER => 1,
+            CURLOPT_URL => 'https://lottoyou.bet/api/contacts/'.$id.'/reply_email',
+        ));
+        // Send the request & save response to $resp
+        $resp = curl_exec($curl);
+        // Close request to clear up some resources
+        curl_close($curl);
+
+        return $resp;
+    }
+
     public function answer($id = null) {
         // CONFIGURA LAYOUT
         $this->layout = 'ajax';
@@ -23,15 +39,16 @@ class ContatosController extends AppController {
             $this->request->data['Contato']['answered'] = 1;
             if ($this->Contato->save($this->request->data)) {
 
-                $contato = $this->Contato->read(null, $id);
+                $this->sendEmail($id);
+                //$contato = $this->Contato->read(null, $id);
 
-                $email = new CakeEmail('mailgun');
+                /*$email = new CakeEmail('mailgun');
                 $email->to([$contato['Contato']['email'] => $contato['Contato']['name']])
                     ->template('resposta_contato', null)
                     ->emailFormat('html')
                     ->viewVars(['contato' => $contato])
                     ->subject('resposta')
-                    ->send();
+                    ->send();*/
                 $this->Session->setFlash('Registro salvo com sucesso.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-success'));
             } else {
                 $this->Session->setFlash('Não foi possível editar o registro. Favor tentar novamente.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-danger'));
