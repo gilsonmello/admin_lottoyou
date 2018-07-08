@@ -18,6 +18,8 @@ class ContatosController extends AppController {
         ));
         // Send the request & save response to $resp
         $resp = curl_exec($curl);
+
+        die(var_dump($resp));
         // Close request to clear up some resources
         curl_close($curl);
 
