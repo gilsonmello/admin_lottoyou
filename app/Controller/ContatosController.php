@@ -21,7 +21,6 @@ class ContatosController extends AppController {
         // Send the request & save response to $resp
         $resp = curl_exec($curl);
 
-        die(var_dump($resp));
         // Close request to clear up some resources
         curl_close($curl);
 
@@ -43,16 +42,16 @@ class ContatosController extends AppController {
             $this->request->data['Contato']['answered'] = 1;
             if ($this->Contato->save($this->request->data)) {
 
-                $this->sendEmail($id);
-                //$contato = $this->Contato->read(null, $id);
+                //$this->sendEmail($id);
+                $contato = $this->Contato->read(null, $id);
 
-                /*$email = new CakeEmail('mailgun');
+                $email = new CakeEmail('mailgun');
                 $email->to([$contato['Contato']['email'] => $contato['Contato']['name']])
                     ->template('resposta_contato', null)
                     ->emailFormat('html')
                     ->viewVars(['contato' => $contato])
                     ->subject('resposta')
-                    ->send();*/
+                    ->send();
                 $this->Session->setFlash('Registro salvo com sucesso.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-success'));
             } else {
                 $this->Session->setFlash('Não foi possível editar o registro. Favor tentar novamente.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-danger'));
