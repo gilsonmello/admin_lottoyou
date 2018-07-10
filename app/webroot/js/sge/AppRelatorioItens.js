@@ -56,6 +56,7 @@
                 },
                 success: function (data) {
                     $('#gridRelatorioItens').html(data);
+                    p._habilitaBotoesConsulta();
                 },
                 error: function (error) {
 
