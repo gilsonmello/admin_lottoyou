@@ -125,6 +125,7 @@ class SendgridTransport extends AbstractTransport {
         $email = new HttpSocket(array(
           'ssl_verify_host' => false
         ));
+        die(var_dump($params));
         $response = $email->post($request, $params);
         return $response->body;
     }
