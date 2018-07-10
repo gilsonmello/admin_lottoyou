@@ -17,3 +17,6 @@
 /app/tmp/logs/error.log
 /app/webroot/error_log
 /app/webroot/files/Soccer_Expert_Rodadas_Imagem_Modal
+/nbproject/private/
+/.vscode
+/.idea

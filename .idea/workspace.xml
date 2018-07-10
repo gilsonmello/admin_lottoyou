@@ -21,7 +21,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="email.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="email.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Config/email.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="285">
@@ -33,8 +33,29 @@
       <file leaf-file-name="ContatosController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Controller/ContatosController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
+            <state relative-caret-position="390">
               <caret line="53" column="29" lean-forward="true" selection-start-line="53" selection-start-column="29" selection-end-line="53" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="resposta_contato.ctp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/View/Emails/html/resposta_contato.ctp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="3" lean-forward="true" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
+              <folding>
+                <element signature="n#style#0;n#img#0;n#p#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="21" column="6" selection-start-line="21" selection-start-column="6" selection-end-line="21" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -97,7 +118,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Model/LotJogosResultado.php" />
         <option value="$PROJECT_DIR$/app/View/LotJogosResultados/index.ctp" />
         <option value="$PROJECT_DIR$/app/View/LotJogos/detalhar.ctp" />
         <option value="$PROJECT_DIR$/app/Controller/LotJogosResultadosController.php" />
@@ -138,7 +158,6 @@
         <option value="$PROJECT_DIR$/app/View/Contatos/add.ctp" />
         <option value="$PROJECT_DIR$/app/View/GelCadastros/index.ctp" />
         <option value="$PROJECT_DIR$/app/Model/ContatoCategoria.php" />
-        <option value="$PROJECT_DIR$/app/View/Emails/html/resposta_contato.ctp" />
         <option value="$PROJECT_DIR$/lib/Cake/Test/test_app/View/Layouts/Emails/html/default.ctp" />
         <option value="$PROJECT_DIR$/app/View/Contatos/index_table.ctp" />
         <option value="$PROJECT_DIR$/app/webroot/js/sge/AppContatos.js" />
@@ -146,8 +165,10 @@
         <option value="$PROJECT_DIR$/app/View/Contatos/answer.ctp" />
         <option value="$PROJECT_DIR$/app/Controller/SocRodadasController.php" />
         <option value="$PROJECT_DIR$/app/Config/database.php" />
-        <option value="$PROJECT_DIR$/app/Controller/ContatosController.php" />
+        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/app/Config/email.php" />
+        <option value="$PROJECT_DIR$/app/Controller/ContatosController.php" />
+        <option value="$PROJECT_DIR$/app/View/Emails/html/resposta_contato.ctp" />
       </list>
     </option>
   </component>
@@ -336,12 +357,13 @@
       <workItem from="1530739468181" duration="13000" />
       <workItem from="1530755553913" duration="402000" />
       <workItem from="1530813266132" duration="4000" />
-      <workItem from="1531001377399" duration="9391000" />
+      <workItem from="1531001377399" duration="11754000" />
+      <workItem from="1531232229604" duration="481000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="170974000" />
+    <option name="totallyTimeSpent" value="173584000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-3" y="0" width="1372" height="738" extended-state="6" />
@@ -660,20 +682,10 @@
     <entry file="file://$PROJECT_DIR$/app/Config/email.php.default">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Controller/SocRodadasController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="600">
           <caret line="948" column="19" selection-start-line="948" selection-start-column="12" selection-end-line="948" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/View/Emails/html/resposta_contato.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="5" selection-end-column="4" />
         </state>
       </provider>
     </entry>
@@ -684,10 +696,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Controller/ContatosController.php">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="53" column="29" lean-forward="true" selection-start-line="53" selection-start-column="29" selection-end-line="53" selection-end-column="29" />
+        <state relative-caret-position="315">
+          <caret line="21" column="6" selection-start-line="21" selection-start-column="6" selection-end-line="21" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -695,6 +707,23 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="49" column="40" selection-start-line="49" selection-start-column="40" selection-end-line="49" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Controller/ContatosController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="53" column="29" lean-forward="true" selection-start-line="53" selection-start-column="29" selection-end-line="53" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/View/Emails/html/resposta_contato.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="3" lean-forward="true" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#p#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
