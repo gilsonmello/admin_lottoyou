@@ -45,7 +45,7 @@ class ContatosController extends AppController {
                 //$this->sendEmail($id);
                 $contato = $this->Contato->read(null, $id);
 
-                $email = new CakeEmail('sendGrid');
+                $email = new CakeEmail('sendgrid');
                 $email->to([$contato['Contato']['email'] => $contato['Contato']['name']])
                     ->template('resposta_contato', null)
                     ->emailFormat('html')
