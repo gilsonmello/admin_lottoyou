@@ -21,20 +21,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="email.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="email.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Config/email.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="47" column="36" selection-start-line="47" selection-start-column="36" selection-end-line="47" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SendgridTransport.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Plugin/Sendgrid/Lib/Network/Email/SendgridTransport.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="655">
-              <caret line="125" column="26" selection-start-line="125" selection-start-column="22" selection-end-line="125" selection-end-column="26" />
+            <state relative-caret-position="210">
+              <caret line="53" column="26" lean-forward="true" selection-start-line="53" selection-start-column="26" selection-end-line="53" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -51,7 +42,7 @@
       <file leaf-file-name="ContatosController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Controller/ContatosController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
+            <state relative-caret-position="390">
               <caret line="47" column="48" selection-start-line="47" selection-start-column="48" selection-end-line="47" selection-end-column="48" />
             </state>
           </provider>
@@ -70,7 +61,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>AppRasTabelasDescontos</find>
       <find>rasTabelasDescontos</find>
       <find>actAs</find>
       <find>$actsAs</find>
@@ -100,6 +90,7 @@
       <find>$end +=</find>
       <find>plugin</find>
       <find>host</find>
+      <find>_exec</find>
     </findStrings>
     <replaceStrings>
       <replace>LotUserNumeroExtras</replace>
@@ -172,8 +163,8 @@
         <option value="$PROJECT_DIR$/app/View/Emails/html/resposta_contato.ctp" />
         <option value="$PROJECT_DIR$/app/Config/bootstrap.php" />
         <option value="$PROJECT_DIR$/app/Controller/ContatosController.php" />
-        <option value="$PROJECT_DIR$/app/Plugin/Sendgrid/Lib/Network/Email/SendgridTransport.php" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/app/Plugin/Sendgrid/Lib/Network/Email/SendgridTransport.php" />
         <option value="$PROJECT_DIR$/app/Config/email.php" />
       </list>
     </option>
@@ -400,12 +391,12 @@
       <workItem from="1530813266132" duration="4000" />
       <workItem from="1531001377399" duration="11754000" />
       <workItem from="1531232229604" duration="3001000" />
-      <workItem from="1531244292202" duration="3066000" />
+      <workItem from="1531244292202" duration="4027000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="179404000" />
+    <option name="totallyTimeSpent" value="180365000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-3" y="0" width="1372" height="738" extended-state="6" />
@@ -727,13 +718,6 @@
     <entry file="file://$PROJECT_DIR$/app/Plugin/Sendgrid/Test/Case/Network/Email/SendgridTransportTest.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Controller/ContatosController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="47" column="48" selection-start-line="47" selection-start-column="48" selection-end-line="47" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Config/bootstrap.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -741,17 +725,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Config/email.php">
+    <entry file="file://$PROJECT_DIR$/app/Controller/ContatosController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="47" column="36" selection-start-line="47" selection-start-column="36" selection-end-line="47" selection-end-column="36" />
+        <state relative-caret-position="390">
+          <caret line="47" column="48" selection-start-line="47" selection-start-column="48" selection-end-line="47" selection-end-column="48" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Plugin/Sendgrid/Lib/Network/Email/SendgridTransport.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="655">
-          <caret line="125" column="26" selection-start-line="125" selection-start-column="22" selection-end-line="125" selection-end-column="26" />
+        <state relative-caret-position="540">
+          <caret line="126" column="11" lean-forward="true" selection-start-line="126" selection-start-column="11" selection-end-line="126" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Config/email.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="53" column="26" lean-forward="true" selection-start-line="53" selection-start-column="26" selection-end-line="53" selection-end-column="26" />
         </state>
       </provider>
     </entry>
