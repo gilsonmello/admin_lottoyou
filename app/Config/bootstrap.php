@@ -99,7 +99,7 @@ CakePlugin::load('ExtAuth');
  */
 CakePlugin::load('ClientInfo');
 
-CakePlugin::load('Sendgrid');
+//CakePlugin::load('Sendgrid');
 
 /**
  * You can attach event listeners to the request lifecycle as Dispatcher Filter. By default CakePHP bundles two filters:

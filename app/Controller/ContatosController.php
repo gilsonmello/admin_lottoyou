@@ -2,6 +2,8 @@
 
 App::uses('CakeEmail', 'Network/Email');
 
+require("../Vendor/sendgrid-php/sendgrid-php.php");
+
 class ContatosController extends AppController {
 
     public $components = array('App');
@@ -39,19 +41,44 @@ class ContatosController extends AppController {
 
         if ($this->request->is('post') || $this->request->is('put')) {
             $this->request->data['Contato']['id'] = $id;
-            $this->request->data['Contato']['answered'] = 1;
+            //$this->request->data['Contato']['answered'] = 1;
             if ($this->Contato->save($this->request->data)) {
 
                 //$this->sendEmail($id);
                 $contato = $this->Contato->read(null, $id);
 
-                $email = new CakeEmail('sendgrid');
+                /*$email = new CakeEmail('sendgrid');
                 $email->to([$contato['Contato']['email'] => $contato['Contato']['name']])
                     ->template('resposta_contato', null)
                     ->emailFormat('html')
                     ->viewVars(['contato' => $contato])
                     ->subject('resposta')
-                    ->send();
+                    ->send();*/
+
+                $view = new View($this);
+                $view->set('contato', $contato);
+                $view->layout = false;
+                $view_output = $view->render('../Emails/html/resposta_contato');
+
+
+                $email = new \SendGrid\Mail\Mail();
+                $email->setFrom($_ENV['MAIL_FROM_ADDRESS'], $_ENV['MAIL_FROM_NAME']);
+                $email->setSubject("Resposta");
+                $email->addTo($contato['Contato']['email'], $contato['Contato']['name']);
+
+                $email->addContent(
+                    "text/html", $view_output
+                );
+
+                $sendgrid = new \SendGrid($_ENV['SENDGRID_API_KEY']);
+                try {
+                    $response = $sendgrid->send($email);
+                    print $response->statusCode() . "\n";
+                    print_r($response->headers());
+                    print $response->body() . "\n";
+                } catch (Exception $e) {
+                    echo 'Caught exception: ',  $e->getMessage(), "\n";
+                }
 
                 $this->Session->setFlash('Registro salvo com sucesso.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-success'));
             } else {

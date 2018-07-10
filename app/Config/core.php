@@ -29,6 +29,8 @@ FB::info('DEBUG HABILITADO !');
 //FB::info(date('H:i:s'),'date');
 date_default_timezone_set('UTC');
 
+require_once('../webroot/env.php');
+
 /**
  * Configure the Error handler used to handle errors for your application. By default
  * ErrorHandler::handleError() is used. It will display errors using Debugger, when debug > 0
