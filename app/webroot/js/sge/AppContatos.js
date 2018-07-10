@@ -37,6 +37,7 @@
         // CARREGA EVENTOS 
         p._habilitaEventos();
         p._habilitaBotoesConsulta();
+        p._habilitaBotoesPaginate();
     };
 
     // =========================================================================
@@ -55,6 +56,7 @@
                 },
                 success: function (data) {
                     $('#gridContatos').html(data);
+                    p._habilitaEventos();
                 },
                 error: function (error) {
 
@@ -65,11 +67,18 @@
     };
 
     p._habilitaEventos = function () {
+        $(AppContatos.objectId + ' .btnResponder').click(function () {
+            p._loadFormContatos($(this).attr('id'));
+        });
 
-        p._habilitaBotoesPaginate();
+    };
+
+
+
+    p._habilitaBotoesConsulta = function () {
 
         $(AppContatos.objectId + ' #cadastrarContatos').click(function () {
-            p._loadFormContato();
+            //p._loadFormContato();
         });
 
         $(AppContatos.objectId + ' #voltar').click(function () {
@@ -79,14 +88,6 @@
         $(AppContatos.objectId + ' #pesquisarContatos').submit(function () {
             p._loadConsContatos();
             return false;
-        });
-    };
-
-
-
-    p._habilitaBotoesConsulta = function () {
-        $(AppContatos.objectId + ' .btnResponder').click(function () {
-            p._loadFormContatos($(this).attr('id'));
         });
     };
 
