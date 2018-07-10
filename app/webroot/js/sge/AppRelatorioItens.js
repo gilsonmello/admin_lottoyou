@@ -37,6 +37,7 @@
         // CARREGA EVENTOS 
         p._habilitaEventos();
         p._habilitaBotoesConsulta();
+        p._habilitaBotoesPaginate();
     };
 
     // =========================================================================
@@ -44,7 +45,7 @@
     // =========================================================================
 
     p._habilitaBotoesPaginate = function() {
-        $(document).on('click', AppRelatorioPagSeguroDepositos.objectId+' .pagination a', function(e) {
+        $(document).on('click', AppRelatorioItens.objectId+' .pagination a', function(e) {
             e.stopPropagation();
             e.preventDefault();
             $.ajax({
@@ -65,8 +66,6 @@
     };
 
     p._habilitaEventos = function () {
-
-        p._habilitaBotoesPaginate();
 
         $(AppRelatorioItens.objectId + ' #voltar').click(function () {
             window.materialadmin.AppGelCadastros.carregarCadastros();
