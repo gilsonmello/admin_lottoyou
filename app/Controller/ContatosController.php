@@ -41,7 +41,7 @@ class ContatosController extends AppController {
 
         if ($this->request->is('post') || $this->request->is('put')) {
             $this->request->data['Contato']['id'] = $id;
-            //$this->request->data['Contato']['answered'] = 1;
+            $this->request->data['Contato']['answered'] = 1;
             if ($this->Contato->save($this->request->data)) {
 
                 //$this->sendEmail($id);
