@@ -47,15 +47,15 @@ class ContatosController extends AppController {
                 //$this->sendEmail($id);
                 $contato = $this->Contato->read(null, $id);
 
-                /*$email = new CakeEmail('sendgrid');
+                $email = new CakeEmail('mailgun');
                 $email->to([$contato['Contato']['email'] => $contato['Contato']['name']])
                     ->template('resposta_contato', null)
                     ->emailFormat('html')
                     ->viewVars(['contato' => $contato])
                     ->subject('resposta')
-                    ->send();*/
+                    ->send();
 
-                $view = new View($this);
+                /*$view = new View($this);
                 $view->set('contato', $contato);
                 $view->layout = false;
                 $view_output = $view->render('../Emails/html/resposta_contato');
@@ -78,7 +78,7 @@ class ContatosController extends AppController {
                     print $response->body() . "\n";
                 } catch (Exception $e) {
                     echo 'Caught exception: ',  $e->getMessage(), "\n";
-                }
+                }*/
 
                 $this->Session->setFlash('Registro salvo com sucesso.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-success'));
             } else {

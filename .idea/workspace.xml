@@ -21,11 +21,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="email.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="email.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Config/email.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="48" column="92" selection-start-line="48" selection-start-column="23" selection-end-line="48" selection-end-column="92" />
+            <state relative-caret-position="345">
+              <caret line="70" column="41" selection-start-line="70" selection-start-column="20" selection-end-line="70" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -42,8 +42,8 @@
       <file leaf-file-name="ContatosController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Controller/ContatosController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="43" column="12" lean-forward="true" selection-start-line="43" selection-start-column="12" selection-end-line="43" selection-end-column="12" />
+            <state relative-caret-position="195">
+              <caret line="49" column="47" selection-start-line="49" selection-start-column="47" selection-end-line="49" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -81,11 +81,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="resposta_contato.ctp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="resposta_contato.ctp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/View/Emails/html/resposta_contato.ctp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="120">
               <caret line="8" column="4" lean-forward="true" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.ctp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/View/Contatos/index.ctp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="271">
+              <caret line="108" column="32" selection-start-line="108" selection-start-column="32" selection-end-line="108" selection-end-column="163" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index_table.ctp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/View/Contatos/index_table.ctp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="175">
+              <caret line="30" column="147" selection-start-line="30" selection-start-column="147" selection-end-line="30" selection-end-column="147" />
             </state>
           </provider>
         </entry>
@@ -183,22 +201,22 @@
         <option value="$PROJECT_DIR$/app/View/GelCadastros/index.ctp" />
         <option value="$PROJECT_DIR$/app/Model/ContatoCategoria.php" />
         <option value="$PROJECT_DIR$/lib/Cake/Test/test_app/View/Layouts/Emails/html/default.ctp" />
-        <option value="$PROJECT_DIR$/app/View/Contatos/index_table.ctp" />
-        <option value="$PROJECT_DIR$/app/View/Contatos/index.ctp" />
         <option value="$PROJECT_DIR$/app/View/Contatos/answer.ctp" />
         <option value="$PROJECT_DIR$/app/Controller/SocRodadasController.php" />
         <option value="$PROJECT_DIR$/app/Config/database.php" />
         <option value="$PROJECT_DIR$/app/View/Emails/html/resposta_contato.ctp" />
         <option value="$PROJECT_DIR$/app/Plugin/Sendgrid/Lib/Network/Email/SendgridTransport.php" />
-        <option value="$PROJECT_DIR$/app/Config/email.php" />
         <option value="$PROJECT_DIR$/app/Config/bootstrap.php" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/app/Config/core.php" />
         <option value="$PROJECT_DIR$/.env.example" />
         <option value="$PROJECT_DIR$/.env" />
-        <option value="$PROJECT_DIR$/app/Controller/ContatosController.php" />
         <option value="$PROJECT_DIR$/app/webroot/js/sge/AppRelatorioItens.js" />
         <option value="$PROJECT_DIR$/app/webroot/js/sge/AppContatos.js" />
+        <option value="$PROJECT_DIR$/app/View/Contatos/index.ctp" />
+        <option value="$PROJECT_DIR$/app/View/Contatos/index_table.ctp" />
+        <option value="$PROJECT_DIR$/app/Controller/ContatosController.php" />
+        <option value="$PROJECT_DIR$/app/Config/email.php" />
       </list>
     </option>
   </component>
@@ -264,6 +282,19 @@
               <item name="admin_lottoyou" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="admin_lottoyou" type="b2602c69:ProjectViewProjectNode" />
+              <item name="admin_lottoyou" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="View" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="admin_lottoyou" type="b2602c69:ProjectViewProjectNode" />
+              <item name="admin_lottoyou" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="View" type="462c0819:PsiDirectoryNode" />
+              <item name="Contatos" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -372,15 +403,16 @@
       <workItem from="1531001377399" duration="11754000" />
       <workItem from="1531232229604" duration="3001000" />
       <workItem from="1531244292202" duration="4836000" />
-      <workItem from="1531258590114" duration="5040000" />
+      <workItem from="1531258590114" duration="6106000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="186214000" />
+    <option name="totallyTimeSpent" value="187280000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-3" y="0" width="1372" height="738" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32913387" />
@@ -527,27 +559,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/View/Contatos/index_table.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="61" column="6" selection-start-line="61" selection-start-column="6" selection-end-line="61" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/View/Contatos/index.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="63" column="79" selection-start-line="63" selection-start-column="79" selection-end-line="63" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/View/Contatos/answer.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="616">
-          <caret line="72" column="18" lean-forward="true" selection-start-line="72" selection-start-column="18" selection-end-line="72" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/webroot/js/sge/AppRelatorioPagSeguroDepositos.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -646,13 +657,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Config/email.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="48" column="92" selection-start-line="48" selection-start-column="23" selection-end-line="48" selection-end-column="92" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -695,10 +699,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Controller/ContatosController.php">
+    <entry file="file://$PROJECT_DIR$/app/View/Contatos/answer.ctp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="43" column="12" lean-forward="true" selection-start-line="43" selection-start-column="12" selection-end-line="43" selection-end-column="12" />
+        <state relative-caret-position="579">
+          <caret line="72" column="18" lean-forward="true" selection-start-line="72" selection-start-column="18" selection-end-line="72" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -706,6 +710,34 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="4" lean-forward="true" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/View/Contatos/index.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="108" column="32" selection-start-line="108" selection-start-column="32" selection-end-line="108" selection-end-column="163" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/View/Contatos/index_table.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="30" column="147" selection-start-line="30" selection-start-column="147" selection-end-line="30" selection-end-column="147" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Controller/ContatosController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="49" column="47" selection-start-line="49" selection-start-column="47" selection-end-line="49" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Config/email.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="70" column="41" selection-start-line="70" selection-start-column="20" selection-end-line="70" selection-end-column="41" />
         </state>
       </provider>
     </entry>
