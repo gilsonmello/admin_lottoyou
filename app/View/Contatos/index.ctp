@@ -106,7 +106,7 @@
                                 <?= $v['Contato']['subject']; ?>
                             </td>
                             <td>
-                                <?= $v['Contato']['description']; ?>
+                                <?= strlen($v['Contato']['description']) >= 30 ? substr($v['Contato']['description'], 0, 30).'...' : $v['Contato']['description']?>
                             </td>
                             <td>
                                 <?= $v['Contato']['answered'] == 1 ? 'Sim' : 'Não'; ?>
