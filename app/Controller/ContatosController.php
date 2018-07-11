@@ -63,11 +63,10 @@ class ContatosController extends AppController {
                 $view->layout = false;
                 $view_output = $view->render('../Emails/html/resposta_contato');
 
-                $mgClient = new Mailgun();
-                $domain = "lottoyou-adm.com";
+                $mgClient = new Mailgun($_ENV['MAILGUN_SECRET']);
 
                 # Make the call to the client.
-                $result = $mgClient->sendMessage($domain, array(
+                $result = $mgClient->sendMessage($_ENV['MAILGUN_DOMAIN'], array(
                     'from'    => $_ENV['MAIL_FROM_NAME'].' <'.$_ENV['MAIL_FROM_ADDRESS'].'>',
                     'to'      => $contato['Contato']['name'].' <'.$contato['Contato']['email'].'>',
                     'subject' => 'Resposta',

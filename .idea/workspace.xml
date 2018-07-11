@@ -58,7 +58,7 @@
       <find>answered</find>
       <find>pesquisarContatos</find>
       <find>premia</find>
-      <find>$end +=</find>
+      <find />
       <find>plugin</find>
       <find>host</find>
       <find>_exec</find>
