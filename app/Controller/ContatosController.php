@@ -3,6 +3,9 @@
 App::uses('CakeEmail', 'Network/Email');
 
 require("../Vendor/sendgrid-php/sendgrid-php.php");
+require("../Vendor/mailgun-php/vendor/autoload.php");
+
+use Mailgun\Mailgun;
 
 class ContatosController extends AppController {
 
@@ -47,21 +50,32 @@ class ContatosController extends AppController {
                 //$this->sendEmail($id);
                 $contato = $this->Contato->read(null, $id);
 
-                $email = new CakeEmail('mailgun');
+                /*$email = new CakeEmail('mailgun');
                 $email->to([$contato['Contato']['email'] => $contato['Contato']['name']])
                     ->template('resposta_contato', null)
                     ->emailFormat('html')
                     ->viewVars(['contato' => $contato])
                     ->subject('resposta')
-                    ->send();
+                    ->send();*/
 
-                /*$view = new View($this);
+                $view = new View($this);
                 $view->set('contato', $contato);
                 $view->layout = false;
                 $view_output = $view->render('../Emails/html/resposta_contato');
 
+                $mgClient = new Mailgun('key-b7dc35e29b3312de92dc3db2b850dbee');
+                $domain = "YOUR_DOMAIN_NAME";
 
-                $email = new \SendGrid\Mail\Mail();
+                # Make the call to the client.
+                $result = $mgClient->sendMessage($domain, array(
+                    'from'    => $_ENV['MAIL_FROM_NAME'].' <'.$_ENV['MAIL_FROM_ADDRESS'].'>',
+                    'to'      => $contato['Contato']['name'].' <'.$contato['Contato']['email'].'>',
+                    'subject' => 'Resposta',
+                    'html'    => $view_output
+                ));
+
+
+                /*$email = new \SendGrid\Mail\Mail();
                 $email->setFrom($_ENV['MAIL_FROM_ADDRESS'], $_ENV['MAIL_FROM_NAME']);
                 $email->setSubject("Resposta");
                 $email->addTo($contato['Contato']['email'], $contato['Contato']['name']);
