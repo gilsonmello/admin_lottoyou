@@ -2,7 +2,7 @@
 
 App::uses('CakeEmail', 'Network/Email');
 
-require("../Vendor/sendgrid-php/sendgrid-php.php");
+//require("../Vendor/sendgrid-php/sendgrid-php.php");
 require("../Vendor/mailgun-php/vendor/autoload.php");
 
 use Mailgun\Mailgun;
@@ -63,7 +63,7 @@ class ContatosController extends AppController {
                 $view->layout = false;
                 $view_output = $view->render('../Emails/html/resposta_contato');
 
-                $mgClient = new Mailgun('key-b7dc35e29b3312de92dc3db2b850dbee');
+                $mgClient = new Mailgun();
                 $domain = "lottoyou-adm.com";
 
                 # Make the call to the client.
