@@ -6,6 +6,7 @@
        style="margin-bottom:0;">
     <thead>
     <tr>
+        <th>Valor</th>
         <th>Nome</th>
         <th>Banco</th>
         <th>Agência</th>
@@ -22,31 +23,60 @@
     <?php foreach ($dados as $k => $v) { ?>
         <tr>
             <td>
-                <?= $v['RetiradaAgente']['name']; ?>
+                <?php
+                if($v['RetiradaAgente']['value'] != null) echo '$'.$v['RetiradaAgente']['value'];
+                else echo 'Não informado';
+                ?>
             </td>
             <td>
-                <?= $v['RetiradaAgente']['bank']; ?>
+                <?php
+                if($v['RetiradaAgente']['name'] != null) echo $v['RetiradaAgente']['name'];
+                else echo 'Não informado';
+                ?>
             </td>
             <td>
-                <?= $v['RetiradaAgente']['agency']; ?>
+                <?php
+                if($v['RetiradaAgente']['bank'] != null) echo $v['RetiradaAgente']['bank'];
+                else echo 'Não informado';
+                ?>
             </td>
             <td>
-                <?= $v['RetiradaAgente']['number']; ?>
+                <?php
+                if($v['RetiradaAgente']['agency'] != null) echo $v['RetiradaAgente']['agency'];
+                else echo 'Não informado';
+                ?>
+            </td>
+            <td>
+                <?php
+                if($v['RetiradaAgente']['number'] != null) echo $v['RetiradaAgente']['number'];
+                else echo 'Não informado';
+                ?>
             </td>
             <td>
                 <?php
                 if($v['RetiradaAgente']['account_type'] == 1) echo 'C. corrente';
                 else if($v['RetiradaAgente']['account_type'] == 2) echo 'C. poupança';
+                else echo 'Não informado';
                 ?>
             </td>
             <td>
+                <?php
+                if($v['RetiradaAgente']['operation'] != null) echo $v['RetiradaAgente']['operation'];
+                else echo 'Não informado';
+                ?>
                 <?= $v['RetiradaAgente']['operation'] ?>
             </td>
             <td>
-                <?= $v['RetiradaAgente']['identification'] ?>
+                <?php
+                if($v['RetiradaAgente']['identification'] != null) echo $v['RetiradaAgente']['identification'];
+                else echo 'Não informado';
+                ?>
             </td>
             <td>
-                <?= $v['Country']['name'] ?>
+                <?php
+                if($v['Country']['name'] != null) echo $v['Country']['name'];
+                else echo 'Não informado';
+                ?>
             </td>
             <td>
                 <?= $this->Time->format($v['RetiradaAgente']['modified'], '%d/%m/%Y %H:%M'); ?>
