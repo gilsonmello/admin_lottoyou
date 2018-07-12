@@ -84,6 +84,7 @@
                        style="margin-bottom:0;">
                     <thead>
                     <tr>
+                        <th>Valor</th>
                         <th>Nome</th>
                         <th>Banco</th>
                         <th>Agência</th>
@@ -99,6 +100,12 @@
                     <tbody>
                     <?php foreach ($dados as $k => $v) { ?>
                         <tr>
+                            <td>
+                                <?php
+                                if($v['RetiradaAgente']['value'] != null) echo '$'.$v['RetiradaAgente']['value'];
+                                else echo 'Não informado';
+                                ?>
+                            </td>
                             <td>
                                 <?php
                                     if($v['RetiradaAgente']['name'] != null) echo $v['RetiradaAgente']['name'];
