@@ -38,16 +38,6 @@
                     </div>
                     <div class="col-lg-3">
                         <div class="form-group ">
-                            <?= $this->Form->input('email', ['label' => 'E-mail', 'class' => 'form-control', 'required' => false]); ?>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="form-group ">
-                            <?= $this->Form->input('subject', ['label' => 'Assunto', 'class' => 'form-control', 'required' => false]); ?>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="form-group ">
                             <?= $this->Form->input('dt_begin', ['label' => 'Data Inicio', 'class' => 'form-control date', 'required' => false]); ?>
                         </div>
                     </div>
@@ -55,14 +45,6 @@
                         <div class="form-group ">
                             <?= $this->Form->input('dt_end', ['label' => 'Data Final', 'class' => 'form-control date', 'required' => false]); ?>
                         </div>
-                    </div>
-                    <div class="col-md-3 col-lg-3">
-                        <?php echo $this->Form->input('answered', [
-                            'type' => 'radio',
-                            'legend' => 'Respondido?',
-                            'class' => 'radio-inline radio-styled tipo',
-                            'options' => [1 => 'Sim', 0 => 'Não', '' => 'Todos']
-                        ]); ?>
                     </div>
                 </div>
                 <div class="row">

@@ -45,27 +45,19 @@ class RetiradaAgentesController extends AppController {
             'fields' => array('Retirada.*', 'RetiradaAgente.*, Country.*'),
         );
 
-        /*if(isset($query['name'])) {
-            $options['conditions']['Contato.name LIKE'] = '%'.$query['name'].'%';
-        }
-
-        if(isset($query['email'])) {
-            $options['conditions']['Contato.email LIKE'] = '%'.$query['email'].'%';
+        if(isset($query['name'])) {
+            $options['conditions']['RetiradaAgente.name LIKE'] = '%'.$query['name'].'%';
         }
 
         if(isset($query['dt_begin']) && $query['dt_begin'] != '') {
             $dt_inicio = implode('-', array_reverse(explode('/', $query['dt_begin'])));
-            $options['conditions']['Contato.created >='] = $dt_inicio . ' 00:00:00';
+            $options['conditions']['RetiradaAgente.created >='] = $dt_inicio . ' 00:00:00';
         }
 
         if(isset($query['dt_end']) && $query['dt_end'] != '') {
             $dt_fim = implode('-', array_reverse(explode('/', $query['dt_end'])));
-            $options['conditions']['Contato.created <='] = $dt_fim . ' 23:59:59';
+            $options['conditions']['RetiradaAgente.created <='] = $dt_fim . ' 23:59:59';
         }
-
-        if(isset($query['answered']) && $query['answered'] != '') {
-            $options['conditions']['Contato.answered'] = $query['answered'];
-        }*/
 
         $this->paginate = $options;
 
