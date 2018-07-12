@@ -25,7 +25,7 @@ class RetiradaAgentesController extends AppController {
         $options = array(
             'conditions' => [
             ],
-            'limit' => 2,
+            'limit' => 10,
             'order' => array('id' => 'desc'),
             'contain' => [],
             'joins' => [
