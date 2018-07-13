@@ -6,10 +6,19 @@ App::uses('AppModel', 'Model');
  * CakePHP ModuloModel
  * @author 
  */
-class Balance extends AppModel {
+class BalanceInsert extends AppModel {
+
+    public $useTable = 'balance_inserts';
 
     public $belongsTo = [
     	'User' => [
+            'className' => 'User',
+            'foreignKey' => 'user_id',
+            'conditions' => '',
+            'fields' => '',
+            'order' => ''
+        ],
+        'Owner' => [
             'className' => 'User',
             'foreignKey' => 'owner_id',
             'conditions' => '',
@@ -19,13 +28,7 @@ class Balance extends AppModel {
 	];
 
 	public $hasMany = [
-    	'HistoricBalance' => [
-            'className' => 'HistoricBalance',
-            'foreignKey' => 'balance_id',
-            'conditions' => '',
-            'fields' => '',
-            'order' => ''
-        ],
+
 	];
 
 //    public $order = 'SocBolao.nome ASC';

@@ -134,13 +134,19 @@
                     </div>   -->
                 </div>
 
-                <h4 class="pull-left" style="padding-right:5px;">Saque</h4>
+                <h4 class="pull-left" style="padding-right:5px;">Dinheiro</h4>
                 <hr style="margin-top:21px" />
                 <div class="row">
                     <div class="col-sm-2">
+                        <div id="balances" class="text-center hover" style="cursor:pointer;" data-toggle="tooltip" data-placement="bottom" title="Gerenciamento de saldos">
+                            <i class="md md-view-quilt" style="font-size:24px; display:block;"></i>
+                            Saldos
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
                         <div id="retiradaAgentes" class="text-center hover" style="cursor:pointer;" data-toggle="tooltip" data-placement="bottom" title="Gerenciamento de retiradas">
                             <i class="md md-view-quilt" style="font-size:24px; display:block;"></i>
-                            Agente de pagamento
+                            Saques Agente de pagamento
                         </div>
                     </div>
                     <!-- <div class="col-sm-2">

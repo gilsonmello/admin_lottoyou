@@ -90,6 +90,17 @@ class User extends AppModel {
                 'message' => 'Campo obrigatório',
             )
         ),
+        'key' => array(
+            'required' => array(
+                'rule' => array('notEmpty'),
+                'required' => true,
+                'message' => 'Campo obrigatório'
+            ),
+            'unique' => array(
+                'rule' => 'isUnique',
+                'message' => 'Chave em uso. Favor informar outra chave'
+            ),
+        ),
     );
 
     /*

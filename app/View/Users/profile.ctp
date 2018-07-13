@@ -117,6 +117,11 @@
                                                         <?php echo $this->Form->input('vencimento_habilitacao', array('type' => '', 'label' => 'Venc. Habilitação', 'placeholder' => 'dd/mm/yyyy', 'data-bv-format' => 'dd/mm/yyyy', 'class' => 'date form-control', 'div' => false)); ?>
                                                     </div>
                                                 </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <?php echo $this->Form->input('key', array('type' => '', 'label' => 'Chave de segurança', 'placeholder' => 'Sua chave de segurança', 'class' => 'form-control', 'div' => false, 'required' => true)); ?>
+                                                    </div>
+                                                </div>
                                             </div>
 
                                             <button type="submit" class="pull-right btn btn-primary btn-loading-state" data-loading-text="<i class='fa fa-spinner fa-spin'></i> Processando...">SALVAR</button>
