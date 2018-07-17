@@ -1,5 +1,0 @@
-mysqldump.exe -u root sge > dump.sql
-
-copy /Y dump.sql D:\Desenvolvimento\workspace\trend\sge\dump.sql
-
-svn.exe commit "D:\Desenvolvimento\workspace\trend\sge\dump.sql" --message "- Backup BP;"

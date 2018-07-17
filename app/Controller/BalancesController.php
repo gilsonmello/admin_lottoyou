@@ -98,6 +98,10 @@ class BalancesController extends AppController {
             //Verificando a chave de segurança
             if($key != $this->request->data['Balance']['key']) {
                 $this->Session->setFlash('Chave inválida', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-danger'));
+                $this->render(false);
+            } else if($this->request->data['Balance']['reason'] == '') {
+                $this->Session->setFlash('Campo motivo inválido', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-danger'));
+                $this->render(false);
             } else {
                 $balance = $this->Balance->read(null, $id);
                 $from = $balance['Balance']['value'];
@@ -113,6 +117,7 @@ class BalancesController extends AppController {
                     $balanceInsert['BalanceInsert']['owner_id'] = $balance['Balance']['owner_id'];
                     $balanceInsert['BalanceInsert']['user_id'] = $user_id;
                     $balanceInsert['BalanceInsert']['value'] = $this->request->data['Balance']['value'];
+                    $balanceInsert['BalanceInsert']['reason'] = $this->request->data['Balance']['reason'];
                     $this->BalanceInsert->create();
                     $this->BalanceInsert->save($balanceInsert);
 
@@ -160,14 +165,14 @@ class BalancesController extends AppController {
                     $this->Session->setFlash('Não foi possível editar o registro. Favor tentar novamente.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-danger'));
                 }
             }
+        } else {
+            $this->request->data = $this->Balance->read(null, $id);
+            $balance = $this->Balance->read(null, $id);
+            $this->loadModel('User');
+            $this->User->recursive = -1;
+            $user = $this->User->read(null, $balance['Balance']['owner_id']);
+            $this->set('user', $user);
         }
-
-        $this->request->data = $this->Balance->read(null, $id);
-        $balance = $this->Balance->read(null, $id);
-        $this->loadModel('User');
-        $this->User->recursive = -1;
-        $user = $this->User->read(null, $balance['Balance']['owner_id']);
-        $this->set('user', $user);
     }
 
     public function edit($id = null) {

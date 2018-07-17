@@ -22,6 +22,18 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <?= $this->Form->label('reason', 'Motivo<span style="color:red;">*</span>'); ?>
+            <?php echo $this->Form->input('reason', [
+                'escape' => false,
+                'type' => 'textarea',
+                'label' => false,
+                'class' => 'form-control',
+                'required' => true,
+            ]); ?>
+        </div>
+    </div>
 </div>
 <?php echo $this->element('formsButtons') ?>
 <?php echo $this->Form->end(); ?>

@@ -30,10 +30,10 @@
     // =========================================================================
 
     p.initialize = function (divForm, onSuccess, files, modal_hide, beforeSend) {
-
         // Init events
         this._enableEvents();
 
+        this._initSlug();
         this._initInputMask();
         this._initDatePicker();
         this._initMultiSelect();
@@ -274,6 +274,31 @@
         // Init textarea autosize
         $('textarea.autosize').on('focus', function () {
             $(this).autosize({append: ''});
+        });
+    };
+
+    p._convertSlug = function(str) {
+        str = str.replace(/^\s+|\s+$/g, ''); // trim
+        str = str.toLowerCase();
+
+        // remove accents, swap ñ for n, etc
+        var from = "ãàáäâẽèéëêìíïîõòóöôùúüûñç·/_,:;";
+        var to = "aaaaaeeeeeiiiiooooouuuunc------";
+        for (var i = 0, l = from.length; i < l; i++) {
+            str = str.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
+        }
+
+        str = str.replace(/[^a-z0-9 -]/g, '') // remove invalid chars
+            .replace(/\s+/g, '-') // collapse whitespace and replace by -
+            .replace(/-+/g, '-'); // collapse dashes
+
+        return str;
+    };
+
+    p._initSlug = function () {
+        $(".name-has-slug").on('keyup', function () {
+            var slug = p._convertSlug(this.value);
+            $(".slug-from-name").val(slug);
         });
     };
 

@@ -35,10 +35,24 @@ class LotCategoriasController extends AppController {
         $this->set(compact('dados', 'modal'));
     }
 
-    public function add() {
+    public function premio() {
         // CONFIGURA LAYOUT
         $this->layout = 'ajax';
 
+        if ($this->request->is('post') || $this->request->is('put')) {
+            $value = $this->request->data['LotCategoria']['value'];
+            $this->request->data['LotCategoria']['value'] = $this->App->formataValorDouble($value);
+            if ($this->LotCategoria->save($this->request->data)) {
+                $this->Session->setFlash('Registro salvo com sucesso.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-success'));
+            } else {
+                $this->Session->setFlash('Não foi possível salvar o registro.<br/>Favor tentar novamente.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-danger'));
+            }
+        }
+    }
+
+    public function add() {
+        // CONFIGURA LAYOUT
+        $this->layout = 'ajax';
         if ($this->request->is('post') || $this->request->is('put')) {            
             $value = $this->request->data['LotCategoria']['value'];
             $this->request->data['LotCategoria']['value'] = $this->App->formataValorDouble($value);
@@ -69,7 +83,6 @@ class LotCategoriasController extends AppController {
                 $this->Session->setFlash('Não foi possível editar o registro. Favor tentar novamente.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-danger'));
             }
         }
-
         $this->request->data = $this->LotCategoria->read(null, $id);
     }
 

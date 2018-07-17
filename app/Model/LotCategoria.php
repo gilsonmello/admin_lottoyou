@@ -29,6 +29,12 @@ class LotCategoria extends AppModel {
                 'message' => 'Nome em uso. Favor informar outro.'
             )
         ),
+        'slug' => array(
+            'required' => array(
+                'rule' => array('notEmpty'),
+                'message' => 'Campo obrigatório'
+            )
+        ),
         'active' => array(
             'required' => array(
                 'rule' => array('notEmpty'),

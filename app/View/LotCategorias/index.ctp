@@ -84,6 +84,7 @@
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-icon-toggle dropdown-toggle" data-toggle="dropdown"><i class="fa fa-gear"></i></button>
                                         <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                                            <li><?php echo $this->Html->link('<i class="md md-create"></i>&nbsp Prêmios', 'javascript: void(0)', array("escape" => false, 'id' => $v['LotCategoria']['id'], 'class' => 'btnPremio')) ?></li>
                                             <li><?php echo $this->Html->link('<i class="md md-create"></i>&nbsp Adicionar Imagem', 'javascript: void(0)', array("escape" => false, 'id' => $v['LotCategoria']['id'], 'class' => 'btnAddImagemLotCategoria')) ?></li>
                                             <li class="divider"></li>
                                             <li><?php echo $this->Html->link('<i class="md md-create"></i>&nbsp Editar', 'javascript: void(0)', array("escape" => false, 'id' => $v['LotCategoria']['id'], 'class' => 'btnEditar')) ?></li>

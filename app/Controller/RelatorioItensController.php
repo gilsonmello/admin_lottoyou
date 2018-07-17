@@ -14,7 +14,7 @@ class RelatorioItensController extends AppController {
 
         $options = array(
             'conditions' => [],
-            'limit' => 10,
+            'limit' => 50,
             'order' => array('id' => 'desc'),
             'contain' => [],
             'joins' => [

@@ -1,1 +1,0 @@
-svn -v -l 7 log svn://consultoriatrend.com.br/consultoriatrend/sge/trunk > D:\Desenvolvimento\workspace\trend\sge\app\Vendor\publish\svn.log

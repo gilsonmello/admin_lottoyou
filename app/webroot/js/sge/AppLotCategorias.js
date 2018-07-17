@@ -63,6 +63,10 @@
             p._loadFormLotCategoria($(this).attr('id'));
         });
 
+        $(AppLotCategorias.objectId + ' .btnPremio').click(function () {
+            p._loadFormPremio($(this).attr('id'));
+        });
+
         $(AppLotCategorias.objectId + ' .btnAddImagemLotCategoria').click(function () {
             p._loadCarregarImagem($(this).attr('id'))
         });
@@ -101,6 +105,23 @@
     // =========================================================================
     // CARREGA FORMULÁRIOS
     // =========================================================================
+
+    p._loadFormPremio = function (id) {
+        // CHAMA A FUNÇÃO MODAL
+        var modalObject = $(AppLotCategorias.modalFormId);
+        var url = 'lotCategorias/premio/' +id;
+
+        window.materialadmin.AppForm.loadModal(modalObject, url, '75%', function () {
+
+            modalObject.off('hide.bs.modal');
+            modalObject.on('hide.bs.modal', function () {
+                if (window.materialadmin.AppForm.getFormState()) {
+                    p._loadConsLotCategoria();
+                }
+            });
+
+        });
+    };
 
     p._loadFormLotCategoria = function (id, clonar) {
         // CHAMA A FUNÇÃO MODAL

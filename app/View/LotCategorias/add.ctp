@@ -2,9 +2,14 @@
 <?php echo $this->element('forms/title', array('title' => '<i class="fa fa-plus-square"></i> CADASTRAR CATEGORIA Dos JOGOs')); ?>
 <div class="card-body">
     <div class="row">
-        <div class="col-sm-4 col-xs-4 col-md-4 col-lg-4">
+        <div class="col-sm-3 col-xs-12 col-md-3 col-lg-3">
             <div class="form-group">              
-                <?php echo $this->Form->input('nome', array('label' => 'Nome', 'class' => 'form-control', 'title' => 'Nome da categoria.', 'required' => true)); ?>
+                <?php echo $this->Form->input('nome', array('label' => 'Nome', 'class' => 'form-control name-has-slug', 'title' => 'Nome da categoria.', 'required' => true)); ?>
+            </div>
+        </div>
+        <div class="col-sm-3 col-xs-12 col-md-3 col-lg-3">
+            <div class="form-group">
+                <?php echo $this->Form->input('slug', array('label' => 'Slug', 'class' => 'form-control slug-from-name', 'title' => 'Slug', 'required' => true)); ?>
             </div>
         </div>
         <div class="col-sm-2 col-xs-2 col-md-2 col-lg-2">

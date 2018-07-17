@@ -2,7 +2,7 @@
     <div class="section-body" <?php echo ($modal == 1) ? 'style="margin:0;"' : '' ?>>
         <div class="card-head card-head-sm style-primary">
             <header>
-                <i class="md md-apps" style="margin-bottom:0;"></i> Contatos
+                <i class="md md-apps" style="margin-bottom:0;"></i> Saldos
                 <i class="md md-navigate-next" style="margin-bottom:0;"></i> <b>Todos</b>
             </header>
             <div class="tools">
@@ -57,6 +57,7 @@
                     <thead>
                     <tr>
                         <th>Nome</th>
+                        <th>E-mail</th>
                         <th>Saldo</th>
                         <th>Data</th>
                         <th>Ações</th>
@@ -67,6 +68,9 @@
                         <tr>
                             <td>
                                 <?= $v['User']['name'].' '.$v['User']['last_name']; ?>
+                            </td>
+                            <td>
+                                <?= $v['User']['username'] ?>
                             </td>
                             <td>
                                 <?= '$'.$v['Balance']['value'] ?>

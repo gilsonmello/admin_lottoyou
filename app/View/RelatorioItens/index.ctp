@@ -86,8 +86,10 @@
                        style="margin-bottom:0;">
                     <thead>
                         <tr>
-                            <th>Usuário</th>
+                            <th>Nome</th>
+                            <th>E-mail</th>
                             <th>Modalidade</th>
+                            <th>ID</th>
                             <th>Valor</th>
                             <th>Data</th>
                             <th>Ações</th>
@@ -97,6 +99,9 @@
                     <?php foreach ($dados as $k => $v) { ?>
                         <tr>
                             <td>
+                                <?= $v['User']['name'] . ' '. $v['User']['last_name']; ?>
+                            </td>
+                            <td>
                                 <?= $v['User']['username']; ?>
                             </td>
                             <td>
@@ -105,6 +110,9 @@
                                     else if($v['OrderItem']['type'] == "soccer_expert") echo "Soccer Expert";
                                     else echo "Loteria";
                                 ?>
+                            </td>
+                            <td>
+                                <?= $v['OrderItem']['id']; ?>
                             </td>
                             <td>
                                 $<?= $v['OrderItem']['amount']; ?>

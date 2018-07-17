@@ -3,9 +3,14 @@
 <?php echo $this->Form->hidden('id'); ?>
 <div class="card-body">
     <div class="row">
-        <div class="col-sm-4 col-xs-4 col-md-4 col-lg-4">
-            <div class="form-group">              
-                <?php echo $this->Form->input('nome', array('label' => 'Nome', 'class' => 'form-control', 'title' => 'Nome da categoria.', 'required' => true)); ?>
+        <div class="col-sm-3 col-xs-12 col-md-3 col-lg-3">
+            <div class="form-group">
+                <?php echo $this->Form->input('nome', array('label' => 'Nome', 'class' => 'form-control name-has-slug', 'title' => 'Nome da categoria.', 'required' => true)); ?>
+            </div>
+        </div>
+        <div class="col-sm-3 col-xs-12 col-md-3 col-lg-3">
+            <div class="form-group">
+                <?php echo $this->Form->input('slug', array('label' => 'Slug', 'class' => 'form-control slug-from-name', 'title' => 'Slug', 'required' => true)); ?>
             </div>
         </div>
         <div class="col-sm-2 col-xs-2 col-md-2 col-lg-2">
@@ -28,7 +33,7 @@
                 <?php echo $this->Form->input('dezena_extra', array('label' => 'Dezenas extras', 'class' => 'form-control decimal', 'title' => 'Números de dezenas extras disponiveis no sorteio.', 'required' => true)); ?>
             </div>
         </div>
-        <div class="col-sm-3 col-xs-3 col-md-3 col-lg-3">
+        <div class="col-sm-3 col-xs-12 col-md-3 col-lg-3">
             <div class="form-group">
                 <?php echo $this->Form->input('dezena_extra_sel', array('label' => 'Dezenas extras selecionáveis', 'class' => 'form-control decimal', 'title' => 'Quantidade de dezenas extras selecionaveis.', 'required' => true)); ?>
             </div>
@@ -43,11 +48,11 @@
                 <?php echo $this->Form->input('max_assertos', array('label' => 'Número máximo de asserto', 'class' => 'form-control decimal', 'title' => 'Quantidade de dezenas para o primeiro premio.', 'required' => true)); ?>
             </div>
         </div>
+    </div>
+    <div class="row">
         <div class="col-sm-3 col-xs-3 col-md-3 col-lg-3">
             <?php echo $this->Form->input('zero_assertos', array('type' => 'radio', 'legend' => 'Zero pontos', 'class' => 'radio-inline radio-styled tipo', 'options' => array(1 => 'Sim', 0 => 'Não'))); ?>
         </div>
-    </div>
-    <div class="row">
         <div class="col-sm-3 col-xs-3 col-md-3 col-lg-3">
             <div class="form-group"> 
                 <?php echo $this->Form->input('extra_assertos', array('label' => 'Número de asserto das extras', 'class' => 'form-control decimal', 'title' => 'Quantidade de dezenas extras para asserto.', 'required' => true)); ?>
