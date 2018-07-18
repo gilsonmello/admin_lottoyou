@@ -103,7 +103,7 @@
 
     p._loadConsLotPrecoQuantidades = function () {
         // INSTANCIA VARIÁREIS
-        var form = $(AppLotPrecoQuantidades.objectId + ' #pesquisarPrecoQuantidades');
+        var form = $(AppLotPrecoQuantidades.objectId + ' #pesquisarLotPrecoQuantidades');
         var table = $(AppLotPrecoQuantidades.objectId + ' #gridLotPrecoQuantidades');
         var url = baseUrl + 'lotPrecoQuantidades/index';
 
