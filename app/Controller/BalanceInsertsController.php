@@ -1,15 +1,10 @@
 <?php
 
-App::uses('CakeEmail', 'Network/Email');
-require("../Vendor/mailgun-php/vendor/autoload.php");
-
-use Mailgun\Mailgun;
-
 /**
  * Class RetiradasController
  *
  */
-class BalancesController extends AppController {
+class BalanceInsertsController extends AppController {
 
     public $components = array('App');
 
@@ -17,7 +12,7 @@ class BalancesController extends AppController {
 
     public function index($modal = 0) {
 
-        $this->Balance->recursive = -1;
+        $this->BalanceInsert->recursive = -1;
         $query = $this->request->query;
 
         // CARREGA FUNÇÕES BÁSICAS DE PESQUISA E ORDENAÇÃO
@@ -25,19 +20,24 @@ class BalancesController extends AppController {
         $options = array(
             'conditions' => [
             ],
-            'limit' => 10,
-            'order' => array('User.name' => 'asc'),
+            'limit' => 1,
+            'order' => array('BalanceInsert.id' => 'desc'),
             'contain' => [],
             'joins' => [
                 array(
                     'alias' => 'User',
                     'table' => 'users',
                     'type' => 'INNER',
-                    'conditions' => 'User.id = Balance.owner_id'
+                    'conditions' => 'User.id = BalanceInsert.user_id'
                 ),
-
+                array(
+                    'alias' => 'Owner',
+                    'table' => 'users',
+                    'type' => 'INNER',
+                    'conditions' => 'Owner.id = BalanceInsert.owner_id'
+                ),
             ],
-            'fields' => array('Balance.*, User.*'),
+            'fields' => array('BalanceInsert.*, User.*, Owner.*'),
         );
 
         if(isset($query['name'])) {
@@ -46,7 +46,7 @@ class BalancesController extends AppController {
 
         $this->paginate = $options;
 
-        $dados = $this->paginate('Balance');
+        $dados = $this->paginate('BalanceInsert');
 
         // ENVIA DADOS PARA A SESSÃO
         $this->set(compact('dados', 'modal'));
@@ -72,10 +72,6 @@ class BalancesController extends AppController {
                 $this->Session->setFlash('Não foi possível salvar o registro.<br/>Favor tentar novamente.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-danger'));
             }
         }
-    }
-
-    public function withdraw($id = null) {
-
     }
 
     /**
@@ -115,6 +111,17 @@ class BalancesController extends AppController {
                 $this->Balance->validate = [];
                 if ($this->Balance->save($data_save)) {
 
+                    $this->loadModel('BalanceInsert');
+                    $this->BalanceInsert->recursive = -1;
+                    $this->BalanceInsert->validate = [];
+                    $balanceInsert['BalanceInsert']['owner_id'] = $balance['Balance']['owner_id'];
+                    $balanceInsert['BalanceInsert']['user_id'] = $user_id;
+                    $balanceInsert['BalanceInsert']['value'] = $this->request->data['Balance']['value'];
+                    $balanceInsert['BalanceInsert']['reason'] = $this->request->data['Balance']['reason'];
+                    $this->BalanceInsert->create();
+                    $this->BalanceInsert->save($balanceInsert);
+
+
                     $this->loadModel('HistoricBalance');
                     $this->HistoricBalance->recursive = -1;
                     $this->HistoricBalance->validate = [];
@@ -124,24 +131,11 @@ class BalancesController extends AppController {
                     $historicBalance['HistoricBalance']['to'] = $to;
                     $historicBalance['HistoricBalance']['type'] = 1;
                     $historicBalance['HistoricBalance']['amount'] = $amount;
-                    //$historicBalance['HistoricBalance']['balance_insert_id'] = $this->BalanceInsert->id;
+                    $historicBalance['HistoricBalance']['balance_insert_id'] = $this->BalanceInsert->id;
                     $historicBalance['HistoricBalance']['modality'] = 'balance';
                     $historicBalance['HistoricBalance']['description'] = 'balance';
                     $this->HistoricBalance->create();
                     $this->HistoricBalance->save($historicBalance);
-
-
-                    $this->loadModel('BalanceInsert');
-                    $this->BalanceInsert->recursive = -1;
-                    $this->BalanceInsert->validate = [];
-                    $balanceInsert['BalanceInsert']['owner_id'] = $balance['Balance']['owner_id'];
-                    $balanceInsert['BalanceInsert']['user_id'] = $user_id;
-                    $balanceInsert['BalanceInsert']['value'] = $this->request->data['Balance']['value'];
-                    $balanceInsert['BalanceInsert']['reason'] = $this->request->data['Balance']['reason'];
-                    $balanceInsert['BalanceInsert']['historic_balance_id'] = $this->HistoricBalance->id;
-                    $this->BalanceInsert->create();
-                    $this->BalanceInsert->save($balanceInsert);
-
 
                     $this->validaTransacao(true);
 

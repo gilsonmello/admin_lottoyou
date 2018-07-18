@@ -65,6 +65,7 @@
                     <thead>
                         <tr>
                             <th>Nome</th>
+                            <th>Apelido</th>
                             <th>E-mail</th>
                             <th>Perfil</th>
                             <th>Criado Em</th>
@@ -77,6 +78,7 @@
                         <?php foreach ($dados as $k => $v) { ?>
                             <tr>
                                 <td><?php echo $v['User']['name']; ?></td>
+                                <td><?= $v['User']['nickname'] != null ? $v['User']['nickname'] : 'Inexistente'; ?></td>
                                 <td><?php echo $v['User']['username']; ?></td>
                                 <td><?php echo $v['User']['grupo']; ?></td>
                                 <td><?php echo $v['User']['created']; ?></td>

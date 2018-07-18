@@ -25,6 +25,13 @@ class BalanceInsert extends AppModel {
             'fields' => '',
             'order' => ''
         ],
+        'HistoricBalance' => [
+            'className' => 'HistoricBalance',
+            'foreignKey' => 'historic_balance_id',
+            'conditions' => '',
+            'fields' => '',
+            'order' => ''
+        ],
 	];
 
 	public $hasMany = [

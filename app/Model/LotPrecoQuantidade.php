@@ -6,11 +6,13 @@ App::uses('AppModel', 'Model');
  * CakePHP LotJogoModel
  * @author 
  */
-class LotPremio extends AppModel {
+class LotPrecoQuantidade extends AppModel {
     
     public $virtualFields = array(
         //'ativo' => "CASE WHEN LotJogo.active = 1 THEN 'Sim' ELSE 'Não' END",
     );
+
+    public $useTable = 'lot_preco_qtds';
 
     public $belongsTo = [
         'LotCategoria' => [
@@ -42,6 +44,17 @@ class LotPremio extends AppModel {
             /*'unique' => array(
                 'rule' => 'isUnique',
                 'message' => 'Bolão em uso. Favor informar outro.'
+            ),*/
+        ),
+        'qtd' => array(
+            'required' => array(
+                'rule' => array('checkVazio', 'lot_categoria_id'),
+                'required' => true,
+                'message' => 'Campo obrigatório'
+            ),
+            /*'unique' => array(
+                'rule' => 'isUnique',
+                'message' => 'Quantidade em uso.'
             ),*/
         ),
     );

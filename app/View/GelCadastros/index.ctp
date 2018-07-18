@@ -8,7 +8,7 @@
             </div>
 
             <div class="card-body" style="min-height:500px;">
-                <h4 class="pull-left" style="padding-right:5px;">SOCCER EXPERT</h4>
+                <h4 class="pull-left" style="padding-right:5px;">Soccer Expert</h4>
                 <hr style="margin-top:21px" />
                 <div class="row">
                     <?php if ($this->Session->read("Auth.User.group_id") == 1) { ?>
@@ -45,8 +45,8 @@
                     </div>
                 </div>
 
-                <br/>
-                <h4 class="pull-left" style="padding-right:5px;">LOTERIA</h4>
+                <!--<br/>-->
+                <h4 class="pull-left" style="padding-right:5px;">Loteria</h4>
                 <hr style="margin-top:21px" />
                 <div class="row">
                     <div class="col-sm-2">
@@ -65,6 +65,18 @@
                         <div id="lotJogosResultados" class="text-center hover" style="cursor:pointer;" data-toggle="tooltip" data-placement="bottom" title="">
                             <i class="md md-language" style="font-size:24px; display:block;"></i> 
                             Visualizar Resultados
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div id="lotPremios" class="text-center hover" style="cursor:pointer;" data-toggle="tooltip" data-placement="bottom" title="Gerenciamento de Prêmios">
+                            <i class="md md-language" style="font-size:24px; display:block;"></i>
+                            Gerenciar Prêmios
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div id="lotPrecoQuantidades" class="text-center hover" style="cursor:pointer;" data-toggle="tooltip" data-placement="bottom" title="Gerenciamento dos preços das quantidades">
+                            <i class="md md-language" style="font-size:24px; display:block;"></i>
+                            Gerenciar Preço Qtds.
                         </div>
                     </div>
 
@@ -124,6 +136,12 @@
                         <div id="relatorioPaypalDepositos" class="text-center hover" style="cursor:pointer;" data-toggle="tooltip" data-placement="bottom" title="Relatórios de Depósitos Paypal">
                             <i class="md md-view-quilt" style="font-size:24px; display:block;"></i>
                             Depósitos PayPal
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div id="balanceInserts" class="text-center hover" style="cursor:pointer;" data-toggle="tooltip" data-placement="bottom" title="Relatórios de Saldos inseridos">
+                            <i class="md md-view-quilt" style="font-size:24px; display:block;"></i>
+                            Saldos inseridos
                         </div>
                     </div>
                     <!-- <div class="col-sm-2">

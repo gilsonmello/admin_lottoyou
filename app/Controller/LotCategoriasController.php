@@ -57,6 +57,16 @@ class LotCategoriasController extends AppController {
             $value = $this->request->data['LotCategoria']['value'];
             $this->request->data['LotCategoria']['value'] = $this->App->formataValorDouble($value);
             if ($this->LotCategoria->save($this->request->data)) {
+                $this->loadModel('LotPrecoQuantidade');
+                $this->LotPrecoQuantidade->validate = [];
+
+                for($i = 1; $i <= $this->request->data['LotCategoria']['dezena_sel']; $i++) {
+                    $preco['LotPrecoQuantidade']['qtd'] = $i;
+                    $preco['LotPrecoQuantidade']['valor'] = $this->request->data['LotCategoria']['value'];
+                    $preco['LotPrecoQuantidade']['lot_categoria_id'] = $this->LotCategoria->id;
+                    $this->LotPrecoQuantidade->create();
+                    $this->LotPrecoQuantidade->save($preco);
+                }
                 $this->Session->setFlash('Registro salvo com sucesso.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-success'));
             } else {
                 $this->Session->setFlash('Não foi possível salvar o registro.<br/>Favor tentar novamente.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-danger'));
@@ -87,7 +97,7 @@ class LotCategoriasController extends AppController {
     }
 
     public function delete($id = null) {
-        parent::_delete($id);
+        parent::_delete($id, true);
     }
 
     public function addImg($id) {
