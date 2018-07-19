@@ -24,20 +24,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="LotJogosController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="LotJogosController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Controller/LotJogosController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="967">
+            <state relative-caret-position="382">
               <caret line="254" column="64" selection-start-line="254" selection-start-column="64" selection-end-line="254" selection-end-column="64" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SocRodadasController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SocRodadasController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Controller/SocRodadasController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
+            <state relative-caret-position="390">
+              <caret line="50" column="74" selection-start-line="50" selection-start-column="59" selection-end-line="50" selection-end-column="74" />
             </state>
           </provider>
         </entry>
@@ -383,12 +383,12 @@
       <workItem from="1531838055274" duration="599000" />
       <workItem from="1531848041074" duration="15709000" />
       <workItem from="1531921722058" duration="9437000" />
-      <workItem from="1532013472491" duration="759000" />
+      <workItem from="1532013472491" duration="2021000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="248107000" />
+    <option name="totallyTimeSpent" value="249369000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-1" width="1366" height="741" extended-state="6" />
@@ -747,17 +747,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Controller/LotJogosController.php">
+    <entry file="file://$PROJECT_DIR$/app/Controller/SocRodadasController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="967">
-          <caret line="254" column="64" selection-start-line="254" selection-start-column="64" selection-end-line="254" selection-end-column="64" />
+        <state relative-caret-position="390">
+          <caret line="50" column="74" selection-start-line="50" selection-start-column="59" selection-end-line="50" selection-end-column="74" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Controller/SocRodadasController.php">
+    <entry file="file://$PROJECT_DIR$/app/Controller/LotJogosController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
+        <state relative-caret-position="382">
+          <caret line="254" column="64" selection-start-line="254" selection-start-column="64" selection-end-line="254" selection-end-column="64" />
         </state>
       </provider>
     </entry>
