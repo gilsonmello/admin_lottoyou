@@ -2,8 +2,8 @@
     <div class="section-body" <?php echo ($modal == 1) ? 'style="margin:0;"' : '' ?>>
         <div class="card-head card-head-sm style-primary">
             <header>
-                <i class="md md-apps" style="margin-bottom:0;"></i> Loteria
-                <i class="md md-navigate-next" style="margin-bottom:0;"></i> <b>Prêmios</b>
+                <i class="md md-apps" style="margin-bottom:0;"></i> Relatório
+                <i class="md md-navigate-next" style="margin-bottom:0;"></i> <b>Transações</b>
             </header>
             <div class="tools">
                 <!--<button id="cadastrarTransacoes" type="button" class="btn ink-reaction btn-default-light">
@@ -35,14 +35,19 @@
             <div class="card-body style-default-light" style="display: none;padding-top:10px;padding-bottom:10px;">
                 <?php echo $this->Form->create('search', array('id' => 'pesquisarTransacoes', 'class' => 'form', 'role' => 'form', 'type' => 'get')); ?>
                 <div class="row">
-                    <div class="col-sm-4 col-xs-12 col-md-4 col-lg-4">
-                        <div class="form-group">
-                            <?= $this->Form->input('lot_categoria_id', [
-                                'label' => 'Categoria',
-                                'class' => 'form-control chosen',
-                                'options' => $categorias,
-                                'empty' => 'Selecione',
-                            ]); ?>
+                    <div class="col-lg-3">
+                        <div class="form-group ">
+                            <?= $this->Form->input('nome', ['label' => 'Nome', 'class' => 'form-control', 'required' => false]); ?>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="form-group ">
+                            <?= $this->Form->input('dt_inicio', ['label' => 'Data Inicio', 'class' => 'form-control date', 'required' => false]); ?>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="form-group ">
+                            <?= $this->Form->input('dt_fim', ['label' => 'Data Final', 'class' => 'form-control date', 'required' => false]); ?>
                         </div>
                     </div>
                 </div>
@@ -69,7 +74,7 @@
                             <th>E-mail</th>
                             <th>Data</th>
                             <th>Modalidade</th>
-                            <th>Descrição</th>
+                            <!--<th>Descrição</th>-->
                             <th>Tipo</th>
                             <th>Quantia</th>
                             <!--<th>Ações</th>-->
@@ -104,9 +109,9 @@
 
                                 <?= $modalidade ?>
                             </td>
-                            <td>
+                            <!--<td>
 
-                            </td>
+                            </td>-->
                             <td>
                                 <?php $tipo = ''; ?>
                                 <?php

@@ -92,13 +92,27 @@ class TransacoesController extends AppController {
                 'PedidoPagseguro.*',
                 'Item.*',
                 'BalanceInsert.*',
-                'RetiradaAgente.*'
+                'RetiradaAgente.*',
             ),
         );
 
-        if(isset($query['lot_categoria_id']) && $query['lot_categoria_id'] != '') {
-            $options['conditions']['LotCategoria.id ='] = $query['lot_categoria_id'];
+        if(isset($query['nome'])) {
+            $options['conditions']['Owner.name LIKE'] = '%'.$query['nome'].'%';
         }
+
+        if(isset($query['dt_inicio']) && !empty($query['dt_inicio'])) {
+            $dt_inicio = implode('-', array_reverse(explode('/', $query['dt_inicio'])));
+            $options['conditions']['HistoricBalance.created >='] = $dt_inicio . ' 00:00:00';
+        }
+
+        if(isset($query['dt_fim']) && !empty($query['dt_fim'])) {
+            $dt_fim = implode('-', array_reverse(explode('/', $query['dt_fim'])));
+            $options['conditions']['HistoricBalance.created <='] = $dt_fim . ' 23:59:59';
+        }
+
+        /*if(isset($query['lot_categoria_id']) && $query['lot_categoria_id'] != '') {
+            $options['conditions']['LotCategoria.id ='] = $query['lot_categoria_id'];
+        }*/
 
         $this->paginate = $options;
 

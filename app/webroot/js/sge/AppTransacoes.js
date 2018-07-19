@@ -77,7 +77,7 @@
         });
 
         $(AppTransacoes.objectId + ' #pesquisarTransacoes').submit(function () {
-            p._loadFormTransacoes();
+            p._loadConsTransacoes();
             return false;
         });
     };
@@ -101,7 +101,7 @@
     // CARREGA CONSULTA 
     // =========================================================================
 
-    p._loadFormTransacoes = function () {
+    p._loadConsTransacoes = function () {
         // INSTANCIA VARIÁREIS
         var form = $(AppTransacoes.objectId + ' #pesquisarTransacoes');
         var table = $(AppTransacoes.objectId + ' #gridTransacoes');
