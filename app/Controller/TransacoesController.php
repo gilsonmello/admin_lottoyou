@@ -23,7 +23,7 @@ class TransacoesController extends AppController {
         $options = array(
             'conditions' => [
             ],
-            'limit' => 50,
+            'limit' => 30,
             'order' => array('HistoricBalance.id' => 'desc'),
             'contain' => [],
             'joins' => [

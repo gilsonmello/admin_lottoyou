@@ -10,14 +10,16 @@
         <th>E-mail</th>
         <th>Data</th>
         <th>Modalidade</th>
-        <th>Descrição</th>
+        <!--<th>Descrição</th>-->
         <th>Tipo</th>
         <th>Quantia</th>
         <!--<th>Ações</th>-->
     </tr>
     </thead>
     <tbody>
-    <?php $total = 0.00; foreach ($dados as $k => $v) { ?>
+    <?php $totalEntrada = 0.00; $totalSaida = 0.00; foreach ($dados as $k => $v) { ?>
+        <?php if($v['HistoricBalance']['type'] == 1) $totalEntrada += $v['HistoricBalance']['amount'] ?>
+        <?php if($v['HistoricBalance']['type'] == 0) $totalSaida += $v['HistoricBalance']['amount'] * -1 ?>
         <tr>
             <td>
                 <?= $v['Owner']['name'] . ' '. $v['Owner']['last_name'] ?>
@@ -81,10 +83,18 @@
     <?php } ?>
     <tr>
         <th>
-            Total
+            Total de Entrada
         </th>
-        <td colspan="4">
-            $<?= number_format($total, 2, '.', '') ?>
+        <td colspan="5">
+            $<?= number_format($totalEntrada, 2, '.', '') ?>
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Total de Saída
+        </th>
+        <td colspan="5">
+            $<?= number_format($totalSaida, 2, '.', '') ?>
         </td>
     </tr>
     </tbody>
