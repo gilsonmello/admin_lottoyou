@@ -36,11 +36,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TransacoesController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TransacoesController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Controller/TransacoesController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="99" column="41" selection-start-line="99" selection-start-column="41" selection-end-line="99" selection-end-column="41" />
+            <state relative-caret-position="375">
+              <caret line="25" column="25" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -54,20 +54,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.ctp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/View/Transacoes/index.ctp">
+      <file leaf-file-name="index_table.ctp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/View/Transacoes/index_table.ctp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="143">
-              <caret line="35" column="91" selection-start-line="35" selection-start-column="72" selection-end-line="35" selection-end-column="91" />
+            <state relative-caret-position="390">
+              <caret line="47" column="16" selection-start-line="47" selection-start-column="12" selection-end-line="49" selection-end-column="20" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index_table.ctp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/View/Transacoes/index_table.ctp">
+      <file leaf-file-name="index.ctp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/View/Transacoes/index.ctp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1035">
-              <caret line="69" column="20" lean-forward="true" selection-start-line="69" selection-start-column="20" selection-end-line="69" selection-end-column="20" />
+            <state relative-caret-position="270">
+              <caret line="159" column="39" lean-forward="true" selection-start-line="159" selection-start-column="39" selection-end-line="159" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -208,10 +208,10 @@
         <option value="$PROJECT_DIR$/app/Controller/SocRodadasController.php" />
         <option value="$PROJECT_DIR$/app/View/GelCadastros/index.ctp" />
         <option value="$PROJECT_DIR$/app/Controller/BalanceInsertsController.php" />
-        <option value="$PROJECT_DIR$/app/View/Transacoes/index.ctp" />
-        <option value="$PROJECT_DIR$/app/View/Transacoes/index_table.ctp" />
         <option value="$PROJECT_DIR$/app/webroot/js/sge/AppTransacoes.js" />
         <option value="$PROJECT_DIR$/app/Controller/TransacoesController.php" />
+        <option value="$PROJECT_DIR$/app/View/Transacoes/index_table.ctp" />
+        <option value="$PROJECT_DIR$/app/View/Transacoes/index.ctp" />
       </list>
     </option>
   </component>
@@ -454,12 +454,12 @@
       <workItem from="1531838055274" duration="599000" />
       <workItem from="1531848041074" duration="15709000" />
       <workItem from="1531921722058" duration="9437000" />
-      <workItem from="1532013472491" duration="9271000" />
+      <workItem from="1532013472491" duration="9750000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="256619000" />
+    <option name="totallyTimeSpent" value="257098000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-1" width="1366" height="741" extended-state="6" />
@@ -760,37 +760,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Model/Raspadinha.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="16" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/View/GelCadastros/index.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="153" column="43" selection-start-line="153" selection-start-column="43" selection-end-line="153" selection-end-column="43" />
-          <folding>
-            <element signature="n#style#0;n#h4#1;n#div#1;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/View/Transacoes/index_table.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1035">
-          <caret line="69" column="20" lean-forward="true" selection-start-line="69" selection-start-column="20" selection-end-line="69" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/View/Transacoes/index.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="35" column="91" selection-start-line="35" selection-start-column="72" selection-end-line="35" selection-end-column="91" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Controller/BalanceInsertsController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
@@ -824,8 +793,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Controller/TransacoesController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="99" column="41" selection-start-line="99" selection-start-column="41" selection-end-line="99" selection-end-column="41" />
+        <state relative-caret-position="375">
+          <caret line="25" column="25" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Model/Raspadinha.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="16" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/View/Transacoes/index_table.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="47" column="16" selection-start-line="47" selection-start-column="12" selection-end-line="49" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/View/GelCadastros/index.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="153" column="43" selection-start-line="153" selection-start-column="43" selection-end-line="153" selection-end-column="43" />
+          <folding>
+            <element signature="n#style#0;n#h4#1;n#div#1;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/View/Transacoes/index.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="159" column="39" lean-forward="true" selection-start-line="159" selection-start-column="39" selection-end-line="159" selection-end-column="39" />
         </state>
       </provider>
     </entry>
