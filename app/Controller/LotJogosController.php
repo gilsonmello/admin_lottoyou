@@ -120,19 +120,29 @@ class LotJogosController extends AppController {
         $this->loadModel('LotUserNumero');
         $this->loadModel('LotUserNumerosExtras');
         $this->loadModel('LotCategoria');
+        $this->loadModel('LotPremio');
         $this->LotUserJogo->recursive = -1;
         $this->LotUserNumero->recursive = -1;
         $this->LotUserNumerosExtras->recursive = -1;
         $this->LotCategoria->recursive = -1;
+        $this->LotPremio->recursive = -1;
 
         $jogo = $this->LotJogo->read(null, $jogoId);
+
         $categoria = $this->LotCategoria->find('first', [
             'conditions' => [
                 'LotCategoria.id' => $jogo['LotJogo']['lot_categoria_id']
             ]
         ]);
 
-        $pontuacoes = $this->LotUserJogo->find('all', [
+        $premios = $this->LotPremio->find('all', [
+            'conditions' => [
+                'LotPremio.lot_categoria_id' => $categoria['LotCategoria']['id']
+            ]
+        ]);
+
+
+        /*$pontuacoes = $this->LotUserJogo->find('all', [
             'fields' => 'LotUserJogo.num_total, LotUserJogo.lot_jogo_id',
             'conditions' => [
                 'LotUserJogo.lot_jogo_id' => $jogoId,
@@ -143,6 +153,22 @@ class LotJogosController extends AppController {
                 'LotUserJogo.num_total'
             ],
             'limit' => 5
+        ]);*/
+
+        $pontuacoes = $this->LotUserJogo->find('all', [
+            'fields' => 'LotUserJogo.num_total, LotUserJogo.num_acerto, LotUserJogo.num_acerto_extra, LotUserJogo.lot_jogo_id',
+            'conditions' => [
+                'LotUserJogo.lot_jogo_id' => $jogoId,
+                //'LotUserJogo.num_total >=' => $categoria['LotCategoria']['min_assertos']
+            ],
+            'order' => [
+                'LotUserJogo.num_acerto DESC',
+                'LotUserJogo.num_acerto_extra DESC',
+            ],
+            'group' => [
+                'LotUserJogo.num_acerto',
+                'LotUserJogo.num_acerto_extra',
+            ],
         ]);
 
 
@@ -168,20 +194,35 @@ class LotJogosController extends AppController {
         $msg = 'Registro salvo com sucesso.';
         $class = 'alert-success';
         $this->StartTransaction();
+
+
         foreach ($pontuacoes as $key => $pontuacao) {
 
             $users_jogos = $this->LotUserJogo->find('all', [
                 'conditions' => [
                     'LotUserJogo.num_total' => $pontuacao['LotUserJogo']['num_total'],
+                    'LotUserJogo.num_acerto' => $pontuacao['LotUserJogo']['num_acerto'],
+                    'LotUserJogo.num_acerto_extra' => $pontuacao['LotUserJogo']['num_acerto_extra'],
                     'LotUserJogo.lot_jogo_id' => $jogoId,
                 ]
             ]);
 
-            foreach ($users_jogos as $user_jogo) {
+            foreach ($users_jogos as $k2 => $user_jogo) {
 
-                $user_jogo['LotUserJogo']['vencedor'] = 1;
-                $user_jogo['LotUserJogo']['posicao'] = $key + 1;
-                $ok = $this->LotUserJogo->save($user_jogo) ? true : false;
+                $valorPremio = 0;
+                foreach($premios as $k3 => $premio) {
+
+                    if($premio['LotPremio']['num_acertos'] == $user_jogo['LotUserJogo']['num_acerto'] &&
+                        $premio['LotPremio']['num_acertos_extras'] == $user_jogo['LotUserJogo']['num_acerto_extra']) {
+
+                        $valorPremio = $premio['LotPremio']['value'];
+                        break;
+                    }
+
+                }
+
+                if($valorPremio == 0)
+                    continue;
 
 
                 $jogador = $this->User->read(null, $user_jogo['LotUserJogo']['jogador_id']);
@@ -197,14 +238,10 @@ class LotJogosController extends AppController {
                 $historico['HistoricBalance']['from'] = $saldo['Balance']['value'];
                 $historico['HistoricBalance']['type'] = 1;
                 $historico['HistoricBalance']['description'] = 'award';
-                $historico['HistoricBalance']['lottery_bet_id'] = $user_jogo['LotUserJogo']['id'];
-                $historico['HistoricBalance']['amount'] = isset($premiacao[$user_jogo['LotUserJogo']['num_acerto'] - 1])
-                    ? $premiacao[$user_jogo['LotUserJogo']['num_acerto'] - 1]
-                    : 0.00;
+                //$historico['HistoricBalance']['lottery_bet_id'] = $user_jogo['LotUserJogo']['id'];
+                $historico['HistoricBalance']['amount'] = $valorPremio;
 
-                $saldo['Balance']['value'] += isset($premiacao[$user_jogo['LotUserJogo']['num_acerto'] - 1])
-                    ? $premiacao[$user_jogo['LotUserJogo']['num_acerto'] - 1]
-                    : 0.00;
+                $saldo['Balance']['value'] += $valorPremio;
 
                 $ok = $this->Balance->save($saldo) ? true : false;
 
@@ -212,6 +249,13 @@ class LotJogosController extends AppController {
                 $this->HistoricBalance->create();
 
                 $ok = $this->HistoricBalance->save($historico) ? true : false;
+
+
+                $user_jogo['LotUserJogo']['vencedor'] = 1;
+                $user_jogo['LotUserJogo']['posicao'] = $key + 1;
+                $user_jogo['LotUserJogo']['historic_balance_id'] = $this->HistoricBalance->id;
+
+                $ok = $this->LotUserJogo->save($user_jogo) ? true : false;
 
                 //$historico_lottery['HistoricBalanceLottery']['historic_balance_id'] = $this->HistoricBalance->id;
                 //$historico_lottery['HistoricBalanceLottery']['lot_categoria_id'] = $categoria['LotCategoria']['id'];

@@ -38,7 +38,7 @@ class SocRodadasController extends AppController {
 
         $ok = $this->Balance->save($saldo);
         $this->HistoricBalance->create();
-        $historico['HistoricBalance']['soccer_expert_bet_id'] = $dado['SocAposta']['id'];
+        //$historico['HistoricBalance']['soccer_expert_bet_id'] = $dado['SocAposta']['id'];
         $historico['HistoricBalance']['amount'] = $grupo['SocRodadasGrupo']['arrecadado'] * $porcentagem / 100;
         $historico['HistoricBalance']['to'] = $saldo['Balance']['value'];
         $historico['HistoricBalance']['type'] = 1;
@@ -47,6 +47,9 @@ class SocRodadasController extends AppController {
         $ok = $this->HistoricBalance->save($historico);
 
         $this->validaTransacao($ok);
+
+        $dado['SocAposta']['historic_balance_id'] = $this->HistoricBalance->id;
+        $this->SocAposta->save($dado);
 
 
         //$historico_soccer['HistoricBalanceSoccer']['historic_balance_id'] = $this->HistoricBalance->id;

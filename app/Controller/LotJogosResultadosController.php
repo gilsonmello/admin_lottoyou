@@ -185,12 +185,13 @@ class LotJogosResultadosController extends AppController {
                     $value['LotUserJogo']['num_total'] = $contador1;
 
                     $value['LotUserJogo']['vencedor'] = 0;
+
                     /*
                      * Caso o usuário acertou todos os números possíveis, fazer a soma dos números normais e extras
                      */
-                    if($contador1 == $categoria['LotCategoria']['max_assertos']) {
+                    //if($contador1 == $categoria['LotCategoria']['max_assertos']) {
                         $value['LotUserJogo']['num_total'] = $contador1 + $contador2;
-                    }
+                    //}
 
                     //Salvando as informações da aposta
                     $this->LotUserJogo->save($value);
@@ -237,8 +238,9 @@ class LotJogosResultadosController extends AppController {
                     ]
                 ]);
 
+
                 $dezenas = array();
-                for ($index = 0; $index < $dados['LotCategoria']['dezena']; $index++) {
+                for ($index = 1; $index <= $dados['LotCategoria']['dezena']; $index++) {
                     foreach ($numeros as $k => $v) {
                         if ($index == $v['LotJogosNumero']['numero']) {
                             $dezenas[$index] = 1;
@@ -246,9 +248,9 @@ class LotJogosResultadosController extends AppController {
                     }
                 }
                 $dezenas2 = array();
-                for ($index = 0; $index < $dados['LotCategoria']['dezena_extra']; $index++) {
+                for ($index = 1; $index <= $dados['LotCategoria']['dezena_extra']; $index++) {
                     foreach ($numeros_extras as $k => $v) {
-                        if ($index == $v['LotJogosNumeroExtra']['numero']) {
+                        if ($index == $v['LotJogosNumerosExtras']['numero']) {
                             $dezenas2[$index] = 1;
                         }
                     }

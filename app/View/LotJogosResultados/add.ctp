@@ -112,12 +112,12 @@
                         $let = 'D';
                         $let2 = 'd';
                         $i = 1;
-                        for ($index = 1; $index < ($dados['LotCategoria']['dezena']+1); $index++) {
+                        for ($index = 1; $index <= $dados['LotCategoria']['dezena']; $index++) {
                             if ($index == 100) {
                             ?>
                                 <button style="margin: 4px;" type="button" id="00" class="<?php echo empty($dezenas[$index]) ? 'btn-default-light' : 'btn-success'; ?> btn ink-reaction btn-floating-action"><font style="font-size: 19px">00</font></button>
                             <?php } else { ?>
-                                <button style="margin: 4px;" type="button"class="<?php echo empty($dezenas[$index]) ? 'btn-default-light' : 'btn-success'; ?> btn ink-reaction btn-floating-action"><font style="font-size: 19px ;text-align: center;"><?php echo $index ?></font></button>
+                                <button style="margin: 4px;" type="button" class="<?php echo empty($dezenas[$index]) ? 'btn-default-light' : 'btn-success'; ?> btn ink-reaction btn-floating-action"><font style="font-size: 19px ;text-align: center;"><?php echo $index ?></font></button>
                                 <?php
                             }
                         }
@@ -127,20 +127,10 @@
                     <div class="card-body btn-group btn-group-sm btn-group-lg btn-group-xs" style="padding: 2px; margin-left: 0px; margin-right: 0px; background-color: #e5e6e6; text-align: center;">
                         <?php
                         if (!empty($dados['LotCategoria']['dezena_extra'])) {
-                            fb($dezenas2, 'dezenas2');
-                            for ($index = 0; $index < $dados['LotCategoria']['dezena_extra']; $index++) {
-
-                                $x = (($index + 1) < 10) ? ($index + 1 + $num) : ($index + 1 + $num);
-                                if (($x) == ($num + 100)) {
-                                    ?>
-                                    <button style="margin: 4px;" type="button" id="<?php echo 'd00' ?>" class="<?php echo empty($dezenas2[$index]) ? 'btn-default-darking' : 'btn-success'; ?> btn ink-reaction btn-floating-action"><font style="font-size: 19px">00</font></button>
-                                <?php } else { ?>
-                                    <button style="margin: 4px;" type="button"  id="<?php echo 'd'. $index?>" class="<?php echo empty($dezenas2[$index]) ? 'btn-default-darking' : 'btn-success'; ?> btn ink-reaction btn-floating-action"><font style="font-size: 19px ;text-align: center;"><?php echo $index ?></font></button>
-                                <?php
-                                }
-                            }
-                        }
-                        ?>
+                            for ($index = 1; $index <= $dados['LotCategoria']['dezena_extra']; $index++) { ?>
+                                <button style="margin: 4px;" type="button"  id="<?php echo 'd'. $index?>" class="<?php echo empty($dezenas2[$index]) ? 'btn-default-darking' : 'btn-success'; ?> btn ink-reaction btn-floating-action"><font style="font-size: 19px ;text-align: center;"><?php echo $index ?></font></button>
+                            <?php } ?>
+                       <?php } ?>
                     </div>
                     <em class="text-caption" style="padding-left: 9px; margin-bottom: 10px; margin-top: 5px; text-align: center;">
                         <?php
@@ -164,6 +154,5 @@
     <?php } ?>
     <button class="btn btn-default pull-left" type="button" data-dismiss="modal" style="margin:0;">FECHAR</button>
 </div>
-
 <?php echo $this->Form->end(); ?>
 
