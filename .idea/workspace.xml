@@ -24,38 +24,64 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="LotJogosController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Controller/LotJogosController.php">
+      <file leaf-file-name="index.ctp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/View/GelCadastros/index.ctp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="382">
-              <caret line="254" column="64" selection-start-line="254" selection-start-column="64" selection-end-line="254" selection-end-column="64" />
+            <state relative-caret-position="405">
+              <caret line="153" column="43" selection-start-line="153" selection-start-column="43" selection-end-line="153" selection-end-column="43" />
+              <folding>
+                <element signature="n#style#0;n#h4#1;n#div#1;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SocRodadasController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Controller/SocRodadasController.php">
+      <file leaf-file-name="TransacoesController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Controller/TransacoesController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="50" column="74" selection-start-line="50" selection-start-column="59" selection-end-line="50" selection-end-column="74" />
+            <state relative-caret-position="-12">
+              <caret line="30" column="39" lean-forward="true" selection-start-line="30" selection-start-column="39" selection-end-line="30" selection-end-column="39" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AppLotJogos.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/webroot/js/sge/AppLotJogos.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1590">
-              <caret line="106" column="34" selection-start-line="106" selection-start-column="28" selection-end-line="106" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LotPremio.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Model/LotPremio.php">
+      <file leaf-file-name="Raspadinha.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Model/Raspadinha.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="120">
-              <caret line="8" column="15" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="15" />
+              <caret line="8" column="16" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.ctp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/View/Transacoes/index.ctp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-202">
+              <caret line="72" column="32" selection-start-line="72" selection-start-column="28" selection-end-line="72" selection-end-column="49" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BalanceInsertsController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Controller/BalanceInsertsController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="405">
+              <caret line="135" column="82" selection-start-line="135" selection-start-column="74" selection-end-line="135" selection-end-column="82" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="add.ctp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/View/Transacoes/add.ctp">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="AppTransacoes.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/webroot/js/sge/AppTransacoes.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2040">
+              <caret line="136" column="42" selection-start-line="136" selection-start-column="42" selection-end-line="136" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -64,8 +90,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>InsertBa</find>
-      <find>_initInputMask</find>
       <find>add</find>
       <find>RelatorioItens</find>
       <find>pesquisarRelatorioPagSeguroDepositos</find>
@@ -80,7 +104,6 @@
       <find>col-sm-4 col-xs-12 col-md-4 col-lg-4</find>
       <find>_loadConsLotPremios</find>
       <find>cadastrarLotPremios</find>
-      <find>gridLotPremios</find>
       <find>_loadConsPrecoQuantidades</find>
       <find>LotPremio</find>
       <find>cadastrarLotPrecoQuantidades</find>
@@ -94,11 +117,11 @@
       <find>min_assertos</find>
       <find>card-body btn-group btn-group-sm btn-group-lg btn-group-xs</find>
       <find>premia</find>
+      <find>_loadConsTransacoess</find>
+      <find>gridLotPremios</find>
+      <find>PedidoPaypal</find>
     </findStrings>
     <replaceStrings>
-      <replace>_loadConsContatos</replace>
-      <replace>answer</replace>
-      <replace>Contato</replace>
       <replace>AppRetiradas</replace>
       <replace>pesquisarRetiradas</replace>
       <replace>gridRetiradas</replace>
@@ -126,14 +149,14 @@
       <replace>_loadConsLotPrecoQuantidades</replace>
       <replace>col-sm-4 col-xs-12 col-md-4 col-lg-4</replace>
       <replace>valor</replace>
+      <replace>pesquisarTransacoes</replace>
+      <replace>_loadFormTransacoes</replace>
+      <replace>gridTransacoes</replace>
     </replaceStrings>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/View/Balances/add.ctp" />
-        <option value="$PROJECT_DIR$/app/Model/Balance.php" />
-        <option value="$PROJECT_DIR$/app/Controller/UsersController.php" />
         <option value="$PROJECT_DIR$/app/View/Users/profile.ctp" />
         <option value="$PROJECT_DIR$/app/Model/User.php" />
         <option value="$PROJECT_DIR$/app/View/Balances/index_table.ctp" />
@@ -157,7 +180,6 @@
         <option value="$PROJECT_DIR$/app/webroot/js/sge/AppBalanceInserts.js" />
         <option value="$PROJECT_DIR$/app/Controller/BalancesController.php" />
         <option value="$PROJECT_DIR$/app/View/BalanceInserts/index_table.ctp" />
-        <option value="$PROJECT_DIR$/app/Controller/BalanceInsertsController.php" />
         <option value="$PROJECT_DIR$/app/Model/LotPremio.php" />
         <option value="$PROJECT_DIR$/app/webroot/js/sge/AppLotPremios.js" />
         <option value="$PROJECT_DIR$/app/Controller/LotPremiosController.php" />
@@ -173,7 +195,6 @@
         <option value="$PROJECT_DIR$/app/View/LotPrecoQuantidades/index_table.ctp" />
         <option value="$PROJECT_DIR$/app/Model/LotPrecoQuantidade.php" />
         <option value="$PROJECT_DIR$/app/View/LotPrecoQuantidades/index.ctp" />
-        <option value="$PROJECT_DIR$/app/View/GelCadastros/index.ctp" />
         <option value="$PROJECT_DIR$/app/View/Users/index.ctp" />
         <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/app/webroot/index.php" />
@@ -182,6 +203,11 @@
         <option value="$PROJECT_DIR$/app/Controller/LotJogosResultadosController.php" />
         <option value="$PROJECT_DIR$/app/Controller/LotJogosController.php" />
         <option value="$PROJECT_DIR$/app/Controller/SocRodadasController.php" />
+        <option value="$PROJECT_DIR$/app/View/GelCadastros/index.ctp" />
+        <option value="$PROJECT_DIR$/app/webroot/js/sge/AppTransacoes.js" />
+        <option value="$PROJECT_DIR$/app/Controller/BalanceInsertsController.php" />
+        <option value="$PROJECT_DIR$/app/Controller/TransacoesController.php" />
+        <option value="$PROJECT_DIR$/app/View/Transacoes/index.ctp" />
       </list>
     </option>
   </component>
@@ -251,13 +277,47 @@
               <item name="admin_lottoyou" type="b2602c69:ProjectViewProjectNode" />
               <item name="admin_lottoyou" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="admin_lottoyou" type="b2602c69:ProjectViewProjectNode" />
+              <item name="admin_lottoyou" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="admin_lottoyou" type="b2602c69:ProjectViewProjectNode" />
               <item name="admin_lottoyou" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="View" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="admin_lottoyou" type="b2602c69:ProjectViewProjectNode" />
+              <item name="admin_lottoyou" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="View" type="462c0819:PsiDirectoryNode" />
+              <item name="Transacoes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="admin_lottoyou" type="b2602c69:ProjectViewProjectNode" />
+              <item name="admin_lottoyou" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="webroot" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="admin_lottoyou" type="b2602c69:ProjectViewProjectNode" />
+              <item name="admin_lottoyou" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="webroot" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="admin_lottoyou" type="b2602c69:ProjectViewProjectNode" />
+              <item name="admin_lottoyou" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="webroot" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="sge" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="admin_lottoyou" type="b2602c69:ProjectViewProjectNode" />
@@ -278,15 +338,15 @@
     <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/View" />
-      <recent name="$PROJECT_DIR$/app/Controller" />
-      <recent name="$PROJECT_DIR$/app/webroot/js/sge" />
-      <recent name="$PROJECT_DIR$/app/Model" />
-      <recent name="$PROJECT_DIR$/app/View/LotPremios" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/Plugin/Sendgrid" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/webroot/js/sge" />
+      <recent name="$PROJECT_DIR$/app/View" />
+      <recent name="$PROJECT_DIR$/app/Controller" />
+      <recent name="$PROJECT_DIR$/app/Model" />
+      <recent name="$PROJECT_DIR$/app/View/LotPremios" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -383,12 +443,12 @@
       <workItem from="1531838055274" duration="599000" />
       <workItem from="1531848041074" duration="15709000" />
       <workItem from="1531921722058" duration="9437000" />
-      <workItem from="1532013472491" duration="2021000" />
+      <workItem from="1532013472491" duration="7506000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="249369000" />
+    <option name="totallyTimeSpent" value="254854000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-1" width="1366" height="741" extended-state="6" />
@@ -436,65 +496,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/View/Raspadinhas/index.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1407" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/View/SocRodadas/index.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="17" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/View/LotCategorias/premio.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="65" selection-start-line="20" selection-start-column="65" selection-end-line="20" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Model/LotCategoria.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="18" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/webroot/js/sge/AppSocRodadas.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="76" column="20" selection-start-line="76" selection-start-column="15" selection-end-line="76" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/View/RelatorioPagSeguroDepositos/index.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-270" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/View/SocRodadas/add.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="37" column="14" lean-forward="true" selection-start-line="27" selection-start-column="8" selection-end-line="37" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Model/SocRodada.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="89" column="8" selection-start-line="89" selection-start-column="8" selection-end-line="99" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/View/LotJogos/edit.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" selection-start-line="2" selection-end-line="2" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Controller/SocCategoriasController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -527,13 +528,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
           <caret line="34" column="14" selection-start-line="34" selection-start-column="14" selection-end-line="34" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Model/LotUserJogo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="41" />
         </state>
       </provider>
     </entry>
@@ -579,24 +573,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Controller/AppController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="254" column="20" selection-start-line="254" selection-start-column="20" selection-end-line="254" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/View/LotCategorias/index.ctp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="416">
           <caret line="90" column="44" selection-start-line="90" selection-start-column="44" selection-end-line="90" selection-end-column="237" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/View/GelCadastros/index.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="48" column="45" lean-forward="true" selection-start-line="48" selection-start-column="45" selection-end-line="48" selection-end-column="45" />
         </state>
       </provider>
     </entry>
@@ -707,13 +687,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Model/LotPremio.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="15" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/View/LotJogosResultados/add.ctp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2118">
@@ -726,25 +699,19 @@
         <state relative-caret-position="-1080" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/webroot/js/sge/AppLotJogos.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1590">
-          <caret line="106" column="34" selection-start-line="106" selection-start-column="28" selection-end-line="106" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Controller/BalancesController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2427">
-          <caret line="51" column="36" lean-forward="true" selection-start-line="51" selection-start-column="36" selection-end-line="51" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Controller/LotJogosResultadosController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-300">
           <caret line="145" column="46" selection-start-line="145" selection-start-column="36" selection-end-line="145" selection-end-column="46" />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/View/Emails/html/mensagem_agente.ctp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Controller/RetiradaAgentesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1497" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Controller/SocRodadasController.php">
@@ -754,10 +721,100 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/webroot/js/sge/AppLotJogos.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1590">
+          <caret line="106" column="34" selection-start-line="106" selection-start-column="28" selection-end-line="106" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Controller/BalancesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="633">
+          <caret line="51" column="36" lean-forward="true" selection-start-line="51" selection-start-column="36" selection-end-line="51" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Model/LotPremio.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="15" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Controller/LotJogosController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="254" column="64" selection-start-line="254" selection-start-column="64" selection-end-line="254" selection-end-column="64" />
+        <state relative-caret-position="577">
+          <caret line="198" column="53" lean-forward="true" selection-start-line="198" selection-start-column="53" selection-end-line="198" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Controller/AppController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="34" column="6" selection-start-line="34" selection-start-column="6" selection-end-line="34" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/View/Transacoes/add.ctp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/webroot/js/sge/AppTransacoes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2040">
+          <caret line="136" column="42" selection-start-line="136" selection-start-column="42" selection-end-line="136" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Model/LotUserJogo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Model/SocAposta.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="15" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Model/Raspadinha.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="16" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/View/GelCadastros/index.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="153" column="43" selection-start-line="153" selection-start-column="43" selection-end-line="153" selection-end-column="43" />
+          <folding>
+            <element signature="n#style#0;n#h4#1;n#div#1;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Controller/BalanceInsertsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="135" column="82" selection-start-line="135" selection-start-column="74" selection-end-line="135" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Controller/TransacoesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-12">
+          <caret line="30" column="39" lean-forward="true" selection-start-line="30" selection-start-column="39" selection-end-line="30" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/View/Transacoes/index.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-202">
+          <caret line="72" column="32" selection-start-line="72" selection-start-column="28" selection-end-line="72" selection-end-column="49" />
         </state>
       </provider>
     </entry>
