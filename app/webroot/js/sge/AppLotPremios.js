@@ -45,18 +45,20 @@
     // =========================================================================
 
     p._habilitaBotoesPaginate = function() {
-        $(document).on('click', AppLotPremios.objectId+' .pagination a', function(e) {
+        $(AppLotPremios.objectId+' .pagination a').on('click', function(e) {
             e.stopPropagation();
             e.preventDefault();
             $.ajax({
                 url: this.href,
                 method: 'get',
                 beforeSend: function() {
+                    $(AppLotPremios.objectId+' .pagination a').off('click');
                     window.materialadmin.AppNavigation.carregando($('#gridLotPremios'));
                 },
                 success: function (data) {
                     $('#gridLotPremios').html(data);
                     p._habilitaBotoesConsulta();
+                    p._habilitaBotoesPaginate();
                 },
                 error: function (error) {
 
@@ -115,6 +117,7 @@
                 table.html($(html));
                 // HABILITA BOTÕES DA CONSULTA
                 p._habilitaBotoesConsulta();
+                p._habilitaBotoesPaginate();
             }
         }, 'html');
     };

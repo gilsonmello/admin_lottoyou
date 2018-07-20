@@ -37,6 +37,7 @@
         // CARREGA EVENTOS 
         p._habilitaEventos();
         p._habilitaBotoesConsulta();
+        p._habilitaBotoesPaginate();
     };
 
     // =========================================================================
@@ -44,17 +45,20 @@
     // =========================================================================
 
     p._habilitaBotoesPaginate = function() {
-        $(document).on('click', AppRelatorioPaypalDepositos.objectId+' .pagination a', function(e) {
+        $(AppRelatorioPaypalDepositos.objectId+' .pagination a').on('click', function(e) {
             e.stopPropagation();
             e.preventDefault();
             $.ajax({
                 url: this.href,
                 method: 'get',
                 beforeSend: function() {
+                    $(AppRelatorioPaypalDepositos.objectId+' .pagination a').off('click');
                     window.materialadmin.AppNavigation.carregando($('#gridRelatorioPaypalDepositos'));
                 },
                 success: function (data) {
                     $('#gridRelatorioPaypalDepositos').html(data);
+                    p._habilitaBotoesConsulta();
+                    p._habilitaBotoesPaginate();
                 },
                 error: function (error) {
 
@@ -73,23 +77,14 @@
         });
 
         $(AppRelatorioPaypalDepositos.objectId + ' #pesquisarRelatorioPaypalDepositos').submit(function () {
-            p._loadRelatorioPaypalDepositos();
+            p._loadConsRelatorioPaypalDepositos();
             return false;
         });
     };
 
     
     p._habilitaBotoesConsulta = function () {
-        $(AppRelatorioPaypalDepositos.objectId + ' .btnEditar').click(function () {
-            p._loadFormRasTabelasDesconto($(this).attr('id'));
-        });
 
-        $(AppRelatorioPaypalDepositos.objectId + ' .btnDeletar').click(function () {
-            var url = baseUrl + 'relatorioPaypalDepositos/delete/' + $(this).attr('id');
-            window.materialadmin.AppGrid.delete(url, function () {
-                p._loadConsRasTabelasDesconto();
-            });
-        });
     };
 
     
@@ -97,7 +92,7 @@
     // CARREGA CONSULTA 
     // =========================================================================
 
-    p._loadRelatorioPaypalDepositos = function () {
+    p._loadConsRelatorioPaypalDepositos = function () {
         // INSTANCIA VARIÁREIS
         var form = $(AppRelatorioPaypalDepositos.objectId + ' #pesquisarRelatorioPaypalDepositos');
         var table = $(AppRelatorioPaypalDepositos.objectId + ' #gridRelatorioPaypalDepositos');
@@ -111,30 +106,9 @@
                 table.html($(html));
                 // HABILITA BOTÕES DA CONSULTA
                 p._habilitaBotoesConsulta();
+                p._habilitaBotoesPaginate();
             }
         }, 'html');
-    };
-
-    // =========================================================================
-    // CARREGA FORMULÁRIOS
-    // =========================================================================
-
-    p._loadFormRasTabelasDesconto = function (id, clonar) {
-        // CHAMA A FUNÇÃO MODAL
-        var modalObject = $(AppRelatorioPaypalDepositos.modalFormId);
-        var action = (typeof clonar !== 'undefined') ? 'add' : 'edit';
-        var url = (typeof id === 'undefined') ? 'relatorioPaypalDepositos/add' : 'relatorioPaypalDepositos/' + action + '/' + id;
-        var i = 0;
-
-        window.materialadmin.AppForm.loadModal(modalObject, url, '75%', function () {
-            modalObject.off('hide.bs.modal');
-            modalObject.on('hide.bs.modal', function () {
-                if (window.materialadmin.AppForm.getFormState()) {
-                    p._loadConsRasTabelasDesconto();
-                }
-            });
-
-        });
     };
 
     // =========================================================================

@@ -47,19 +47,20 @@
     // =========================================================================
 
     p._habilitaBotoesPaginate = function() {
-        $(AppBalanceWithdraw.objectId+' .pagination a').unbind('click');
-        $(document).on('click', AppBalanceWithdraw.objectId+' .pagination a', function(e) {
+        $(AppBalanceWithdraw.objectId+' .pagination a').on('click', function(e) {
             e.stopPropagation();
             e.preventDefault();
             $.ajax({
                 url: this.href,
                 method: 'get',
                 beforeSend: function() {
+                    $(AppBalanceWithdraw.objectId+' .pagination a').off('click');
                     window.materialadmin.AppNavigation.carregando($('#gridBalanceWithdraw'));
                 },
                 success: function (data) {
                     $('#gridBalanceWithdraw').html(data);
                     p._habilitaBotoesConsulta();
+                    p._habilitaBotoesPaginate();
                 },
                 error: function (error) {
 
@@ -114,6 +115,7 @@
                 table.html($(html));
                 // HABILITA BOTÕES DA CONSULTA
                 p._habilitaBotoesConsulta();
+                p._habilitaBotoesPaginate();
             }
         }, 'html');
     };

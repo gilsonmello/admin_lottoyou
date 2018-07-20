@@ -45,18 +45,20 @@
     // =========================================================================
 
     p._habilitaBotoesPaginate = function() {
-        $(document).on('click', AppTransacoes.objectId+' .pagination a', function(e) {
+        $(AppTransacoes.objectId+' .pagination a').on('click', function(e) {
             e.stopPropagation();
             e.preventDefault();
             $.ajax({
                 url: this.href,
                 method: 'get',
                 beforeSend: function() {
+                    $(AppTransacoes.objectId+' .pagination a').off('click');
                     window.materialadmin.AppNavigation.carregando($('#gridTransacoes'));
                 },
                 success: function (data) {
                     $('#gridTransacoes').html(data);
                     p._habilitaBotoesConsulta();
+                    p._habilitaBotoesPaginate();
                 },
                 error: function (error) {
 
@@ -67,10 +69,6 @@
     };
 
     p._habilitaEventos = function () {
-
-        $(AppTransacoes.objectId + ' #cadastrarTransacoes').click(function () {
-            p._loadFormTransacoes();
-        });
 
         $(AppTransacoes.objectId + ' #voltar').click(function () {
             window.materialadmin.AppGelCadastros.carregarCadastros();
@@ -84,7 +82,7 @@
 
     
     p._habilitaBotoesConsulta = function () {
-        $(AppTransacoes.objectId + ' .btnEditar').click(function () {
+        /*$(AppTransacoes.objectId + ' .btnEditar').click(function () {
             p._loadFormTransacoes($(this).attr('id'));
         });
 
@@ -93,7 +91,7 @@
             window.materialadmin.AppGrid.delete(url, function () {
                 p._loadFormTransacoes();
             });
-        });
+        });*/
     };
 
     
@@ -115,30 +113,9 @@
                 table.html($(html));
                 // HABILITA BOTÕES DA CONSULTA
                 p._habilitaBotoesConsulta();
+                p._habilitaBotoesPaginate();
             }
         }, 'html');
-    };
-
-    // =========================================================================
-    // CARREGA FORMULÁRIOS
-    // =========================================================================
-
-    p._loadFormTransacoes = function (id, clonar) {
-        // CHAMA A FUNÇÃO MODAL
-        var modalObject = $(AppTransacoes.modalFormId);
-        var action = (typeof clonar !== 'undefined') ? 'add' : 'edit';
-        var url = (typeof id === 'undefined') ? 'transacoes/add' : 'transacoes/' + action + '/' + id;
-        var i = 0;
-
-        window.materialadmin.AppForm.loadModal(modalObject, url, '75%', function () {
-            modalObject.off('hide.bs.modal');
-            modalObject.on('hide.bs.modal', function () {
-                if (window.materialadmin.AppForm.getFormState()) {
-                    p._loadFormTransacoes();
-                }
-            });
-
-        });
     };
 
     // =========================================================================

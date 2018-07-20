@@ -45,19 +45,20 @@
     // =========================================================================
 
     p._habilitaBotoesPaginate = function() {
-        $(AppBalanceInserts.objectId+' .pagination a').off('click');
-        $(document).on('click', AppBalanceInserts.objectId+' .pagination a', function(e) {
+        $(AppBalanceInserts.objectId+' .pagination a').on('click', function(e) {
             e.stopPropagation();
             e.preventDefault();
             $.ajax({
                 url: this.href,
                 method: 'get',
                 beforeSend: function() {
+                    $(AppBalanceInserts.objectId+' .pagination a').off('click');
                     window.materialadmin.AppNavigation.carregando($('#gridBalanceInserts'));
                 },
                 success: function (data) {
                     $('#gridBalanceInserts').html(data);
                     p._habilitaBotoesConsulta();
+                    p._habilitaBotoesPaginate();
                 },
                 error: function (error) {
 
@@ -112,6 +113,7 @@
                 table.html($(html));
                 // HABILITA BOTÕES DA CONSULTA
                 p._habilitaBotoesConsulta();
+                p._habilitaBotoesPaginate();
             }
         }, 'html');
     };

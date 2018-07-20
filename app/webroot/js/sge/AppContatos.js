@@ -45,18 +45,20 @@
     // =========================================================================
 
     p._habilitaBotoesPaginate = function() {
-        $(document).on('click', AppContatos.objectId+' .pagination a', function(e) {
+        $(AppContatos.objectId+' .pagination a').on('click', function(e) {
             e.stopPropagation();
             e.preventDefault();
             $.ajax({
                 url: this.href,
                 method: 'get',
                 beforeSend: function() {
+                    $(AppContatos.objectId+' .pagination a').off('click');
                     window.materialadmin.AppNavigation.carregando($('#gridContatos'));
                 },
                 success: function (data) {
                     $('#gridContatos').html(data);
                     p._habilitaBotoesConsulta();
+                    p._habilitaBotoesPaginate();
                 },
                 error: function (error) {
 
@@ -108,6 +110,7 @@
 
                 // HABILITA BOTÕES DA CONSULTA
                 p._habilitaBotoesConsulta();
+                p._habilitaBotoesPaginate();
             }
         }, 'html');
     };

@@ -33,6 +33,13 @@ class RelatorioItensController extends AppController {
         $this->OrderItem->recursive = -1;
         $this->OrderItem->validate = [];
 
+
+        $total = $this->OrderItem->find('first', [
+            'fields' => [
+                'SUM(OrderItem.amount) AS total'
+            ],
+        ]);
+
         if(isset($query['nome'])) {
             $options['conditions']['User.name LIKE'] = '%'.$query['nome'].'%';
         }
@@ -66,7 +73,7 @@ class RelatorioItensController extends AppController {
         $dados = $this->paginate('OrderItem');
 
         // ENVIA DADOS PARA A SESSÃO
-        $this->set(compact('dados', 'modal'));
+        $this->set(compact('dados', 'modal', 'total'));
 
         $this->set('query', http_build_query($query));
 

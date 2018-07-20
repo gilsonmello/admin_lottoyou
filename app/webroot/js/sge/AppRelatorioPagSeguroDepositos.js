@@ -37,6 +37,7 @@
         // CARREGA EVENTOS 
         p._habilitaEventos();
         p._habilitaBotoesConsulta();
+        p._habilitaBotoesPaginate();
     };
 
     // =========================================================================
@@ -44,17 +45,20 @@
     // =========================================================================
 
     p._habilitaBotoesPaginate = function() {
-        $(document).on('click', AppRelatorioPagSeguroDepositos.objectId+' .pagination a', function(e) {
+        $(AppRelatorioPagSeguroDepositos.objectId+' .pagination a').on('click', function(e) {
             e.stopPropagation();
             e.preventDefault();
             $.ajax({
                 url: this.href,
                 method: 'get',
                 beforeSend: function() {
+                    $(AppRelatorioPagSeguroDepositos.objectId+' .pagination a').off('click');
                     window.materialadmin.AppNavigation.carregando($('#gridRelatorioPagSeguroDepositos'));
                 },
                 success: function (data) {
                     $('#gridRelatorioPagSeguroDepositos').html(data);
+                    p._habilitaBotoesConsulta();
+                    p._habilitaBotoesPaginate();
                 },
                 error: function (error) {
 
@@ -66,30 +70,19 @@
 
     p._habilitaEventos = function () {
 
-        p._habilitaBotoesPaginate();
-
         $(AppRelatorioPagSeguroDepositos.objectId + ' #voltar').click(function () {
             window.materialadmin.AppGelCadastros.carregarCadastros();
         });
 
         $(AppRelatorioPagSeguroDepositos.objectId + ' #pesquisarRelatorioPagSeguroDepositos').submit(function () {
-            p._loadRelatorioPagSeguroDepositos();
+            p._loadConsRelatorioPagSeguroDepositos();
             return false;
         });
     };
 
     
     p._habilitaBotoesConsulta = function () {
-        $(AppRelatorioPagSeguroDepositos.objectId + ' .btnEditar').click(function () {
-            p._loadFormRasTabelasDesconto($(this).attr('id'));
-        });
 
-        $(AppRelatorioPagSeguroDepositos.objectId + ' .btnDeletar').click(function () {
-            var url = baseUrl + 'relatorioPagSeguroDepositos/delete/' + $(this).attr('id');
-            window.materialadmin.AppGrid.delete(url, function () {
-                p._loadConsRasTabelasDesconto();
-            });
-        });
     };
 
     
@@ -97,7 +90,7 @@
     // CARREGA CONSULTA 
     // =========================================================================
 
-    p._loadRelatorioPagSeguroDepositos = function () {
+    p._loadConsRelatorioPagSeguroDepositos = function () {
         // INSTANCIA VARIÁREIS
         var form = $(AppRelatorioPagSeguroDepositos.objectId + ' #pesquisarRelatorioPagSeguroDepositos');
         var table = $(AppRelatorioPagSeguroDepositos.objectId + ' #gridRelatorioPagSeguroDepositos');
@@ -111,30 +104,9 @@
                 table.html($(html));
                 // HABILITA BOTÕES DA CONSULTA
                 p._habilitaBotoesConsulta();
+                p._habilitaBotoesPaginate();
             }
         }, 'html');
-    };
-
-    // =========================================================================
-    // CARREGA FORMULÁRIOS
-    // =========================================================================
-
-    p._loadFormRasTabelasDesconto = function (id, clonar) {
-        // CHAMA A FUNÇÃO MODAL
-        var modalObject = $(AppRelatorioPagSeguroDepositos.modalFormId);
-        var action = (typeof clonar !== 'undefined') ? 'add' : 'edit';
-        var url = (typeof id === 'undefined') ? 'relatorioPagSeguroDepositos/add' : 'relatorioPagSeguroDepositos/' + action + '/' + id;
-        var i = 0;
-
-        window.materialadmin.AppForm.loadModal(modalObject, url, '75%', function () {
-            modalObject.off('hide.bs.modal');
-            modalObject.on('hide.bs.modal', function () {
-                if (window.materialadmin.AppForm.getFormState()) {
-                    p._loadConsRasTabelasDesconto();
-                }
-            });
-
-        });
     };
 
     // =========================================================================

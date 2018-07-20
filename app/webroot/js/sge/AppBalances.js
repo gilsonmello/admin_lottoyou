@@ -34,8 +34,6 @@
         window.materialadmin.AppVendor.initialize();
         window.materialadmin.Demo.initialize();
 
-        $(AppBalances.objectId+' .pagination a').unbind('click');
-
         // CARREGA EVENTOS 
         p._habilitaEventos();
         p._habilitaBotoesConsulta();
@@ -47,19 +45,20 @@
     // =========================================================================
 
     p._habilitaBotoesPaginate = function() {
-        $(AppBalances.objectId+' .pagination a').off('click');
-        $(document).on('click', AppBalances.objectId+' .pagination a', function(e) {
+        $(AppBalances.objectId+' .pagination a').on('click', function(e) {
             e.stopPropagation();
             e.preventDefault();
             $.ajax({
                 url: this.href,
                 method: 'get',
                 beforeSend: function() {
+                    $(AppBalances.objectId+' .pagination a').off('click');
                     window.materialadmin.AppNavigation.carregando($('#gridBalances'));
                 },
                 success: function (data) {
                     $('#gridBalances').html(data);
                     p._habilitaBotoesConsulta();
+                    p._habilitaBotoesPaginate();
                 },
                 error: function (error) {
 
@@ -114,6 +113,7 @@
 
                 // HABILITA BOTÕES DA CONSULTA
                 p._habilitaBotoesConsulta();
+                p._habilitaBotoesPaginate();
             }
         }, 'html');
     };

@@ -45,18 +45,20 @@
     // =========================================================================
 
     p._habilitaBotoesPaginate = function() {
-        $(document).on('click', AppRetiradaAgentes.objectId+' .pagination a', function(e) {
+        $(AppRetiradaAgentes.objectId+' .pagination a').on('click', function(e) {
             e.stopPropagation();
             e.preventDefault();
             $.ajax({
                 url: this.href,
                 method: 'get',
                 beforeSend: function() {
+                    $(AppRetiradaAgentes.objectId+' .pagination a').off('click');
                     window.materialadmin.AppNavigation.carregando($('#gridRetiradaAgentes'));
                 },
                 success: function (data) {
                     $('#gridRetiradaAgentes').html(data);
                     p._habilitaBotoesConsulta();
+                    p._habilitaBotoesPaginate();
                 },
                 error: function (error) {
 
@@ -84,9 +86,7 @@
     };
 
     p._habilitaBotoesConsulta = function () {
-        $(AppRetiradaAgentes.objectId + ' .btnEdit').click(function () {
-            p._loadFormRetiradaAgentes($(this).attr('id'));
-        });
+
     };
 
     // =========================================================================
@@ -108,26 +108,9 @@
 
                 // HABILITA BOTÕES DA CONSULTA
                 p._habilitaBotoesConsulta();
+                p._habilitaBotoesPaginate();
             }
         }, 'html');
-    };
-
-    // =========================================================================
-    // CARREGA FORMULÁRIOS
-    // =========================================================================
-
-    p._loadFormRetiradaAgentes = function (id, clonar) {
-        // CHAMA A FUNÇÃO MODAL
-        var modalObject = $(AppRetiradaAgentes.modalFormId);
-        var action = (typeof clonar !== 'undefined') ? 'add' : 'edit';
-        var url = (typeof id === 'undefined') ? 'retiradaAgentes/add' : 'retiradaAgentes/' + action + '/' + id;
-
-        window.materialadmin.AppForm.loadModal(modalObject, url, '70%', function () {
-            modalObject.off('hide.bs.modal');
-            modalObject.on('hide.bs.modal', function () {
-                //p._loadConsRetiradaAgentes();
-            });
-        });
     };
 
     // =========================================================================

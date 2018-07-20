@@ -1,4 +1,7 @@
-<h4>Total de registros: <?php echo $this->Paginator->params()['count']; ?></h4>
+<h4>
+    Total de registros: <?= $this->Paginator->params()['count']; ?>&nbsp;&nbsp;&nbsp;
+    Total: $<?= $total[0]['total']; ?>
+</h4>
 <table id=""
        class="table table-condensed table-hover"
        cellspacing="0"
@@ -16,7 +19,7 @@
     </tr>
     </thead>
     <tbody>
-    <?php foreach ($dados as $k => $v) { ?>
+    <?php $total = 0.00; foreach ($dados as $k => $v) { ?>
         <tr>
             <td>
                 <?= $v['User']['name'] . ' '. $v['User']['last_name']; ?>
@@ -36,6 +39,7 @@
             </td>
             <td>
                 $<?= $v['OrderItem']['amount']; ?>
+                <?php $total += $v['OrderItem']['amount']; ?>
             </td>
             <td>
                 <?= $this->Time->format($v['OrderItem']['created_at'], '%d/%m/%Y %H:%M'); ?>
@@ -52,6 +56,14 @@
             </td>
         </tr>
     <?php } ?>
+    <tr>
+        <th colspan="4">
+            Total
+        </th>
+        <td colspan="3">
+            $<?= number_format($total, 2, '.', '') ?>
+        </td>
+    </tr>
     </tbody>
 </table>
 <div class="">

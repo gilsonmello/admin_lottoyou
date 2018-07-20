@@ -45,18 +45,20 @@
     // =========================================================================
 
     p._habilitaBotoesPaginate = function() {
-        $(document).on('click', AppLotPrecoQuantidades.objectId+' .pagination a', function(e) {
+        $(AppLotPrecoQuantidades.objectId+' .pagination a').on('click', function(e) {
             e.stopPropagation();
             e.preventDefault();
             $.ajax({
                 url: this.href,
                 method: 'get',
                 beforeSend: function() {
+                    $(AppLotPrecoQuantidades.objectId+' .pagination a').off('click');
                     window.materialadmin.AppNavigation.carregando($('#gridLotPrecoQuantidades'));
                 },
                 success: function (data) {
                     $('#gridLotPrecoQuantidades').html(data);
                     p._habilitaBotoesConsulta();
+                    p._habilitaBotoesPaginate();
                 },
                 error: function (error) {
 
@@ -115,6 +117,7 @@
                 table.html($(html));
                 // HABILITA BOTÕES DA CONSULTA
                 p._habilitaBotoesConsulta();
+                p._habilitaBotoesPaginate();
             }
         }, 'html');
     };

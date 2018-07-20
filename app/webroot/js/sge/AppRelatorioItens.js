@@ -45,18 +45,20 @@
     // =========================================================================
 
     p._habilitaBotoesPaginate = function() {
-        $(document).on('click', AppRelatorioItens.objectId+' .pagination a', function(e) {
+        $(AppRelatorioItens.objectId+' .pagination a').on('click', function(e) {
             e.stopPropagation();
             e.preventDefault();
             $.ajax({
                 url: this.href,
                 method: 'get',
                 beforeSend: function() {
+                    $(AppRelatorioItens.objectId+' .pagination a').off('click');
                     window.materialadmin.AppNavigation.carregando($('#gridRelatorioItens'));
                 },
                 success: function (data) {
                     $('#gridRelatorioItens').html(data);
                     p._habilitaBotoesConsulta();
+                    p._habilitaBotoesPaginate();
                 },
                 error: function (error) {
 
@@ -73,7 +75,7 @@
         });
 
         $(AppRelatorioItens.objectId + ' #pesquisarRelatorioItens').submit(function () {
-            p._loadRelatorioItens();
+            p._loadConsRelatorioItens();
             return false;
         });
     };
@@ -97,7 +99,7 @@
     // CARREGA CONSULTA 
     // =========================================================================
 
-    p._loadRelatorioItens = function () {
+    p._loadConsRelatorioItens = function () {
         // INSTANCIA VARIÁREIS
         var form = $(AppRelatorioItens.objectId + ' #pesquisarRelatorioItens');
         var table = $(AppRelatorioItens.objectId + ' #gridRelatorioItens');
@@ -111,6 +113,7 @@
                 table.html($(html));
                 // HABILITA BOTÕES DA CONSULTA
                 p._habilitaBotoesConsulta();
+                p._habilitaBotoesPaginate();
             }
         }, 'html');
     };
