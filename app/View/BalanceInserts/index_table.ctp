@@ -62,7 +62,7 @@
 <div class="">
     <ul class="pagination">
         <?php
-        $this->Paginator->options(array('url' =>  $query));
+        $this->Paginator->options(array('url' =>  array('?' => $query)));
         echo $this->Paginator->prev('«', array('tag' => 'li'), null, ['tag' => 'li', 'class' => 'disabled', 'disabledTag' => 'a']);
         echo $this->Paginator->numbers(['separator' => '','currentTag' => 'a', 'currentClass' => 'active', 'tag' => 'li', 'first' => 1]);
         echo $this->Paginator->next(__('»'), array('tag' => 'li', 'currentClass' => 'disabled'), null, ['tag' => 'li', 'class' => 'disabled', 'disabledTag' => 'a']);

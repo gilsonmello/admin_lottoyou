@@ -32,26 +32,6 @@
                 <?php echo $this->Form->create('search', array('id' => 'pesquisarBalanceInserts', 'class' => 'form', 'role' => 'form', 'type' => 'get')); ?>
                 <div class="row">
                     <div class="col-lg-3">
-                        <div class="form-group">
-                            <?= $this->Form->input('status', [
-                                'label' => 'Status',
-                                'class' => 'form-control chosen',
-                                'options' => [
-                                    0 => 'Em progresso',
-                                    1 => 'Aguardando pagamento',
-                                    2 => 'Em análise',
-                                    3 => 'Paga',
-                                    4 => 'Disponível',
-                                    5 => 'Em disputa',
-                                    6 => 'Devolvida',
-                                    7 => 'Cancelada',
-                                ],
-                                'empty' => 'Selecione',
-                                'required' => false
-                            ]); ?>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
                         <div class="form-group ">
                             <?= $this->Form->input('nome', ['label' => 'Nome', 'class' => 'form-control', 'required' => false]); ?>
                         </div>
@@ -59,11 +39,6 @@
                     <div class="col-lg-3">
                         <div class="form-group ">
                             <?= $this->Form->input('email', ['label' => 'E-mail', 'class' => 'form-control', 'required' => false]); ?>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="form-group ">
-                            <?= $this->Form->input('valor', ['label' => 'Valor', 'class' => 'form-control money', 'required' => false]); ?>
                         </div>
                     </div>
                     <div class="col-lg-3">
@@ -152,7 +127,7 @@
                 <div class="">
                     <ul class="pagination">
                         <?php
-                            $this->Paginator->options(array('url' =>  $query));
+                            $this->Paginator->options(array('url' =>  array('?' => $query)));
                             echo $this->Paginator->prev('«', array('tag' => 'li'), null, ['tag' => 'li', 'class' => 'disabled', 'disabledTag' => 'a']);
                             echo $this->Paginator->numbers(['separator' => '','currentTag' => 'a', 'currentClass' => 'active', 'tag' => 'li', 'first' => 1]);
                             echo $this->Paginator->next(__('»'), array('tag' => 'li', 'currentClass' => 'disabled'), null, ['tag' => 'li', 'class' => 'disabled', 'disabledTag' => 'a']);

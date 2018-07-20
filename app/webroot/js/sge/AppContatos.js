@@ -18,7 +18,7 @@
     // =========================================================================
 
     AppContatos.objectId = '#AppContatos';
-    AppContatos.modalFormId = '#nivel2';
+    AppContatos.modalFormId = '#nivel3';
     AppContatos.controller = 'contatos';
     AppContatos.model = 'Contato';
 

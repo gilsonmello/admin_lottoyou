@@ -15,33 +15,56 @@ class BalancesController extends AppController {
 
     public $helpers = array('Time');
 
+    var $uses = [
+        'Balance',
+        'BalanceWithdraw'
+    ];
+
     public function index($modal = 0) {
 
         $this->Balance->recursive = -1;
         $query = $this->request->query;
 
-        // CARREGA FUNÇÕES BÁSICAS DE PESQUISA E ORDENAÇÃO
+        $balanceTotal = $this->Balance->find('first', [
+            'fields' => [
+                'SUM(Balance.value) AS balance_total'
+            ],
+        ]);
 
+
+        // CARREGA FUNÇÕES BÁSICAS DE PESQUISA E ORDENAÇÃO
         $options = array(
             'conditions' => [
             ],
-            'limit' => 10,
-            'order' => array('User.name' => 'asc'),
+            'limit' => 50,
+            'order' => array('Owner.name' => 'asc', 'Owner.last_name' => 'asc'),
             'contain' => [],
             'joins' => [
                 array(
-                    'alias' => 'User',
+                    'alias' => 'Owner',
                     'table' => 'users',
                     'type' => 'INNER',
-                    'conditions' => 'User.id = Balance.owner_id'
+                    'conditions' => 'Owner.id = Balance.owner_id'
                 ),
 
             ],
-            'fields' => array('Balance.*, User.*'),
+            'fields' => array('Balance.*, Owner.*'),
         );
 
-        if(isset($query['name'])) {
-            $options['conditions']['User.name LIKE'] = '%'.$query['name'].'%';
+        if(isset($query['name']) && $query['name'] != '') {
+            $options['conditions']['Owner.name LIKE'] = '%'.$query['name'].'%';
+        }
+
+        if(isset($query['email']) && $query['email'] != '') {
+            $options['conditions']['Owner.email LIKE'] = '%'.$query['email'].'%';
+        }
+
+        if(isset($query['conditional']) && $query['conditional'] != '') {
+
+            $value = $this->App->formataValorDouble($query['value']);
+
+            $options['conditions']['Balance.value '.$query['conditional']] = $value;
+
         }
 
         $this->paginate = $options;
@@ -49,7 +72,7 @@ class BalancesController extends AppController {
         $dados = $this->paginate('Balance');
 
         // ENVIA DADOS PARA A SESSÃO
-        $this->set(compact('dados', 'modal'));
+        $this->set(compact('dados', 'modal', 'balanceTotal'));
 
         $this->set('query', http_build_query($query));
 
@@ -75,7 +98,90 @@ class BalancesController extends AppController {
     }
 
     public function withdraw($id = null) {
+        // CONFIGURA LAYOUT
+        $this->layout = 'ajax';
 
+        $this->Balance->id = $id;
+        if (!$this->Balance->exists()) {
+            throw new NotFoundException('Registro inexistente', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-danger'));
+        }
+
+        if ($this->request->is('post') || $this->request->is('put')) {
+            $this->request->data['Balance']['id'] = $id;
+
+            $key = $this->Session->read('Auth.User.key');
+            $user_id = $this->Session->read('Auth.User.id');
+
+            $this->StartTransaction();
+
+            //Verificando a chave de segurança
+            if($key != $this->request->data['Balance']['key']) {
+                $this->Session->setFlash('Chave inválida', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-danger'));
+                $this->render(false);
+            } else if($this->request->data['Balance']['reason'] == '') {
+                $this->Session->setFlash('Campo motivo inválido', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-danger'));
+                $this->render(false);
+            } else {
+                $balance = $this->Balance->read(null, $id);
+                $from = $balance['Balance']['value'];
+                $this->request->data['Balance']['value'] = $amount = $this->App->formataValorDouble($this->request->data['Balance']['value']);
+                $amount = $this->request->data['Balance']['value'] * -1;
+                $data_save['Balance']['id'] = $id;
+                $data_save['Balance']['value'] = $to = $balance['Balance']['value'] - $this->request->data['Balance']['value'];
+                //Verificando se o saldo é menor do que zero
+                $data_save['Balance']['value'] = $data_save['Balance']['value'] < 0 ? 0 : $data_save['Balance']['value'];
+                $this->Balance->validate = [];
+                if ($this->Balance->save($data_save)) {
+
+                    $this->loadModel('HistoricBalance');
+                    $this->HistoricBalance->recursive = -1;
+                    $this->HistoricBalance->validate = [];
+                    $historicBalance['HistoricBalance']['owner_id'] = $balance['Balance']['owner_id'];
+                    $historicBalance['HistoricBalance']['balance_id'] = $balance['Balance']['id'];
+                    $historicBalance['HistoricBalance']['from'] = $from;
+
+                    //Verificando se o saldo é menor do que zero
+                    $to = $to < 0 ? 0 : $to;
+                    $historicBalance['HistoricBalance']['to'] = $to;
+                    $historicBalance['HistoricBalance']['type'] = 1;
+                    $historicBalance['HistoricBalance']['amount'] = $amount;
+                    //$historicBalance['HistoricBalance']['balance_insert_id'] = $this->BalanceInsert->id;
+                    $historicBalance['HistoricBalance']['modality'] = 'balance';
+                    $historicBalance['HistoricBalance']['description'] = 'balance withdrawn';
+                    $this->HistoricBalance->create();
+                    $this->HistoricBalance->save($historicBalance);
+
+
+
+                    $this->BalanceWithdraw->recursive = -1;
+                    $this->BalanceWithdraw->validate = [];
+                    $balanceWithdraw['BalanceWithdraw']['owner_id'] = $balance['Balance']['owner_id'];
+                    $balanceWithdraw['BalanceWithdraw']['user_id'] = $user_id;
+                    $balanceWithdraw['BalanceWithdraw']['finish'] = 1;
+                    $balanceWithdraw['BalanceWithdraw']['value'] = $this->request->data['Balance']['value'];
+                    $balanceWithdraw['BalanceWithdraw']['reason'] = $this->request->data['Balance']['reason'];
+                    $balanceWithdraw['BalanceWithdraw']['historic_balance_id'] = $this->HistoricBalance->id;
+                    $this->BalanceWithdraw->create();
+                    $this->BalanceWithdraw->save($balanceWithdraw);
+
+
+                    $this->validaTransacao(true);
+
+                    $this->Session->setFlash('Registro salvo com sucesso.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-success'));
+                } else {
+                    $this->validaTransacao(false);
+                    $this->Session->setFlash('Não foi possível editar o registro. Favor tentar novamente.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-danger'));
+                }
+                $this->render(false);
+            }
+        } else {
+            $this->request->data = $this->Balance->read(null, $id);
+            $balance = $this->Balance->read(null, $id);
+            $this->loadModel('User');
+            $this->User->recursive = -1;
+            $user = $this->User->read(null, $balance['Balance']['owner_id']);
+            $this->set('user', $user);
+        }
     }
 
     /**
@@ -126,7 +232,7 @@ class BalancesController extends AppController {
                     $historicBalance['HistoricBalance']['amount'] = $amount;
                     //$historicBalance['HistoricBalance']['balance_insert_id'] = $this->BalanceInsert->id;
                     $historicBalance['HistoricBalance']['modality'] = 'balance';
-                    $historicBalance['HistoricBalance']['description'] = 'balance';
+                    $historicBalance['HistoricBalance']['description'] = 'balance inserted';
                     $this->HistoricBalance->create();
                     $this->HistoricBalance->save($historicBalance);
 

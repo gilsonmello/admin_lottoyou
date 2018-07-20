@@ -1,4 +1,4 @@
-<h4>Total de registros: <?php echo $this->Paginator->params()['count']; ?></h4>
+<h4>Total de registros: <?= $this->Paginator->params()['count']; ?></h4>
 <table id=""
        class="table table-condensed table-hover"
        cellspacing="0"
@@ -8,50 +8,55 @@
     <tr>
         <th>Nome</th>
         <th>E-mail</th>
-        <th>Modalidade</th>
-        <th>ID</th>
+        <th>Criador</th>
         <th>Valor</th>
+        <th>Motivo</th>
         <th>Data</th>
-        <th>Ações</th>
+        <!--<th>Ações</th>-->
     </tr>
     </thead>
     <tbody>
-    <?php foreach ($dados as $k => $v) { ?>
+    <?php $total = 0.00; foreach ($dados as $k => $v) { ?>
         <tr>
             <td>
-                <?= $v['User']['name'] . ' '. $v['User']['last_name']; ?>
+                <?= $v['Owner']['name']; ?>
             </td>
             <td>
-                <?= $v['User']['username']; ?>
+                <?= $v['Owner']['username']; ?>
             </td>
             <td>
-                <?php
-                if($v['OrderItem']['type'] == "scratch_card") echo "Raspadinha";
-                else if($v['OrderItem']['type'] == "soccer_expert") echo "Soccer Expert";
-                else echo "Loteria";
-                ?>
+                <?= $v['User']['name']. ' '. $v['User']['last_name'] ?>
             </td>
             <td>
-                <?= $v['OrderItem']['id']; ?>
+                $<?= $v['BalanceWithdraw']['value']; ?>
+                <?php $total += $v['BalanceWithdraw']['value']; ?>
             </td>
             <td>
-                $<?= $v['OrderItem']['amount']; ?>
+                <?= $v['BalanceWithdraw']['reason']; ?>
             </td>
             <td>
-                <?= $this->Time->format($v['OrderItem']['created_at'], '%d/%m/%Y %H:%M'); ?>
+                <?= $this->Time->format($v['BalanceWithdraw']['created'], '%d/%m/%Y %H:%M'); ?>
             </td>
-            <td>
+            <!--<td>
                 <div class="btn-group">
                     <button type="button" class="btn btn-icon-toggle dropdown-toggle" data-toggle="dropdown"><i class="fa fa-gear"></i></button>
                     <ul class="dropdown-menu dropdown-menu-right" role="menu">
                         <li>
-                            <?php /*echo $this->Html->link('<i class="fa fa-cart-plus"></i>&nbsp Gerar Prêmios', 'javascript: void(0)', array("escape" => false, 'id' => $v['RasLote']['id'], 'class' => 'btnGerarNumeros')) */?>
+                            <?php /*echo $this->Html->link('<i class="fa fa-cart-plus"></i>&nbsp Histórico', 'javascript: void(0)', array("escape" => false, 'id' => $v['RasLote']['id'], 'class' => 'btnGerarNumeros')) */?>
                         </li>
                     </ul>
                 </div>
-            </td>
+            </td>-->
         </tr>
     <?php } ?>
+    <tr>
+        <th colspan="3">
+            Total
+        </th>
+        <td colspan="3">
+            $<?= number_format($total, 2, '.', '') ?>
+        </td>
+    </tr>
     </tbody>
 </table>
 <div class="">

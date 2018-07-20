@@ -18,7 +18,7 @@
     // =========================================================================
 
     AppBalances.objectId = '#AppBalances';
-    AppBalances.modalFormId = '#nivel2';
+    AppBalances.modalFormId = '#nivel3';
     AppBalances.controller = 'balances';
     AppBalances.model = 'Balance';
 
@@ -34,6 +34,8 @@
         window.materialadmin.AppVendor.initialize();
         window.materialadmin.Demo.initialize();
 
+        $(AppBalances.objectId+' .pagination a').unbind('click');
+
         // CARREGA EVENTOS 
         p._habilitaEventos();
         p._habilitaBotoesConsulta();
@@ -45,6 +47,7 @@
     // =========================================================================
 
     p._habilitaBotoesPaginate = function() {
+        $(AppBalances.objectId+' .pagination a').off('click');
         $(document).on('click', AppBalances.objectId+' .pagination a', function(e) {
             e.stopPropagation();
             e.preventDefault();
@@ -87,6 +90,9 @@
         $(AppBalances.objectId + ' .btnInsert').click(function () {
             p._loadFormInsert($(this).attr('id'));
         });
+        $(AppBalances.objectId + ' .btnWithdraw').click(function () {
+            p._loadFormWithdraw($(this).attr('id'));
+        });
     };
 
     // =========================================================================
@@ -97,7 +103,7 @@
         // INSTANCIA VARIÁREIS
         var form = $(AppBalances.objectId + ' #pesquisarBalances');
         var table = $(AppBalances.objectId + ' #gridBalances');
-        var url = baseUrl + 'balances/index';
+        var url = baseUrl + '/balances/index';
 
         window.materialadmin.AppNavigation.carregando(table);
 
@@ -119,12 +125,29 @@
     p._loadFormInsert = function (id) {
         // CHAMA A FUNÇÃO MODAL
         var modalObject = $(AppBalances.modalFormId);
-        var url = 'balances/insert/' + id;
+        var url = '/balances/insert/' + id;
 
         window.materialadmin.AppForm.loadModal(modalObject, url, '70%', function () {
             modalObject.off('hide.bs.modal');
             modalObject.on('hide.bs.modal', function () {
-                p._loadConsBalances();
+                if (window.materialadmin.AppForm.getFormState()) {
+                    p._loadConsBalances();
+                }
+            });
+        });
+    };
+
+    p._loadFormWithdraw = function (id) {
+        // CHAMA A FUNÇÃO MODAL
+        var modalObject = $(AppBalances.modalFormId);
+        var url = '/balances/withdraw/' + id;
+
+        window.materialadmin.AppForm.loadModal(modalObject, url, '70%', function () {
+            modalObject.off('hide.bs.modal');
+            modalObject.on('hide.bs.modal', function () {
+                if (window.materialadmin.AppForm.getFormState()) {
+                    p._loadConsBalances();
+                }
             });
         });
     };

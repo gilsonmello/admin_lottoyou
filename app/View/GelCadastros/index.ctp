@@ -145,9 +145,9 @@
                         </div>
                     </div>
                     <div class="col-sm-2">
-                        <div id="balanceInserts" class="text-center hover" style="cursor:pointer;" data-toggle="tooltip" data-placement="bottom" title="Relatórios de Saldos inseridos">
+                        <div id="balanceWithdraw" class="text-center hover" style="cursor:pointer;" data-toggle="tooltip" data-placement="bottom" title="Relatórios de Saldos retirados">
                             <i class="md md-view-quilt" style="font-size:24px; display:block;"></i>
-                            Saldos inseridos
+                            Saldos retirados
                         </div>
                     </div>
                     <div class="col-sm-2">

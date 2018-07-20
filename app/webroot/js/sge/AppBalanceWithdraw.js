@@ -1,7 +1,7 @@
 (function (namespace, $) {
     "use strict";
 
-    var AppBalanceInserts = function () {
+    var AppBalanceWithdraw = function () {
         // Create reference to this instance
         var o = this;
 
@@ -11,16 +11,16 @@
         });
     };
 
-    var p = AppBalanceInserts.prototype;
+    var p = AppBalanceWithdraw.prototype;
 
     // =========================================================================
     // CONFIG
     // =========================================================================
 
-    AppBalanceInserts.objectId = '#AppBalanceInserts';
-    AppBalanceInserts.modalFormId = '#nivel3';
-    AppBalanceInserts.controller = 'balanceInserts';
-    AppBalanceInserts.model = 'RasTabelasDesconto';
+    AppBalanceWithdraw.objectId = '#AppBalanceWithdraw';
+    AppBalanceWithdraw.modalFormId = '#nivel3';
+    AppBalanceWithdraw.controller = 'balanceWithdraw';
+    AppBalanceWithdraw.model = 'BalanceWithdraw';
 
     // =========================================================================
     // INIT
@@ -29,10 +29,12 @@
     p.initialize = function () {
         // CARREGA DEPENDÊNCIAS
         //window.materialadmin.App.initialize();
-        window.materialadmin.AppForm.initialize($(AppBalanceInserts.objectId));
+        window.materialadmin.AppForm.initialize($(AppBalanceWithdraw.objectId));
         window.materialadmin.AppGrid.initialize();
         window.materialadmin.AppVendor.initialize();
         window.materialadmin.Demo.initialize();
+
+        $(AppBalanceWithdraw.objectId+' .pagination a').off('click');
 
         // CARREGA EVENTOS 
         p._habilitaEventos();
@@ -45,18 +47,18 @@
     // =========================================================================
 
     p._habilitaBotoesPaginate = function() {
-        $(AppBalanceInserts.objectId+' .pagination a').off('click');
-        $(document).on('click', AppBalanceInserts.objectId+' .pagination a', function(e) {
+        $(AppBalanceWithdraw.objectId+' .pagination a').unbind('click');
+        $(document).on('click', AppBalanceWithdraw.objectId+' .pagination a', function(e) {
             e.stopPropagation();
             e.preventDefault();
             $.ajax({
                 url: this.href,
                 method: 'get',
                 beforeSend: function() {
-                    window.materialadmin.AppNavigation.carregando($('#gridBalanceInserts'));
+                    window.materialadmin.AppNavigation.carregando($('#gridBalanceWithdraw'));
                 },
                 success: function (data) {
-                    $('#gridBalanceInserts').html(data);
+                    $('#gridBalanceWithdraw').html(data);
                     p._habilitaBotoesConsulta();
                 },
                 error: function (error) {
@@ -69,40 +71,40 @@
 
     p._habilitaEventos = function () {
 
-        $(AppBalanceInserts.objectId + ' #voltar').click(function () {
+        $(AppBalanceWithdraw.objectId + ' #voltar').click(function () {
             window.materialadmin.AppGelCadastros.carregarCadastros();
         });
 
-        $(AppBalanceInserts.objectId + ' #pesquisarBalanceInserts').submit(function () {
-            p._loadBalanceInserts();
+        $(AppBalanceWithdraw.objectId + ' #pesquisarBalanceWithdraw').submit(function () {
+            p._loadConsBalanceWithdraw();
             return false;
         });
     };
 
-    
+
     p._habilitaBotoesConsulta = function () {
-        $(AppBalanceInserts.objectId + ' .btnEditar').click(function () {
-            p._loadFormRasTabelasDesconto($(this).attr('id'));
+        $(AppBalanceWithdraw.objectId + ' .btnEditar').click(function () {
+            p._loadFormBalanceWithdraw($(this).attr('id'));
         });
 
-        $(AppBalanceInserts.objectId + ' .btnDeletar').click(function () {
-            var url = baseUrl + 'balanceInserts/delete/' + $(this).attr('id');
+        $(AppBalanceWithdraw.objectId + ' .btnDeletar').click(function () {
+            var url = baseUrl + 'balanceWithdraw/delete/' + $(this).attr('id');
             window.materialadmin.AppGrid.delete(url, function () {
-                p._loadConsRasTabelasDesconto();
+                p._loadConsBalanceWithdraw();
             });
         });
     };
 
-    
+
     // =========================================================================
     // CARREGA CONSULTA 
     // =========================================================================
 
-    p._loadBalanceInserts = function () {
+    p._loadConsBalanceWithdraw = function () {
         // INSTANCIA VARIÁREIS
-        var form = $(AppBalanceInserts.objectId + ' #pesquisarBalanceInserts');
-        var table = $(AppBalanceInserts.objectId + ' #gridBalanceInserts');
-        var url = baseUrl + 'balanceInserts/index';
+        var form = $(AppBalanceWithdraw.objectId + ' #pesquisarBalanceWithdraw');
+        var table = $(AppBalanceWithdraw.objectId + ' #gridBalanceWithdraw');
+        var url = baseUrl + 'balanceWithdraw/index';
 
         window.materialadmin.AppNavigation.carregando(table);
 
@@ -120,18 +122,18 @@
     // CARREGA FORMULÁRIOS
     // =========================================================================
 
-    p._loadFormRasTabelasDesconto = function (id, clonar) {
+    p._loadFormBalanceWithdraw = function (id, clonar) {
         // CHAMA A FUNÇÃO MODAL
-        var modalObject = $(AppBalanceInserts.modalFormId);
+        var modalObject = $(AppBalanceWithdraw.modalFormId);
         var action = (typeof clonar !== 'undefined') ? 'add' : 'edit';
-        var url = (typeof id === 'undefined') ? 'balanceInserts/add' : 'balanceInserts/' + action + '/' + id;
+        var url = (typeof id === 'undefined') ? 'balanceWithdraw/add' : 'balanceWithdraw/' + action + '/' + id;
         var i = 0;
 
         window.materialadmin.AppForm.loadModal(modalObject, url, '75%', function () {
             modalObject.off('hide.bs.modal');
             modalObject.on('hide.bs.modal', function () {
                 if (window.materialadmin.AppForm.getFormState()) {
-                    p._loadConsRasTabelasDesconto();
+                    p._loadConsBalanceWithdraw();
                 }
             });
 
@@ -142,5 +144,5 @@
     // DEFINE NAMESPACE
     // =========================================================================
 
-    window.materialadmin.AppBalanceInserts = new AppBalanceInserts;
+    window.materialadmin.AppBalanceWithdraw = new AppBalanceWithdraw;
 }(this.materialadmin, jQuery)); // pass in (namespace, jQuery):

@@ -20,7 +20,7 @@ class BalanceInsertsController extends AppController {
         $options = array(
             'conditions' => [
             ],
-            'limit' => 1,
+            'limit' => 50,
             'order' => array('BalanceInsert.id' => 'desc'),
             'contain' => [],
             'joins' => [
@@ -40,8 +40,22 @@ class BalanceInsertsController extends AppController {
             'fields' => array('BalanceInsert.*, User.*, Owner.*'),
         );
 
-        if(isset($query['name'])) {
-            $options['conditions']['User.name LIKE'] = '%'.$query['name'].'%';
+        if(isset($query['nome']) && $query['nome'] != '') {
+            $options['conditions']['Owner.name LIKE'] = '%'.$query['nome'].'%';
+        }
+
+        if(isset($query['email']) && $query['email'] != '') {
+            $options['conditions']['Owner.username ='] = '%'.$query['email'].'%';
+        }
+
+        if(isset($query['dt_inicio']) && !empty($query['dt_inicio'])) {
+            $dt_inicio = implode('-', array_reverse(explode('/', $query['dt_inicio'])));
+            $options['conditions']['BalanceInsert.created >='] = $dt_inicio . ' 00:00:00';
+        }
+
+        if(isset($query['dt_fim']) && !empty($query['dt_fim'])) {
+            $dt_fim = implode('-', array_reverse(explode('/', $query['dt_fim'])));
+            $options['conditions']['BalanceInsert.created <='] = $dt_fim . ' 23:59:59';
         }
 
         $this->paginate = $options;

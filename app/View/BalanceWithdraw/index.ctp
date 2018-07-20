@@ -1,15 +1,11 @@
-<section id="AppTransacoes" <?php echo ($modal == 1) ? 'style="padding:0;"' : '' ?>>
+<section id="AppBalanceWithdraw" <?php echo ($modal == 1) ? 'style="padding:0;"' : '' ?>>
     <div class="section-body" <?php echo ($modal == 1) ? 'style="margin:0;"' : '' ?>>
         <div class="card-head card-head-sm style-primary">
             <header>
                 <i class="md md-apps" style="margin-bottom:0;"></i> Relatório
-                <i class="md md-navigate-next" style="margin-bottom:0;"></i> <b>Transações</b>
+                <i class="md md-navigate-next" style="margin-bottom:0;"></i> <b>Saldos retirados</b>
             </header>
             <div class="tools">
-                <!--<button id="cadastrarTransacoes" type="button" class="btn ink-reaction btn-default-light">
-                    <i class="fa fa-plus-square"></i>
-                    Cadastrar
-                </button>-->
                 <button id="voltar" type="button" class="btn ink-reaction btn-flat btn-default-bright" data-dismiss="modal">
                     <a href="javascript: void()">
                         <i class="fa fa-fw fa-arrow-left"></i>
@@ -33,11 +29,16 @@
                 </header>
             </div>
             <div class="card-body style-default-light" style="display: none;padding-top:10px;padding-bottom:10px;">
-                <?php echo $this->Form->create('search', array('id' => 'pesquisarTransacoes', 'class' => 'form', 'role' => 'form', 'type' => 'get')); ?>
+                <?php echo $this->Form->create('search', array('id' => 'pesquisarBalanceWithdraw', 'class' => 'form', 'role' => 'form', 'type' => 'get')); ?>
                 <div class="row">
                     <div class="col-lg-3">
                         <div class="form-group ">
                             <?= $this->Form->input('nome', ['label' => 'Nome', 'class' => 'form-control', 'required' => false]); ?>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="form-group ">
+                            <?= $this->Form->input('email', ['label' => 'E-mail', 'class' => 'form-control', 'required' => false]); ?>
                         </div>
                     </div>
                     <div class="col-lg-3">
@@ -61,7 +62,7 @@
                 </div>
                 <?php echo $this->Form->end(); ?>
             </div>
-            <div id="gridTransacoes" style="padding: 24px;">
+            <div id="gridBalanceWithdraw" style="padding: 24px;">
                 <h4>Total de registros: <?= $this->Paginator->params()['count']; ?></h4>
                 <table id=""
                        class="table table-condensed table-hover"
@@ -72,95 +73,55 @@
                         <tr>
                             <th>Nome</th>
                             <th>E-mail</th>
+                            <th>Removedor</th>
+                            <th>Valor</th>
+                            <th>Motivo</th>
                             <th>Data</th>
-                            <th>Modalidade</th>
-                            <!--<th>Descrição</th>-->
-                            <th>Tipo</th>
-                            <th>Quantia</th>
                             <!--<th>Ações</th>-->
                         </tr>
                     </thead>
                     <tbody>
-                    <?php $totalEntrada = 0.00; $totalSaida = 0.00; foreach ($dados as $k => $v) { ?>
-                        <?php if($v['HistoricBalance']['type'] == 1) $totalEntrada += $v['HistoricBalance']['amount'] ?>
-                        <?php if($v['HistoricBalance']['type'] == 0) $totalSaida += $v['HistoricBalance']['amount'] * -1 ?>
+                    <?php $total = 0.00; foreach ($dados as $k => $v) { ?>
                         <tr>
                             <td>
-                                <?= $v['Owner']['name'] . ' '. $v['Owner']['last_name'] ?>
+                                <?= $v['Owner']['name']; ?>
                             </td>
                             <td>
-                                <?= $v['Owner']['username'] ?>
+                                <?= $v['Owner']['username']; ?>
                             </td>
                             <td>
-                                <?= $this->Time->format($v['HistoricBalance']['created'], '%d/%m/%Y %H:%M'); ?>
+                                <?= $v['User']['name']. ' '. $v['User']['last_name'] ?>
                             </td>
                             <td>
-                                <?php $modalidade = ''; ?>
-                                <?php
-                                    if($v['LotUserJogo']['id'] != null) $modalidade = 'Loteria';
-                                    else if($v['SocAposta']['id'] != null) $modalidade = 'Soccer Expert';
-                                    else if($v['Raspadinha']['id'] != null) $modalidade = 'Raspadinhas';
-                                    else if($v['PedidoPaypal']['id'] != null) $modalidade = 'Depósito';
-                                    else if($v['PedidoPagseguro']['id'] != null) $modalidade = 'Depósito';
-                                    else if($v['Item']['id'] != null) $modalidade = 'Compra';
-                                    else if($v['BalanceInsert']['id'] != null) $modalidade = 'Depósito';
-                                    else if($v['RetiradaAgente']['id'] != null) $modalidade = 'Retirada';
-                                    else $modalidade = 'Indefinido';
-                                ?>
-
-
-                                <?= $modalidade ?>
-                            </td>
-                            <!--<td>
-
-                            </td>-->
-                            <td>
-                                <?php $tipo = ''; ?>
-                                <?php
-                                    if($v['HistoricBalance']['description'] == 'buy') $tipo = 'Compra';
-                                    else if($v['HistoricBalance']['description'] == 'agent withdrawal') $tipo = 'Ag. Pagamento';
-                                    else if($v['HistoricBalance']['description'] == 'award') $tipo = 'Prêmio';
-                                    else if($v['HistoricBalance']['description'] == 'pagseguro devolution') $tipo = 'Devolução Pagseguro';
-                                    else if($v['HistoricBalance']['description'] == 'paypal devolution') $tipo = 'Devolução Paypal';
-                                    else if($v['HistoricBalance']['description'] == 'paypal deposit') $tipo = 'Depósito Paypal';
-                                    else if($v['HistoricBalance']['description'] == 'pagseguro deposit') $tipo = 'Depósito Pagseguro';
-                                    else if($v['HistoricBalance']['description'] == 'internal balance') $tipo = 'Depósito Interno';
-                                    else $tipo = 'Indefinido';
-                                ?>
-
-                                <?= $tipo ?>
+                                $<?= $v['BalanceWithdraw']['value']; ?>
+                                <?php $total += $v['BalanceWithdraw']['value']; ?>
                             </td>
                             <td>
-                                $<?= $v['HistoricBalance']['amount'] ?>
+                                <?= $v['BalanceWithdraw']['reason']; ?>
+                            </td>
+                            <td>
+                                <?= $this->Time->format($v['BalanceWithdraw']['created'], '%d/%m/%Y %H:%M'); ?>
                             </td>
                             <!--<td>
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-icon-toggle dropdown-toggle" data-toggle="dropdown"><i class="fa fa-gear"></i></button>
                                     <ul class="dropdown-menu dropdown-menu-right" role="menu">
                                         <li>
-                                            <?php /*echo $this->Html->link('<i class="fa fa-edit"></i>&nbsp Editar', 'javascript: void(0)', array("escape" => false, 'id' => $v['LotPremio']['id'], 'class' => 'btnEditar')) */?>
+                                            <?php /*echo $this->Html->link('<i class="fa fa-cart-plus"></i>&nbsp Histórico', 'javascript: void(0)', array("escape" => false, 'id' => $v['RasLote']['id'], 'class' => 'btnGerarNumeros')) */?>
                                         </li>
                                     </ul>
                                 </div>
                             </td>-->
                         </tr>
                     <?php } ?>
-                    <tr>
-                        <th>
-                            Total de Entrada
-                        </th>
-                        <td colspan="5">
-                            $<?= number_format($totalEntrada, 2, '.', '') ?>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            Total de Saída
-                        </th>
-                        <td colspan="5">
-                            $<?= number_format($totalSaida, 2, '.', '') ?>
-                        </td>
-                    </tr>
+                        <tr>
+                            <th colspan="3">
+                               Total
+                            </th>
+                            <td colspan="3">
+                                $<?= number_format($total, 2, '.', '') ?>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
                 <div class="">
