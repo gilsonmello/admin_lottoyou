@@ -20,12 +20,10 @@ class TransacoesController extends AppController {
 
         // CARREGA FUNÇÕES BÁSICAS DE PESQUISA E ORDENAÇÃO
 
-
-
         $options = array(
             'conditions' => [
             ],
-            'limit' => 2,
+            'limit' => 50,
             'order' => array('HistoricBalance.id' => 'desc'),
             'contain' => [],
             'joins' => [
