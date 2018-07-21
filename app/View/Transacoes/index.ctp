@@ -35,9 +35,9 @@
             <div class="card-body style-default-light" style="display: none;padding-top:10px;padding-bottom:10px;">
                 <?php echo $this->Form->create('search', array('id' => 'pesquisarTransacoes', 'class' => 'form', 'role' => 'form', 'type' => 'get')); ?>
                 <div class="row">
-                    <div class="col-sm-3 col-lg-3">
+                    <!--<div class="col-sm-3 col-lg-3">
                         <div class="form-group">
-                            <?= $this->Form->input('modality', [
+                            <?/*= $this->Form->input('modality', [
                                 'label' => 'Modalidades',
                                 'class' => 'form-control chosen',
                                 'options' => [
@@ -52,9 +52,9 @@
                                 ],
                                 'required' => false,
                                 'multiple' => true,
-                            ]); ?>
+                            ]); */?>
                         </div>
-                    </div>
+                    </div>-->
                     <div class="col-lg-3">
                         <div class="form-group ">
                             <?= $this->Form->input('nome', ['label' => 'Nome', 'class' => 'form-control', 'required' => false]); ?>
@@ -82,7 +82,11 @@
                 <?php echo $this->Form->end(); ?>
             </div>
             <div id="gridTransacoes" style="padding: 24px;">
-                <h4>Total de registros: <?= $this->Paginator->params()['count']; ?></h4>
+                <h4>
+                    Total de registros: <?= $this->Paginator->params()['count']; ?>&nbsp;&nbsp;&nbsp;
+                    Total entrada: $<?= $totalEntrada[0]['total_entrada']; ?>&nbsp;&nbsp;&nbsp;
+                    Total saída: $<?= $totalSaida[0]['total_saida']; ?>
+                </h4>
                 <table id=""
                        class="table table-condensed table-hover"
                        cellspacing="0"

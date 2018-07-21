@@ -128,8 +128,26 @@ class TransacoesController extends AppController {
 
         $dados = $this->paginate('HistoricBalance');
 
+        $totalEntrada = $this->OrderItem->find('first', [
+            'fields' => [
+                'SUM(HistoricBalance.amount) AS total_entrada'
+            ],
+            'conditions' => [
+                'HistoricBalance.type' => 1
+            ]
+        ]);
+
+        $totalSaida = $this->OrderItem->find('first', [
+            'fields' => [
+                'SUM(HistoricBalance.amount) AS total_saida'
+            ],
+            'conditions' => [
+                'HistoricBalance.type' => 0
+            ]
+        ]);
+
         // ENVIA DADOS PARA A SESSÃO
-        $this->set(compact('dados', 'modal'));
+        $this->set(compact('dados', 'modal', 'totalEntrada', 'totalSaida'));
 
         $this->set('query', http_build_query($query));
 
