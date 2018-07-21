@@ -20,9 +20,7 @@ class TransacoesController extends AppController {
 
         // CARREGA FUNÇÕES BÁSICAS DE PESQUISA E ORDENAÇÃO
 
-        if(isset($query['modality'])) {
-            die(var_dump($query['modality']));
-        }
+
 
         $options = array(
             'conditions' => [
@@ -31,74 +29,84 @@ class TransacoesController extends AppController {
             'order' => array('HistoricBalance.id' => 'desc'),
             'contain' => [],
             'joins' => [
-                array(
+                [
                     'alias' => 'Owner',
                     'table' => 'users',
                     'type' => 'LEFT',
                     'conditions' => 'Owner.id = HistoricBalance.owner_id'
-                ),
-                array(
-                    'alias' => 'LotUserJogo',
-                    'table' => 'lot_users_jogos',
-                    'type' => 'LEFT',
-                    'conditions' => 'LotUserJogo.historic_balance_id = HistoricBalance.id'
-                ),
-                array(
+                ],
+                [
                     'alias' => 'SocAposta',
                     'table' => 'soc_apostas',
                     'type' => 'LEFT',
                     'conditions' => 'SocAposta.historic_balance_id = HistoricBalance.id'
-                ),
-                array(
+                ],
+                [
+                    'alias' => 'LotUserJogo',
+                    'table' => 'lot_users_jogos',
+                    'type' => 'LEFT',
+                    'conditions' => 'LotUserJogo.historic_balance_id = HistoricBalance.id'
+                ],
+                [
                     'alias' => 'Raspadinha',
                     'table' => 'raspadinhas',
                     'type' => 'LEFT',
                     'conditions' => 'Raspadinha.historic_balance_id = HistoricBalance.id'
-                ),
-                array(
+                ],
+                [
                     'alias' => 'PedidoPaypal',
                     'table' => 'paypal_orders',
                     'type' => 'LEFT',
                     'conditions' => 'PedidoPaypal.historic_balance_id = HistoricBalance.id'
-                ),
-                array(
+                ],
+                [
                     'alias' => 'PedidoPagseguro',
                     'table' => 'pagseguro_orders',
                     'type' => 'LEFT',
                     'conditions' => 'PedidoPagseguro.historic_balance_id = HistoricBalance.id'
-                ),
-                array(
+                ],
+                [
                     'alias' => 'Item',
                     'table' => 'order_items',
                     'type' => 'LEFT',
                     'conditions' => 'Item.historic_balance_id = HistoricBalance.id'
-                ),
-                array(
+                ],
+                [
                     'alias' => 'BalanceInsert',
                     'table' => 'balance_inserts',
                     'type' => 'LEFT',
                     'conditions' => 'BalanceInsert.historic_balance_id = HistoricBalance.id'
-                ),
-                array(
+                ],
+                [
                     'alias' => 'RetiradaAgente',
                     'table' => 'agent_withdraw',
                     'type' => 'LEFT',
                     'conditions' => 'RetiradaAgente.historic_balance_id = HistoricBalance.id'
-                ),
+                ]
             ],
             'fields' => array(
-                'HistoricBalance.*',
-                'Owner.*',
-                'LotUserJogo.*',
-                'SocAposta.*',
-                'Raspadinha.*',
-                'PedidoPaypal.*',
-                'PedidoPagseguro.*',
-                'Item.*',
-                'BalanceInsert.*',
-                'RetiradaAgente.*',
+                'HistoricBalance.id',
+                'HistoricBalance.owner_id',
+                'HistoricBalance.description',
+                'HistoricBalance.amount',
+                'HistoricBalance.type',
+                'HistoricBalance.created',
+                'Owner.id',
+                'Owner.name',
+                'Owner.last_name',
+                'Owner.username',
+                'SocAposta.id',
+                'LotUserJogo.id',
+                'Raspadinha.id',
+                'PedidoPaypal.id',
+                'PedidoPagseguro.id',
+                'Item.id',
+                'BalanceInsert.id',
+                'RetiradaAgente.id'
             ),
         );
+
+        if(isset($query['modality'])) {}
 
         if(isset($query['nome'])) {
             $options['conditions']['Owner.name LIKE'] = '%'.$query['nome'].'%';
