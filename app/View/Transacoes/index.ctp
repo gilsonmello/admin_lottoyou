@@ -36,6 +36,64 @@
                 <?php echo $this->Form->create('search', array('id' => 'pesquisarTransacoes', 'class' => 'form', 'role' => 'form', 'type' => 'get')); ?>
                 <div class="row">
                     <div class="col-lg-3">
+                        <div class="form-group">
+                            <?=
+                                $this->Form->checkbox('modality[]', array(
+                                    'value' => 1,
+                                    'label' => 'Usuário'
+                                ));
+                            ?>
+                            <?=
+                            $this->Form->checkbox('modality[]', array(
+                                'value' => 2,
+                                'label' => 'Soccer Apostas',
+                            ));
+                            ?>
+                            <?=
+                            $this->Form->checkbox('modality[]', array(
+                                'value' => 3,
+                                'label' => 'Loteria Apostas',
+                            ));
+                            ?>
+                            <?=
+                            $this->Form->checkbox('modality[]', array(
+                                'value' => 4,
+                                'label' => 'Raspadinhas',
+                            ));
+                            ?>
+                            <?=
+                            $this->Form->checkbox('modality[]', array(
+                                'value' => 5,
+                                'label' => 'Depósitos Paypal',
+                            ));
+                            ?>
+                            <?=
+                            $this->Form->checkbox('modality[]', array(
+                                'value' => 6,
+                                'label' => 'Depósitos Pagseguro',
+                            ));
+                            ?>
+                            <?=
+                            $this->Form->checkbox('modality[]', array(
+                                'value' => 7,
+                                'label' => 'Item',
+                            ));
+                            ?>
+                            <?=
+                            $this->Form->checkbox('modality[]', array(
+                                'value' => 8,
+                                'label' => 'Saldos inseridos',
+                            ));
+                            ?>
+                            <?=
+                            $this->Form->checkbox('modality[]', array(
+                                'value' => 9,
+                                'label' => 'Saldos removidos',
+                            ));
+                            ?>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
                         <div class="form-group ">
                             <?= $this->Form->input('nome', ['label' => 'Nome', 'class' => 'form-control', 'required' => false]); ?>
                         </div>
