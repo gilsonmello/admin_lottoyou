@@ -47,16 +47,47 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TransacoesController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TransacoesController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Controller/TransacoesController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="25" column="25" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
+            <state relative-caret-position="407">
+              <caret line="149" column="72" selection-start-line="149" selection-start-column="62" selection-end-line="149" selection-end-column="72" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HistoricBalance.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.ctp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/View/Transacoes/index.ctp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="83" column="60" lean-forward="true" selection-start-line="83" selection-start-column="60" selection-end-line="83" selection-end-column="60" />
+              <folding>
+                <element signature="e#4802#4808#0#HTML" expanded="true" />
+                <element signature="e#4808#4814#0#HTML" expanded="true" />
+                <element signature="e#4814#4820#0#HTML" expanded="true" />
+                <element signature="e#4898#4904#0#HTML" expanded="true" />
+                <element signature="e#4904#4910#0#HTML" expanded="true" />
+                <element signature="e#4910#4916#0#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.ctp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/View/RelatorioItens/index.ctp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="81" column="83" lean-forward="true" selection-start-line="81" selection-start-column="83" selection-end-line="82" selection-end-column="54" />
+              <folding>
+                <element signature="e#4558#4564#0#HTML" expanded="true" />
+                <element signature="e#4564#4570#0#HTML" expanded="true" />
+                <element signature="e#4570#4576#0#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HistoricBalance.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Model/HistoricBalance.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="368">
@@ -256,12 +287,6 @@
               <item name="admin_lottoyou" type="b2602c69:ProjectViewProjectNode" />
               <item name="admin_lottoyou" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="admin_lottoyou" type="b2602c69:ProjectViewProjectNode" />
-              <item name="admin_lottoyou" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -275,7 +300,14 @@
               <item name="admin_lottoyou" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="View" type="462c0819:PsiDirectoryNode" />
-              <item name="SocRodadas" type="462c0819:PsiDirectoryNode" />
+              <item name="RelatorioItens" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="admin_lottoyou" type="b2602c69:ProjectViewProjectNode" />
+              <item name="admin_lottoyou" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="View" type="462c0819:PsiDirectoryNode" />
+              <item name="Transacoes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="admin_lottoyou" type="b2602c69:ProjectViewProjectNode" />
@@ -424,12 +456,12 @@
       <workItem from="1531921722058" duration="9437000" />
       <workItem from="1532013472491" duration="11110000" />
       <workItem from="1532094949983" duration="14073000" />
-      <workItem from="1532182439059" duration="7288000" />
+      <workItem from="1532182439059" duration="7538000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="279819000" />
+    <option name="totallyTimeSpent" value="280069000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-1" width="1366" height="741" extended-state="6" />
@@ -754,27 +786,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/View/RelatorioItens/index.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="82" column="25" selection-start-line="82" selection-start-column="25" selection-end-line="82" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Controller/RelatorioItensController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-180">
-          <caret line="12" column="58" selection-start-line="12" selection-start-column="58" selection-end-line="12" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/View/GelCadastros/index.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="147" column="24" selection-start-line="147" selection-start-column="24" selection-end-line="147" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/View/SocRodadas/add.ctp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -803,17 +814,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Controller/TransacoesController.php">
+    <entry file="file://$PROJECT_DIR$/app/View/RelatorioItens/index.ctp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="25" column="25" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/View/Transacoes/index.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="37" column="24" selection-start-line="37" selection-start-column="20" selection-end-line="56" selection-end-column="29" />
+        <state relative-caret-position="252">
+          <caret line="81" column="83" lean-forward="true" selection-start-line="81" selection-start-column="83" selection-end-line="82" selection-end-column="54" />
+          <folding>
+            <element signature="e#4558#4564#0#HTML" expanded="true" />
+            <element signature="e#4564#4570#0#HTML" expanded="true" />
+            <element signature="e#4570#4576#0#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -821,6 +830,42 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="368">
           <caret line="141" column="7" selection-start-line="133" selection-start-column="4" selection-end-line="141" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Controller/RelatorioItensController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="36" column="8" selection-start-line="36" selection-start-column="8" selection-end-line="40" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/View/GelCadastros/index.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="147" column="24" selection-start-line="147" selection-start-column="24" selection-end-line="147" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/View/Transacoes/index.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="83" column="60" lean-forward="true" selection-start-line="83" selection-start-column="60" selection-end-line="83" selection-end-column="60" />
+          <folding>
+            <element signature="e#4802#4808#0#HTML" expanded="true" />
+            <element signature="e#4808#4814#0#HTML" expanded="true" />
+            <element signature="e#4814#4820#0#HTML" expanded="true" />
+            <element signature="e#4898#4904#0#HTML" expanded="true" />
+            <element signature="e#4904#4910#0#HTML" expanded="true" />
+            <element signature="e#4910#4916#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Controller/TransacoesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="149" column="72" selection-start-line="149" selection-start-column="62" selection-end-line="149" selection-end-column="72" />
         </state>
       </provider>
     </entry>

@@ -128,7 +128,7 @@ class TransacoesController extends AppController {
 
         $dados = $this->paginate('HistoricBalance');
 
-        $totalEntrada = $this->OrderItem->find('first', [
+        $totalEntrada = $this->HistoricBalance->find('first', [
             'fields' => [
                 'SUM(HistoricBalance.amount) AS total_entrada'
             ],
@@ -137,7 +137,7 @@ class TransacoesController extends AppController {
             ]
         ]);
 
-        $totalSaida = $this->OrderItem->find('first', [
+        $totalSaida = $this->HistoricBalance->find('first', [
             'fields' => [
                 'SUM(HistoricBalance.amount) AS total_saida'
             ],
