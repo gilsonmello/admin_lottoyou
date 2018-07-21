@@ -20,6 +20,10 @@ class TransacoesController extends AppController {
 
         // CARREGA FUNÇÕES BÁSICAS DE PESQUISA E ORDENAÇÃO
 
+        if(isset($query['modality'])) {
+            die(var_dump($query['modality']));
+        }
+
         $options = array(
             'conditions' => [
             ],
