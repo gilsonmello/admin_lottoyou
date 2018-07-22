@@ -1,4 +1,8 @@
-<h4>Total de registros: <?= $this->Paginator->params()['count']; ?></h4>
+<h4>
+    Total de registros: <?= $this->Paginator->params()['count']; ?>&nbsp;&nbsp;&nbsp;
+    Total entrada: $<?= $totalEntrada[0]['total_entrada']; ?>&nbsp;&nbsp;&nbsp;
+    Total saída: $<?= $totalSaida[0]['total_saida']; ?>
+</h4>
 <table id=""
        class="table table-condensed table-hover"
        cellspacing="0"
@@ -33,14 +37,14 @@
             <td>
                 <?php $modalidade = ''; ?>
                 <?php
-                if($v['LotUserJogo']['id'] != null) $modalidade = 'Loteria';
-                else if($v['SocAposta']['id'] != null) $modalidade = 'Soccer Expert';
-                else if($v['Raspadinha']['id'] != null) $modalidade = 'Raspadinhas';
-                else if($v['PedidoPaypal']['id'] != null) $modalidade = 'Depósito';
-                else if($v['PedidoPagseguro']['id'] != null) $modalidade = 'Depósito';
-                else if($v['Item']['id'] != null) $modalidade = 'Compra';
-                else if($v['BalanceInsert']['id'] != null) $modalidade = 'Depósito';
-                else if($v['RetiradaAgente']['id'] != null) $modalidade = 'Retirada';
+                if(isset($v['LotUserJogo']) && $v['LotUserJogo']['id'] != null) $modalidade = 'Loteria';
+                else if(isset($v['SocAposta']) && $v['SocAposta']['id'] != null) $modalidade = 'Soccer Expert';
+                else if(isset($v['Raspadinha']) && $v['Raspadinha']['id'] != null) $modalidade = 'Raspadinhas';
+                else if(isset($v['PedidoPaypal']) && $v['PedidoPaypal']['id'] != null) $modalidade = 'Depósito';
+                else if(isset($v['PedidoPagseguro']) && $v['PedidoPagseguro']['id'] != null) $modalidade = 'Depósito';
+                else if(isset($v['Item']) && $v['Item']['id'] != null) $modalidade = 'Compra';
+                else if(isset($v['BalanceInsert']) && $v['BalanceInsert']['id'] != null) $modalidade = 'Depósito';
+                else if(isset($v['RetiradaAgente']) && $v['RetiradaAgente']['id'] != null) $modalidade = 'Retirada';
                 else $modalidade = 'Indefinido';
                 ?>
 

@@ -41,8 +41,8 @@
       <file leaf-file-name="SocJogosController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Controller/SocJogosController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="102" lean-forward="true" selection-start-line="102" selection-end-line="102" />
+            <state relative-caret-position="270">
+              <caret line="105" column="51" selection-start-line="105" selection-start-column="42" selection-end-line="105" selection-end-column="51" />
             </state>
           </provider>
         </entry>
@@ -433,12 +433,12 @@
       <workItem from="1532013472491" duration="11110000" />
       <workItem from="1532094949983" duration="14073000" />
       <workItem from="1532182439059" duration="8203000" />
-      <workItem from="1532269080262" duration="4039000" />
+      <workItem from="1532269080262" duration="4381000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="284773000" />
+    <option name="totallyTimeSpent" value="285115000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-1" width="1366" height="741" extended-state="6" />
@@ -831,8 +831,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Controller/SocJogosController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="102" lean-forward="true" selection-start-line="102" selection-end-line="102" />
+        <state relative-caret-position="270">
+          <caret line="105" column="51" selection-start-line="105" selection-start-column="42" selection-end-line="105" selection-end-column="51" />
         </state>
       </provider>
     </entry>
