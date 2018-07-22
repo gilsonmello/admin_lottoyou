@@ -266,9 +266,10 @@
              $('#btnClonar').click(function () {
                 var divClone = $('#divClone').clone();
                 var qtd = $('.card-lista').length;
-                var qtdTotal = (qtd + 1);
+                //console.log(qtd);
+                var qtdTotal = qtd - 1;
 
-                divClone.attr('id', 'card-' + qtdTotal);
+                divClone.attr('id', 'card-' + qtd);
                 divClone.css('display', 'block');
                 divClone.find('input#SocJogoData')
                 .attr('name', 'data[SocJogo][' + qtdTotal + '][data]')

@@ -31,8 +31,9 @@
     </div>
 
     <div class="row" data-spy="affix" data-offset-top="200">
-        <div  id='card-1'>
-            <div class="card card-underline card-lista" id='divClone' style="display: none">
+        <?php if(count($jogos) == 0) {?>
+        <div id="card-1">
+            <div class="card card-underline card-lista" id="divClone" style="display: none">
                 <div class="card-head card-head-sm style-default-light">
                     <header style="">
                         <div class="col-md-4">
@@ -77,6 +78,134 @@
                 </div><!--end .card-body -->
             </div><!--end .row  -->            
         </div><!--end .row  -->
+        <?php } else {?>
+            <div id="card-1">
+                <div class="card card-underline card-lista" id="divClone" style="display: none">
+                    <div class="card-head card-head-sm style-default-light">
+                        <header style="">
+                            <div class="col-md-4">
+                                <div class="form-group" style="margin-bottom: 0px;">
+                                    <?php echo $this->Form->input('local', array('label' => 'Local', 'class' => 'form-control', 'required' => true)); ?>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group" style="margin-bottom: 0px;">
+                                    <?php echo $this->Form->input('data', array('label' => 'Data', 'class' => 'form-control date', 'required' => true)); ?>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group" style=" margin-bottom: 0px;">
+                                    <?php echo $this->Form->input('hora', array('label' => 'Hora', 'placeholder' => '99:99:00', 'class' => 'form-control hora', 'required' => true)); ?>
+                                </div>
+                            </div>
+                        </header>
+                        <div class="tools">
+                            <div class="btn-group" style="margin-right: 0px;">
+                                <button type="button" class="btn ink-reaction btn-collapse btn-default">
+                                    <i class="fa fa-angle-down"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div><!--end .card-head -->
+                    <div class="card-body" style="display: block;">
+                        <div class="row">
+                            <div class="col-md-6 " style="">
+                                <div class="form-group">
+                                    <?php echo $this->Form->input('gel_clube_casa_id', array('empty' => 'Selecione', 'class' => 'form-control ', 'options' => $optionsClubes, 'label' => 'Clube(casa)', 'required' => true)) ?>
+                                </div>
+                            </div>
+                            <!--end .col -->
+                            <div class="col-md-6" style="">
+                                <div class="form-group">
+                                    <?php echo $this->Form->input('gel_clube_fora_id', array('empty' => 'Selecione', 'class' => 'form-control ', 'options' => $optionsClubes, 'label' => 'Clube(fora)', 'required' => true)) ?>
+                                </div><!--end .card-body -->
+                            </div><!--end .col -->
+                            <!--end .dd.nestable-list -->
+                        </div>
+                    </div><!--end .card-body -->
+                </div><!--end .row  -->
+            <?php foreach($jogos as $key => $jogo) { ?>
+                <div class="card card-underline card-lista" id="card-<?= $key + 1 ?>">
+                    <?php echo $this->Form->input(($key).'.id', [
+                        'type' => 'hidden',
+                        'value' => $jogo['SocJogo']['id'],
+                    ]); ?>
+                    <div class="card-head card-head-sm style-default-light">
+                        <header style="">
+                            <div class="col-md-4">
+                                <div class="form-group" style="margin-bottom: 0;">
+                                    <?php echo $this->Form->input(($key).'.local', [
+                                        'label' => 'Local',
+                                        'value' => $jogo['SocJogo']['local'],
+                                        'class' => 'form-control',
+                                        'required' => true
+                                    ]); ?>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group" style="margin-bottom: 0px;">
+                                    <?php echo $this->Form->input(($key).'.data', [
+                                        'label' => 'Data',
+                                        'value' => $jogo['SocJogo']['data'],
+                                        'class' => 'form-control date',
+                                        'required' => true
+                                    ]); ?>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group" style=" margin-bottom: 0px;">
+                                    <?php echo $this->Form->input(($key).'.hora', [
+                                        'label' => 'Hora',
+                                        'placeholder' => '99:99:00',
+                                        'value' => $jogo['SocJogo']['hora'],
+                                        'class' => 'form-control hora',
+                                        'required' => true
+                                    ]); ?>
+                                </div>
+                            </div>
+                        </header>
+                        <div class="tools">
+                            <div class="btn-group" style="margin-right: 0px;">
+                                <button type="button" class="btn ink-reaction btn-collapse btn-default">
+                                    <i class="fa fa-angle-down"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div><!--end .card-head -->
+                    <div class="card-body" style="display: block;">
+                        <div class="row">
+                            <div class="col-md-6 " style="">
+                                <div class="form-group">
+                                    <?php echo $this->Form->input(($key).'.gel_clube_casa_id', [
+                                        'empty' => 'Selecione',
+                                        'class' => 'form-control chosen',
+                                        'value' => $jogo['SocJogo']['gel_clube_casa_id'],
+                                        'options' => $optionsClubes,
+                                        'label' => 'Clube(casa)',
+                                        'required' => true
+                                    ]) ?>
+                                </div>
+                            </div>
+                            <!--end .col -->
+                            <div class="col-md-6" style="">
+                                <div class="form-group">
+                                    <?php echo $this->Form->input(($key).'.gel_clube_fora_id', [
+                                        'empty' => 'Selecione',
+                                        'class' => 'form-control chosen',
+                                        'value' => $jogo['SocJogo']['gel_clube_fora_id'],
+                                        'options' => $optionsClubes,
+                                        'label' => 'Clube(fora)',
+                                        'required' => true
+                                    ]) ?>
+                                </div><!--end .card-body -->
+                            </div><!--end .col -->
+                            <!--end .dd.nestable-list -->
+                        </div>
+                    </div><!--end .card-body -->
+                </div><!--end .row  -->
+            <?php } ?>
+            </div><!--end .row  -->
+        <?php } ?>
         <div class="tools" style="text-align: right; margin-bottom: 5px;">
             <button id="btnClonar" type="button" class="btn ink-reaction btn-primary ">
                 <i class="fa fa-plus-square"></i>

@@ -38,60 +38,36 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.ctp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/View/GelCadastros/index.ctp">
+      <file leaf-file-name="SocJogosController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Controller/SocJogosController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="147" column="24" selection-start-line="147" selection-start-column="24" selection-end-line="147" selection-end-column="24" />
+            <state relative-caret-position="45">
+              <caret line="102" lean-forward="true" selection-start-line="102" selection-end-line="102" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TransacoesController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Controller/TransacoesController.php">
+      <file leaf-file-name="add.ctp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/View/SocJogos/add.ctp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="407">
-              <caret line="149" column="72" selection-start-line="149" selection-start-column="62" selection-end-line="149" selection-end-column="72" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.ctp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/View/Transacoes/index.ctp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="83" column="60" lean-forward="true" selection-start-line="83" selection-start-column="60" selection-end-line="83" selection-end-column="60" />
+            <state relative-caret-position="257">
+              <caret line="135" column="79" selection-start-line="135" selection-start-column="79" selection-end-line="135" selection-end-column="79" />
               <folding>
-                <element signature="e#4802#4808#0#HTML" expanded="true" />
-                <element signature="e#4808#4814#0#HTML" expanded="true" />
-                <element signature="e#4814#4820#0#HTML" expanded="true" />
-                <element signature="e#4898#4904#0#HTML" expanded="true" />
-                <element signature="e#4904#4910#0#HTML" expanded="true" />
-                <element signature="e#4910#4916#0#HTML" expanded="true" />
+                <element signature="e#2349#2370#0#HTML" expanded="true" />
+                <element signature="e#2542#2569#0#HTML" expanded="true" />
+                <element signature="e#5337#5358#0#HTML" expanded="true" />
+                <element signature="e#5570#5597#0#HTML" expanded="true" />
+                <element signature="e#8637#8683#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.ctp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/View/RelatorioItens/index.ctp">
+      <file leaf-file-name="AppSocRodadas.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/webroot/js/sge/AppSocRodadas.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="81" column="83" lean-forward="true" selection-start-line="81" selection-start-column="83" selection-end-line="82" selection-end-column="54" />
-              <folding>
-                <element signature="e#4558#4564#0#HTML" expanded="true" />
-                <element signature="e#4564#4570#0#HTML" expanded="true" />
-                <element signature="e#4570#4576#0#HTML" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HistoricBalance.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Model/HistoricBalance.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="141" column="7" selection-start-line="133" selection-start-column="4" selection-end-line="141" selection-end-column="7" />
+            <state relative-caret-position="138">
+              <caret line="269" column="37" selection-start-line="269" selection-start-column="37" selection-end-line="269" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -100,8 +76,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>cadastrarLotPrecoQuantidades</find>
-      <find>col-sm-3 col-xs-12 col-md-3 col-lg-3</find>
       <find>value</find>
       <find>dele</find>
       <find>deleta</find>
@@ -130,6 +104,8 @@
       <find>_loadRelatorioPaypalDepositos</find>
       <find>multiple</find>
       <find>$query</find>
+      <find>btnClonar</find>
+      <find>divClone</find>
     </findStrings>
     <replaceStrings>
       <replace>AppRetiradaAgentes</replace>
@@ -167,9 +143,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/View/Users/index.ctp" />
-        <option value="$PROJECT_DIR$/composer.json" />
-        <option value="$PROJECT_DIR$/app/webroot/index.php" />
         <option value="$PROJECT_DIR$/app/View/LotJogosResultados/add.ctp" />
         <option value="$PROJECT_DIR$/app/Controller/LotJogosResultadosController.php" />
         <option value="$PROJECT_DIR$/app/Controller/LotJogosController.php" />
@@ -215,9 +188,12 @@
         <option value="$PROJECT_DIR$/app/webroot/js/sge/AppTransacoes.js" />
         <option value="$PROJECT_DIR$/app/View/RelatorioItens/index.ctp" />
         <option value="$PROJECT_DIR$/app/View/RelatorioItens/index_table.ctp" />
-        <option value="$PROJECT_DIR$/app/Model/HistoricBalance.php" />
-        <option value="$PROJECT_DIR$/app/Controller/TransacoesController.php" />
         <option value="$PROJECT_DIR$/app/View/Transacoes/index.ctp" />
+        <option value="$PROJECT_DIR$/app/Controller/TransacoesController.php" />
+        <option value="$PROJECT_DIR$/app/Model/HistoricBalance.php" />
+        <option value="$PROJECT_DIR$/app/View/SocJogos/add.ctp" />
+        <option value="$PROJECT_DIR$/app/webroot/js/sge/AppSocRodadas.js" />
+        <option value="$PROJECT_DIR$/app/Controller/SocJogosController.php" />
       </list>
     </option>
   </component>
@@ -456,28 +432,28 @@
       <workItem from="1531921722058" duration="9437000" />
       <workItem from="1532013472491" duration="11110000" />
       <workItem from="1532094949983" duration="14073000" />
-      <workItem from="1532182439059" duration="7538000" />
+      <workItem from="1532182439059" duration="8203000" />
+      <workItem from="1532269080262" duration="4039000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="280069000" />
+    <option name="totallyTimeSpent" value="284773000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-1" width="1366" height="741" extended-state="6" />
     <editor active="true" />
     <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1852123" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32810047" />
+      <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Terminal" order="10" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1852123" />
-      <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
-      <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="bottom" id="Find" order="1" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Thumbnails" order="11" weight="0.32913387" />
@@ -487,6 +463,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -509,34 +486,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/View/LotPremios/index_table.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="60" column="73" selection-start-line="60" selection-start-column="73" selection-end-line="60" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/View/LotPremios/index.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="119" column="28" selection-start-line="119" selection-start-column="28" selection-end-line="119" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/View/RelatorioPagSeguroDepositos/index.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="150" column="28" selection-start-line="150" selection-start-column="28" selection-end-line="150" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/View/Retiradas/index_table.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="438">
-          <caret line="70" column="73" selection-start-line="70" selection-start-column="73" selection-end-line="70" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/View/Retiradas/index.ctp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="347">
@@ -816,20 +765,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/View/RelatorioItens/index.ctp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="81" column="83" lean-forward="true" selection-start-line="81" selection-start-column="83" selection-end-line="82" selection-end-column="54" />
-          <folding>
-            <element signature="e#4558#4564#0#HTML" expanded="true" />
-            <element signature="e#4564#4570#0#HTML" expanded="true" />
-            <element signature="e#4570#4576#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Model/HistoricBalance.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="141" column="7" selection-start-line="133" selection-start-column="4" selection-end-line="141" selection-end-column="7" />
+        <state relative-caret-position="1215">
+          <caret line="81" column="83" selection-start-line="81" selection-start-column="83" selection-end-line="82" selection-end-column="54" />
         </state>
       </provider>
     </entry>
@@ -840,6 +777,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Model/HistoricBalance.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="142" lean-forward="true" selection-start-line="142" selection-end-line="142" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/View/Transacoes/index.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="83" column="60" selection-start-line="83" selection-start-column="60" selection-end-line="83" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Controller/TransacoesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="139" column="44" selection-start-line="139" selection-start-column="44" selection-end-line="139" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/View/GelCadastros/index.ctp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -847,25 +805,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/View/Transacoes/index.ctp">
+    <entry file="file://$PROJECT_DIR$/app/Controller/SocRodadasController.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/View/SocJogos/add.ctp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="83" column="60" lean-forward="true" selection-start-line="83" selection-start-column="60" selection-end-line="83" selection-end-column="60" />
+        <state relative-caret-position="257">
+          <caret line="135" column="79" selection-start-line="135" selection-start-column="79" selection-end-line="135" selection-end-column="79" />
           <folding>
-            <element signature="e#4802#4808#0#HTML" expanded="true" />
-            <element signature="e#4808#4814#0#HTML" expanded="true" />
-            <element signature="e#4814#4820#0#HTML" expanded="true" />
-            <element signature="e#4898#4904#0#HTML" expanded="true" />
-            <element signature="e#4904#4910#0#HTML" expanded="true" />
-            <element signature="e#4910#4916#0#HTML" expanded="true" />
+            <element signature="e#2349#2370#0#HTML" expanded="true" />
+            <element signature="e#2542#2569#0#HTML" expanded="true" />
+            <element signature="e#5337#5358#0#HTML" expanded="true" />
+            <element signature="e#5570#5597#0#HTML" expanded="true" />
+            <element signature="e#8637#8683#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Controller/TransacoesController.php">
+    <entry file="file://$PROJECT_DIR$/app/webroot/js/sge/AppSocRodadas.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="149" column="72" selection-start-line="149" selection-start-column="62" selection-end-line="149" selection-end-column="72" />
+        <state relative-caret-position="138">
+          <caret line="269" column="37" selection-start-line="269" selection-start-column="37" selection-end-line="269" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Controller/SocJogosController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="102" lean-forward="true" selection-start-line="102" selection-end-line="102" />
         </state>
       </provider>
     </entry>

@@ -131,15 +131,15 @@ class HistoricBalance extends AppModel {
     /**
      * Overridden paginateCount method
      */
-    /*public function paginateCount($conditions = null, $recursive = 0, $extra = array()) {
+    public function paginateCount($conditions = null, $recursive = 0, $extra = array()) {
 
-        $sql = "SELECT * FROM historic_balances AS HistoricBalance INNER JOIN users Owner ON (HistoricBalance.owner_id = Owner.id)";
+        $sql = "SELECT HistoricBalance.id FROM historic_balances AS HistoricBalance";
 
         $this->recursive = $recursive;
         $results = $this->query($sql);
 
         return count($results);
-    }*/
+    }
 
 	public $hasMany = [
     	

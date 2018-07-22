@@ -76,8 +76,9 @@ class SocJogosController extends AppController {
             unset($this->request->data['SocJogo']['gel_clube_fora_id']);
 
             $this->StartTransaction();
+
             foreach ($this->request->data['SocJogo'] as $v) {
-                
+
                 $validate = true;
 
                 if(empty($v['local']) || !isset($v['local'])) {
@@ -99,19 +100,14 @@ class SocJogosController extends AppController {
                 if(empty($v['hora']) || !isset($v['hora'])) {
                     $validate = false;
                 }
-                
-                if($validate) {
-                    $value['soc_bolao_id'] = $bolaoId;
-                    $value['soc_rodada_id'] = $rodadaId;
-                    $value['local'] = $v['local'];
-                    $value['data'] = $v['data'];
-                    $value['hora'] = $v['hora'];
-                    $value['gel_clube_casa_id'] = $v['gel_clube_casa_id'];
-                    $value['gel_clube_fora_id'] = $v['gel_clube_fora_id'];
 
+                if($validate) {
+                    $v['soc_bolao_id'] = $bolaoId;
+                    $v['soc_rodada_id'] = $rodadaId;
 
                     $this->SocJogo->create();
-                    if (!$this->SocJogo->save($value)) {
+
+                    if (!$this->SocJogo->save($v)) {
                         $msg = 'Não foi possível editar o registro. Favor tentar novamente.';
                         $class = 'alert-danger';
                         $ok = false;
@@ -122,6 +118,25 @@ class SocJogosController extends AppController {
             $this->Session->setFlash($msg, 'alert', array('plugin' => 'BoostCake', 'class' => $class));
         } else {
 
+            $this->SocJogo->recursive = -1;
+            $jogos = $this->SocJogo->find('all', [
+                'conditions' => [
+                    'SocJogo.soc_rodada_id' => $idRodada
+                ],
+                'fields' => [
+                    'SocJogo.id',
+                    'SocJogo.user_id',
+                    'SocJogo.soc_rodada_id',
+                    'SocJogo.resultado_clube_casa',
+                    'SocJogo.resultado_clube_fora',
+                    'SocJogo.gel_clube_casa_id',
+                    'SocJogo.gel_clube_fora_id',
+                    'SocJogo.local',
+                    'SocJogo.data',
+                    'SocJogo.hora',
+                    'SocJogo.active',
+                ]
+            ]);
 
             $this->loadModel('GelClube');
             $this->GelClube->recursive = -1;
@@ -139,7 +154,7 @@ class SocJogosController extends AppController {
                 ]
             ]);
             //die(var_dump($dadosRodada));
-            $this->set(compact('optionsClubes', 'idRodada', 'dadosRodada', 'optionsBoloes'));
+            $this->set(compact('optionsClubes', 'idRodada', 'dadosRodada', 'optionsBoloes', 'jogos'));
         }
     }
 
