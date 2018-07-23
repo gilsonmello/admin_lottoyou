@@ -22,7 +22,7 @@ class RelatorioRaspadinhasController extends AppController {
 
         $options = array(
             'conditions' => [],
-            'limit' => 1,
+            'limit' => 50,
             //'order' => array('RasLote.id' => 'desc'),
             'contain' => [],
             'joins' => [
