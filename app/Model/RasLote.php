@@ -351,4 +351,113 @@ class RasLote extends AppModel {
         return $run;
     }
 
+
+    public function getRaspadinhasUtilizadas($lote) {
+        $this->Raspadinha->recursive = -1;
+        $utilizadas = $this->Raspadinha->find('first', [
+            'conditions' => [
+                'Raspadinha.lote' => $lote,
+                'Raspadinha.ativo' => 1,
+                /*'NOT' => [
+                    'Raspadinha.owner' => NULL,
+                ],*/
+            ],
+            'fields' => [
+                'COUNT(Raspadinha.id) AS total_utilizadas'
+            ],
+            'group' => [
+                'Raspadinha.lote',
+            ]
+        ]);
+        return count($utilizadas) > 0 ? $utilizadas[0]['total_utilizadas'] : 0;
+    }
+
+    public function getRaspadinhasPremiadasRestantes($lote) {
+        $this->Raspadinha->recursive = -1;
+        $restante = $this->Raspadinha->find('first', [
+            'conditions' => [
+                'Raspadinha.lote' => $lote,
+                'Raspadinha.ativo' => 0,
+                'Raspadinha.premio >' => 0,
+            ],
+            'fields' => [
+                'COUNT(Raspadinha.id) AS total_restantes'
+            ],
+            'group' => [
+                'Raspadinha.lote',
+            ]
+        ]);
+        return count($restante) > 0 ? $restante[0]['total_restantes'] : 0;
+    }
+
+    public function getNaoRaspadinhasPremiadasRestantes($lote) {
+        $this->Raspadinha->recursive = -1;
+        $restante = $this->Raspadinha->find('first', [
+            'conditions' => [
+                'Raspadinha.lote' => $lote,
+                'Raspadinha.ativo' => 0,
+                'Raspadinha.premio' => 0,
+            ],
+            'fields' => [
+                'COUNT(Raspadinha.id) AS total_restantes'
+            ],
+            'group' => [
+                'Raspadinha.lote',
+            ]
+        ]);
+        return count($restante) > 0 ? $restante[0]['total_restantes'] : 0;
+    }
+
+    public function getRaspadinhasRestantes($lote) {
+        $this->Raspadinha->recursive = -1;
+        $restante = $this->Raspadinha->find('first', [
+            'conditions' => [
+                'Raspadinha.lote' => $lote,
+                'Raspadinha.ativo' => 0,
+                'Raspadinha.owner' => NULL,
+            ],
+            'fields' => [
+                'COUNT(Raspadinha.id) AS total_restantes'
+            ],
+            'group' => [
+                'Raspadinha.lote',
+            ]
+        ]);
+        return count($restante) > 0 ? $restante[0]['total_restantes'] : 0;
+    }
+
+    public function getTotalRaspadinhas($lote) {
+        $this->Raspadinha->recursive = -1;
+        $total = $this->Raspadinha->find('first', [
+            'conditions' => [
+                'Raspadinha.lote' => $lote,
+            ],
+            'fields' => [
+                'COUNT(Raspadinha.id) AS total_raspadinhas'
+            ],
+            'group' => [
+                'Raspadinha.lote',
+            ]
+        ]);
+        return count($total) > 0 ? $total[0]['total_raspadinhas'] : 0;
+    }
+
+    public function getTotalPremiado($lote) {
+        $this->Raspadinha->recursive = -1;
+        $total = $this->Raspadinha->find('first', [
+            'conditions' => [
+                'Raspadinha.lote' => $lote,
+                'Raspadinha.ativo' => 1,
+                'Raspadinha.premio >' => 0,
+            ],
+            'fields' => [
+                'SUM(Raspadinha.premio) AS total_premiado'
+            ],
+            'group' => [
+                'Raspadinha.lote',
+            ]
+        ]);
+        return count($total) > 0 ? $total[0]['total_premiado'] : 0;
+    }
+
 }

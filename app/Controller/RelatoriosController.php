@@ -8,6 +8,40 @@ class RelatoriosController extends AppController {
 
     }
 
+    public function raspadinhas($modal = 0) {
+        // CARREGA FUNÇÕES BÁSICAS DE PESQUISA E ORDENAÇÃO
+        $options = parent::_index();
+
+        // PREPARA MODEL
+        $this->RasTabelasDesconto->recursive = 0;
+        $this->RasTabelasDesconto->validate = array();
+
+        // TRATA CONDIÇÕES
+        foreach ($options['conditions'] as $field => $value) {
+            if ($field == 'RasTabelasDesconto.tema_id') {
+                $options['conditions'][$field] = $value;
+                //unset($options['conditions'][$field]);
+            }
+            if ($field == 'RasTabelasDesconto.quantity') {
+                $options['conditions'][$field. ' LIKE'] = "%$value%";
+            }
+            if ($field == 'RasTabelasDesconto.percentage') {
+                $options['conditions'][$field. ' LIKE'] = "%$value%";
+            }
+        }
+
+
+        // PEGA REQUISIÇÕES CADASTRADOS
+        $dados = $this->RasTabelasDesconto->find('all', $options);
+
+        $this->loadModel('TemasRaspadinha');
+        $optionsTemas = $this->TemasRaspadinha->find('list');
+        $this->set(compact('optionsTemas'));
+
+        // ENVIA DADOS PARA A SESSÃO
+        $this->set(compact('dados', 'modal'));
+    }
+
     public function index($modal = 0) {
         // CARREGA FUNÇÕES BÁSICAS DE PESQUISA E ORDENAÇÃO
         $options = parent::_index();
