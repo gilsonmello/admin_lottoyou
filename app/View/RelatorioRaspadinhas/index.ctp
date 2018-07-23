@@ -3,7 +3,7 @@
         <div class="card-head card-head-sm style-primary">
             <header>
                 <i class="md md-apps" style="margin-bottom:0;"></i> Relatório
-                <i class="md md-navigate-next" style="margin-bottom:0;"></i> <b>Itens Comprados</b>
+                <i class="md md-navigate-next" style="margin-bottom:0;"></i> <b>Raspadinhas</b>
             </header>
             <div class="tools">
                 <button id="voltar" type="button" class="btn ink-reaction btn-flat btn-default-bright" data-dismiss="modal">
