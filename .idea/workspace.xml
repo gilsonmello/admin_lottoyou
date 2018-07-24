@@ -38,11 +38,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="RelatorioItensController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="RelatorioItensController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Controller/RelatorioItensController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
+            <state relative-caret-position="356">
               <caret line="86" column="30" selection-start-line="86" selection-start-column="30" selection-end-line="86" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BalancesController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Controller/BalancesController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-975">
+              <caret line="145" column="67" selection-start-line="145" selection-start-column="67" selection-end-line="145" selection-end-column="67" />
             </state>
           </provider>
         </entry>
@@ -157,7 +166,6 @@
         <option value="$PROJECT_DIR$/app/Model/PedidoPaypal.php" />
         <option value="$PROJECT_DIR$/app/Model/PedidoPagseguro.php" />
         <option value="$PROJECT_DIR$/app/Controller/BalanceInsertsController.php" />
-        <option value="$PROJECT_DIR$/app/Controller/BalancesController.php" />
         <option value="$PROJECT_DIR$/app/webroot/js/sge/AppRetiradaAgentes.js" />
         <option value="$PROJECT_DIR$/app/View/RetiradaAgentes/edit.ctp" />
         <option value="$PROJECT_DIR$/app/View/RetiradaAgentes/index.ctp" />
@@ -169,6 +177,7 @@
         <option value="$PROJECT_DIR$/app/View/Transacoes/index.ctp" />
         <option value="$PROJECT_DIR$/app/Model/HistoricBalance.php" />
         <option value="$PROJECT_DIR$/app/Controller/RelatorioItensController.php" />
+        <option value="$PROJECT_DIR$/app/Controller/BalancesController.php" />
       </list>
     </option>
   </component>
@@ -416,12 +425,12 @@
       <workItem from="1532182439059" duration="8203000" />
       <workItem from="1532269080262" duration="5354000" />
       <workItem from="1532358345782" duration="7489000" />
-      <workItem from="1532453539130" duration="7891000" />
+      <workItem from="1532453539130" duration="8460000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="301468000" />
+    <option name="totallyTimeSpent" value="302037000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-1" width="1366" height="741" extended-state="6" />
@@ -696,13 +705,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Controller/BalancesController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="149" column="93" selection-start-line="149" selection-start-column="83" selection-end-line="149" selection-end-column="93" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Controller/BalanceInsertsController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="348">
@@ -790,8 +792,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Controller/RelatorioItensController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
+        <state relative-caret-position="356">
           <caret line="86" column="30" selection-start-line="86" selection-start-column="30" selection-end-line="86" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Controller/BalancesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-975">
+          <caret line="145" column="67" selection-start-line="145" selection-start-column="67" selection-end-line="145" selection-end-column="67" />
         </state>
       </provider>
     </entry>

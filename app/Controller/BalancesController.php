@@ -143,7 +143,7 @@ class BalancesController extends AppController {
                     //Verificando se o saldo é menor do que zero
                     $to = $to < 0 ? 0 : $to;
                     $historicBalance['HistoricBalance']['to'] = $to;
-                    $historicBalance['HistoricBalance']['type'] = 1;
+                    $historicBalance['HistoricBalance']['type'] = 0;
                     $historicBalance['HistoricBalance']['amount'] = $amount;
                     //$historicBalance['HistoricBalance']['balance_insert_id'] = $this->BalanceInsert->id;
                     $historicBalance['HistoricBalance']['modality'] = 'balance';
