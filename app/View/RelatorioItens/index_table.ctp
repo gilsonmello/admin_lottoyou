@@ -58,7 +58,7 @@
     <?php } ?>
     <tr>
         <th colspan="4">
-            Total
+            Total da página
         </th>
         <td colspan="3">
             $<?= number_format($total, 2, '.', '') ?>

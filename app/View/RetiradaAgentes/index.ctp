@@ -58,7 +58,9 @@
                 <?php echo $this->Form->end(); ?>
             </div>
             <div id="gridRetiradaAgentes" style="padding: 24px;">
-                <h4>Total de registros: <?= $this->Paginator->params()['count']; ?></h4>
+                <h4>
+                    Total de registros: <?= $this->Paginator->params()['count']; ?>
+                </h4>
                 <table id=""
                        class="table table-condensed table-hover"
                        cellspacing="0"
@@ -66,8 +68,8 @@
                        style="margin-bottom:0;">
                     <thead>
                     <tr>
-                        <th>Valor</th>
                         <th>Nome</th>
+                        <th>Valor</th>
                         <th>Banco</th>
                         <th>Agência</th>
                         <th>N. conta</th>
@@ -80,18 +82,19 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <?php foreach ($dados as $k => $v) { ?>
+                    <?php $total = 0.00; foreach ($dados as $k => $v) { ?>
                         <tr>
-                            <td>
-                                <?php
-                                if($v['RetiradaAgente']['value'] != null) echo '$'.$v['RetiradaAgente']['value'];
-                                else echo 'Não informado';
-                                ?>
-                            </td>
                             <td>
                                 <?php
                                     if($v['RetiradaAgente']['name'] != null) echo $v['RetiradaAgente']['name'];
                                     else echo 'Não informado';
+                                ?>
+                            </td>
+                            <td>
+                                <?php $total += $v['RetiradaAgente']['value']; ?>
+                                <?php
+                                if($v['RetiradaAgente']['value'] != null) echo '$'.$v['RetiradaAgente']['value'];
+                                else echo 'Não informado';
                                 ?>
                             </td>
                             <td>
@@ -124,7 +127,6 @@
                                 if($v['RetiradaAgente']['operation'] != null) echo $v['RetiradaAgente']['operation'];
                                 else echo 'Não informado';
                                 ?>
-                                <?= $v['RetiradaAgente']['operation'] ?>
                             </td>
                             <td>
                                 <?php
@@ -153,6 +155,14 @@
                             </td>
                         </tr>
                     <?php } ?>
+                    <tr>
+                        <th>
+                            Total
+                        </th>
+                        <td colspan="10">
+                            $<?= number_format($total, 2, '.', '') ?>
+                        </td>
+                    </tr>
                     </tbody>
                 </table>
                 <div class="">

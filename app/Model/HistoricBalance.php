@@ -25,6 +25,72 @@ class HistoricBalance extends AppModel {
         ],
 	];
 
+    public $hasOne = [
+        'LotUserJogo' => [
+            'className' => 'LotUserJogo',
+            'foreignKey' => 'historic_balance_id',
+            'conditions' => '',
+            'fields' => '',
+            'order' => ''
+        ],
+        'SocAposta' => [
+            'className' => 'SocAposta',
+            'foreignKey' => 'historic_balance_id',
+            'conditions' => '',
+            'fields' => '',
+            'order' => ''
+        ],
+        'Raspadinha' => [
+            'className' => 'Raspadinha',
+            'foreignKey' => 'historic_balance_id',
+            'conditions' => '',
+            'fields' => '',
+            'order' => ''
+        ],
+        'PedidoPaypal' => [
+            'className' => 'PedidoPaypal',
+            'foreignKey' => 'historic_balance_id',
+            'conditions' => '',
+            'fields' => '',
+            'order' => ''
+        ],
+        'PedidoPagseguro' => [
+            'className' => 'PedidoPagseguro',
+            'foreignKey' => 'historic_balance_id',
+            'conditions' => '',
+            'fields' => '',
+            'order' => ''
+        ],
+        'Item' => [
+            'className' => 'OrderItem',
+            'foreignKey' => 'historic_balance_id',
+            'conditions' => '',
+            'fields' => '',
+            'order' => ''
+        ],
+        'BalanceInsert' => [
+            'className' => 'BalanceInsert',
+            'foreignKey' => 'historic_balance_id',
+            'conditions' => '',
+            'fields' => '',
+            'order' => ''
+        ],
+        'RetiradaAgente' => [
+            'className' => 'RetiradaAgente',
+            'foreignKey' => 'historic_balance_id',
+            'conditions' => '',
+            'fields' => '',
+            'order' => ''
+        ],
+        'BalanceWithdraw' => [
+            'className' => 'BalanceWithdraw',
+            'foreignKey' => 'historic_balance_id',
+            'conditions' => '',
+            'fields' => '',
+            'order' => ''
+        ],
+    ];
+
     /*public function paginate($conditions, $fields, $order, $limit, $page = 1, $recursive = null, $extra = array()) {
         //die(var_dump($this->query));
 
@@ -131,7 +197,7 @@ class HistoricBalance extends AppModel {
     /**
      * Overridden paginateCount method
      */
-    public function paginateCount($conditions = null, $recursive = 0, $extra = array()) {
+    /*public function paginateCount($conditions = null, $recursive = 0, $extra = array()) {
 
         $sql = "SELECT HistoricBalance.id FROM historic_balances AS HistoricBalance";
 
@@ -139,11 +205,121 @@ class HistoricBalance extends AppModel {
         $results = $this->query($sql);
 
         return count($results);
-    }
+    }*/
 
 	public $hasMany = [
     	
 	];
+
+    public function getSocAposta($id) {
+        $this->SocAposta->recursive = -1;
+        $aposta = $this->SocAposta->find('first', [
+            'conditions' => [
+                'SocAposta.historic_balance_id' => $id
+            ],
+            'fields' => [
+                'SocAposta.id'
+            ]
+        ]);
+
+        return $aposta;
+    }
+
+    public function getLotUserJogo($id) {
+        $this->LotUserJogo->recursive = -1;
+        return $this->LotUserJogo->find('first', [
+            'conditions' => [
+                'LotUserJogo.historic_balance_id' => $id
+            ],
+            'fields' => [
+                'LotUserJogo.id'
+            ]
+        ]);
+    }
+
+    public function getRaspadinha($id) {
+        $this->Raspadinha->recursive = -1;
+        return $this->Raspadinha->find('first', [
+            'conditions' => [
+                'Raspadinha.historic_balance_id' => $id
+            ],
+            'fields' => [
+                'Raspadinha.id'
+            ]
+        ]);
+    }
+
+    public function getPedidoPaypal($id) {
+        $this->PedidoPaypal->recursive = -1;
+        return $this->PedidoPaypal->find('first', [
+            'conditions' => [
+                'PedidoPaypal.historic_balance_id' => $id
+            ],
+            'fields' => [
+                'PedidoPaypal.id'
+            ]
+        ]);
+    }
+
+    public function getPedidoPagseguro($id) {
+        $this->PedidoPagseguro->recursive = -1;
+        return $this->PedidoPagseguro->find('first', [
+            'conditions' => [
+                'PedidoPagseguro.historic_balance_id' => $id
+            ],
+            'fields' => [
+                'PedidoPagseguro.id'
+            ]
+        ]);
+    }
+
+    public function getItem($id) {
+        $this->Item->recursive = -1;
+        return $this->Item->find('first', [
+            'conditions' => [
+                'Item.historic_balance_id' => $id
+            ],
+            'fields' => [
+                'Item.id'
+            ]
+        ]);
+    }
+
+    public function getBalanceInsert($id) {
+        $this->BalanceInsert->recursive = -1;
+        return $this->BalanceInsert->find('first', [
+            'conditions' => [
+                'BalanceInsert.historic_balance_id' => $id
+            ],
+            'fields' => [
+                'BalanceInsert.id'
+            ]
+        ]);
+    }
+
+    public function getRetiradaAgente($id) {
+        $this->RetiradaAgente->recursive = -1;
+        return $this->RetiradaAgente->find('first', [
+            'conditions' => [
+                'RetiradaAgente.historic_balance_id' => $id
+            ],
+            'fields' => [
+                'RetiradaAgente.id'
+            ]
+        ]);
+    }
+
+    public function getBalanceWithdraw($id) {
+        $this->BalanceWithdraw->recursive = -1;
+        return $this->BalanceWithdraw->find('first', [
+            'conditions' => [
+                'BalanceWithdraw.historic_balance_id' => $id
+            ],
+            'fields' => [
+                'BalanceWithdraw.id'
+            ]
+        ]);
+    }
 
 
 //    public $order = 'SocBolao.nome ASC';

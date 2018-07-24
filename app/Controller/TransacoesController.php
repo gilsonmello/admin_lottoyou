@@ -32,7 +32,7 @@ class TransacoesController extends AppController {
                     'table' => 'users',
                     'type' => 'LEFT',
                     'conditions' => 'Owner.id = HistoricBalance.owner_id'
-                ],
+                ]/*,
                 [
                     'alias' => 'SocAposta',
                     'table' => 'soc_apostas',
@@ -80,7 +80,7 @@ class TransacoesController extends AppController {
                     'table' => 'agent_withdraw',
                     'type' => 'LEFT',
                     'conditions' => 'RetiradaAgente.historic_balance_id = HistoricBalance.id'
-                ]
+                ]*/
             ],
             'fields' => array(
                 'HistoricBalance.id',
@@ -93,14 +93,14 @@ class TransacoesController extends AppController {
                 'Owner.name',
                 'Owner.last_name',
                 'Owner.username',
-                'SocAposta.id',
+                /*'SocAposta.id',
                 'LotUserJogo.id',
                 'Raspadinha.id',
                 'PedidoPaypal.id',
                 'PedidoPagseguro.id',
                 'Item.id',
                 'BalanceInsert.id',
-                'RetiradaAgente.id'
+                'RetiradaAgente.id'*/
             ),
         );
 
@@ -128,7 +128,7 @@ class TransacoesController extends AppController {
 
         $dados = $this->paginate('HistoricBalance');
 
-        $totalEntrada = $this->HistoricBalance->find('first', [
+        /*$totalEntrada = $this->HistoricBalance->find('first', [
             'fields' => [
                 'SUM(HistoricBalance.amount) AS total_entrada'
             ],
@@ -144,12 +144,13 @@ class TransacoesController extends AppController {
             'conditions' => [
                 'HistoricBalance.type' => 0
             ]
-        ]);
+        ]);*/
 
         // ENVIA DADOS PARA A SESSÃO
-        $this->set(compact('dados', 'modal', 'totalEntrada', 'totalSaida'));
+        $this->set(compact('dados', 'modal'));
+        $this->set('model', $this->HistoricBalance);
 
-        $this->set('query', http_build_query($query));
+        $this->set('query_string', http_build_query($query));
 
         /*$this->loadModel('LotCategoria');
         $this->LotCategoria->recursive = -1;

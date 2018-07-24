@@ -33,18 +33,13 @@ class RelatorioItensController extends AppController {
         $this->OrderItem->recursive = -1;
         $this->OrderItem->validate = [];
 
+        $totalConditions = [];
 
-        $total = $this->OrderItem->find('first', [
-            'fields' => [
-                'SUM(OrderItem.amount) AS total'
-            ],
-        ]);
-
-        if(isset($query['nome'])) {
+        if(isset($query['nome']) && $query['nome'] != '') {
             $options['conditions']['User.name LIKE'] = '%'.$query['nome'].'%';
         }
 
-        if(isset($query['email'])) {
+        if(isset($query['email']) && $query['email'] != '') {
             $options['conditions']['User.username LIKE'] = '%'.$query['email'].'%';
         }
 
@@ -71,6 +66,29 @@ class RelatorioItensController extends AppController {
         $this->paginate = $options;
 
         $dados = $this->paginate('OrderItem');
+
+
+        $total = $this->OrderItem->find('first', [
+            'conditions' => $options['conditions'],
+            'joins' => [
+                array(
+                    'alias' => 'User',
+                    'table' => 'users',
+                    'type' => 'INNER',
+                    'conditions' => 'User.id = OrderItem.user_id'
+                ),
+            ],
+            'fields' => [
+                'OrderItem.id',
+                'SUM(OrderItem.amount) AS total',
+                'OrderItem.created_at',
+                'OrderItem.amount',
+                'User.id',
+                'User.username',
+                'User.name',
+            ],
+        ]);
+
 
         // ENVIA DADOS PARA A SESSÃO
         $this->set(compact('dados', 'modal', 'total'));

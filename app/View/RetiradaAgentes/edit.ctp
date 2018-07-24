@@ -59,7 +59,7 @@
                 )); ?>
             </div>
         </div>
-        <div class="col-sm-1 col-lg-1">
+        <div class="col-sm-2 col-lg-2">
             <div class="form-group">
                 <?php
                     $operation = 'Não informado';
@@ -75,13 +75,33 @@
                 )); ?>
             </div>
         </div>
-        <div class="col-sm-3 col-lg-3">
+        <div class="col-sm-4 col-lg-4">
+            <div class="form-group">
+                <?php
+                $doc_type = 'Não informado';
+                if($this->request->data['RetiradaAgente']['doc_type'] == 1) $doc_type = 'CPF';
+                else if($this->request->data['RetiradaAgente']['doc_type'] == 2) $doc_type = 'Carteira de Identidade';
+                else if($this->request->data['RetiradaAgente']['doc_type'] == 3) $doc_type = 'Carteira de motorista';
+                else if($this->request->data['RetiradaAgente']['doc_type'] == 4) $doc_type = 'Passaporte';
+                else if($this->request->data['RetiradaAgente']['doc_type'] == 5) $doc_type = 'Outro';
+                ?>
+                <?php echo $this->Form->input('doc_type', array(
+                    'label' => 'Tipo de documento',
+                    'class' => 'form-control',
+                    'required' => false,
+                    'disabled' => true,
+                    'readonly' => true,
+                    'value' => $doc_type
+                )); ?>
+            </div>
+        </div>
+        <div class="col-sm-4 col-lg-4">
             <div class="form-group">
                 <?php echo $this->Form->input('identification', array('label' => 'Doc. identificação', 'class' => 'form-control', 'required' => false, 'disabled' => true,
                     'readonly' => true,)); ?>
             </div>
         </div>
-        <div class="col-sm-3 col-lg-3">
+        <div class="col-sm-4 col-lg-4">
             <div class="form-group">
                 <?php echo $this->Form->input('country', array(
                     'label' => 'País',
@@ -93,7 +113,7 @@
                 )); ?>
             </div>
         </div>
-        <div class="col-md-3 col-lg-3">
+        <div class="col-md-4 col-lg-4">
             <?php echo $this->Form->input('finish', [
                 'type' => 'radio',
                 'legend' => 'Finalizado?',

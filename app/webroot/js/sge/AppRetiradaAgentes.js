@@ -86,7 +86,27 @@
     };
 
     p._habilitaBotoesConsulta = function () {
+        $(AppRetiradaAgentes.objectId + ' .btnEdit').click(function () {
+            p._loadFormRetiradaAgentes($(this).attr('id'));
+        });
+    };
 
+    // =========================================================================
+    // CARREGA FORMULÁRIOS
+    // =========================================================================
+
+    p._loadFormRetiradaAgentes = function (id, clonar) {
+        // CHAMA A FUNÇÃO MODAL
+        var modalObject = $(AppRetiradaAgentes.modalFormId);
+        var action = (typeof clonar !== 'undefined') ? 'add' : 'edit';
+        var url = (typeof id === 'undefined') ? 'retiradaAgentes/add' : 'retiradaAgentes/' + action + '/' + id;
+
+        window.materialadmin.AppForm.loadModal(modalObject, url, '70%', function () {
+            modalObject.off('hide.bs.modal');
+            modalObject.on('hide.bs.modal', function () {
+                //p._loadConsRetiradaAgentes();
+            });
+        });
     };
 
     // =========================================================================

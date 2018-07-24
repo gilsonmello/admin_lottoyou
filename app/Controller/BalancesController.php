@@ -147,7 +147,7 @@ class BalancesController extends AppController {
                     $historicBalance['HistoricBalance']['amount'] = $amount;
                     //$historicBalance['HistoricBalance']['balance_insert_id'] = $this->BalanceInsert->id;
                     $historicBalance['HistoricBalance']['modality'] = 'balance';
-                    $historicBalance['HistoricBalance']['description'] = 'balance withdrawn';
+                    $historicBalance['HistoricBalance']['description'] = 'internal withdrawal';
                     $this->HistoricBalance->create();
                     $this->HistoricBalance->save($historicBalance);
 
@@ -232,7 +232,7 @@ class BalancesController extends AppController {
                     $historicBalance['HistoricBalance']['amount'] = $amount;
                     //$historicBalance['HistoricBalance']['balance_insert_id'] = $this->BalanceInsert->id;
                     $historicBalance['HistoricBalance']['modality'] = 'balance';
-                    $historicBalance['HistoricBalance']['description'] = 'balance inserted';
+                    $historicBalance['HistoricBalance']['description'] = 'internal deposit';
                     $this->HistoricBalance->create();
                     $this->HistoricBalance->save($historicBalance);
 

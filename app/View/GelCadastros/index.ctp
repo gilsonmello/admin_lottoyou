@@ -107,7 +107,13 @@
                             <i class="md md-view-quilt" style="font-size:24px; display:block;"></i> 
                             Tabelas de Prêmios
                         </div>
-                    </div> 
+                    </div>
+                    <div class="col-sm-2">
+                        <div id="relatorioRaspadinhas" class="text-center hover" style="cursor:pointer;" data-toggle="tooltip" data-placement="bottom" title="Relatórios de Raspadinhas">
+                            <i class="md md-view-quilt" style="font-size:24px; display:block;"></i>
+                            Relatório
+                        </div>
+                    </div>
                     <!-- <div class="col-sm-2">
                         <div id="rasDemos" class="text-center hover" style="cursor:pointer;" data-toggle="tooltip" data-placement="bottom" title="Gerenciar Demos das Raspadinhas">
                             <i class="md md-view-quilt" style="font-size:24px;display:block;"></i> 
@@ -154,12 +160,6 @@
                         <div id="transacoes" class="text-center hover" style="cursor:pointer;" data-toggle="tooltip" data-placement="bottom" title="Relatórios de Saldos inseridos">
                             <i class="md md-view-quilt" style="font-size:24px; display:block;"></i>
                             Transações
-                        </div>
-                    </div>
-                    <div class="col-sm-2">
-                        <div id="relatorioRaspadinhas" class="text-center hover" style="cursor:pointer;" data-toggle="tooltip" data-placement="bottom" title="Relatórios de Raspadinhas">
-                            <i class="md md-view-quilt" style="font-size:24px; display:block;"></i>
-                            Raspadinhas
                         </div>
                     </div>
                     <!-- <div class="col-sm-2">
