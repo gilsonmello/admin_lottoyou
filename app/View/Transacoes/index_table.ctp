@@ -1,7 +1,7 @@
 <h4>
     Total de registros: <?= $this->Paginator->params()['count']; ?><!--&nbsp;&nbsp;&nbsp;
-    Total entrada: $<?/*= $totalEntrada[0]['total_entrada']; */?>&nbsp;&nbsp;&nbsp;
-    Total saída: $--><?/*= $totalSaida[0]['total_saida']; */?>
+                    Total entrada: $<?/*= $totalEntrada[0]['total_entrada']; */?>&nbsp;&nbsp;&nbsp;
+                    Total saída: $--><?/*= $totalSaida[0]['total_saida']; */?>
 </h4>
 <table id=""
        class="table table-condensed table-hover"
@@ -37,82 +37,73 @@
             <td>
                 <?php $modalidade = ''; ?>
                 <?php
-                    //$modalidade = $model->getLotUserJogo($v['HistoricBalance']['id']);
-                    $found = false;
+                //$modalidade = $model->getLotUserJogo($v['HistoricBalance']['id']);
+                $found = false;
 
-                    if($v['HistoricBalance']['description'] == 'award') {
-                        $query = count($model->getLotUserJogo($v['HistoricBalance']['id']));
-                        $modalidade = 'Loteria';
-                        $found = $query > 0 ? true : false;
-                    }
+                if($v['HistoricBalance']['description'] == 'award') {
+                    $query = count($model->getLotUserJogo($v['HistoricBalance']['id']));
+                    $modalidade = 'Loteria';
+                    $found = $query > 0 ? true : false;
+                }
 
-                    if(!$found && $v['HistoricBalance']['description'] == 'award') {
-                        $query = count($model->getSocAposta($v['HistoricBalance']['id']));
-                        $modalidade = $query > 0 ? 'Soccer Expert' : '';
-                        $found = $query > 0 ? true : false;
-                    }
+                if(!$found && $v['HistoricBalance']['description'] == 'award') {
+                    $query = count($model->getSocAposta($v['HistoricBalance']['id']));
+                    $modalidade = $query > 0 ? 'Soccer Expert' : '';
+                    $found = $query > 0 ? true : false;
+                }
 
-                    if(!$found && $v['HistoricBalance']['description'] == 'award') {
-                        $query = count($model->getRaspadinha($v['HistoricBalance']['id']));
-                        $modalidade = $query > 0 ? 'Raspadinhas' : '';
-                        $found = $query > 0 ? true : false;
-                    }
+                if(!$found && $v['HistoricBalance']['description'] == 'award') {
+                    $query = count($model->getRaspadinha($v['HistoricBalance']['id']));
+                    $modalidade = $query > 0 ? 'Raspadinhas' : '';
+                    $found = $query > 0 ? true : false;
+                }
 
-                    if(!$found && $v['HistoricBalance']['description'] == 'paypal deposit') {
-                        $query = count($model->getPedidoPaypal($v['HistoricBalance']['id']));
-                        $modalidade = $query > 0 ? 'Depósito' : '';
-                        $found = $query > 0 ? true : false;
-                    }
+                if(!$found && $v['HistoricBalance']['description'] == 'paypal deposit') {
+                    $query = count($model->getPedidoPaypal($v['HistoricBalance']['id']));
+                    $modalidade = $query > 0 ? 'Depósito' : '';
+                    $found = $query > 0 ? true : false;
+                }
 
-                    if(!$found && $v['HistoricBalance']['description'] == 'pagseguro deposit') {
-                        $query = count($model->getPedidoPagseguro($v['HistoricBalance']['id']));
-                        $modalidade = $query > 0 ? 'Depósito' : '';
-                        $found = $query > 0 ? true : false;
-                    }
+                if(!$found && $v['HistoricBalance']['description'] == 'pagseguro deposit') {
+                    $query = count($model->getPedidoPagseguro($v['HistoricBalance']['id']));
+                    $modalidade = $query > 0 ? 'Depósito' : '';
+                    $found = $query > 0 ? true : false;
+                }
 
-                    if(!$found && $v['HistoricBalance']['description'] == 'pagseguro devolution') {
-                        $query = count($model->getPedidoPagseguro($v['HistoricBalance']['id']));
-                        $modalidade = $query > 0 ? 'Devolução' : '';
-                        $found = $query > 0 ? true : false;
-                    }
+                if(!$found && $v['HistoricBalance']['description'] == 'pagseguro devolution') {
+                    $query = count($model->getPedidoPagseguro($v['HistoricBalance']['id']));
+                    $modalidade = $query > 0 ? 'Devolução' : '';
+                    $found = $query > 0 ? true : false;
+                }
 
-                    if(!$found && $v['HistoricBalance']['description'] == 'buy') {
-                        $query = count($model->getItem($v['HistoricBalance']['id']));
-                        $modalidade = $query > 0 ? 'Compra' : '';
-                        $found = $query > 0 ? true : false;
-                    }
+                if(!$found && $v['HistoricBalance']['description'] == 'buy') {
+                    $query = count($model->getItem($v['HistoricBalance']['id']));
+                    $modalidade = $query > 0 ? 'Compra' : '';
+                    $found = $query > 0 ? true : false;
+                }
 
-                    if(!$found && $v['HistoricBalance']['description'] == 'internal deposit') {
-                        $query = count($model->getBalanceInsert($v['HistoricBalance']['id']));
-                        $modalidade = $query > 0 ? 'Depósito' : '';
-                        $found = $query > 0 ? true : false;
-                    }
+                if(!$found && $v['HistoricBalance']['description'] == 'internal deposit') {
+                    $query = count($model->getBalanceInsert($v['HistoricBalance']['id']));
+                    $modalidade = $query > 0 ? 'Depósito' : '';
+                    $found = $query > 0 ? true : false;
+                }
 
-                    if(!$found && $v['HistoricBalance']['description'] == 'agent withdrawal') {
-                        $query = count($model->getRetiradaAgente($v['HistoricBalance']['id']));
-                        $modalidade = $query > 0 ? 'Retirada' : '';
-                        $found = $query > 0 ? true : false;
-                    }
+                if(!$found && $v['HistoricBalance']['description'] == 'agent withdrawal') {
+                    $query = count($model->getRetiradaAgente($v['HistoricBalance']['id']));
+                    $modalidade = $query > 0 ? 'Retirada' : '';
+                    $found = $query > 0 ? true : false;
+                }
 
-                    if(!$found && $v['HistoricBalance']['description'] == 'internal withdrawal') {
-                        $query = count($model->getBalanceWithdraw($v['HistoricBalance']['id']));
-                        $modalidade = $query > 0 ? 'Retirada' : '';
-                        $found = $query > 0 ? true : false;
-                    }
+                if(!$found && $v['HistoricBalance']['description'] == 'internal withdrawal') {
+                    $query = count($model->getBalanceWithdraw($v['HistoricBalance']['id']));
+                    $modalidade = $query > 0 ? 'Retirada' : '';
+                    $found = $query > 0 ? true : false;
+                }
 
-                    if(!$found) {
-                        $modalidade = 'Indefinido';
-                    }
+                if(!$found) {
+                    $modalidade = 'Indefinido';
+                }
 
-                    /*if(isset($v['LotUserJogo']) && $v['LotUserJogo']['id'] != null) $modalidade = 'Loteria';
-                    else if(isset($v['SocAposta']) && $v['SocAposta']['id'] != null) $modalidade = 'Soccer Expert';
-                    else if(isset($v['Raspadinha']) && $v['Raspadinha']['id'] != null) $modalidade = 'Raspadinhas';
-                    else if(isset($v['PedidoPaypal']) && $v['PedidoPaypal']['id'] != null) $modalidade = 'Depósito';
-                    else if(isset($v['PedidoPagseguro']) && $v['PedidoPagseguro']['id'] != null) $modalidade = 'Depósito';
-                    else if(isset($v['Item']) && $v['Item']['id'] != null) $modalidade = 'Compra';
-                    else if(isset($v['BalanceInsert']) && $v['BalanceInsert']['id'] != null) $modalidade = 'Depósito';
-                    else if(isset($v['RetiradaAgente']) && $v['RetiradaAgente']['id'] != null) $modalidade = 'Retirada';
-                    else $modalidade = 'Indefinido';*/
                 ?>
 
 
@@ -132,6 +123,7 @@
                 else if($v['HistoricBalance']['description'] == 'paypal deposit') $tipo = 'Depósito Paypal';
                 else if($v['HistoricBalance']['description'] == 'pagseguro deposit') $tipo = 'Depósito Pagseguro';
                 else if($v['HistoricBalance']['description'] == 'internal deposit') $tipo = 'Depósito Interno';
+                else if($v['HistoricBalance']['description'] == 'internal withdrawal') $tipo = 'Retirada Interna';
                 else $tipo = 'Indefinido';
                 ?>
 
@@ -140,16 +132,6 @@
             <td>
                 $<?= $v['HistoricBalance']['amount'] ?>
             </td>
-            <!--<td>
-                <div class="btn-group">
-                    <button type="button" class="btn btn-icon-toggle dropdown-toggle" data-toggle="dropdown"><i class="fa fa-gear"></i></button>
-                    <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                        <li>
-                            <?php /*echo $this->Html->link('<i class="fa fa-edit"></i>&nbsp Editar', 'javascript: void(0)', array("escape" => false, 'id' => $v['LotPremio']['id'], 'class' => 'btnEditar')) */?>
-                        </li>
-                    </ul>
-                </div>
-            </td>-->
         </tr>
     <?php } ?>
     <tr>

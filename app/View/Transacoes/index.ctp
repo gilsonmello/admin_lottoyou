@@ -35,9 +35,9 @@
             <div class="card-body style-default-light" style="display: none;padding-top:10px;padding-bottom:10px;">
                 <?php echo $this->Form->create('search', array('id' => 'pesquisarTransacoes', 'class' => 'form', 'role' => 'form', 'type' => 'get')); ?>
                 <div class="row">
-                    <!--<div class="col-sm-3 col-lg-3">
+                    <div class="col-sm- col-lg-6">
                         <div class="form-group">
-                            <?/*= $this->Form->input('modality', [
+                            <?= $this->Form->input('modality', [
                                 'label' => 'Modalidades',
                                 'class' => 'form-control chosen',
                                 'options' => [
@@ -52,9 +52,28 @@
                                 ],
                                 'required' => false,
                                 'multiple' => true,
-                            ]); */?>
+                            ]); ?>
                         </div>
-                    </div>-->
+                    </div>
+                    <div class="col-sm- col-lg-6">
+                        <div class="form-group">
+                            <?= $this->Form->input('type', [
+                                'label' => 'Tipos',
+                                'class' => 'form-control chosen',
+                                'options' => [
+                                    1 => 'Compra',
+                                    2 => 'Ag. Pagamento',
+                                    3 => 'Prêmio',
+                                    4 => 'Retirada Interna',
+                                    5 => 'Depósito Paypal',
+                                    6 => 'Depósito Pagseguro',
+                                    7 => 'Depósito Interno',
+                                ],
+                                'required' => false,
+                                'multiple' => true,
+                            ]); ?>
+                        </div>
+                    </div>
                     <div class="col-lg-3">
                         <div class="form-group ">
                             <?= $this->Form->input('nome', ['label' => 'Nome', 'class' => 'form-control', 'required' => false]); ?>

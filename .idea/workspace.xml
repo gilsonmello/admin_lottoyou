@@ -38,20 +38,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="RelatorioItensController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Controller/RelatorioItensController.php">
+      <file leaf-file-name="index.ctp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/View/Transacoes/index.ctp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="356">
-              <caret line="86" column="30" selection-start-line="86" selection-start-column="30" selection-end-line="86" selection-end-column="30" />
+            <state relative-caret-position="452">
+              <caret line="69" column="37" selection-start-line="69" selection-start-column="37" selection-end-line="69" selection-end-column="37" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BalancesController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Controller/BalancesController.php">
+      <file leaf-file-name="index_table.ctp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/View/Transacoes/index_table.ctp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-975">
-              <caret line="145" column="67" selection-start-line="145" selection-start-column="67" selection-end-line="145" selection-end-column="67" />
+            <state relative-caret-position="252">
+              <caret line="125" column="112" selection-start-line="125" selection-start-column="96" selection-end-line="125" selection-end-column="112" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TransacoesController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Controller/TransacoesController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="347">
+              <caret line="175" column="102" selection-start-line="175" selection-start-column="102" selection-end-line="175" selection-end-column="102" />
             </state>
           </provider>
         </entry>
@@ -172,12 +181,12 @@
         <option value="$PROJECT_DIR$/app/View/RelatorioItens/index.ctp" />
         <option value="$PROJECT_DIR$/app/View/RelatorioItens/index_table.ctp" />
         <option value="$PROJECT_DIR$/app/webroot/js/sge/AppTransacoes.js" />
-        <option value="$PROJECT_DIR$/app/Controller/TransacoesController.php" />
-        <option value="$PROJECT_DIR$/app/View/Transacoes/index_table.ctp" />
-        <option value="$PROJECT_DIR$/app/View/Transacoes/index.ctp" />
         <option value="$PROJECT_DIR$/app/Model/HistoricBalance.php" />
         <option value="$PROJECT_DIR$/app/Controller/RelatorioItensController.php" />
         <option value="$PROJECT_DIR$/app/Controller/BalancesController.php" />
+        <option value="$PROJECT_DIR$/app/View/Transacoes/index_table.ctp" />
+        <option value="$PROJECT_DIR$/app/Controller/TransacoesController.php" />
+        <option value="$PROJECT_DIR$/app/View/Transacoes/index.ctp" />
       </list>
     </option>
   </component>
@@ -425,18 +434,18 @@
       <workItem from="1532182439059" duration="8203000" />
       <workItem from="1532269080262" duration="5354000" />
       <workItem from="1532358345782" duration="7489000" />
-      <workItem from="1532453539130" duration="8460000" />
+      <workItem from="1532453539130" duration="11847000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="302037000" />
+    <option name="totallyTimeSpent" value="305424000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-1" width="1366" height="741" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1852123" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1852123" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32810047" />
@@ -478,13 +487,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/webroot/js/sge/AppLotPremios.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="119" column="44" selection-start-line="119" selection-start-column="44" selection-end-line="119" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/webroot/js/sge/AppLotPrecoQuantidades.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
@@ -529,13 +531,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="495" column="26" selection-start-line="495" selection-start-column="18" selection-end-line="495" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_8.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="840" column="9" selection-start-line="840" selection-start-column="9" selection-end-line="840" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -762,31 +757,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/View/Transacoes/index_table.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="175" column="30" selection-start-line="175" selection-start-column="30" selection-end-line="175" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Model/HistoricBalance.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="167">
           <caret line="199" column="6" selection-start-line="199" selection-start-column="4" selection-end-line="207" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Controller/TransacoesController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-495">
-          <caret line="85" column="32" selection-start-line="85" selection-start-column="17" selection-end-line="85" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/View/Transacoes/index.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="261" column="96" selection-start-line="261" selection-start-column="96" selection-end-line="261" selection-end-column="96" />
         </state>
       </provider>
     </entry>
@@ -801,6 +775,37 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-975">
           <caret line="145" column="67" selection-start-line="145" selection-start-column="67" selection-end-line="145" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_8.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="840" column="9" selection-start-line="840" selection-start-column="9" selection-end-line="840" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/View/Transacoes/add.ctp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/View/Transacoes/index_table.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="125" column="112" selection-start-line="125" selection-start-column="96" selection-end-line="125" selection-end-column="112" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/View/Transacoes/index.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="452">
+          <caret line="69" column="37" selection-start-line="69" selection-start-column="37" selection-end-line="69" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Controller/TransacoesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="347">
+          <caret line="175" column="102" selection-start-line="175" selection-start-column="102" selection-end-line="175" selection-end-column="102" />
         </state>
       </provider>
     </entry>

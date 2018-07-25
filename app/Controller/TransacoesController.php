@@ -104,7 +104,87 @@ class TransacoesController extends AppController {
             ),
         );
 
-        if(isset($query['modality'])) {}
+        if(isset($query['modality']) && is_array($query['modality'])) {
+            if(in_array(1, $query['modality'])) {
+                $options['conditions']['AND']['OR'][] = [
+                    "exists (SELECT 1 FROM soc_apostas SocAposta WHERE SocAposta.historic_balance_id = HistoricBalance.id LIMIT 1)"
+                ];
+            }
+
+            if(in_array(2, $query['modality'])) {
+                $options['conditions']['AND']['OR'][] = [
+                    "exists (SELECT 1 FROM lot_users_jogos LotUserJogo WHERE LotUserJogo.historic_balance_id = HistoricBalance.id LIMIT 1)"
+                ];
+            }
+
+            if(in_array(3, $query['modality'])) {
+                $options['conditions']['AND']['OR'][] = [
+                    "exists (SELECT 1 FROM raspadinhas Raspadinha WHERE Raspadinha.historic_balance_id = HistoricBalance.id LIMIT 1)"
+                ];
+            }
+
+            if(in_array(4, $query['modality'])) {
+                $options['conditions']['AND']['OR'][] = [
+                    "exists (SELECT 1 FROM paypal_orders PedidoPaypal WHERE PedidoPaypal.historic_balance_id = HistoricBalance.id LIMIT 1)"
+                ];
+            }
+
+            if(in_array(5, $query['modality'])) {
+                $options['conditions']['AND']['OR'][] = [
+                    "exists (SELECT 1 FROM pagseguro_orders PedidoPagseguro WHERE PedidoPagseguro.historic_balance_id = HistoricBalance.id LIMIT 1)"
+                ];
+            }
+
+            if(in_array(6, $query['modality'])) {
+                $options['conditions']['AND']['OR'][] = [
+                    "exists (SELECT 1 FROM order_items Orderitem WHERE Orderitem.historic_balance_id = HistoricBalance.id LIMIT 1)"
+                ];
+            }
+
+            if(in_array(7, $query['modality'])) {
+                $options['conditions']['AND']['OR'][] = [
+                    "exists (SELECT 1 FROM balance_inserts BalanceInsert WHERE BalanceInsert.historic_balance_id = HistoricBalance.id LIMIT 1)"
+                ];
+            }
+
+            if(in_array(8, $query['modality'])) {
+                $options['conditions']['AND']['OR'][] = [
+                    "exists (SELECT 1 FROM balance_withdraw BalanceWithdraw WHERE BalanceWithdraw.historic_balance_id = HistoricBalance.id LIMIT 1)"
+                ];
+            }
+        }
+
+        if(isset($query['type']) && is_array($query['type'])) {
+
+            if(in_array(1, $query['type'])) {
+                $options['conditions']['OR'][]['HistoricBalance.description'] = 'buy';
+            }
+
+            if(in_array(2, $query['type'])) {
+                $options['conditions']['OR'][]['HistoricBalance.description'] = 'agent withdrawal';
+            }
+
+            if(in_array(3, $query['type'])) {
+                $options['conditions']['OR'][]['HistoricBalance.description'] = 'award';
+            }
+
+            if(in_array(4, $query['type'])) {
+                $options['conditions']['OR'][]['HistoricBalance.description'] = 'internal withdrawal';
+            }
+
+            if(in_array(5, $query['type'])) {
+                $options['conditions']['OR'][]['HistoricBalance.description'] = 'paypal deposit';
+            }
+
+            if(in_array(6, $query['type'])) {
+                $options['conditions']['OR'][]['HistoricBalance.description'] = 'pagseguro deposit';
+            }
+
+            if(in_array(7, $query['type'])) {
+                $options['conditions']['OR'][]['HistoricBalance.description'] = 'internal deposit';
+            }
+
+        }
 
         if(isset($query['nome'])) {
             $options['conditions']['Owner.name LIKE'] = '%'.$query['nome'].'%';
