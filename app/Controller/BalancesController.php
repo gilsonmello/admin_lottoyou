@@ -144,7 +144,9 @@ class BalancesController extends AppController {
                     $to = $to < 0 ? 0 : $to;
                     $historicBalance['HistoricBalance']['to'] = $to;
                     $historicBalance['HistoricBalance']['type'] = 0;
-                    $historicBalance['HistoricBalance']['amount'] = $amount;
+                    $historicBalance['HistoricBalance']['amount'] = $amount > $balance['Balance']['value']
+                        ? $balance['Balance']['value']
+                        : $amount;
                     //$historicBalance['HistoricBalance']['balance_insert_id'] = $this->BalanceInsert->id;
                     $historicBalance['HistoricBalance']['modality'] = 'balance';
                     $historicBalance['HistoricBalance']['description'] = 'internal withdrawal';
