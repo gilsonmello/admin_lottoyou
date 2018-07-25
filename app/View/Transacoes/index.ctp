@@ -3,7 +3,7 @@
         <div class="card-head card-head-sm style-primary">
             <header>
                 <i class="md md-apps" style="margin-bottom:0;"></i> Relatório
-                <i class="md md-navigate-next" style="margin-bottom:0;"></i> <b>Transações</b>
+                <i class="md md-navigate-next" style="margin-bottom:0;"></i> <b>Transações Financeiras</b>
             </header>
             <div class="tools">
                 <!--<button id="cadastrarTransacoes" type="button" class="btn ink-reaction btn-default-light">
@@ -41,9 +41,9 @@
                                 'label' => 'Modalidades',
                                 'class' => 'form-control chosen',
                                 'options' => [
-                                    1 => 'Soccer Apostas',
+                                    /*1 => 'Soccer Apostas',
                                     2 => 'Loteria Apostas',
-                                    3 => 'Raspadinhas',
+                                    3 => 'Raspadinhas',*/
                                     4 => 'Depósitos Paypal',
                                     5 => 'Depósitos Pagseguro',
                                     6 => 'Item',
@@ -63,7 +63,7 @@
                                 'options' => [
                                     1 => 'Compra',
                                     2 => 'Ag. Pagamento',
-                                    3 => 'Prêmio',
+                                    //3 => 'Prêmio',
                                     4 => 'Retirada Interna',
                                     5 => 'Depósito Paypal',
                                     6 => 'Depósito Pagseguro',
@@ -143,7 +143,7 @@
                                     //$modalidade = $model->getLotUserJogo($v['HistoricBalance']['id']);
                                     $found = false;
 
-                                    if($v['HistoricBalance']['description'] == 'award') {
+                                    /*if($v['HistoricBalance']['description'] == 'award') {
                                         $query = count($model->getLotUserJogo($v['HistoricBalance']['id']));
                                         $modalidade = 'Loteria';
                                         $found = $query > 0 ? true : false;
@@ -159,7 +159,7 @@
                                         $query = count($model->getRaspadinha($v['HistoricBalance']['id']));
                                         $modalidade = $query > 0 ? 'Raspadinhas' : '';
                                         $found = $query > 0 ? true : false;
-                                    }
+                                    }*/
 
                                     if(!$found && $v['HistoricBalance']['description'] == 'paypal deposit') {
                                         $query = count($model->getPedidoPaypal($v['HistoricBalance']['id']));

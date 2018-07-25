@@ -159,7 +159,13 @@
                     <div class="col-sm-2">
                         <div id="transacoes" class="text-center hover" style="cursor:pointer;" data-toggle="tooltip" data-placement="bottom" title="Relatórios de Saldos inseridos">
                             <i class="md md-view-quilt" style="font-size:24px; display:block;"></i>
-                            Transações
+                            Transações financeiras
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div id="relTranPremiadas" class="text-center hover" style="cursor:pointer;" data-toggle="tooltip" data-placement="bottom" title="Relatórios de Transações de Premiações">
+                            <i class="md md-view-quilt" style="font-size:24px; display:block;"></i>
+                            Relatório de premiação
                         </div>
                     </div>
                     <!-- <div class="col-sm-2">

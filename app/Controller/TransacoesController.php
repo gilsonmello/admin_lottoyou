@@ -22,6 +22,7 @@ class TransacoesController extends AppController {
 
         $options = array(
             'conditions' => [
+                'HistoricBalance.description !=' => 'award'
             ],
             'limit' => 50,
             'order' => array('HistoricBalance.id' => 'desc'),
@@ -105,7 +106,7 @@ class TransacoesController extends AppController {
         );
 
         if(isset($query['modality']) && is_array($query['modality'])) {
-            if(in_array(1, $query['modality'])) {
+            /*if(in_array(1, $query['modality'])) {
                 $options['conditions']['AND']['OR'][] = [
                     "exists (SELECT 1 FROM soc_apostas SocAposta WHERE SocAposta.historic_balance_id = HistoricBalance.id LIMIT 1)"
                 ];
@@ -121,7 +122,7 @@ class TransacoesController extends AppController {
                 $options['conditions']['AND']['OR'][] = [
                     "exists (SELECT 1 FROM raspadinhas Raspadinha WHERE Raspadinha.historic_balance_id = HistoricBalance.id LIMIT 1)"
                 ];
-            }
+            }*/
 
             if(in_array(4, $query['modality'])) {
                 $options['conditions']['AND']['OR'][] = [
@@ -164,9 +165,9 @@ class TransacoesController extends AppController {
                 $options['conditions']['OR'][]['HistoricBalance.description'] = 'agent withdrawal';
             }
 
-            if(in_array(3, $query['type'])) {
+            /*if(in_array(3, $query['type'])) {
                 $options['conditions']['OR'][]['HistoricBalance.description'] = 'award';
-            }
+            }*/
 
             if(in_array(4, $query['type'])) {
                 $options['conditions']['OR'][]['HistoricBalance.description'] = 'internal withdrawal';
@@ -209,14 +210,21 @@ class TransacoesController extends AppController {
         $dados = $this->paginate('HistoricBalance');
 
         /*$totalEntrada = $this->HistoricBalance->find('first', [
+            'joins' => [
+                [
+                    'alias' => 'Owner',
+                    'table' => 'users',
+                    'type' => 'LEFT',
+                    'conditions' => 'Owner.id = HistoricBalance.owner_id'
+                ]
+            ],
             'fields' => [
                 'SUM(HistoricBalance.amount) AS total_entrada'
             ],
-            'conditions' => [
-                'HistoricBalance.type' => 1
-            ]
-        ]);
+            'conditions' => $options['conditions'],
+        ]);*/
 
+        /*
         $totalSaida = $this->HistoricBalance->find('first', [
             'fields' => [
                 'SUM(HistoricBalance.amount) AS total_saida'
