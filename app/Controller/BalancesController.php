@@ -125,7 +125,7 @@ class BalancesController extends AppController {
                 $balance = $this->Balance->read(null, $id);
                 $from = $balance['Balance']['value'];
                 $this->request->data['Balance']['value'] = $amount = $this->App->formataValorDouble($this->request->data['Balance']['value']);
-                $amount = $this->request->data['Balance']['value'] * -1;
+                $amount = $this->request->data['Balance']['value'];
                 $data_save['Balance']['id'] = $id;
                 $data_save['Balance']['value'] = $to = $balance['Balance']['value'] - $this->request->data['Balance']['value'];
                 //Verificando se o saldo é menor do que zero
@@ -146,7 +146,8 @@ class BalancesController extends AppController {
                     $historicBalance['HistoricBalance']['type'] = 0;
                     $historicBalance['HistoricBalance']['amount'] = $amount > $balance['Balance']['value']
                         ? $balance['Balance']['value']
-                        : $amount;
+                        : ($amount ) * -1;
+                    
                     //$historicBalance['HistoricBalance']['balance_insert_id'] = $this->BalanceInsert->id;
                     $historicBalance['HistoricBalance']['modality'] = 'balance';
                     $historicBalance['HistoricBalance']['description'] = 'internal withdrawal';
