@@ -239,6 +239,7 @@ class LotJogosController extends AppController {
                 $historico['HistoricBalance']['type'] = 1;
                 $historico['HistoricBalance']['system'] = 0;
                 $historico['HistoricBalance']['description'] = 'award';
+                $historico['HistoricBalance']['modality'] = 'award';
                 //$historico['HistoricBalance']['lottery_bet_id'] = $user_jogo['LotUserJogo']['id'];
                 $historico['HistoricBalance']['amount'] = $valorPremio;
 

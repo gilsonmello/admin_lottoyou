@@ -48,6 +48,7 @@ class SocRodadasController extends AppController {
         $historico['HistoricBalance']['type'] = 1;
         $historico['HistoricBalance']['system'] = 0;
         $historico['HistoricBalance']['description'] = 'award';
+        $historico['HistoricBalance']['modality'] = 'award';
 
         $ok = $this->HistoricBalance->save($historico);
 

@@ -87,7 +87,7 @@
                     <?php $total = 0.00; foreach ($dados as $k => $v) { ?>
                         <tr>
                             <td>
-                                <?= $v['Owner']['name']; ?>
+                                <?= $v['Owner']['name'] . ' '. $v['Owner']['last_name']; ?>
                             </td>
                             <td>
                                 <?= $v['Owner']['username']; ?>
