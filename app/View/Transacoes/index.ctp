@@ -102,9 +102,9 @@
             </div>
             <div id="gridTransacoes" style="padding: 24px;">
                 <h4>
-                    Total de registros: <?= $this->Paginator->params()['count']; ?><!--&nbsp;&nbsp;&nbsp;
-                    Total entrada: $<?/*= $totalEntrada[0]['total_entrada']; */?>&nbsp;&nbsp;&nbsp;
-                    Total saída: $--><?/*= $totalSaida[0]['total_saida']; */?>
+                    Total de registros: <?= $this->Paginator->params()['count']; ?>&nbsp;&nbsp;&nbsp;
+                    Total entrada: $<?= $totalEntrada[0]['total_entrada'] != null ? $totalEntrada[0]['total_entrada'] : '0.00'; ?>
+                    Total saída: $<?= $totalSaida[0]['total_saida'] != null ? $totalSaida[0]['total_saida'] : '0.00'; ?>
                 </h4>
                 <table id=""
                        class="table table-condensed table-hover"
@@ -125,8 +125,15 @@
                     </thead>
                     <tbody>
                     <?php $totalEntrada = 0.00; $totalSaida = 0.00; foreach ($dados as $k => $v) { ?>
-                        <?php if($v['HistoricBalance']['type'] == 1) $totalEntrada += $v['HistoricBalance']['amount'] ?>
-                        <?php if($v['HistoricBalance']['type'] == 0) $totalSaida += $v['HistoricBalance']['amount'] * -1 ?>
+                        <?php
+                            if($v['HistoricBalance']['system'] == 1) {
+                                $totalEntrada += $v['HistoricBalance']['amount'] < 0 ? $v['HistoricBalance']['amount'] * -1 : $v['HistoricBalance']['amount'];
+                            } ?>
+                        <?php
+                            if($v['HistoricBalance']['system'] == 0)
+                            {
+                                $totalSaida += $v['HistoricBalance']['amount'] < 0 ? $v['HistoricBalance']['amount'] * -1 : $v['HistoricBalance']['amount'];
+                            } ?>
                         <tr>
                             <td>
                                 <?= $v['Owner']['name'] . ' '. $v['Owner']['last_name'] ?>

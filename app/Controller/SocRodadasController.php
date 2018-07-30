@@ -46,6 +46,7 @@ class SocRodadasController extends AppController {
         $historico['HistoricBalance']['amount'] = $grupo['SocRodadasGrupo']['arrecadado'] * $porcentagem / 100;
         $historico['HistoricBalance']['to'] = $saldo['Balance']['value'];
         $historico['HistoricBalance']['type'] = 1;
+        $historico['HistoricBalance']['system'] = 0;
         $historico['HistoricBalance']['description'] = 'award';
 
         $ok = $this->HistoricBalance->save($historico);

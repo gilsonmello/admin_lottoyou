@@ -22,7 +22,8 @@ class TransacoesController extends AppController {
 
         $options = array(
             'conditions' => [
-                'HistoricBalance.description !=' => 'award'
+                'HistoricBalance.description !=' => 'award',
+                'HistoricBalance.devolution' => 0,
             ],
             'limit' => 50,
             'order' => array('HistoricBalance.id' => 'desc'),
@@ -89,6 +90,7 @@ class TransacoesController extends AppController {
                 'HistoricBalance.description',
                 'HistoricBalance.amount',
                 'HistoricBalance.type',
+                'HistoricBalance.system',
                 'HistoricBalance.created',
                 'Owner.id',
                 'Owner.name',
@@ -209,7 +211,9 @@ class TransacoesController extends AppController {
 
         $dados = $this->paginate('HistoricBalance');
 
-        /*$totalEntrada = $this->HistoricBalance->find('first', [
+        $totalEntradaConditions = $options['conditions'];
+        $totalEntradaConditions['HistoricBalance.system'] = 1;
+        $totalEntrada = $this->HistoricBalance->find('first', [
             'joins' => [
                 [
                     'alias' => 'Owner',
@@ -219,24 +223,37 @@ class TransacoesController extends AppController {
                 ]
             ],
             'fields' => [
-                'SUM(HistoricBalance.amount) AS total_entrada'
+                //'ABS(SUM(HistoricBalance.amount)) AS total_entrada'
+                'SUM(ABS(HistoricBalance.amount)) AS total_entrada'
             ],
-            'conditions' => $options['conditions'],
-        ]);*/
+            'conditions' => $totalEntradaConditions,
+        ]);
 
-        /*
+
+        $totalSaidaConditions = $options['conditions'];
+        $totalSaidaConditions['HistoricBalance.system'] = 0;
         $totalSaida = $this->HistoricBalance->find('first', [
-            'fields' => [
-                'SUM(HistoricBalance.amount) AS total_saida'
+            'joins' => [
+                [
+                    'alias' => 'Owner',
+                    'table' => 'users',
+                    'type' => 'LEFT',
+                    'conditions' => 'Owner.id = HistoricBalance.owner_id'
+                ]
             ],
-            'conditions' => [
-                'HistoricBalance.type' => 0
-            ]
-        ]);*/
+            'fields' => [
+                //'ABS(SUM(HistoricBalance.amount)) AS total_entrada'
+                'SUM(ABS(HistoricBalance.amount)) AS total_saida'
+            ],
+            'conditions' => $totalSaidaConditions,
+        ]);
 
         // ENVIA DADOS PARA A SESSÃO
         $this->set(compact('dados', 'modal'));
         $this->set('model', $this->HistoricBalance);
+        $this->set('totalEntrada', $totalEntrada);
+        $this->set('totalSaida', $totalSaida);
+
 
         $this->set('query_string', http_build_query($query));
 

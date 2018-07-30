@@ -63,7 +63,10 @@
                 <?php echo $this->Form->end(); ?>
             </div>
             <div id="gridBalanceWithdraw" style="padding: 24px;">
-                <h4>Total de registros: <?= $this->Paginator->params()['count']; ?></h4>
+                <h4>
+                    Total de registros: <?= $this->Paginator->params()['count']; ?>&nbsp;&nbsp;&nbsp;
+                    Total: $<?= $total[0]['total'] != null ? $total[0]['total'] : '0.00'; ?>
+                </h4>
                 <table id=""
                        class="table table-condensed table-hover"
                        cellspacing="0"
