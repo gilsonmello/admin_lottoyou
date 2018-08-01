@@ -92,7 +92,7 @@
                             <th>Nome</th>
                             <th>E-mail</th>
                             <th>Modalidade</th>
-                            <th>ID</th>
+                            <th>ID(Compra)</th>
                             <th>Valor</th>
                             <th>Data</th>
                             <th>Ações</th>
