@@ -108,23 +108,32 @@ class TransacoesController extends AppController {
         );
 
         if(isset($query['modality']) && is_array($query['modality'])) {
-            /*if(in_array(1, $query['modality'])) {
-                $options['conditions']['AND']['OR'][] = [
+            if(in_array(1, $query['modality'])) {
+                /*$options['conditions']['AND']['OR'][] = [
                     "exists (SELECT 1 FROM soc_apostas SocAposta WHERE SocAposta.historic_balance_id = HistoricBalance.id LIMIT 1)"
-                ];
+                ];*/
+                $options['conditions']['AND']['OR'][] = ['HistoricBalance.modality' => 'buy'];
             }
 
             if(in_array(2, $query['modality'])) {
-                $options['conditions']['AND']['OR'][] = [
+                /*$options['conditions']['AND']['OR'][] = [
                     "exists (SELECT 1 FROM lot_users_jogos LotUserJogo WHERE LotUserJogo.historic_balance_id = HistoricBalance.id LIMIT 1)"
-                ];
+                ];*/
+                $options['conditions']['AND']['OR'][] = ['HistoricBalance.modality' => 'deposit'];
             }
 
             if(in_array(3, $query['modality'])) {
+                /*$options['conditions']['AND']['OR'][] = [
+                    "exists (SELECT 1 FROM lot_users_jogos LotUserJogo WHERE LotUserJogo.historic_balance_id = HistoricBalance.id LIMIT 1)"
+                ];*/
+                $options['conditions']['AND']['OR'][] = ['HistoricBalance.modality' => 'withdrawal'];
+            }
+
+            /*if(in_array(3, $query['modality'])) {
                 $options['conditions']['AND']['OR'][] = [
                     "exists (SELECT 1 FROM raspadinhas Raspadinha WHERE Raspadinha.historic_balance_id = HistoricBalance.id LIMIT 1)"
                 ];
-            }*/
+            }
 
             if(in_array(4, $query['modality'])) {
                 $options['conditions']['AND']['OR'][] = [
@@ -154,7 +163,7 @@ class TransacoesController extends AppController {
                 $options['conditions']['AND']['OR'][] = [
                     "exists (SELECT 1 FROM balance_withdraw BalanceWithdraw WHERE BalanceWithdraw.historic_balance_id = HistoricBalance.id LIMIT 1)"
                 ];
-            }
+            }*/
         }
 
         if(isset($query['type']) && is_array($query['type'])) {

@@ -40,15 +40,20 @@
                             <?= $this->Form->input('modality', [
                                 'label' => 'Modalidades',
                                 'class' => 'form-control chosen',
-                                'options' => [
-                                    /*1 => 'Soccer Apostas',
+                                /*'options' => [
+                                    1 => 'Soccer Apostas',
                                     2 => 'Loteria Apostas',
-                                    3 => 'Raspadinhas',*/
+                                    3 => 'Raspadinhas',
                                     4 => 'Depósitos Paypal',
                                     5 => 'Depósitos Pagseguro',
                                     6 => 'Item',
                                     7 => 'Saldos Inseridos',
                                     8 => 'Saldos Removidos',
+                                ],*/
+                                'options' => [
+                                    1 => 'Compra',
+                                    2 => 'Depósito',
+                                    3 => 'Retirada',
                                 ],
                                 'required' => false,
                                 'multiple' => true,
@@ -61,8 +66,8 @@
                                 'label' => 'Tipos',
                                 'class' => 'form-control chosen',
                                 'options' => [
-                                    1 => 'Compra',
-                                    2 => 'Ag. Pagamento',
+                                    1 => 'Item',
+                                    2 => 'Retirada Ag. Pagamento',
                                     //3 => 'Prêmio',
                                     4 => 'Retirada Interna',
                                     5 => 'Depósito Paypal',
@@ -120,7 +125,6 @@
                             <!--<th>Descrição</th>-->
                             <th>Tipo</th>
                             <th>Quantia</th>
-                            <!--<th>Ações</th>-->
                         </tr>
                     </thead>
                     <tbody>
@@ -251,16 +255,6 @@
                             <td>
                                 $<?= $v['HistoricBalance']['amount'] ?>
                             </td>
-                            <!--<td>
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-icon-toggle dropdown-toggle" data-toggle="dropdown"><i class="fa fa-gear"></i></button>
-                                    <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                                        <li>
-                                            <?php /*echo $this->Html->link('<i class="fa fa-edit"></i>&nbsp Editar', 'javascript: void(0)', array("escape" => false, 'id' => $v['LotPremio']['id'], 'class' => 'btnEditar')) */?>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </td>-->
                         </tr>
                     <?php } ?>
                     <tr>
