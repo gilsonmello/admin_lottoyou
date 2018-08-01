@@ -253,7 +253,7 @@
                                 <?= $tipo ?>
                             </td>
                             <td>
-                                $<?= $v['HistoricBalance']['amount'] ?>
+                                $<?= $v['HistoricBalance']['amount'] < 0 ? $v['HistoricBalance']['amount'] * -1 : $v['HistoricBalance']['amount'] ?>
                             </td>
                         </tr>
                     <?php } ?>
