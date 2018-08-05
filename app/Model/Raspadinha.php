@@ -9,6 +9,7 @@ App::uses('AppModel', 'Model');
 class Raspadinha extends AppModel {
 
     public $useTable = "raspadinhas";
+
     public $virtualFields = array(
     	
     );

@@ -27,7 +27,6 @@ Configure::write('Config.language', 'pt-br');
 Configure::write('App.encoding', 'UTF-8');
 FB::info('DEBUG HABILITADO !');
 //FB::info(date('H:i:s'),'date');
-date_default_timezone_set('UTC');
 
 require_once('../webroot/env.php');
 
@@ -265,7 +264,7 @@ Configure::write('Acl.database', 'default');
  * Uncomment this line and correct your server timezone to fix
  * any date & time related errors.
  */
-date_default_timezone_set('America/Bahia');
+date_default_timezone_set('UTC');
 
 /**
  *

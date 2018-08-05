@@ -152,3 +152,11 @@ define('BASE', str_replace("/webroot", "", dirname($_SERVER['PHP_SELF']) == "/" 
 ini_set('memory_limit', '512M');
 ini_set('max_execution_time', '1200');
 
+function siteURL()
+{
+    $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+    $domainName = $_SERVER['HTTP_HOST'];
+    return $protocol.$domainName;
+}
+define('SITE_URL', siteURL() );
+

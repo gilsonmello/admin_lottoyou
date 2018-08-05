@@ -81,7 +81,7 @@
                     </div>
 
                 </div>
-                <h4 class="pull-left" style="padding-right:5px;">RASPADINHAS</h4>
+                <h4 class="pull-left" style="padding-right:5px;">Raspadinhas</h4>
                 <hr style="margin-top:21px" />
                 <div class="row">
                     <div class="col-sm-2">
@@ -120,6 +120,23 @@
                             Demos das Raspadinhas
                         </div>
                     </div>   -->              
+                </div>
+
+                <h4 class="pull-left" style="padding-right:5px;">Cartola</h4>
+                <hr style="margin-top:21px" />
+                <div class="row">
+                    <div class="col-sm-2">
+                        <div id="leagues" class="text-center hover" style="cursor:pointer;" data-toggle="tooltip" data-placement="bottom" title="Gerencimento de Ligas">
+                            <i class="md md-view-quilt" style="font-size:24px; display:block;"></i>
+                            Ligas
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div id="leagueAwards" class="text-center hover" style="cursor:pointer;" data-toggle="tooltip" data-placement="bottom" title="Gerencimento de Prêmios das Ligas">
+                            <i class="md md-view-quilt" style="font-size:24px; display:block;"></i>
+                            Prêmios das Ligas
+                        </div>
+                    </div>
                 </div>
 
 
