@@ -22,7 +22,7 @@ class LeaguesController extends AppController {
         $options = array(
             'conditions' => [
             ],
-            'limit' => 1,
+            'limit' => 50,
             'order' => array('League.id' => 'desc'),
             'contain' => [],
             'joins' => [
