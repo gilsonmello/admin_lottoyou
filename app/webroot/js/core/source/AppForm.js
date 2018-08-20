@@ -685,7 +685,7 @@
                         }
                     },
                     success: function(result) {
-
+                        //p._removeErrors(result);
                         // VERIFICA SE O CAKE RETORNOU ERROS E EXÍBE-OS
                         // CASO CONTRÁRIO FECHA O MODAL
                         if (p._checkErros(result)) {
@@ -769,6 +769,12 @@
         }
 
         return error;
+    };
+
+    p._removeErrors = function() {
+        let messageErrors = $('span.text-danger');
+        messageErrors.remove();
+        $('.has-error').removeClass('has-error');
     };
 
     p._showErros = function (result, bv) {

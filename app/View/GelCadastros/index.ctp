@@ -137,6 +137,12 @@
                             Prêmios das Ligas
                         </div>
                     </div>
+                    <div class="col-sm-2">
+                        <div id="leaPackages" class="text-center hover" style="cursor:pointer;" data-toggle="tooltip" data-placement="bottom" title="Gerencimento de Pacotes">
+                            <i class="md md-view-quilt" style="font-size:24px; display:block;"></i>
+                            Pacotes
+                        </div>
+                    </div>
                 </div>
 
 

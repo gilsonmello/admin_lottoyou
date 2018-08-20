@@ -66,7 +66,7 @@ class Group extends AppModel {
         $this->FuncionalidadesGroup->saveAll($dados);
         
         parent::afterSave($created, $options);
-}
+    }
     
     public function gruposSemFuncionalidades(){
         return $this->find('list', array('conditions'=>array('totalFuncionalidades'=>0)));

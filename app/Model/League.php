@@ -20,6 +20,15 @@ class League extends AppModel {
         ],
 	];
 
+    public $hasAndBelongsToMany = [
+        'LeaPackage' => [
+            'className'             => 'LeaPackage',
+            'joinTable'             => 'lea_packages_has_leagues',
+            'foreignKey'            => 'league_id',
+            'associationForeignKey' => 'lea_package_id'
+        ]
+    ];
+
 	public $hasMany = [
     	
 	];
@@ -86,7 +95,7 @@ class League extends AppModel {
 
     public function beforeSave($options = array())
     {
-        $now = date('Y-m-d H:i:s');
+        /*$now = date('Y-m-d H:i:s');
         if (!$this->id && !isset($this->data[$this->alias][$this->primaryKey])) {
             //insert
             $this->data[$this->alias]['created_at'] = $now;
@@ -94,7 +103,7 @@ class League extends AppModel {
         } else {
             //edit
             $this->data[$this->alias]['updated_at'] = $now;
-        }
+        }*/
         return true;
     }
 

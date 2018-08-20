@@ -58,15 +58,45 @@ class LeagueAward extends AppModel {
                 'message' => 'Campo obrigatório'
             ],
         ],
+        'type' => [
+            'required' => [
+                'rule' => ['notEmpty'],
+                'required' => true,
+                'message' => 'Campo obrigatório'
+            ],
+        ],
+        'type_description' => [
+            'required' => [
+                'rule' => ['notEmpty'],
+                'required' => true,
+                'message' => 'Campo obrigatório'
+            ],
+        ],
     ];
 
     public function league($id) {
         return $this->League->read(null, $id);
     }
 
+    public function beforeValidate($options = array()) {
+        parent::beforeValidate($options);
+        if(isset($this->data[$this->alias]['type'])) {
+            //Se for do tipo ilimitado, não é necessário o campo limite,
+            //Removo o campo limite da validação
+            if($this->data[$this->alias]['type'] != '3') {
+                unset($this->validate['type_description']);
+            }
+
+            if($this->data[$this->alias]['type'] == '3') {
+                $this->data[$this->alias]['value'] = null;
+                unset($this->validate['value']);
+            }
+        }
+    }
+
     public function beforeSave($options = array())
     {
-        $now = date('Y-m-d H:i:s');
+        /*$now = date('Y-m-d H:i:s');
         if (!$this->id && !isset($this->data[$this->alias][$this->primaryKey])) {
             //insert
             $this->data[$this->alias]['created_at'] = $now;
@@ -74,7 +104,8 @@ class LeagueAward extends AppModel {
         } else {
             //edit
             $this->data[$this->alias]['updated_at'] = $now;
-        }
+        }*/
+
         return true;
     }
 
