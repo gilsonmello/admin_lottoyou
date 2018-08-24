@@ -122,7 +122,7 @@
                     </div>   -->              
                 </div>
 
-                <h4 class="pull-left" style="padding-right:5px;">Cartola</h4>
+                <h4 class="pull-left" style="padding-right:5px;">Cartoleando - Clássico</h4>
                 <hr style="margin-top:21px" />
                 <div class="row">
                     <div class="col-sm-2">
@@ -132,9 +132,32 @@
                         </div>
                     </div>
                     <div class="col-sm-2">
-                        <div id="leagueAwards" class="text-center hover" style="cursor:pointer;" data-toggle="tooltip" data-placement="bottom" title="Gerencimento de Prêmios das Ligas">
+                        <div id="leagueAwards" class="text-center hover" style="cursor:pointer;" data-toggle="tooltip" data-placement="bottom" title="Gerencimento de Prêmios das Ligas Clássicas">
                             <i class="md md-view-quilt" style="font-size:24px; display:block;"></i>
-                            Prêmios das Ligas
+                            Prêmios
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div id="leaPackages" class="text-center hover" style="cursor:pointer;" data-toggle="tooltip" data-placement="bottom" title="Gerencimento de Pacotes">
+                            <i class="md md-view-quilt" style="font-size:24px; display:block;"></i>
+                            Pacotes
+                        </div>
+                    </div>
+                </div>
+
+                <h4 class="pull-left" style="padding-right:5px;">Cartoleando - Mata Mata</h4>
+                <hr style="margin-top:21px" />
+                <div class="row">
+                    <div class="col-sm-2">
+                        <div id="leaCups" class="text-center hover" style="cursor:pointer;" data-toggle="tooltip" data-placement="bottom" title="Gerencimento de Ligas Mata Mata">
+                            <i class="md md-view-quilt" style="font-size:24px; display:block;"></i>
+                            Ligas
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div id="leaCupAwards" class="text-center hover" style="cursor:pointer;" data-toggle="tooltip" data-placement="bottom" title="Gerencimento de Prêmios das Ligas Mata Mata">
+                            <i class="md md-view-quilt" style="font-size:24px; display:block;"></i>
+                            Prêmios
                         </div>
                     </div>
                     <div class="col-sm-2">
