@@ -71,6 +71,7 @@ class LeaguesController extends AppController {
     }
 
     public function add() {
+        $this->League->recursive = -1;
         // CONFIGURA LAYOUT
         $this->layout = 'ajax';
 
@@ -91,6 +92,7 @@ class LeaguesController extends AppController {
         $this->layout = 'ajax';
 
         $this->League->id = $id;
+        $this->League->recursive = -1;
         if (!$this->League->exists()) {
             throw new NotFoundException('Registro inexistente', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-danger'));
         }

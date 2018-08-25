@@ -24,7 +24,7 @@ class LeaCup extends AppModel {
         'LeaPackage' => [
             'className'             => 'LeaPackage',
             'joinTable'             => 'lea_packages_has_lea_cups',
-            'foreignKey'            => 'league_id',
+            'foreignKey'            => 'lea_package_id',
             'associationForeignKey' => 'lea_cup_id'
         ]
     ];
@@ -52,10 +52,6 @@ class LeaCup extends AppModel {
                 'required' => true,
                 'message' => 'Campo obrigatório'
             ],
-            /*'unique' => array(
-                'rule' => 'isUnique',
-                'message' => 'Nome em uso. Favor informar outro.'
-            )*/
         ],
         'slug' => [
             'required' => [
@@ -63,6 +59,10 @@ class LeaCup extends AppModel {
                 'required' => true,
                 'message' => 'Campo obrigatório'
             ],
+            'unique' => [
+                'rule' => 'isUnique',
+                'message' => 'Slug em uso. Favor informar outro.'
+            ]
         ],
         'value' => [
             'required' => [
@@ -78,14 +78,13 @@ class LeaCup extends AppModel {
                 'message' => 'Campo obrigatório'
             ],
         ],
-        'award_method' => [
+        'active' => [
             'required' => [
                 'rule' => ['notEmpty'],
-                'required' => true,
                 'message' => 'Campo obrigatório'
-            ],
+            ]
         ],
-        'active' => [
+        'number_team' => [
             'required' => [
                 'rule' => ['notEmpty'],
                 'message' => 'Campo obrigatório'
@@ -108,18 +107,20 @@ class LeaCup extends AppModel {
     }
 
     public function afterSave($created, $options = []) {
-        if(!empty($this->request->data['League']['bg_image']['name'])) {
-            //$this->data['League']['bg_image']['name'] =
-            $league = $this->data['League'];
-            $bg_image = $league['slug'].''.substr($this->request->data['League']['bg_image']['name'], -4);
-            $this->request->data['League']['bg_image']['name'] = $bg_image;
-            $name_image = 'files/Leagues_Bg_Image/';
-            $name_image .= $this->upload($this->request->data['League']['bg_image'], 'files\Leagues_Bg_Image', false);
+        if(!empty($this->request->data['LeaCup']['bg_image']['name'])) {
+            //$this->data['LeaCup']['bg_image']['name'] =
+            $league = $this->data['LeaCup'];
+            //$bg_image = $league['slug'].''.substr($this->request->data['LeaCup']['bg_image']['name'], -4);
+            $bg_image = explode('.', $this->request->data['LeaCup']['bg_image']['name']);
+            $bg_image = $league['slug'].'.'.$bg_image[count($bg_image) - 1];
+            $this->request->data['LeaCup']['bg_image']['name'] = $bg_image;
+            $name_image = 'files/LeaCups_Bg_Image/';
+            $name_image .= $this->upload($this->request->data['LeaCup']['bg_image'], 'files\LeaCups_Bg_Image', false);
             $now = date('Y-m-d H:i:s');
 
             $query = "UPDATE lea_cups SET lea_cups.bg_image_domain = '".SITE_URL."' ";
             $query .= ", lea_cups.bg_image = '$name_image' ";
-            $query .= ", lea_cups.updated_at = '$now' ";
+            $query .= ", lea_cups.modified = '$now' ";
             $query .= 'WHERE lea_cups.id = '.$league['id'];
 
             $this->query($query);

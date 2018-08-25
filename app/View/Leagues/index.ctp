@@ -2,7 +2,7 @@
     <div class="section-body" <?php echo ($modal == 1) ? 'style="margin:0;"' : '' ?>>
         <div class="card-head card-head-sm style-primary">
             <header>
-                <i class="md md-apps" style="margin-bottom:0;"></i> Ligas
+                <i class="md md-apps" style="margin-bottom:0;"></i> Ligas Clássicas
                 <i class="md md-navigate-next" style="margin-bottom:0;"></i> <b>Todas</b>
             </header>
             <div class="tools">
@@ -78,7 +78,7 @@
                                 <?= $v['League']['slug']; ?>
                             </td>
                             <td>
-                                $<?= $v['League']['value']; ?>
+                                R$<?= $v['League']['value']; ?>
                             </td>
                             <td>
                                 <label class="label label-<?php echo $v['League']['aberto_label']; ?>">

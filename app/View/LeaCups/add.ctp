@@ -1,42 +1,25 @@
-<?php echo $this->Form->create('LeagueCup', array('class' => 'form form-validate', 'role' => 'form', 'type' => 'file')); ?>
+<?php echo $this->Form->create('LeaCup', array('class' => 'form form-validate', 'role' => 'form', 'type' => 'file')); ?>
 <?php echo $this->element('forms/title', array('title' => '<i class="fa fa-plus-square"></i> Cadastrar Liga Mata Mata')); ?>
     <div class="card-body">
         <div class="row">
-            <div class="col-sm-6 col-lg-3">
+            <div class="col-sm-6 col-lg-4">
                 <div class="form-group">
                     <?php echo $this->Form->input('name', array('label' => 'Nome', 'class' => 'form-control name-has-slug', 'required' => true)); ?>
                 </div>
             </div>
-            <div class="col-sm-6 col-lg-3">
+            <div class="col-sm-6 col-lg-4">
                 <div class="form-group">
                     <?php echo $this->Form->input('slug', array('label' => 'Slug', 'class' => 'form-control slug-from-name', 'required' => true)); ?>
                 </div>
             </div>
-            <div class="col-sm-6 col-lg-3">
-                <div class="form-group">
-                    <?= $this->Form->input('award_method', [
-                        'label' => 'Método de premiação',
-                        'class' => 'form-control chosen',
-                        'options' => [
-                            '1' => 'Campeonato',
-                            '2' => 'Mês',
-                            '3' => 'Turno',
-                            '4' => 'Patrimônio',
-                            '5' => 'Rodada atual',
-                        ],
-                        'empty' => 'Selecione',
-                        'required' => true
-                    ]); ?>
-                </div>
-            </div>
-            <div class="col-sm-3 col-lg-3 col-xs-12 col-md-3">
+            <div class="col-sm-6 col-lg-4 col-xs-12 col-md-4">
                 <div class="form-group">
                     <?php echo $this->Form->input('value', array('label' => 'Valor', 'class' => 'form-control money', 'required' => true)); ?>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-4 col-lg-4">
+            <div class="col-md-3 col-lg-2">
                 <?php echo $this->Form->input('open', [
                     'type' => 'radio',
                     'required' => true,
@@ -49,7 +32,7 @@
                     ]
                 ]); ?>
             </div>
-            <div class="col-md-4 col-lg-4">
+            <div class="col-md-3 col-lg-2">
                 <?php echo $this->Form->input('new', [
                     'type' => 'radio',
                     'required' => true,
@@ -62,7 +45,7 @@
                     ]
                 ]); ?>
             </div>
-            <div class="col-md-4 col-lg-4">
+            <div class="col-md-3 col-lg-2">
                 <?php echo $this->Form->input('active', [
                     'type' => 'radio',
                     'required' => true,
@@ -75,6 +58,36 @@
                     ]
                 ]); ?>
             </div>
+            <div class="col-md-3 col-lg-2">
+                <?php echo $this->Form->input('one_x_one', [
+                    'type' => 'radio',
+                    'required' => true,
+                    'legend' => '1x1 ?',
+                    'class' => 'radio-inline radio-styled tipo',
+                    'value' => 0,
+                    'options' => [
+                        1 => 'Sim',
+                        0 => 'Não'
+                    ]
+                ]); ?>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <div class="form-group">
+                    <?= $this->Form->input('number_team', [
+                        'label' => 'Número de times',
+                        'class' => 'form-control chosen',
+                        'options' => [
+                            '2' => '2',
+                            '4' => '4',
+                            '8' => '8',
+                            '16' => '16',
+                            '32' => '32',
+                        ],
+                        'empty' => 'Selecione',
+                        'required' => true
+                    ]); ?>
+                </div>
+            </div>
         </div>
         <br>
         <div class="row">
@@ -84,6 +97,7 @@
                         'escape' => false,
                         'label' => 'Imagem de fundo',
                         'required' => false,
+                        'accept' => "image/png, image/jpeg, image/jpg",
                         'type' => 'file',
                     ]);?>
                 </div>

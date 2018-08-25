@@ -26,6 +26,12 @@ class LeaPackage extends AppModel {
             'joinTable'             => 'lea_packages_has_leagues',
             'foreignKey'            => 'lea_package_id',
             'associationForeignKey' => 'league_id'
+        ],
+        'LeaCup' => [
+            'className'             => 'LeaCup',
+            'joinTable'             => 'lea_packages_has_lea_cups',
+            'foreignKey'            => 'lea_package_id',
+            'associationForeignKey' => 'lea_cup_id'
         ]
     ];
 
@@ -97,14 +103,23 @@ class LeaPackage extends AppModel {
 
     public function afterSave($created, $options = []) {
 
-        // PREPARA DADOS
+        //Dados das Ligas Clássicas
         $dados = $this->_extractFieldsHABTM($this->data['LeaPackage']['league_id'], $this->data['LeaPackage']['id'], 'lea_package_id', 'league_id');
 
-        // APAGA REGISTROS RELACIONADOS AO ID
+        // APAGA REGISTROS RELACIONADOS AO ID das ligas clássicas
         $this->LeaPackagesHasLeague->deleteAll(array('lea_package_id' => $this->data['LeaPackage']['id']));
 
-        // ASSOCIA PERMISSÕES A FUNCIONALIDADE
+        // ASSOCIA PERMISSÕES A FUNCIONALIDADE das ligas clássicas
         $this->LeaPackagesHasLeague->saveAll($dados);
+
+        //Dados das ligas mata mata
+        $dados = $this->_extractFieldsHABTM($this->data['LeaPackage']['lea_cup_id'], $this->data['LeaPackage']['id'], 'lea_package_id', 'lea_cup_id');
+
+        // APAGA REGISTROS RELACIONADOS AO ID das ligas mata mata
+        $this->LeaPackagesHasLeaCup->deleteAll(array('lea_package_id' => $this->data['LeaPackage']['id']));
+
+        // ASSOCIA PERMISSÕES A FUNCIONALIDADE das ligas mata
+        $this->LeaPackagesHasLeaCup->saveAll($dados);
 
         if(!empty($this->request->data['LeaPackage']['bg_image']['name'])) {
             //$this->data['LeaPackage']['bg_image']['name'] =

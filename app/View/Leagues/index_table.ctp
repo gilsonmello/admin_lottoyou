@@ -24,7 +24,7 @@
                 <?= $v['League']['slug']; ?>
             </td>
             <td>
-                $<?= $v['League']['value']; ?>
+                R$<?= $v['League']['value']; ?>
             </td>
             <td>
                 <label class="label label-<?php echo $v['League']['aberto_label']; ?>">

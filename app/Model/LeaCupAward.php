@@ -30,10 +30,10 @@ class LeaCupAward extends AppModel {
     public $displayField = 'name';
 //    
     public $virtualFields = [
-        /*'ativo' => "CASE WHEN League.active = 1 THEN 'Sim' ELSE 'Não' END",
-        'ativo_label' => "CASE WHEN League.active = 1 THEN 'success' ELSE 'danger' END",
-        'aberto' => "CASE WHEN League.open = 1 THEN 'Sim' ELSE 'Não' END",
-        'aberto_label' => "CASE WHEN League.open = 1 THEN 'success' ELSE 'danger' END",*/
+        /*'ativo' => "CASE WHEN LeaCup.active = 1 THEN 'Sim' ELSE 'Não' END",
+        'ativo_label' => "CASE WHEN LeaCup.active = 1 THEN 'success' ELSE 'danger' END",
+        'aberto' => "CASE WHEN LeaCup.open = 1 THEN 'Sim' ELSE 'Não' END",
+        'aberto_label' => "CASE WHEN LeaCup.open = 1 THEN 'success' ELSE 'danger' END",*/
     ];
 
     public $validate = [
@@ -43,6 +43,10 @@ class LeaCupAward extends AppModel {
                 'required' => true,
                 'message' => 'Campo obrigatório'
             ],
+            'unique' => [
+                'rule' => 'isUnique',
+                'message' => 'Posição em uso. Favor informar outra.'
+            ]
         ],
         'value' => [
             'required' => [
@@ -74,8 +78,8 @@ class LeaCupAward extends AppModel {
         ],
     ];
 
-    public function league($id) {
-        return $this->League->read(null, $id);
+    public function leaCup($id) {
+        return $this->LeaCup->read(null, $id);
     }
 
     public function beforeValidate($options = array()) {
@@ -87,7 +91,7 @@ class LeaCupAward extends AppModel {
                 unset($this->validate['type_description']);
             }
 
-            if($this->data[$this->alias]['type'] == '3') {
+            if($this->data[$this->alias]['type'] == '2' || $this->data[$this->alias]['type'] == '3') {
                 $this->data[$this->alias]['value'] = null;
                 unset($this->validate['value']);
             }

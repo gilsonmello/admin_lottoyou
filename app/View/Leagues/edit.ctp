@@ -37,7 +37,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-4 col-lg-4">
+            <div class="col-md-4 col-xs-12 col-sm-6 col-lg-2">
                 <?php echo $this->Form->input('open', [
                     'type' => 'radio',
                     'required' => true,
@@ -49,7 +49,7 @@
                     ]
                 ]); ?>
             </div>
-            <div class="col-md-4 col-lg-4">
+            <div class="col-md-4 col-xs-12 col-sm-6 col-lg-2">
                 <?php echo $this->Form->input('new', [
                     'type' => 'radio',
                     'required' => true,
@@ -61,7 +61,7 @@
                     ]
                 ]); ?>
             </div>
-            <div class="col-md-4 col-lg-4">
+            <div class="col-md-4 col-xs-12 col-sm-6 col-lg-2">
                 <?php echo $this->Form->input('active', [
                     'type' => 'radio',
                     'required' => true,
@@ -73,22 +73,41 @@
                     ]
                 ]); ?>
             </div>
+            <div class="col-sm-6 col-lg-3 col-xs-12 col-md-6">
+                <div class="form-group">
+                    <?php echo $this->Form->input('min_players', array('label' => 'Mínimo de times', 'class' => 'form-control integer', 'required' => true)); ?>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-3 col-xs-12 col-md-6">
+                <div class="form-group">
+                    <?php echo $this->Form->input('max_players', array('label' => 'Máximo de times', 'class' => 'form-control integer', 'required' => false)); ?>
+                </div>
+            </div>
         </div>
         <br>
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-5">
                 <div class="form-group">
                     <?php echo $this->Form->input('bg_image', [
                         'escape' => false,
                         'label' => 'Imagem de fundo',
                         'required' => false,
+                        'accept' => "image/png, image/jpeg, image/jpg",
                         'type' => 'file',
                     ]);?>
                 </div>
             </div>
-            <div class="col-lg-6">
-                <img src="">
-            </div>
+            <?php if($this->request->data['League']['bg_image'] != null) { ?>
+                <div class="col-lg-7">
+                    <img
+                        class="img-responsive"
+                        src="<?= $this->request->data['League']['bg_image_domain'] . '/'. $this->request->data['League']['bg_image'] . '?' . time(); ?>">
+                </div>
+            <?php } else { ?>
+                <div class="col-lg-7">
+                    <h4>Nenhuma imagem cadastrada</h4>
+                </div>
+            <?php } ?>
         </div>
         <div class="row">
             <div class="col-lg-12">

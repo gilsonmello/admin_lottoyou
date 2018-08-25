@@ -2,7 +2,7 @@
     <div class="section-body" <?php echo ($modal == 1) ? 'style="margin:0;"' : '' ?>>
         <div class="card-head card-head-sm style-primary">
             <header>
-                <i class="md md-apps" style="margin-bottom:0;"></i> Ligas - Prêmios
+                <i class="md md-apps" style="margin-bottom:0;"></i> Ligas Mata Mata - Prêmios
                 <i class="md md-navigate-next" style="margin-bottom:0;"></i> <b>Todas</b>
             </header>
             <div class="tools">
@@ -73,6 +73,7 @@
                     <tr>
                         <th>Liga</th>
                         <th>Posição</th>
+                        <th>Tipo do prêmio</th>
                         <th>Valor</th>
                         <th>Ações</th>
                     </tr>
@@ -81,13 +82,22 @@
                     <?php foreach ($dados as $k => $v) { ?>
                         <tr>
                             <td>
-                                <?= $model->league($v['LeaCupAward']['league_id'])['League']['name']; ?>
+                                <?= $model->leaCup($v['LeaCupAward']['lea_cup_id'])['LeaCup']['name']; ?>
                             </td>
                             <td>
                                 <?= $v['LeaCupAward']['position']; ?>
                             </td>
                             <td>
-                                $<?= $v['LeaCupAward']['value']; ?>
+                                <?php if($v['LeaCupAward']['type_description'] != null) {?>
+                                    <?= $v['LeaCupAward']['type_description']; ?>
+                                <?php } ?>
+                            </td>
+                            <td>
+                                <?php if($v['LeaCupAward']['value'] != null) {?>
+                                    R$<?= $v['LeaCupAward']['value']; ?>
+                                <?php } else { ?>
+                                    R$0.00
+                                <?php } ?>
                             </td>
                             <td>
                                 <div class="btn-group">

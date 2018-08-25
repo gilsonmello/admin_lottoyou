@@ -14,7 +14,8 @@ class LeaPackagesController extends AppController {
 
     public $uses = [
         'LeaPackage',
-        'League'
+        'League',
+        'LeaCup'
     ];
 
     public function index($modal = 0) {
@@ -91,7 +92,11 @@ class LeaPackagesController extends AppController {
             //$this->render(false);
         } else {
             $this->League->recursive = -1;
+            $this->LeaCup->recursive = -1;
             $this->set('leagues', $this->League->find('list', [
+                'order' => ['name asc']
+            ]));
+            $this->set('leaCups', $this->LeaCup->find('list', [
                 'order' => ['name asc']
             ]));
         }
@@ -121,11 +126,20 @@ class LeaPackagesController extends AppController {
 
         $this->League->recursive = -1;
         $this->LeaPackage->recursive = -1;
+        $this->LeaCup->recursive = -1;
         $leagues = $this->League->find('list', [
             'order' => ['name asc']
         ]);
         $this->set('leagues', $leagues);
-        $selected = $this->LeaPackage->LeaPackagesHasLeague->find('list', [
+
+        //Ligas Mata mata
+        $leaCups = $this->LeaCup->find('list', [
+            'order' => ['name asc']
+        ]);
+        $this->set('leaCups', $leaCups);
+
+        //Pegando as ligas clássicas selecionadas
+        $selectedLeagues = $this->LeaPackage->LeaPackagesHasLeague->find('list', [
             'conditions' => [
                 'lea_package_id' => $id
             ],
@@ -133,7 +147,19 @@ class LeaPackagesController extends AppController {
                 'league_id'
             ]
         ]);
-        $this->set('selected', $selected);
+        $this->set('selectedLeagues', $selectedLeagues);
+
+        //Pegando as ligas mata mata selecionadas
+        $selectedLeaCups = $this->LeaCup->LeaPackagesHasLeaCup->find('list', [
+            'conditions' => [
+                'lea_package_id' => $id
+            ],
+            'fields' => [
+                'lea_cup_id'
+            ]
+        ]);
+        $this->set('selectedLeaCups', $selectedLeaCups);
+
         $this->request->data = $this->LeaPackage->read(null, $id);
     }
 

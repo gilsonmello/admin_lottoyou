@@ -91,10 +91,24 @@ class League extends AppModel {
                 'message' => 'Campo obrigatório'
             ]
         ],
+        'min_players' => [
+            'required' => [
+                'rule' => ['notEmpty'],
+                'message' => 'Campo obrigatório'
+            ]
+        ],
     ];
 
     public function beforeSave($options = array())
     {
+        if($this->data[$this->alias]['max_players'] == '') {
+            $this->data[$this->alias]['max_players'] = null;
+        }
+
+        if($this->data[$this->alias]['min_players'] == '') {
+            $this->data[$this->alias]['min_players'] = 1;
+        }
+
         /*$now = date('Y-m-d H:i:s');
         if (!$this->id && !isset($this->data[$this->alias][$this->primaryKey])) {
             //insert
@@ -111,7 +125,9 @@ class League extends AppModel {
         if(!empty($this->request->data['League']['bg_image']['name'])) {
             //$this->data['League']['bg_image']['name'] =
             $league = $this->data['League'];
-            $bg_image = $league['slug'].''.substr($this->request->data['League']['bg_image']['name'], -4);
+            //$bg_image = $league['slug'].''.substr($this->request->data['League']['bg_image']['name'], -4);
+            $bg_image = explode('.', $this->request->data['League']['bg_image']['name']);
+            $bg_image = $league['slug'].'.'.$bg_image[count($bg_image) - 1];
             $this->request->data['League']['bg_image']['name'] = $bg_image;
             $name_image = 'files/Leagues_Bg_Image/';
             $name_image .= $this->upload($this->request->data['League']['bg_image'], 'files\Leagues_Bg_Image', false);
@@ -119,7 +135,7 @@ class League extends AppModel {
 
             $query = "UPDATE leagues SET leagues.bg_image_domain = '".SITE_URL."' ";
             $query .= ", leagues.bg_image = '$name_image' ";
-            $query .= ", leagues.updated_at = '$now' ";
+            $query .= ", leagues.modified = '$now' ";
             $query .= 'WHERE leagues.id = '.$league['id'];
 
             $this->query($query);

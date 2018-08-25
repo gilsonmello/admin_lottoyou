@@ -63,6 +63,7 @@
                         <th>Nome</th>
                         <th>Slug</th>
                         <th>Valor</th>
+                        <th>Número de Times</th>
                         <th>Aberto</th>
                         <th>Ativo</th>
                         <th>Ações</th>
@@ -72,22 +73,25 @@
                     <?php foreach ($dados as $k => $v) { ?>
                         <tr>
                             <td>
-                                <?= $v['League']['name']; ?>
+                                <?= $v['LeaCup']['name']; ?>
                             </td>
                             <td>
-                                <?= $v['League']['slug']; ?>
+                                <?= $v['LeaCup']['slug']; ?>
                             </td>
                             <td>
-                                $<?= $v['League']['value']; ?>
+                                R$<?= $v['LeaCup']['value']; ?>
                             </td>
                             <td>
-                                <label class="label label-<?php echo $v['League']['aberto_label']; ?>">
-                                    <?= $v['League']['aberto']; ?>
+                                <?= $v['LeaCup']['number_team']; ?>
+                            </td>
+                            <td>
+                                <label class="label label-<?php echo $v['LeaCup']['aberto_label']; ?>">
+                                    <?= $v['LeaCup']['aberto']; ?>
                                 </label>
                             </td>
                             <td>
-                                <label class="label label-<?php echo $v['League']['ativo_label']; ?>">
-                                    <?php echo $v['League']['ativo']; ?>
+                                <label class="label label-<?php echo $v['LeaCup']['ativo_label']; ?>">
+                                    <?php echo $v['LeaCup']['ativo']; ?>
                                 </label>
                             </td>
                             <td>
@@ -95,15 +99,15 @@
                                     <button type="button" class="btn btn-icon-toggle dropdown-toggle" data-toggle="dropdown"><i class="fa fa-gear"></i></button>
                                     <ul class="dropdown-menu dropdown-menu-right" role="menu">
                                         <!--<li class="divider"></li>-->
-                                        <li><?= $this->Html->link('<i class="md md-create"></i>&nbsp Editar', 'javascript: void(0)', array("escape" => false, 'id' => $v['League']['id'], 'class' => 'btnEditar')) ?></li>
+                                        <li><?= $this->Html->link('<i class="md md-create"></i>&nbsp Editar', 'javascript: void(0)', array("escape" => false, 'id' => $v['LeaCup']['id'], 'class' => 'btnEditar')) ?></li>
                                         <li>
                                             <?= $this->Html->link('<i class="md md-delete"></i>&nbsp Excluir', 'javascript: void(0)', [
                                                 "escape" => false,
-                                                'id' => $v['League']['id'],
+                                                'id' => $v['LeaCup']['id'],
                                                 'class' => 'btnDeletar'
                                             ]) ?>
                                         </li>
-                                        <li style="background: #F1F1F1; font-size: 9px; text-align: center;">Atualizado em: <?= @$v['League']['updated_at'] ?></li>
+                                        <li style="background: #F1F1F1; font-size: 9px; text-align: center;">Atualizado em: <?= @$v['LeaCup']['modified'] ?></li>
                                     </ul>
                                 </div>
                             </td>

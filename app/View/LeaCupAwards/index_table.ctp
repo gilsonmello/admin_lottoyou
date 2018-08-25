@@ -16,28 +16,28 @@
     <?php foreach ($dados as $k => $v) { ?>
         <tr>
             <td>
-                <?= $model->league($v['LeagueAward']['league_id'])['League']['name']; ?>
+                <?= $model->leaCup($v['LeaCupAward']['lea_cup_id'])['LeaCup']['name']; ?>
             </td>
             <td>
-                <?= $v['LeagueAward']['position']; ?>
+                <?= $v['LeaCupAward']['position']; ?>
             </td>
             <td>
-                $<?= $v['LeagueAward']['value']; ?>
+                $<?= $v['LeaCupAward']['value']; ?>
             </td>
             <td>
                 <div class="btn-group">
                     <button type="button" class="btn btn-icon-toggle dropdown-toggle" data-toggle="dropdown"><i class="fa fa-gear"></i></button>
                     <ul class="dropdown-menu dropdown-menu-right" role="menu">
                         <!--<li class="divider"></li>-->
-                        <li><?= $this->Html->link('<i class="md md-create"></i>&nbsp Editar', 'javascript: void(0)', array("escape" => false, 'id' => $v['LeagueAward']['id'], 'class' => 'btnEditar')) ?></li>
+                        <li><?= $this->Html->link('<i class="md md-create"></i>&nbsp Editar', 'javascript: void(0)', array("escape" => false, 'id' => $v['LeaCupAward']['id'], 'class' => 'btnEditar')) ?></li>
                         <li>
                             <?= $this->Html->link('<i class="md md-delete"></i>&nbsp Excluir', 'javascript: void(0)', [
                                 "escape" => false,
-                                'id' => $v['LeagueAward']['id'],
+                                'id' => $v['LeaCupAward']['id'],
                                 'class' => 'btnDeletar'
                             ]) ?>
                         </li>
-                        <li style="background: #F1F1F1; font-size: 9px; text-align: center;">Atualizado em: <?= @$v['LeagueAward']['updated_at'] ?></li>
+                        <li style="background: #F1F1F1; font-size: 9px; text-align: center;">Atualizado em: <?= @$v['LeaCupAward']['updated_at'] ?></li>
                     </ul>
                 </div>
             </td>

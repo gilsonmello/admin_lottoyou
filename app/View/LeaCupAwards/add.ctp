@@ -1,13 +1,13 @@
-<?php echo $this->Form->create('LeagueAward', array('class' => 'form form-validate', 'role' => 'form')); ?>
+<?php echo $this->Form->create('LeaCupAward', array('class' => 'form form-validate', 'role' => 'form')); ?>
 <?php echo $this->element('forms/title', array('title' => '<i class="fa fa-plus-square"></i> Cadastrar Prêmio')); ?>
     <div class="card-body">
         <div class="row">
             <div class="col-sm-6 col-lg-4">
                 <div class="form-group">
-                    <?= $this->Form->input('league_id', [
+                    <?= $this->Form->input('lea_cup_id', [
                         'label' => 'Liga',
                         'class' => 'form-control chosen',
-                        'options' => $optionsLeague,
+                        'options' => $optionsLeaCup,
                         'empty' => 'Selecione',
                         'required' => true
                     ]); ?>

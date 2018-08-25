@@ -36,7 +36,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-4 col-lg-4">
+            <div class="col-md-4 col-xs-12 col-sm-6 col-lg-2">
                 <?php echo $this->Form->input('open', [
                     'type' => 'radio',
                     'required' => true,
@@ -49,7 +49,7 @@
                     ]
                 ]); ?>
             </div>
-            <div class="col-md-4 col-lg-4">
+            <div class="col-md-4 col-xs-12 col-sm-6 col-lg-2">
                 <?php echo $this->Form->input('new', [
                     'type' => 'radio',
                     'required' => true,
@@ -62,7 +62,7 @@
                     ]
                 ]); ?>
             </div>
-            <div class="col-md-4 col-lg-4">
+            <div class="col-md-4 col-xs-12 col-sm-6 col-lg-2">
                 <?php echo $this->Form->input('active', [
                     'type' => 'radio',
                     'required' => true,
@@ -74,6 +74,16 @@
                         0 => 'Não'
                     ]
                 ]); ?>
+            </div>
+            <div class="col-sm-6 col-lg-3 col-xs-12 col-md-6">
+                <div class="form-group">
+                    <?php echo $this->Form->input('min_players', array('label' => 'Mínimo de times', 'class' => 'form-control integer', 'required' => true)); ?>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-3 col-xs-12 col-md-6">
+                <div class="form-group">
+                    <?php echo $this->Form->input('max_players', array('label' => 'Máximo de times', 'class' => 'form-control integer', 'required' => false)); ?>
+                </div>
             </div>
         </div>
         <br>

@@ -87,7 +87,7 @@ class LeagueAward extends AppModel {
                 unset($this->validate['type_description']);
             }
 
-            if($this->data[$this->alias]['type'] == '3') {
+            if($this->data[$this->alias]['type'] == '2' || $this->data[$this->alias]['type'] == '3') {
                 $this->data[$this->alias]['value'] = null;
                 unset($this->validate['value']);
             }

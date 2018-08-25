@@ -74,12 +74,13 @@ class LeaCupsController extends AppController {
     public function add() {
         // CONFIGURA LAYOUT
         $this->layout = 'ajax';
+        $this->LeaCup->recursive = -1;
 
         if ($this->request->is('post') || $this->request->is('put')) {
-            $this->request->data['League']['value'] = $this->App->formataValorDouble($this->request->data['League']['value']);
+            $this->request->data['LeaCup']['value'] = $this->App->formataValorDouble($this->request->data['LeaCup']['value']);
             $league = $this->request->data;
-            unset($league['League']['bg_image']);
-            if ($this->League->save($league)) {
+            unset($league['LeaCup']['bg_image']);
+            if ($this->LeaCup->save($league)) {
                 $this->Session->setFlash('Registro salvo com sucesso.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-success'));
             } else {
                 $this->Session->setFlash('Não foi possível salvar o registro.<br/>Favor tentar novamente.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-danger'));
@@ -90,25 +91,26 @@ class LeaCupsController extends AppController {
     public function edit($id = null) {
         // CONFIGURA LAYOUT
         $this->layout = 'ajax';
+        $this->LeaCup->recursive = -1;
 
-        $this->League->id = $id;
-        if (!$this->League->exists()) {
+        $this->LeaCup->id = $id;
+        if (!$this->LeaCup->exists()) {
             throw new NotFoundException('Registro inexistente', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-danger'));
         }
 
         if ($this->request->is('post') || $this->request->is('put')) {
-            $this->request->data['League']['id'] = $id;
-            $this->request->data['League']['value'] = $this->App->formataValorDouble($this->request->data['League']['value']);
+            $this->request->data['LeaCup']['id'] = $id;
+            $this->request->data['LeaCup']['value'] = $this->App->formataValorDouble($this->request->data['LeaCup']['value']);
             $league = $this->request->data;
-            unset($league['League']['bg_image']);
-            if ($this->League->save($league)) {
+            unset($league['LeaCup']['bg_image']);
+            if ($this->LeaCup->save($league)) {
                 $this->Session->setFlash('Registro salvo com sucesso.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-success'));
             } else {
                 $this->Session->setFlash('Não foi possível editar o registro. Favor tentar novamente.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-danger'));
             }
         }
 
-        $this->request->data = $this->League->read(null, $id);
+        $this->request->data = $this->LeaCup->read(null, $id);
     }
 
     public function delete($id = null) {

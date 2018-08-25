@@ -5,12 +5,28 @@
         <div class="row">
             <div class="col-sm-12 col-lg-12">
                 <div class="form-group">
-                    <?= $this->Form->label('league_id', 'Ligas<span style="color:red;">*</span>', []); ?>
+                    <?= $this->Form->label('league_id', 'Ligas Clássicas<span style="color:red;">*</span>', []); ?>
                     <?= $this->Form->input('league_id', [
                         'label' => false,
                         'class' => 'form-control chosen',
                         'options' => $leagues,
-                        'selected' => $selected,
+                        'selected' => $selectedLeagues,
+                        //'empty' => 'Selecione',
+                        'multiple' => 'multiple',
+                        'required' => false
+                    ]); ?>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-lg-12">
+                <div class="form-group">
+                    <?= $this->Form->label('lea_cup_id', 'Ligas Mata Mata<span style="color:red;">*</span>', []); ?>
+                    <?= $this->Form->input('lea_cup_id', [
+                        'label' => false,
+                        'class' => 'form-control chosen',
+                        'options' => $leaCups,
+                        'selected' => $selectedLeaCups,
                         //'empty' => 'Selecione',
                         'multiple' => 'multiple',
                         'required' => false
@@ -63,7 +79,7 @@
         </div>
         <br>
         <div class="row">
-            <div class="col-lg-4">
+            <div class="col-lg-5">
                 <div class="form-group">
                     <?php echo $this->Form->input('bg_image', [
                         'escape' => false,
@@ -75,8 +91,14 @@
                 </div>
             </div>
             <?php if($this->request->data['LeaPackage']['bg_image'] != null) { ?>
-                <div class="col-lg-8">
-                    <img class="img-responsive" src="<?= $this->request->data['LeaPackage']['bg_image_domain'] . '/'. $this->request->data['LeaPackage']['bg_image']?>">
+                <div class="col-lg-7">
+                    <img
+                        class="img-responsive"
+                        src="<?= $this->request->data['LeaPackage']['bg_image_domain'] . '/'. $this->request->data['LeaPackage']['bg_image'] . '?' . time(); ?>">
+                </div>
+            <?php } else { ?>
+                <div class="col-lg-7">
+                    <h4>Nenhuma imagem cadastrada</h4>
                 </div>
             <?php } ?>
         </div>
