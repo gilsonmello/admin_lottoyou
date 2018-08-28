@@ -73,25 +73,25 @@
                     <?php foreach ($dados as $k => $v) { ?>
                         <tr>
                             <td>
-                                <?= $v['LeaCup']['name']; ?>
+                                <?= $v['League']['name']; ?>
                             </td>
                             <td>
-                                <?= $v['LeaCup']['slug']; ?>
+                                <?= $v['League']['slug']; ?>
                             </td>
                             <td>
-                                R$<?= $v['LeaCup']['value']; ?>
+                                R$<?= $v['League']['value']; ?>
                             </td>
                             <td>
-                                <?= $v['LeaCup']['number_team']; ?>
+                                <?= $v['League']['number_team']; ?>
                             </td>
                             <td>
-                                <label class="label label-<?php echo $v['LeaCup']['aberto_label']; ?>">
-                                    <?= $v['LeaCup']['aberto']; ?>
+                                <label class="label label-<?php echo $v['League']['aberto_label']; ?>">
+                                    <?= $v['League']['aberto']; ?>
                                 </label>
                             </td>
                             <td>
-                                <label class="label label-<?php echo $v['LeaCup']['ativo_label']; ?>">
-                                    <?php echo $v['LeaCup']['ativo']; ?>
+                                <label class="label label-<?php echo $v['League']['ativo_label']; ?>">
+                                    <?php echo $v['League']['ativo']; ?>
                                 </label>
                             </td>
                             <td>

@@ -540,7 +540,7 @@ class AppModel extends Model {
     }
     
     function checkVazio($check, $field){
-        if(empty($this->data[$this->name][$field])) {
+        if(empty($this->data[$this->name][$field]) || $this->data[$this->name][$field] == '') {
             return false;
         } else{
             return true;

@@ -9,7 +9,6 @@
         <th>Nome</th>
         <th>Slug</th>
         <th>Valor</th>
-        <th>Número de Times</th>
         <th>Aberto</th>
         <th>Ativo</th>
         <th>Ações</th>
@@ -28,9 +27,6 @@
                 R$<?= $v['League']['value']; ?>
             </td>
             <td>
-                <?= $v['League']['number_team']; ?>
-            </td>
-            <td>
                 <label class="label label-<?php echo $v['League']['aberto_label']; ?>">
                     <?= $v['League']['aberto']; ?>
                 </label>
@@ -45,15 +41,15 @@
                     <button type="button" class="btn btn-icon-toggle dropdown-toggle" data-toggle="dropdown"><i class="fa fa-gear"></i></button>
                     <ul class="dropdown-menu dropdown-menu-right" role="menu">
                         <!--<li class="divider"></li>-->
-                        <li><?= $this->Html->link('<i class="md md-create"></i>&nbsp Editar', 'javascript: void(0)', array("escape" => false, 'id' => $v['LeaCup']['id'], 'class' => 'btnEditar')) ?></li>
+                        <li><?= $this->Html->link('<i class="md md-create"></i>&nbsp Editar', 'javascript: void(0)', array("escape" => false, 'id' => $v['LeaClassic']['id'], 'class' => 'btnEditar')) ?></li>
                         <li>
                             <?= $this->Html->link('<i class="md md-delete"></i>&nbsp Excluir', 'javascript: void(0)', [
                                 "escape" => false,
-                                'id' => $v['LeaCup']['id'],
+                                'id' => $v['LeaClassic']['id'],
                                 'class' => 'btnDeletar'
                             ]) ?>
                         </li>
-                        <li style="background: #F1F1F1; font-size: 9px; text-align: center;">Atualizado em: <?= @$v['LeaCup']['modified'] ?></li>
+                        <li style="background: #F1F1F1; font-size: 9px; text-align: center;">Atualizado em: <?= @$v['LeaClassic']['modified'] ?></li>
                     </ul>
                 </div>
             </td>

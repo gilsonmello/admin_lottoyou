@@ -63,6 +63,10 @@ class League extends AppModel {
                 'required' => true,
                 'message' => 'Campo obrigatório'
             ],
+            'unique' => [
+                'rule' => 'isUnique',
+                'message' => 'Slug em uso. Favor informar outro.'
+            ]
         ],
         'value' => [
             'required' => [
@@ -78,36 +82,40 @@ class League extends AppModel {
                 'message' => 'Campo obrigatório'
             ],
         ],
-        'award_method' => [
+        /*'type_award_id' => [
             'required' => [
                 'rule' => ['notEmpty'],
                 'required' => true,
                 'message' => 'Campo obrigatório'
             ],
-        ],
+        ],*/
         'active' => [
             'required' => [
                 'rule' => ['notEmpty'],
                 'message' => 'Campo obrigatório'
             ]
         ],
-        'min_players' => [
+        /*'min_players' => [
             'required' => [
                 'rule' => ['notEmpty'],
                 'message' => 'Campo obrigatório'
             ]
-        ],
+        ],*/
     ];
 
+    /**
+     * @param array $options
+     * @return bool
+     */
     public function beforeSave($options = array())
     {
-        if($this->data[$this->alias]['max_players'] == '') {
+        /*if($this->data[$this->alias]['max_players'] == '') {
             $this->data[$this->alias]['max_players'] = null;
         }
 
         if($this->data[$this->alias]['min_players'] == '') {
             $this->data[$this->alias]['min_players'] = 1;
-        }
+        }*/
 
         /*$now = date('Y-m-d H:i:s');
         if (!$this->id && !isset($this->data[$this->alias][$this->primaryKey])) {
@@ -121,6 +129,10 @@ class League extends AppModel {
         return true;
     }
 
+    /**
+     * @param bool $created
+     * @param array $options
+     */
     public function afterSave($created, $options = []) {
         if(!empty($this->request->data['League']['bg_image']['name'])) {
             //$this->data['League']['bg_image']['name'] =
@@ -142,4 +154,16 @@ class League extends AppModel {
         }
     }
 
+    /**
+     * @param bool $cascade
+     * @return bool
+     */
+    public function beforeDelete($cascade = false) {
+        $data = $this->findById($this->id);
+        $file = new File($data[$this->alias]['bg_image']);
+        if($file->delete()) {
+            return true;
+        }
+        return false;
+    }
 }

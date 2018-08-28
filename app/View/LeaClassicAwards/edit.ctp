@@ -1,5 +1,6 @@
 <?php echo $this->Form->create('LeagueAward', array('class' => 'form form-validate', 'role' => 'form')); ?>
-<?php echo $this->element('forms/title', array('title' => '<i class="fa fa-plus-square"></i> Cadastrar Prêmio')); ?>
+<?php echo $this->element('forms/title', array('title' => '<i class="fa fa-plus-square"></i> Editar Prêmio')); ?>
+<?php echo $this->Form->hidden('id', ['value' => $award['LeagueAward']['id']]); ?>
     <div class="card-body">
         <div class="row">
             <div class="col-sm-6 col-lg-4">

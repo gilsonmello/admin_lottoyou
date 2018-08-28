@@ -3,8 +3,7 @@
 App::uses('AppModel', 'Model');
 
 /**
- * CakePHP ModuloModel
- * @author 
+ * Class LeagueAward
  */
 class LeagueAward extends AppModel {
 
@@ -24,11 +23,12 @@ class LeagueAward extends AppModel {
     	
 	];
 
-
 //    public $order = 'SocBolao.nome ASC';
-//    
     public $displayField = 'name';
-//    
+
+    /**
+     * @var array
+     */
     public $virtualFields = [
         /*'ativo' => "CASE WHEN League.active = 1 THEN 'Sim' ELSE 'Não' END",
         'ativo_label' => "CASE WHEN League.active = 1 THEN 'success' ELSE 'danger' END",
@@ -36,6 +36,9 @@ class LeagueAward extends AppModel {
         'aberto_label' => "CASE WHEN League.open = 1 THEN 'success' ELSE 'danger' END",*/
     ];
 
+    /**
+     * @var array
+     */
     public $validate = [
         'position' => [
             'required' => [
@@ -74,10 +77,18 @@ class LeagueAward extends AppModel {
         ],
     ];
 
+    /**
+     * @param $id
+     * @return mixed
+     */
     public function league($id) {
         return $this->League->read(null, $id);
     }
 
+    /**
+     * @param array $options
+     * @return bool|void
+     */
     public function beforeValidate($options = array()) {
         parent::beforeValidate($options);
         if(isset($this->data[$this->alias]['type'])) {

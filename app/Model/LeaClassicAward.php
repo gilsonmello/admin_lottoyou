@@ -3,13 +3,18 @@
 App::uses('AppModel', 'Model');
 
 /**
- * CakePHP ModuloModel
- * @author 
+ * Class LeaClassicAward
  */
-class LeaCupAward extends AppModel {
+class LeaClassicAward extends AppModel {
 
-    public $useTable = 'lea_cup_awards';
+    /**
+     * @var string
+     */
+    public $useTable = 'lea_classic_awards';
 
+    /**
+     * @var array
+     */
     public $belongsTo = [
     	'LeagueAward' => [
             'className' => 'LeagueAward',
@@ -20,12 +25,29 @@ class LeaCupAward extends AppModel {
         ],
 	];
 
+    /**
+     * @var array
+     */
 	public $hasMany = [
+    	
 	];
 
+    /**
+     * @var array
+     */
+    public $virtualFields = [
+    ];
+
+    /**
+     * @var array
+     */
     public $validate = [
     ];
 
+    /**
+     * @param array $options
+     * @return bool|void
+     */
     public function beforeValidate($options = array())
     {
         parent::beforeValidate($options);

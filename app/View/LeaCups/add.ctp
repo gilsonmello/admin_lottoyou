@@ -1,4 +1,4 @@
-<?php echo $this->Form->create('LeaCup', array('class' => 'form form-validate', 'role' => 'form', 'type' => 'file')); ?>
+<?php echo $this->Form->create('League', array('class' => 'form form-validate', 'role' => 'form', 'type' => 'file')); ?>
 <?php echo $this->element('forms/title', array('title' => '<i class="fa fa-plus-square"></i> Cadastrar Liga Mata Mata')); ?>
     <div class="card-body">
         <div class="row">

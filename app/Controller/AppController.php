@@ -247,10 +247,10 @@ class AppController extends Controller {
     }
 
     /**
-     * _delete method
-     * 
-     * @desciption Deleta registros de uma tabela 
-     * @return json
+     * Deleta registros de uma tabela
+     *
+     * @param null $id
+     * @param null $cascade
      */
     public function _delete($id = null, $cascade = null) {
         // INICIALIZA VARIÁVEIS
@@ -284,6 +284,7 @@ class AppController extends Controller {
         } catch (Exception $exception) {
             $error = 1;
             $code = $exception->getCode();
+            $message = $exception->getMessage();
             switch ($code) {
                 case '405':
                     $msg = 'Não foi possível excluir o registro selecionado, pois o método útilizado não é permitido.';
@@ -303,7 +304,7 @@ class AppController extends Controller {
             }
         }
 
-        echo json_encode(compact('error', 'msg', 'exception', 'code'));
+        echo json_encode(compact('error', 'msg', 'exception', 'code', 'message'));
         exit;
     }
 

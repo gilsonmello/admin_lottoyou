@@ -126,13 +126,13 @@
                 <hr style="margin-top:21px" />
                 <div class="row">
                     <div class="col-sm-2">
-                        <div id="leagues" class="text-center hover" style="cursor:pointer;" data-toggle="tooltip" data-placement="bottom" title="Gerencimento de Ligas">
+                        <div id="leaClassics" class="text-center hover" style="cursor:pointer;" data-toggle="tooltip" data-placement="bottom" title="Gerencimento de Ligas">
                             <i class="md md-view-quilt" style="font-size:24px; display:block;"></i>
                             Ligas
                         </div>
                     </div>
                     <div class="col-sm-2">
-                        <div id="leagueAwards" class="text-center hover" style="cursor:pointer;" data-toggle="tooltip" data-placement="bottom" title="Gerencimento de Prêmios das Ligas Clássicas">
+                        <div id="leaClassicAwards" class="text-center hover" style="cursor:pointer;" data-toggle="tooltip" data-placement="bottom" title="Gerencimento de Prêmios das Ligas Clássicas">
                             <i class="md md-view-quilt" style="font-size:24px; display:block;"></i>
                             Prêmios
                         </div>

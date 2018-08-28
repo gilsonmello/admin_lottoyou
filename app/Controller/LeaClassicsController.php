@@ -6,7 +6,7 @@ App::uses('CakeEmail', 'Network/Email');
  * Class RetiradasController
  *
  */
-class LeaCupsController extends AppController {
+class LeaClassicsController extends AppController {
 
     public $components = array('App');
 
@@ -14,11 +14,10 @@ class LeaCupsController extends AppController {
 
     var $uses = [
         'League',
-        'LeaCup'
+        'LeaClassic'
     ];
 
     public function index($modal = 0) {
-
         $this->League->recursive = -1;
         $query = $this->request->query;
 
@@ -26,20 +25,20 @@ class LeaCupsController extends AppController {
 
         $options = array(
             'conditions' => [
-                'League.context' => 'cup'
+                'League.context' => 'classic'
             ],
             'limit' => 50,
             'order' => array('League.id' => 'desc'),
             'contain' => [],
             'joins' => [
                 [
-                    'alias' => 'LeaCup',
-                    'table' => 'lea_cups',
-                    'type' => 'LEFT',
-                    'conditions' => 'LeaCup.league_id = League.id'
+                    'alias' => 'LeaClassic',
+                    'table' => 'lea_classics',
+                    'type' => 'INNER',
+                    'conditions' => 'LeaClassic.league_id = League.id'
                 ]
             ],
-            'fields' => array('League.*', 'LeaCup.*'),
+            'fields' => array('League.*', 'LeaClassic.*'),
         );
 
         if(isset($query['name'])) {
@@ -82,35 +81,27 @@ class LeaCupsController extends AppController {
 
     }
 
-    private function addValidateFields() {
-        $this->League->validate['number_team'] = [
-            'required' => [
-                'rule' => array('checkVazio', 'number_team'),
-                'required' => true,
-                'message' => 'Campo obrigatório'
-            ]
-        ];
-    }
-
     public function add() {
         $this->League->recursive = -1;
-        $this->LeaCup->recursive = -1;
+        $this->LeaClassic->recursive = -1;
         // CONFIGURA LAYOUT
         $this->layout = 'ajax';
 
         if ($this->request->is('post') || $this->request->is('put')) {
             $this->request->data['League']['value'] = $this->App->formataValorDouble($this->request->data['League']['value']);
             $league = $this->request->data;
-            $league['League']['context'] = 'cup';
+            $league['League']['context'] = 'classic';
             unset($league['League']['bg_image']);
-            //Adicionando campos extras para validação
+
             $this->addValidateFields();
             if ($this->League->save($league)) {
-                $this->LeaCup->create();
-                $leaCup['LeaCup']['league_id'] = $this->League->id;
-                $leaCup['LeaCup']['one_x_one'] = $league['League']['one_x_one'];
-                $leaCup['LeaCup']['number_team'] = $league['League']['number_team'];
-                $this->LeaCup->save($leaCup);
+                $this->LeaClassic->create();
+                $leaClassic['LeaClassic']['league_id'] = $this->League->id;
+                $leaClassic['LeaClassic']['type_award_id'] = $league['League']['type_award_id'];
+                $leaClassic['LeaClassic']['min_players'] = $league['League']['min_players'];
+                $leaClassic['LeaClassic']['max_players'] = $league['League']['max_players'];
+                $this->LeaClassic->save($leaClassic);
+
                 $this->Session->setFlash('Registro salvo com sucesso.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-success'));
             } else {
                 $this->Session->setFlash('Não foi possível salvar o registro.<br/>Favor tentar novamente.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-danger'));
@@ -118,25 +109,39 @@ class LeaCupsController extends AppController {
         }
     }
 
+    private function addValidateFields() {
+        $this->League->validate['type_award_id'] = [
+            'required' => [
+                'rule' => array('checkVazio', 'type_award_id'),
+                'required' => true,
+                'message' => 'Campo obrigatório'
+            ]
+        ];
+        $this->League->validate['min_players'] = [
+            'required' => [
+                'rule' => array('checkVazio', 'min_players'),
+                'required' => true,
+                'message' => 'Campo obrigatório'
+            ]
+        ];
+    }
+
     public function edit($id = null) {
         // CONFIGURA LAYOUT
         $this->layout = 'ajax';
 
-        /*$this->League->id = $id;
-        $this->League->recursive = -1;*/
+        $this->LeaClassic->id = $id;
+        $this->LeaClassic->recursive = -1;
 
-        $this->LeaCup->id = $id;
-        $this->LeaCup->recursive = -1;
-
-        //Verifica se a liga mata mata existe
-        if (!$this->LeaCup->exists()) {
+        //Verifica se a liga clássica existe
+        if (!$this->LeaClassic->exists()) {
             throw new NotFoundException('Registro inexistente', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-danger'));
         }
 
         if ($this->request->is('post') || $this->request->is('put')) {
-            $leaCup = $this->LeaCup->read(null, $id);
+            $leaClassic = $this->LeaClassic->read(null, $id);
             //Pegando os dados da liga
-            $league_id = $leaCup['LeaCup']['league_id'];
+            $league_id = $leaClassic['LeaClassic']['league_id'];
             $this->request->data['League']['id'] = $league_id;
             $this->request->data['League']['value'] = $this->App->formataValorDouble($this->request->data['League']['value']);
             $league = $this->request->data;
@@ -144,33 +149,33 @@ class LeaCupsController extends AppController {
             //Adicionando campos extras para validação
             $this->addValidateFields();
             if ($this->League->save($league)) {
-                $leaCup['LeaCup']['one_x_one'] = $league['League']['one_x_one'];
-                $leaCup['LeaCup']['number_team'] = $league['League']['number_team'];
-                $this->LeaCup->save($leaCup);
+                $leaClassic['LeaClassic']['type_award_id'] = $league['League']['type_award_id'];
+                $leaClassic['LeaClassic']['min_players'] = $league['League']['min_players'];
+                $leaClassic['LeaClassic']['max_players'] = $league['League']['max_players'];
+                $this->LeaClassic->save($leaClassic);
                 $this->Session->setFlash('Registro salvo com sucesso.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-success'));
             } else {
                 $this->Session->setFlash('Não foi possível editar o registro. Favor tentar novamente.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-danger'));
             }
         } else {
+            $leaClassic = $this->LeaClassic->read(null, $id);
+            $this->set('leaClassic', $leaClassic);
 
-            //Pegando dados da liga mata mata
-            $leaCup = $this->LeaCup->read(null, $id);
-            $this->set('leaCup', $leaCup);
-
-            //Pegando os dados da liga
-            $league_id = $leaCup['LeaCup']['league_id'];
+            $league_id = $leaClassic['LeaClassic']['league_id'];
             $this->request->data = $this->League->read(null, $league_id);
         }
 
-
     }
 
+    /**
+     * @param null $id
+     */
     public function delete($id = null) {
-        $this->modelClass = 'LeaCup';
-        $leaCup = $this->LeaCup->read(null, $id);
-        $this->League->id = $leaCup['LeaCup']['league_id'];
-        $this->League->delete($leaCup['LeaCup']['league_id']);
-        $this->LeaCup->id = $leaCup['LeaCup']['id'];
+        $this->modelClass = 'LeaClassic';
+        $leaClassic = $this->LeaClassic->read(null, $id);
+        $this->League->id = $leaClassic['LeaClassic']['league_id'];
+        $this->League->delete($leaClassic['LeaClassic']['league_id']);
+        $this->LeaClassic->id = $leaClassic['LeaClassic']['id'];
         $this->_delete($id, false);
     }
 

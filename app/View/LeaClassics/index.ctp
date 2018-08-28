@@ -1,8 +1,8 @@
-<section id="AppLeagueAwards" <?php echo ($modal == 1) ? 'style="padding:0;"' : '' ?>>
+<section id="AppLeaClassics" <?php echo ($modal == 1) ? 'style="padding:0;"' : '' ?>>
     <div class="section-body" <?php echo ($modal == 1) ? 'style="margin:0;"' : '' ?>>
         <div class="card-head card-head-sm style-primary">
             <header>
-                <i class="md md-apps" style="margin-bottom:0;"></i> Ligas - Prêmios
+                <i class="md md-apps" style="margin-bottom:0;"></i> Ligas Clássicas
                 <i class="md md-navigate-next" style="margin-bottom:0;"></i> <b>Todas</b>
             </header>
             <div class="tools">
@@ -12,7 +12,7 @@
                         Voltar
                     </a>
                 </button>
-                <button id="cadastrarLeagueAwards" type="button" class="btn ink-reaction btn-default-light">
+                <button id="cadastrarLeaClassics" type="button" class="btn ink-reaction btn-default-light">
                     <i class="fa fa-plus-square"></i>
                     Cadastrar
                 </button>
@@ -33,22 +33,11 @@
                 </header>
             </div>
             <div class="card-body style-default-light" style="display: none;padding-top:10px;padding-bottom:10px;">
-                <?php echo $this->Form->create('search', array('id' => 'pesquisarLeagueAwards', 'class' => 'form', 'role' => 'form', 'type' => 'get')); ?>
+                <?php echo $this->Form->create('search', array('id' => 'pesquisarLeaClassics', 'class' => 'form', 'role' => 'form', 'type' => 'get')); ?>
                 <div class="row">
-                    <!--<div class="col-lg-3">
-                        <div class="form-group ">
-                            <?/*= $this->Form->input('name', ['label' => 'Nome', 'class' => 'form-control', 'required' => false]); */?>
-                        </div>
-                    </div>-->
                     <div class="col-lg-3">
-                        <div class="form-group">
-                            <?= $this->Form->input('league_id', [
-                                'label' => 'Ligas',
-                                'class' => 'form-control chosen',
-                                'options' => $optionsLeague,
-                                'empty' => 'Selecione',
-                                'required' => false
-                            ]); ?>
+                        <div class="form-group ">
+                            <?= $this->Form->input('name', ['label' => 'Nome', 'class' => 'form-control', 'required' => false]); ?>
                         </div>
                     </div>
                 </div>
@@ -62,7 +51,7 @@
                 </div>
                 <?php echo $this->Form->end(); ?>
             </div>
-            <div id="gridLeagueAwards" style="padding: 24px;">
+            <div id="gridLeaClassics" style="padding: 24px;">
                 <h4>Total de registros: <?= $this->Paginator->params()['count']; ?></h4>
                 <table id=""
                        class="table table-condensed table-hover"
@@ -71,9 +60,11 @@
                        style="margin-bottom:0;">
                     <thead>
                     <tr>
-                        <th>Liga</th>
-                        <th>Posição</th>
+                        <th>Nome</th>
+                        <th>Slug</th>
                         <th>Valor</th>
+                        <th>Aberto</th>
+                        <th>Ativo</th>
                         <th>Ações</th>
                     </tr>
                     </thead>
@@ -81,28 +72,38 @@
                     <?php foreach ($dados as $k => $v) { ?>
                         <tr>
                             <td>
-                                <?= $model->league($v['LeagueAward']['league_id'])['League']['name']; ?>
+                                <?= $v['League']['name']; ?>
                             </td>
                             <td>
-                                <?= $v['LeagueAward']['position']; ?>
+                                <?= $v['League']['slug']; ?>
                             </td>
                             <td>
-                                $<?= $v['LeagueAward']['value']; ?>
+                                R$<?= $v['League']['value']; ?>
+                            </td>
+                            <td>
+                                <label class="label label-<?php echo $v['League']['aberto_label']; ?>">
+                                    <?= $v['League']['aberto']; ?>
+                                </label>
+                            </td>
+                            <td>
+                                <label class="label label-<?php echo $v['League']['ativo_label']; ?>">
+                                    <?php echo $v['League']['ativo']; ?>
+                                </label>
                             </td>
                             <td>
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-icon-toggle dropdown-toggle" data-toggle="dropdown"><i class="fa fa-gear"></i></button>
                                     <ul class="dropdown-menu dropdown-menu-right" role="menu">
                                         <!--<li class="divider"></li>-->
-                                        <li><?= $this->Html->link('<i class="md md-create"></i>&nbsp Editar', 'javascript: void(0)', array("escape" => false, 'id' => $v['LeagueAward']['id'], 'class' => 'btnEditar')) ?></li>
+                                        <li><?= $this->Html->link('<i class="md md-create"></i>&nbsp Editar', 'javascript: void(0)', array("escape" => false, 'id' => $v['LeaClassic']['id'], 'class' => 'btnEditar')) ?></li>
                                         <li>
                                             <?= $this->Html->link('<i class="md md-delete"></i>&nbsp Excluir', 'javascript: void(0)', [
                                                 "escape" => false,
-                                                'id' => $v['LeagueAward']['id'],
+                                                'id' => $v['LeaClassic']['id'],
                                                 'class' => 'btnDeletar'
                                             ]) ?>
                                         </li>
-                                        <li style="background: #F1F1F1; font-size: 9px; text-align: center;">Atualizado em: <?= @$v['LeagueAward']['updated_at'] ?></li>
+                                        <li style="background: #F1F1F1; font-size: 9px; text-align: center;">Atualizado em: <?= @$v['LeaClassic']['modified'] ?></li>
                                     </ul>
                                 </div>
                             </td>

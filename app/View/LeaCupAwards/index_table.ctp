@@ -8,6 +8,7 @@
     <tr>
         <th>Liga</th>
         <th>Posição</th>
+        <th>Tipo do prêmio</th>
         <th>Valor</th>
         <th>Ações</th>
     </tr>
@@ -16,13 +17,22 @@
     <?php foreach ($dados as $k => $v) { ?>
         <tr>
             <td>
-                <?= $model->leaCup($v['LeaCupAward']['lea_cup_id'])['LeaCup']['name']; ?>
+                <?= $model->league($v['LeagueAward']['league_id'])['League']['name']; ?>
             </td>
             <td>
-                <?= $v['LeaCupAward']['position']; ?>
+                <?= $v['LeagueAward']['position']; ?>
             </td>
             <td>
-                $<?= $v['LeaCupAward']['value']; ?>
+                <?php if($v['LeagueAward']['type_description'] != null) {?>
+                    <?= $v['LeagueAward']['type_description']; ?>
+                <?php } ?>
+            </td>
+            <td>
+                <?php if($v['LeagueAward']['value'] != null) {?>
+                    R$<?= $v['LeagueAward']['value']; ?>
+                <?php } else { ?>
+                    R$0.00
+                <?php } ?>
             </td>
             <td>
                 <div class="btn-group">
@@ -37,7 +47,7 @@
                                 'class' => 'btnDeletar'
                             ]) ?>
                         </li>
-                        <li style="background: #F1F1F1; font-size: 9px; text-align: center;">Atualizado em: <?= @$v['LeaCupAward']['updated_at'] ?></li>
+                        <li style="background: #F1F1F1; font-size: 9px; text-align: center;">Atualizado em: <?= @$v['LeaCupAward']['modified'] ?></li>
                     </ul>
                 </div>
             </td>

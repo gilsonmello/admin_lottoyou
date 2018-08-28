@@ -6,9 +6,9 @@ App::uses('AppModel', 'Model');
  * CakePHP ModuloModel
  * @author 
  */
-class LeaCup extends AppModel {
+class LeaClassic extends AppModel {
 
-    public $useTable = 'lea_cups';
+    public $useTable = 'lea_classics';
 
     public $belongsTo = [
     	'User' => [
@@ -41,6 +41,7 @@ class LeaCup extends AppModel {
     //public $displayField = 'name';
 //    
     public $virtualFields = [
+
     ];
 
     public $validate = [
@@ -49,6 +50,15 @@ class LeaCup extends AppModel {
 
     public function beforeSave($options = array())
     {
+        /*$now = date('Y-m-d H:i:s');
+        if (!$this->id && !isset($this->data[$this->alias][$this->primaryKey])) {
+            //insert
+            $this->data[$this->alias]['created_at'] = $now;
+            $this->data[$this->alias]['updated_at'] = $now;
+        } else {
+            //edit
+            $this->data[$this->alias]['updated_at'] = $now;
+        }*/
         return true;
     }
 
