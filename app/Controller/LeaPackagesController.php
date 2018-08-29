@@ -3,15 +3,23 @@
 App::uses('CakeEmail', 'Network/Email');
 
 /**
- * Class RetiradasController
- *
+ * Class LeaPackagesController
  */
 class LeaPackagesController extends AppController {
 
+    /**
+     * @var array
+     */
     public $components = array('App');
 
+    /**
+     * @var array
+     */
     public $helpers = array('Time');
 
+    /**
+     * @var array
+     */
     public $uses = [
         'LeaPackage',
         'League',
@@ -76,6 +84,9 @@ class LeaPackagesController extends AppController {
 
     }
 
+    /**
+     *
+     */
     public function add() {
         // CONFIGURA LAYOUT
         $this->layout = 'ajax';
@@ -96,13 +107,13 @@ class LeaPackagesController extends AppController {
             $this->set('leagues', $this->League->find('list', [
                 'order' => ['name asc']
             ]));
-            $this->set('leaCups', $this->LeaCup->find('list', [
-                'order' => ['name asc']
-            ]));
         }
 
     }
 
+    /**
+     * @param null $id
+     */
     public function edit($id = null) {
         // CONFIGURA LAYOUT
         $this->layout = 'ajax';
@@ -122,48 +133,36 @@ class LeaPackagesController extends AppController {
             } else {
                 $this->Session->setFlash('Não foi possível editar o registro. Favor tentar novamente.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-danger'));
             }
+        } else {
+
+            $this->League->recursive = -1;
+            $this->LeaPackage->recursive = -1;
+            $this->LeaCup->recursive = -1;
+            $leagues = $this->League->find('list', [
+                'order' => ['name asc']
+            ]);
+            $this->set('leagues', $leagues);
+
+            //Pegando as ligas clássicas selecionadas
+            $selectedLeagues = $this->LeaPackage->LeaPackagesHasLeague->find('list', [
+                'conditions' => [
+                    'lea_package_id' => $id
+                ],
+                'fields' => [
+                    'league_id'
+                ]
+            ]);
+            $this->set('selectedLeagues', $selectedLeagues);
+            $this->request->data = $this->LeaPackage->read(null, $id);
         }
-
-        $this->League->recursive = -1;
-        $this->LeaPackage->recursive = -1;
-        $this->LeaCup->recursive = -1;
-        $leagues = $this->League->find('list', [
-            'order' => ['name asc']
-        ]);
-        $this->set('leagues', $leagues);
-
-        //Ligas Mata mata
-        $leaCups = $this->LeaCup->find('list', [
-            'order' => ['name asc']
-        ]);
-        $this->set('leaCups', $leaCups);
-
-        //Pegando as ligas clássicas selecionadas
-        $selectedLeagues = $this->LeaPackage->LeaPackagesHasLeague->find('list', [
-            'conditions' => [
-                'lea_package_id' => $id
-            ],
-            'fields' => [
-                'league_id'
-            ]
-        ]);
-        $this->set('selectedLeagues', $selectedLeagues);
-
-        //Pegando as ligas mata mata selecionadas
-        $selectedLeaCups = $this->LeaCup->LeaPackagesHasLeaCup->find('list', [
-            'conditions' => [
-                'lea_package_id' => $id
-            ],
-            'fields' => [
-                'lea_cup_id'
-            ]
-        ]);
-        $this->set('selectedLeaCups', $selectedLeaCups);
-
-        $this->request->data = $this->LeaPackage->read(null, $id);
     }
 
+    /**
+     * @param null $id
+     */
     public function delete($id = null) {
+        // APAGA REGISTROS RELACIONADOS AO ID das ligas
+        $this->LeaPackage->LeaPackagesHasLeague->deleteAll(array('lea_package_id' => $id));
         parent::_delete($id);
     }
 

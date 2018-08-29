@@ -27,12 +27,6 @@ class LeaPackage extends AppModel {
             'foreignKey'            => 'lea_package_id',
             'associationForeignKey' => 'league_id'
         ],
-        'LeaCup' => [
-            'className'             => 'LeaCup',
-            'joinTable'             => 'lea_packages_has_lea_cups',
-            'foreignKey'            => 'lea_package_id',
-            'associationForeignKey' => 'lea_cup_id'
-        ]
     ];
 
 	public $hasMany = [
@@ -52,6 +46,13 @@ class LeaPackage extends AppModel {
     ];
 
     public $validate = [
+        'league_id' => [
+            'required' => [
+                'rule' => ['notEmpty'],
+                'required' => true,
+                'message' => 'Campo obrigatório'
+            ],
+        ],
         'name' => [
             'required' => [
                 'rule' => ['notEmpty'],
@@ -103,23 +104,14 @@ class LeaPackage extends AppModel {
 
     public function afterSave($created, $options = []) {
 
-        //Dados das Ligas Clássicas
+        //Dados das Ligas
         $dados = $this->_extractFieldsHABTM($this->data['LeaPackage']['league_id'], $this->data['LeaPackage']['id'], 'lea_package_id', 'league_id');
 
-        // APAGA REGISTROS RELACIONADOS AO ID das ligas clássicas
+        // APAGA REGISTROS RELACIONADOS AO ID das ligas
         $this->LeaPackagesHasLeague->deleteAll(array('lea_package_id' => $this->data['LeaPackage']['id']));
 
-        // ASSOCIA PERMISSÕES A FUNCIONALIDADE das ligas clássicas
+        // ASSOCIA PERMISSÕES A FUNCIONALIDADE das ligas
         $this->LeaPackagesHasLeague->saveAll($dados);
-
-        //Dados das ligas mata mata
-        $dados = $this->_extractFieldsHABTM($this->data['LeaPackage']['lea_cup_id'], $this->data['LeaPackage']['id'], 'lea_package_id', 'lea_cup_id');
-
-        // APAGA REGISTROS RELACIONADOS AO ID das ligas mata mata
-        $this->LeaPackagesHasLeaCup->deleteAll(array('lea_package_id' => $this->data['LeaPackage']['id']));
-
-        // ASSOCIA PERMISSÕES A FUNCIONALIDADE das ligas mata
-        $this->LeaPackagesHasLeaCup->saveAll($dados);
 
         if(!empty($this->request->data['LeaPackage']['bg_image']['name'])) {
             //$this->data['LeaPackage']['bg_image']['name'] =

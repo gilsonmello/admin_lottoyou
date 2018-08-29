@@ -5,28 +5,12 @@
         <div class="row">
             <div class="col-sm-12 col-lg-12">
                 <div class="form-group">
-                    <?= $this->Form->label('league_id', 'Ligas Clássicas<span style="color:red;">*</span>', []); ?>
+                    <?= $this->Form->label('league_id', 'Ligas<span style="color:red;">*</span>', []); ?>
                     <?= $this->Form->input('league_id', [
                         'label' => false,
                         'class' => 'form-control chosen',
                         'options' => $leagues,
                         'selected' => $selectedLeagues,
-                        //'empty' => 'Selecione',
-                        'multiple' => 'multiple',
-                        'required' => false
-                    ]); ?>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-12 col-lg-12">
-                <div class="form-group">
-                    <?= $this->Form->label('lea_cup_id', 'Ligas Mata Mata<span style="color:red;">*</span>', []); ?>
-                    <?= $this->Form->input('lea_cup_id', [
-                        'label' => false,
-                        'class' => 'form-control chosen',
-                        'options' => $leaCups,
-                        'selected' => $selectedLeaCups,
                         //'empty' => 'Selecione',
                         'multiple' => 'multiple',
                         'required' => false
