@@ -46,13 +46,6 @@ class LeaPackage extends AppModel {
     ];
 
     public $validate = [
-        'league_id' => [
-            'required' => [
-                'rule' => ['notEmpty'],
-                'required' => true,
-                'message' => 'Campo obrigatório'
-            ],
-        ],
         'name' => [
             'required' => [
                 'rule' => ['notEmpty'],
