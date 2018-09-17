@@ -39,11 +39,6 @@ class AppModel extends Model {
         //'Containable'
     );
 
-    public function beforeFind($query) {
-        // PEGA DADOS DO SCHEMA
-        $schema = $this->schema();
-    }
-
     public function __construct($id = false, $table = null, $ds = null)
     {
         parent::__construct($id, $table, $ds);
@@ -150,13 +145,15 @@ class AppModel extends Model {
         // ON CREATE AND ON UPDATE: TRATA CAMPOS CHECKBOX ANTES DE SALVAR
         foreach($this->data as $model => $data){
             foreach ($data as $field => $value) {
-                if (in_array($field, array_keys($schema))){
-                    if (is_array($value)){
-                        if ($schema[$field]['type'] == 'integer'){
-                            $this->data[$model][$field] = $value[0];
+                if (in_array($field, array_keys($schema))) {
+                    if (is_array($value)) {
+                        if(isset($value[0])) {
+                            if ($schema[$field]['type'] == 'integer') {
+                                $this->data[$model][$field] = $value[0];
+                            }
                         }
                     } else {
-                        if ($schema[$field]['type'] == 'integer' && $schema[$field]['null'] == false && ($value == null || $value == '')){
+                        if ($schema[$field]['type'] == 'integer' && $schema[$field]['null'] == false && ($value == null || $value == '')) {
                             $this->data[$model][$field] = 0;
                         }
                     }
@@ -172,7 +169,7 @@ class AppModel extends Model {
     }    
 
     public function formatDateToMysql($date) {
-        $newDate = explode($date, '/');
+        $newDate = explode('/', $date);
         $newDate = array_reverse($newDate);
         $newDate = implode($newDate, '-');
         return $newDate;

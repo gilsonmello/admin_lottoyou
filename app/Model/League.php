@@ -126,31 +126,34 @@ class League extends AppModel {
             //edit
             $this->data[$this->alias]['updated_at'] = $now;
         }*/
-        return true;
+        return parent::beforeSave($options);
     }
 
     /**
      * @param bool $created
      * @param array $options
      */
-    public function afterSave($created, $options = []) {
-        if(!empty($this->request->data['League']['bg_image']['name'])) {
-            //$this->data['League']['bg_image']['name'] =
-            $league = $this->data['League'];
-            //$bg_image = $league['slug'].''.substr($this->request->data['League']['bg_image']['name'], -4);
-            $bg_image = explode('.', $this->request->data['League']['bg_image']['name']);
-            $bg_image = $league['slug'].'.'.$bg_image[count($bg_image) - 1];
-            $this->request->data['League']['bg_image']['name'] = $bg_image;
-            $name_image = 'files/Leagues_Bg_Image/';
-            $name_image .= $this->upload($this->request->data['League']['bg_image'], 'files\Leagues_Bg_Image', false);
-            $now = date('Y-m-d H:i:s');
+    public function afterSave($created, $options = [])
+    {
+        if (isset($this->request->data) && count($this->request->data) > 0 && isset($this->request->data['League'])) {
+            if (!empty($this->request->data['League']['bg_image']['name'])) {
+                //$this->data['League']['bg_image']['name'] =
+                $league = $this->data['League'];
+                //$bg_image = $league['slug'].''.substr($this->request->data['League']['bg_image']['name'], -4);
+                $bg_image = explode('.', $this->request->data['League']['bg_image']['name']);
+                $bg_image = $league['slug'] . '.' . $bg_image[count($bg_image) - 1];
+                $this->request->data['League']['bg_image']['name'] = $bg_image;
+                $name_image = 'files/Leagues_Bg_Image/';
+                $name_image .= $this->upload($this->request->data['League']['bg_image'], 'files\Leagues_Bg_Image', false);
+                $now = date('Y-m-d H:i:s');
 
-            $query = "UPDATE leagues SET leagues.bg_image_domain = '".SITE_URL."' ";
-            $query .= ", leagues.bg_image = '$name_image' ";
-            $query .= ", leagues.modified = '$now' ";
-            $query .= 'WHERE leagues.id = '.$league['id'];
+                $query = "UPDATE leagues SET leagues.bg_image_domain = '" . SITE_URL . "' ";
+                $query .= ", leagues.bg_image = '$name_image' ";
+                $query .= ", leagues.modified = '$now' ";
+                $query .= 'WHERE leagues.id = ' . $league['id'];
 
-            $this->query($query);
+                $this->query($query);
+            }
         }
     }
 

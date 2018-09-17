@@ -8,7 +8,9 @@
             "email": "junnyorr.sirnandes@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+        "guzzlehttp/guzzle": "^6.3@dev"
+    },
     "autoload": {
         "classmap": [],
         "psr-4": {

@@ -437,6 +437,44 @@ class AppController extends Controller {
         return $Cdata;
     }
 
+    public function formatWithMask($date, $condition)
+    {
+        if ($date == NULL) {
+            return NULL;
+        } else {
+            $date = explode(' ', $date);
+            $time = '';
+            //$date = explode($condition, $date);
+            if(count($date) >= 2) {
+                $time = ' '.$date[1];
+                $date = $date[0];
+            } else {
+                $date = $date[0];
+            }
+            $date = explode($condition, $date);
+            return $date[2].'/'.$date[1].'/'.$date[0].$time;
+        }
+    }
+
+    public function formatWithoutMask($date, $condition)
+    {
+        if ($date == NULL) {
+            return NULL;
+        } else {
+            $date = explode(' ', $date);
+            $time = '';
+            //$date = explode($condition, $date);
+            if(count($date) >= 2) {
+                $time = ' '.$date[1];
+                $date = $date[0];
+            } else {
+                $date = $date[0];
+            }
+            $date = explode($condition, $date);
+            return $date[2].'-'.$date[1].'-'.$date[0].$time;
+        }
+    }
+
     public function curl_download($url) {
         $ch = curl_init();
 

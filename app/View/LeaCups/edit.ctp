@@ -3,19 +3,29 @@
 <?php echo $this->Form->hidden('id'); ?>
     <div class="card-body">
         <div class="row">
-            <div class="col-sm-6 col-lg-4">
+            <div class="col-sm-6 col-lg-3">
                 <div class="form-group">
                     <?php echo $this->Form->input('name', array('label' => 'Nome', 'class' => 'form-control name-has-slug', 'required' => true)); ?>
                 </div>
             </div>
-            <div class="col-sm-6 col-lg-4">
+            <div class="col-sm-6 col-lg-3">
                 <div class="form-group">
                     <?php echo $this->Form->input('slug', array('label' => 'Slug', 'class' => 'form-control slug-from-name', 'required' => true)); ?>
                 </div>
             </div>
-            <div class="col-sm-6 col-lg-4 col-xs-12 col-md-4">
+            <div class="col-sm-6 col-lg-2 col-xs-12 col-md-4">
                 <div class="form-group">
                     <?php echo $this->Form->input('value', array('label' => 'Valor', 'class' => 'form-control money', 'required' => true)); ?>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-4 col-xs-12 col-md-4">
+                <div class="form-group">
+                    <?php echo $this->Form->input('lottery_date', [
+                        'label' => 'Data Sorteio',
+                        'value' => $leaCup['LeaCup']['lottery_date'],
+                        'class' => 'form-control date',
+                        'required' => true
+                    ]); ?>
                 </div>
             </div>
         </div>

@@ -69,6 +69,10 @@
         });
     };
 
+    /**
+     *
+     * @private
+     */
     p._habilitaEventos = function () {
 
         $(AppLeaCups.objectId + ' #cadastrarLeaCups').click(function () {
@@ -86,9 +90,59 @@
 
     };
 
+    /**
+     *
+     * @param id
+     * @private
+     */
+    p._sortearTimes = function (id) {
+        let url = baseUrl + 'leaCups/sortearTimes/' + id;
+        $.ajax({
+            method: 'post',
+            url: url,
+            beforeSend: function () {
+
+            },
+            success: function (data) {
+
+            },
+            error: function (error) {
+
+            }
+        });
+    };
+
+    /**
+     *
+     * @param id
+     * @private
+     */
+    p._atualizarPontuacao = function (id) {
+        let url = baseUrl + 'leaCups/atualizarPontuacao/' + id;
+        $.ajax({
+            method: 'post',
+            url: url,
+            beforeSend: function () {
+
+            },
+            success: function (data) {
+
+            },
+            error: function (error) {
+
+            }
+        });
+    };
+
     p._habilitaBotoesConsulta = function () {
         $(AppLeaCups.objectId + ' .btnEditar').click(function () {
             p._loadFormLeaCups($(this).attr('id'));
+        });
+        $(AppLeaCups.objectId + ' .btnSortearTimes').click(function () {
+            p._sortearTimes($(this).attr('id'));
+        });
+        $(AppLeaCups.objectId + ' .btnAtualizarPontuacao').click(function () {
+            p._atualizarPontuacao($(this).attr('id'));
         });
         $(AppLeaCups.objectId + ' .btnDeletar').click(function () {
             var url = baseUrl + 'leaCups/delete/' + $(this).attr('id');

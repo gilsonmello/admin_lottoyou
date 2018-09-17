@@ -3,24 +3,22 @@
 App::uses('AppModel', 'Model');
 
 /**
- * CakePHP ModuloModel
- * @author 
+ * Class LeaCupStep
  */
-class LeaCup extends AppModel {
+class LeaCupStep extends AppModel {
 
-    public $useTable = 'lea_cups';
+    /**
+     * @var string
+     */
+    public $useTable = 'lea_cup_steps';
 
+    /**
+     * @var array
+     */
     public $belongsTo = [
-    	'User' => [
-            'className' => 'User',
-            'foreignKey' => 'user_id',
-            'conditions' => '',
-            'fields' => '',
-            'order' => ''
-        ],
-        'League' => [
-            'className' => 'League',
-            'foreignKey' => 'league_id',
+    	'LeaCup' => [
+            'className' => 'LeaCup',
+            'foreignKey' => 'lea_cup_id',
             'conditions' => '',
             'fields' => '',
             'order' => ''
@@ -49,7 +47,7 @@ class LeaCup extends AppModel {
 
     public function beforeValidate($options = array())
     {
-        return parent::beforeValidate($options);
+
     }
 
     public function beforeSave($options = array())
@@ -58,7 +56,7 @@ class LeaCup extends AppModel {
     }
 
     public function afterSave($created, $options = []) {
-        parent::afterSave($created, $options);
+
     }
 
 }

@@ -3,34 +3,38 @@
 App::uses('AppModel', 'Model');
 
 /**
- * CakePHP ModuloModel
- * @author 
+ * Class LeaCupKeyGame
  */
-class LeaCup extends AppModel {
+class LeaCupKeyGame extends AppModel {
 
-    public $useTable = 'lea_cups';
+    /**
+     * @var string
+     */
+    public $useTable = 'lea_cup_key_games';
 
+    /**
+     * @var array
+     */
     public $belongsTo = [
-    	'User' => [
-            'className' => 'User',
-            'foreignKey' => 'user_id',
-            'conditions' => '',
-            'fields' => '',
-            'order' => ''
-        ],
-        'League' => [
-            'className' => 'League',
-            'foreignKey' => 'league_id',
+    	'LeaCupKey' => [
+            'className' => 'LeaCupKey',
+            'foreignKey' => 'lea_cup_key_id',
             'conditions' => '',
             'fields' => '',
             'order' => ''
         ],
 	];
 
+    /**
+     * @var array
+     */
     public $hasAndBelongsToMany = [
 
     ];
 
+    /**
+     * @var array
+     */
 	public $hasMany = [
     	
 	];
@@ -41,6 +45,7 @@ class LeaCup extends AppModel {
     //public $displayField = 'name';
 //    
     public $virtualFields = [
+
     ];
 
     public $validate = [
@@ -49,7 +54,7 @@ class LeaCup extends AppModel {
 
     public function beforeValidate($options = array())
     {
-        return parent::beforeValidate($options);
+
     }
 
     public function beforeSave($options = array())
@@ -58,7 +63,7 @@ class LeaCup extends AppModel {
     }
 
     public function afterSave($created, $options = []) {
-        parent::afterSave($created, $options);
+
     }
 
 }
