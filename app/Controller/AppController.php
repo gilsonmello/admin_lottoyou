@@ -23,6 +23,8 @@ App::uses('Controller', 'Controller');
 App::uses('Hash', 'Utility');
 App::uses('ConnectionManager', 'Model');
 
+use GuzzleHttp\Client;
+
 /**
  * Application Controller
  *
@@ -414,6 +416,17 @@ class AppController extends Controller {
     protected function RollbackTransaction() {
         $this->GetDataSource();
         $this->datasource->rollback();
+    }
+
+    public function getRodada()
+    {
+        $client = new Client(['base_uri' => 'https://api.cartolafc.globo.com/']);
+        $response = $client->request('GET', 'mercado/status/',  [
+            'headers' => [
+                'x-glb-token' => env('X_GLB_TOKEN')
+            ]
+        ]);
+        return json_decode($response->getBody());
     }
 
     public function validaTransacao($ok = NULL) {

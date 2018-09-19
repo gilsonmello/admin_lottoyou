@@ -40,7 +40,9 @@
                 <div class="btn-group">
                     <button type="button" class="btn btn-icon-toggle dropdown-toggle" data-toggle="dropdown"><i class="fa fa-gear"></i></button>
                     <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                        <!--<li class="divider"></li>-->
+                        <li><?= $this->Html->link('<i class="md md-create"></i>&nbsp Atualizar Pontuação', 'javascript: void(0)', array("escape" => false, 'id' => $v['LeaClassic']['id'], 'class' => 'btnAtualizarPontuacao')) ?></li>
+                        <li><?= $this->Html->link('<i class="md md-create"></i>&nbsp Premiar', 'javascript: void(0)', array("escape" => false, 'id' => $v['LeaClassic']['id'], 'class' => 'btnPremiar')) ?></li>
+                        <li class="divider"></li>
                         <li><?= $this->Html->link('<i class="md md-create"></i>&nbsp Editar', 'javascript: void(0)', array("escape" => false, 'id' => $v['LeaClassic']['id'], 'class' => 'btnEditar')) ?></li>
                         <li>
                             <?= $this->Html->link('<i class="md md-delete"></i>&nbsp Excluir', 'javascript: void(0)', [

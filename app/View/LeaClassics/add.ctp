@@ -75,14 +75,19 @@
                     ]
                 ]); ?>
             </div>
-            <div class="col-sm-6 col-lg-3 col-xs-12 col-md-6">
+            <div class="col-sm-6 col-lg-2 col-xs-12 col-md-6">
                 <div class="form-group">
                     <?php echo $this->Form->input('min_players', array('label' => 'Mínimo de times', 'class' => 'form-control integer', 'required' => true)); ?>
                 </div>
             </div>
-            <div class="col-sm-6 col-lg-3 col-xs-12 col-md-6">
+            <div class="col-sm-6 col-lg-2 col-xs-12 col-md-6">
                 <div class="form-group">
                     <?php echo $this->Form->input('max_players', array('label' => 'Máximo de times', 'class' => 'form-control integer', 'required' => false)); ?>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-2 col-xs-12 col-md-6">
+                <div class="form-group">
+                    <?php echo $this->Form->input('last_round', array('label' => 'Última rodada', 'class' => 'form-control integer', 'required' => true)); ?>
                 </div>
             </div>
         </div>

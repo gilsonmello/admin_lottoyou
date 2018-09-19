@@ -2,6 +2,8 @@
 
 App::uses('CakeEmail', 'Network/Email');
 
+use GuzzleHttp\Client;
+
 /**
  * Class RetiradasController
  *
@@ -100,6 +102,7 @@ class LeaClassicsController extends AppController {
                 $leaClassic['LeaClassic']['type_award_id'] = $league['League']['type_award_id'];
                 $leaClassic['LeaClassic']['min_players'] = $league['League']['min_players'];
                 $leaClassic['LeaClassic']['max_players'] = $league['League']['max_players'];
+                $leaClassic['LeaClassic']['last_round'] = $league['League']['last_round'];
                 $this->LeaClassic->save($leaClassic);
 
                 $this->Session->setFlash('Registro salvo com sucesso.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-success'));
@@ -107,6 +110,250 @@ class LeaClassicsController extends AppController {
                 $this->Session->setFlash('Não foi possível salvar o registro.<br/>Favor tentar novamente.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-danger'));
             }
         }
+    }
+
+    public function atualizarPontuacao($id = null)
+    {
+        $this->LeaClassic->id = $id;
+        $this->LeaClassic->recursive = -1;
+        //Verifica se a liga mata mata existe
+        if (!$this->LeaClassic->exists()) {
+            throw new NotFoundException('Registro inexistente', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-danger'));
+        }
+
+        if ($this->request->is('post') || $this->request->is('put')) {
+            $rodadaRequest = $this->getRodada();
+            $rodada = $rodadaRequest->rodada_atual;
+            //$rodada = 25;
+            $turno = $rodada <= 18 ? 1 : 2;
+
+
+            $leaClassic = $this->LeaClassic->read(null, $id);
+            if($rodada > $leaClassic['LeaClassic']['last_round']) {
+                echo json_encode([
+                    'msg' => 'Rodada atual '.$rodada.' é maior do que a última rodada cadastrada na liga',
+                    'status' => 'error'
+                ]);
+                die;
+            }
+
+            $league = $this->League->read(null, $leaClassic['LeaClassic']['league_id']);
+
+            $this->loadModel('LeaClassicTeam');
+            $this->LeaClassicTeam->recursive = -1;
+
+            $this->loadModel('LeaClassicTeamPoint');
+            $this->LeaClassicTeamPoint->recursive = -1;
+
+            $this->loadModel('LeaClassicTeamPM');
+            $this->LeaClassicTeamPM->recursive = -1;
+
+            $this->loadModel('LeaClassicTeamPT');
+            $this->LeaClassicTeamPT->recursive = -1;
+
+            $updated = $this->LeaClassicTeamPoint->find('first', [
+                'conditions' => [
+                    'LeaClassicTeamPoint.round' => $rodada,
+                    'LeaClassicTeamPoint.lea_classic_id' => $leaClassic['LeaClassic']['id']
+                ]
+            ]);
+
+            //Tipos de ordenamentos
+            $typeOrders = [
+                0 => '',
+                1 => 'p_c',
+                2 => 'p_m',
+                3 => 'p_m',
+                4 => 'p_p',
+                5 => 'p_r',
+            ];
+
+            //Se já atualizou na rodada
+            if(count($updated) > 0) {
+                echo json_encode([
+                    'msg' => 'A rodada já foi atualizada',
+                    'status' => 'error'
+                ]);
+                die;
+            }
+
+            $this->loadModel('CartoleandoTeam');
+            $this->CartoleandoTeam->recursive = -1;
+
+            //Pegando os times inseridos na liga clássica
+            $leaClassicTeams = $this->LeaClassicTeam->find('all', [
+                'conditions' => [
+                    'LeaClassicTeam.lea_classic_id' => $leaClassic['LeaClassic']['id']
+                ]
+            ]);
+
+            //Percorrendo todos os times
+            foreach($leaClassicTeams as $leaClassicTeam) {
+                //Buscando dados do time na API do cartola
+                $team = $this->CartoleandoTeam->read(null, $leaClassicTeam['LeaClassicTeam']['team_id']);
+                $client = new Client(['base_uri' => 'http://api.cartolafc.globo.com/']);
+                $response = $client->request('GET', 'time/slug/'.$team['CartoleandoTeam']['slug'].'/'.$rodada,  [
+                    'headers' => [
+                        'x-glb-token' => env('X_GLB_TOKEN')
+                    ]
+                ]);
+                $body = json_decode($response->getBody());
+                $pontos = !isset($body->pontos) ? 0 : $body->pontos;
+                $patrimonio = !isset($body->patrimonio) ? 0 : $body->patrimonio;
+
+                //Salvando uma espécie de log de atualizações
+                $now = date('Y-m-d H:i:s');
+                $month = date('m');
+                $leaClassicTeamPoint['LeaClassicTeamPoint']['lea_classic_team_id'] = $leaClassicTeam['LeaClassicTeam']['id'];
+                $leaClassicTeamPoint['LeaClassicTeamPoint']['lea_classic_id'] = $leaClassic['LeaClassic']['id'];
+                $leaClassicTeamPoint['LeaClassicTeamPoint']['round'] = $rodada;
+                $leaClassicTeamPoint['LeaClassicTeamPoint']['owner_id'] = $leaClassicTeam['LeaClassicTeam']['owner_id'];
+                $leaClassicTeamPoint['LeaClassicTeamPoint']['points'] = $pontos;
+                $leaClassicTeamPoint['LeaClassicTeamPoint']['checked_in'] = $now;
+                $this->LeaClassicTeamPoint->create();
+                $this->LeaClassicTeamPoint->validate = [];
+                $this->LeaClassicTeamPoint->save($leaClassicTeamPoint);
+
+
+                //Se ainda não atualizou ou for diferente do atual
+                if($leaClassicTeam['LeaClassicTeam']['current_turn'] == null || $leaClassicTeam['LeaClassicTeam']['current_turn'] != $turno) {
+                    $leaClassicTeam['LeaClassicTeam']['p_t'] = $pontos;
+                    $this->LeaClassicTeamPT->create();
+                    $PT['LeaClassicTeamPT']['lea_classic_team_id'] = $leaClassicTeam['LeaClassicTeam']['id'];
+                    $PT['LeaClassicTeamPT']['points'] = $pontos;
+                    $PT['LeaClassicTeamPT']['turn'] = $turno;
+                    $this->LeaClassicTeamPT->validate = [];
+                    $this->LeaClassicTeamPT->save($PT);
+                } else if($leaClassicTeam['LeaClassicTeam']['current_turn'] == $turno) {
+                    //Pontos por turno
+                    $leaClassicTeam['LeaClassicTeam']['p_t'] = $leaClassicTeam['LeaClassicTeam']['p_t'] + $pontos;
+                    $PT = $this->LeaClassicTeamPT->find('first', [
+                        'conditions' => [
+                            'LeaClassicTeamPT.turn' => $turno,
+                            'LeaClassicTeamPT.lea_classic_team_id' => $leaClassicTeam['LeaClassicTeam']['id'],
+                        ]
+                    ]);
+                    $PT['LeaClassicTeamPT']['points'] = $leaClassicTeam['LeaClassicTeam']['p_t'];
+                    $this->LeaClassicTeamPT->validate = [];
+                    $this->LeaClassicTeamPT->save($PT);
+                }
+
+                //Se ainda não atualizou
+                if($leaClassicTeam['LeaClassicTeam']['_month'] == null || $leaClassicTeam['LeaClassicTeam']['_month'] != $month) {
+                    $leaClassicTeam['LeaClassicTeam']['p_m'] = $pontos;
+                    $this->LeaClassicTeamPM->create();
+                    $PM['LeaClassicTeamPM']['lea_classic_team_id'] = $leaClassicTeam['LeaClassicTeam']['id'];
+                    $PM['LeaClassicTeamPM']['points'] = $pontos;
+                    $PM['LeaClassicTeamPM']['_month'] = $month;
+                    $this->LeaClassicTeamPM->validate = [];
+                    $this->LeaClassicTeamPM->save($PM);
+                } else if($leaClassicTeam['LeaClassicTeam']['_month'] == $month ) {
+                    //Pontos por turno
+                    $leaClassicTeam['LeaClassicTeam']['p_m'] = $leaClassicTeam['LeaClassicTeam']['p_m'] + $pontos;
+                    $PM = $this->LeaClassicTeamPM->find('first', [
+                        'conditions' => [
+                            'LeaClassicTeamPM._month' => $month,
+                            'LeaClassicTeamPM.lea_classic_team_id' => $leaClassicTeam['LeaClassicTeam']['id']
+                        ]
+                    ]);
+                    $PM['LeaClassicTeamPM']['points'] = $leaClassicTeam['LeaClassicTeam']['p_m'];
+                    $this->LeaClassicTeamPM->validate = [];
+                    $this->LeaClassicTeamPM->save($PM);
+                }
+
+                //Atualizando os pontos
+                $leaClassicTeam['LeaClassicTeam']['_month'] = $month;
+                $leaClassicTeam['LeaClassicTeam']['p_r'] = $pontos;
+                $leaClassicTeam['LeaClassicTeam']['p_c'] = $leaClassicTeam['LeaClassicTeam']['p_c'] + $pontos;
+                $leaClassicTeam['LeaClassicTeam']['p_p'] = $patrimonio;
+                $leaClassicTeam['LeaClassicTeam']['current_round'] = $rodada;
+                $leaClassicTeam['LeaClassicTeam']['current_turn'] = $turno;
+                $this->LeaClassicTeam->validate = [];
+                $this->LeaClassicTeam->save($leaClassicTeam);
+            }
+
+            //Ordenar de acordo com o tipo de ordenamento da liga
+            $typeOrder = $typeOrders[$leaClassic['LeaClassic']['type_award_id']];
+            $leaClassicTeams = $this->LeaClassicTeam->find('all', [
+                'conditions' => [
+                    'LeaClassicTeam.lea_classic_id' => $leaClassic['LeaClassic']['id']
+                ],
+                'order' => [
+                    'LeaClassicTeam.'.$typeOrder.' desc'
+                ]
+            ]);
+
+            //Atualizando ranking
+            foreach($leaClassicTeams as $key => $leaClassicTeam) {
+                $leaClassicTeam['LeaClassicTeam']['position'] = $key + 1;
+                $this->LeaClassicTeam->save($leaClassicTeam);
+            }
+
+            //Se for a última rodada
+            if($leaClassic['LeaClassic']['last_round'] == $rodada) {
+
+                //Desativando a liga
+                $league['League']['active'] = '0';
+                $league['League']['open'] = '0';
+                $league['League']['new'] = '0';
+                $this->League->validate = null;
+                $this->League->save($league);
+
+                //Busca primeiro colocado
+                $primeiro = $this->LeaClassicTeam->find('first', [
+                    'conditions' => [
+                        'LeaClassicTeam.lea_classic_id' => $leaClassic['LeaClassic']['id'],
+                        'LeaClassicTeam.position' => 1
+                    ]
+                ]);
+
+                //Busca segundo colocado
+                $segundo = $this->LeaClassicTeam->find('first', [
+                    'conditions' => [
+                        'LeaClassicTeam.lea_classic_id' => $leaClassic['LeaClassic']['id'],
+                        'LeaClassicTeam.position' => 2
+                    ]
+                ]);
+
+                //Busca terceiro colocado
+                $terceiro = $this->LeaClassicTeam->find('first', [
+                    'conditions' => [
+                        'LeaClassicTeam.lea_classic_id' => $leaClassic['LeaClassic']['id'],
+                        'LeaClassicTeam.position' => 3
+                    ]
+                ]);
+
+                //Busca quarto colocado
+                $quarto = $this->LeaClassicTeam->find('first', [
+                    'conditions' => [
+                        'LeaClassicTeam.lea_classic_id' => $leaClassic['LeaClassic']['id'],
+                        'LeaClassicTeam.position' => 4
+                    ]
+                ]);
+                $leaClassic['LeaClassic']['winner_id'] = $primeiro['LeaClassicTeam']['team_id'];
+                $leaClassic['LeaClassic']['loser_id'] = $segundo['LeaClassicTeam']['team_id'];
+                $leaClassic['LeaClassic']['third_id'] = $terceiro['LeaClassicTeam']['team_id'];
+                $leaClassic['LeaClassic']['fourth_id'] = $quarto['LeaClassicTeam']['team_id'];
+                $leaClassic['LeaClassic']['show_podium'] = 1;
+                $this->LeaClassic->validate = [];
+                $this->LeaClassic->save($leaClassic);
+            }
+
+            $this->response->type('json');
+            $this->response->statusCode(200);
+            $this->response->body(json_encode([
+                'msg' => 'ok'
+            ]));
+            $this->layout = false;
+            $this->autoRender = false;
+            $this->render(false);
+            echo json_encode([
+                'msg' => 'ok',
+                'status' => 'success'
+            ]);
+            die;
+        }
+
     }
 
     private function addValidateFields() {
@@ -120,6 +367,13 @@ class LeaClassicsController extends AppController {
         $this->League->validate['min_players'] = [
             'required' => [
                 'rule' => array('checkVazio', 'min_players'),
+                'required' => true,
+                'message' => 'Campo obrigatório'
+            ]
+        ];
+        $this->League->validate['last_round'] = [
+            'required' => [
+                'rule' => array('checkVazio', 'last_round'),
                 'required' => true,
                 'message' => 'Campo obrigatório'
             ]
@@ -152,6 +406,7 @@ class LeaClassicsController extends AppController {
                 $leaClassic['LeaClassic']['type_award_id'] = $league['League']['type_award_id'];
                 $leaClassic['LeaClassic']['min_players'] = $league['League']['min_players'];
                 $leaClassic['LeaClassic']['max_players'] = $league['League']['max_players'];
+                $leaClassic['LeaClassic']['last_round'] = $league['League']['last_round'];
                 $this->LeaClassic->save($leaClassic);
                 $this->Session->setFlash('Registro salvo com sucesso.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-success'));
             } else {

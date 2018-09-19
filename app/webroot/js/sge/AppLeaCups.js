@@ -104,7 +104,7 @@
 
             },
             success: function (data) {
-
+                p._loadConsLeaCups();
             },
             error: function (error) {
 
@@ -126,7 +126,7 @@
 
             },
             success: function (data) {
-
+                p._loadConsLeaCups();
             },
             error: function (error) {
 

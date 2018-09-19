@@ -86,9 +86,70 @@
 
     };
 
+    /**
+     *
+     * @param id
+     * @private
+     */
+    p._premiar = function (id) {
+        let url = baseUrl + 'leaClassics/premiar/' + id;
+        $.ajax({
+            method: 'post',
+            url: url,
+            beforeSend: function () {
+
+            },
+            success: function (data) {
+                data = JSON.parse(data);
+                toastr.options.timeOut = 5000;
+                if(data.status === 'success') {
+                    toastr.success(data.msg);
+                    p._loadConsLeaClassics();
+                } else {
+                    toastr.error(data.msg);
+                }
+            },
+            error: function (error) {
+
+            }
+        });
+    };
+
+    /**
+     *
+     * @param id
+     * @private
+     */
+    p._atualizarPontuacao = function (id) {
+        let url = baseUrl + 'leaClassics/atualizarPontuacao/' + id;
+        $.ajax({
+            method: 'post',
+            url: url,
+            beforeSend: function () {
+
+            },
+            success: function (data) {
+                data = JSON.parse(data);
+                toastr.options.timeOut = 2000;
+                if(data.status === 'success') {
+                    toastr.success(data.msg);
+                    p._loadConsLeaCups();
+                } else {
+                    toastr.error(data.msg);
+                }
+            },
+            error: function (error) {
+
+            }
+        });
+    };
+
     p._habilitaBotoesConsulta = function () {
         $(AppLeaClassics.objectId + ' .btnEditar').click(function () {
             p._loadFormLeaClassics($(this).attr('id'));
+        });
+        $(AppLeaClassics.objectId + ' .btnAtualizarPontuacao').click(function () {
+            p._atualizarPontuacao($(this).attr('id'));
         });
         $(AppLeaClassics.objectId + ' .btnDeletar').click(function () {
             var url = baseUrl + 'leaClassics/delete/' + $(this).attr('id');

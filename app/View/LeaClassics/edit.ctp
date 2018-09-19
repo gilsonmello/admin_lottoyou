@@ -74,7 +74,7 @@
                     ]
                 ]); ?>
             </div>
-            <div class="col-sm-6 col-lg-3 col-xs-12 col-md-6">
+            <div class="col-sm-6 col-lg-2 col-xs-12 col-md-6">
                 <div class="form-group">
                     <?= $this->Form->input('min_players', [
                         'label' => 'Mínimo de times',
@@ -84,13 +84,23 @@
                     ]); ?>
                 </div>
             </div>
-            <div class="col-sm-6 col-lg-3 col-xs-12 col-md-6">
+            <div class="col-sm-6 col-lg-2 col-xs-12 col-md-6">
                 <div class="form-group">
                     <?= $this->Form->input('max_players', [
                         'label' => 'Máximo de times',
                         'class' => 'form-control integer',
                         'required' => false,
                         'value' => $leaClassic['LeaClassic']['max_players'],
+                    ]); ?>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-2 col-xs-12 col-md-6">
+                <div class="form-group">
+                    <?= $this->Form->input('last_round', [
+                        'label' => 'Última rodada',
+                        'class' => 'form-control integer',
+                        'required' => true,
+                        'value' => $leaClassic['LeaClassic']['last_round'],
                     ]); ?>
                 </div>
             </div>

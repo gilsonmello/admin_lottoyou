@@ -128,17 +128,6 @@ class LeaCupsController extends AppController {
         }
     }
 
-    private function getRodada()
-    {
-        $client = new Client(['base_uri' => 'https://api.cartolafc.globo.com/']);
-        $response = $client->request('GET', 'mercado/status/',  [
-            'headers' => [
-                'x-glb-token' => env('X_GLB_TOKEN')
-            ]
-        ]);
-        return json_decode($response->getBody());
-    }
-
     public function atualizarPontuacao($id = null)
     {
         $this->LeaCup->id = $id;
@@ -180,7 +169,8 @@ class LeaCupsController extends AppController {
 
             if(count($faseAtual) == 0) {
                 echo json_encode([
-                    'msg' => 'A rodada já foi atualizada'
+                    'msg' => 'A rodada já foi atualizada',
+                    'status' => 'error'
                 ]);
                 die;
             }
@@ -281,10 +271,13 @@ class LeaCupsController extends AppController {
                 if(!count($chaveSubsequente))
                     continue;
 
-                if($chaveSubsequente['LeaCupKey']['home_team_id'] == null)
+                if($chaveSubsequente['LeaCupKey']['home_team_id'] == null) {
                     $chaveSubsequente['LeaCupKey']['home_team_id'] = $winner['id'];
-                else
+                    $chaveSubsequente['LeaCupKey']['home_item_id'] = $chave['LeaCupKey']['home_item_id'];
+                } else {
                     $chaveSubsequente['LeaCupKey']['out_team_id'] = $winner['id'];
+                    $chaveSubsequente['LeaCupKey']['out_item_id'] = $chave['LeaCupKey']['out_item_id'];
+                }
 
                 $this->LeaCupKey->save($chaveSubsequente);
             }
@@ -310,7 +303,7 @@ class LeaCupsController extends AppController {
             }
 
             //Desativando a fase atual
-            $faseAtual['LeaCupStep']['current_step'] = 0;
+            $faseAtual['LeaCupStep']['current_step'] = $faseAtual['LeaCupStep']['type_step'] == 'F' ? 1 : 0;
             $faseAtual['LeaCupStep']['active'] = 0;
             $faseAtual['LeaCupStep']['updated'] = 1;
             $this->LeaCupStep->save($faseAtual);
@@ -327,13 +320,35 @@ class LeaCupsController extends AppController {
                 //Salvando o primeiro e segundo colocado
                 $leaCup['LeaCup']['winner_id'] = $primeiro['id'];
                 $leaCup['LeaCup']['loser_id'] = $segundo['id'];
+
+                $chaveTerceiro = $this->LeaCupKey->find('first', [
+                    'conditions' => [
+                        'LeaCupKey.lea_cup_step_id' => $faseAtual['LeaCupStep']['id'],
+                        'LeaCupKey.type_step' => 'T',
+                    ],
+                ]);
+
+                $terceiro = null;
+                $quarto = null;
+                if($chaveTerceiro['LeaCupKey']['home_team_score'] > $chaveTerceiro['LeaCupKey']['out_team_score']) {
+                    $terceiro = $chaveTerceiro['LeaCupKey']['home_team_id'];
+                    $quarto = $chaveTerceiro['LeaCupKey']['out_team_id'];
+                } else {
+                    $terceiro = $chaveTerceiro['LeaCupKey']['out_team_id'];
+                    $quarto = $chaveTerceiro['LeaCupKey']['home_team_id'];
+                }
+
+                $leaCup['LeaCup']['third_id'] = $terceiro;
+                $leaCup['LeaCup']['fourth_id'] = $quarto;
+                $leaCup['LeaCup']['finished'] = 1;
                 $this->LeaCup->save($leaCup);
             }
 
             $this->response->type('json');
             $this->response->statusCode(200);
             $this->response->body(json_encode([
-                'msg' => 'ok'
+                'msg' => 'ok',
+                'status' => 'success'
             ]));
             $this->layout = false;
             $this->autoRender = false;
@@ -588,6 +603,8 @@ class LeaCupsController extends AppController {
                         $key['LeaCupKey']['home_position'] = null;
                         $key['LeaCupKey']['out_position'] = null;
                         $key['LeaCupKey']['round'] = $currentRound;
+                        $key['LeaCupKey']['home_item_id'] = $time_casa['LeaCupTeam']['item_id'];
+                        $key['LeaCupKey']['out_item_id'] = $time_fora['LeaCupTeam']['item_id'];
 
                         $this->LeaCupKey->create();
                         $this->LeaCupKey->save($key);
