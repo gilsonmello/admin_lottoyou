@@ -144,7 +144,7 @@ class League extends AppModel {
                 $bg_image = $league['slug'] . '.' . $bg_image[count($bg_image) - 1];
                 $this->request->data['League']['bg_image']['name'] = $bg_image;
                 $name_image = 'files/Leagues_Bg_Image/';
-                $name_image .= $this->upload($this->request->data['League']['bg_image'], 'files\Leagues_Bg_Image', false);
+                $name_image .= $this->upload($this->request->data['League']['bg_image'], 'files/Leagues_Bg_Image', false);
                 $now = date('Y-m-d H:i:s');
 
                 $query = "UPDATE leagues SET leagues.bg_image_domain = '" . SITE_URL . "' ";
