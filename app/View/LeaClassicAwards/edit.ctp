@@ -21,7 +21,17 @@
             </div>
             <div class="col-sm-6 col-lg-4">
                 <div class="form-group">
-                    <?php echo $this->Form->input('value', array('label' => 'Valor', 'class' => 'form-control money', 'required' => false)); ?>
+                    <?php echo $this->Form->input('value', [
+                        'label' => 'Valor',
+                        'class' => 'form-control money',
+                        'data-toggle' => "tooltip",
+                        'data-placement' => "top",
+                        'title' => "Em dinheiro ou Porcentagem",
+                        'required' => false
+                    ]); ?>
+                    <small>
+                        Em dinheiro ou Porcentagem
+                    </small>
                 </div>
             </div>
         </div>
@@ -43,7 +53,14 @@
             </div>
             <div class="col-sm-6 col-lg-8">
                 <div class="form-group">
-                    <?php echo $this->Form->input('type_description', array('label' => 'Descrição do Prêmio', 'class' => 'form-control', 'required' => false)); ?>
+                    <?php echo $this->Form->input('type_description', [
+                        'label' => 'Descrição do Prêmio',
+                        'class' => 'form-control',
+                        'required' => false
+                    ]); ?>
+                    <small>
+                        Informe a descrição somente se o prêmio for objeto
+                    </small>
                 </div>
             </div>
         </div>
