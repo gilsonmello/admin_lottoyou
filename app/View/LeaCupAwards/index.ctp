@@ -73,7 +73,7 @@
                     <tr>
                         <th>Liga</th>
                         <th>Posição</th>
-                        <th>Tipo do prêmio</th>
+                        <!--<th>Tipo do prêmio</th>-->
                         <th>Valor</th>
                         <th>Ações</th>
                     </tr>
@@ -87,11 +87,11 @@
                             <td>
                                 <?= $v['LeagueAward']['position']; ?>
                             </td>
-                            <td>
-                                <?php if($v['LeagueAward']['type_description'] != null) {?>
-                                    <?= $v['LeagueAward']['type_description']; ?>
-                                <?php } ?>
-                            </td>
+                            <!--<td>
+                                <?php /*if($v['LeagueAward']['type_description'] != null) {*/?>
+                                    <?/*= $v['LeagueAward']['type_description']; */?>
+                                <?php /*} */?>
+                            </td>-->
                             <td>
                                 <?php if($v['LeagueAward']['value'] != null) {?>
                                     R$<?= $v['LeagueAward']['value']; ?>
