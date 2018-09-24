@@ -129,6 +129,280 @@ class LeaCupsController extends AppController {
         }
     }
 
+    private function premiarTime($options = [])
+    {
+        $this->loadModel('HistoricBalance');
+        $this->loadModel('Balance');
+        $winner = $options['LeaCupTeam'];
+        $owner = $options['Owner'];
+        $saldo = $options['Balance'];
+        $leaCup = $options['LeaCup'];
+        $league = $options['League'];
+        $leagueAward = $options['LeagueAward'];
+
+        $ok = true;
+        $this->StartTransaction();
+
+        $historico['HistoricBalance']['balance_id'] = $saldo['Balance']['id'];
+        $historico['HistoricBalance']['owner_id'] = $owner['User']['id'];
+        $historico['HistoricBalance']['from'] = $saldo['Balance']['value'];
+
+        switch ($leagueAward['LeagueAward']['type']) {
+            //Quantia fixa
+            case 1: {
+                $options['value'] = $leagueAward['LeagueAward']['value'];
+                break;
+            }
+            //Porcentagem
+            case 2: {
+                $options['value'] = ($league['League']['collected'] * $leagueAward['LeagueAward']['value']) / 100;
+                break;
+            }
+            //Objetos
+            case 3: {
+                $options['value'] = null;
+                $options['type_description'] = $options['type_description']. ' e você ganhou: '. $leagueAward['LeagueAward']['type_description'];
+                break;
+            }
+        }
+
+
+        $saldo['Balance']['value'] += $options['value'];
+
+        $ok = $this->Balance->save($saldo) ? true : false;
+        $this->HistoricBalance->create();
+        //$historico['HistoricBalance']['soccer_expert_bet_id'] = $dado['SocAposta']['id'];
+        $historico['HistoricBalance']['amount'] = $options['value'];
+        $historico['HistoricBalance']['to'] = $saldo['Balance']['value'];
+        $historico['HistoricBalance']['type'] = 1;
+        $historico['HistoricBalance']['system'] = 0;
+        $historico['HistoricBalance']['description'] = 'award';
+        $historico['HistoricBalance']['message'] = $options['type_description'];
+        $historico['HistoricBalance']['modality'] = 'award';
+        $historico['HistoricBalance']['context'] = 'cup league';
+
+        $ok = $this->HistoricBalance->save($historico) ? true : false;
+
+        $this->validaTransacao($ok);
+
+        return $this->HistoricBalance->id;
+    }
+
+    public function premiar($id = null)
+    {
+        $this->LeaCup->id = $id;
+        $this->LeaCup->recursive = -1;
+        //Verifica se a liga mata mata existe
+        if (!$this->LeaCup->exists()) {
+            throw new NotFoundException('Registro inexistente', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-danger'));
+        }
+
+        if ($this->request->is('post') || $this->request->is('put')) {
+            $leaCup = $this->LeaCup->read(null, $id);
+            $league = $this->League->read(null, $leaCup['LeaCup']['league_id']);
+
+            $this->loadModel('HistoricBalance');
+            $this->loadModel('Balance');
+
+            if($leaCup['LeaCup']['in_progress'] == 0) {
+                $this->response->type('json');
+                $this->response->statusCode(200);
+                $this->response->body(json_encode([
+                    'msg' => 'A liga ainda encontra-se em processo de sorteio.',
+                    'status' => 'error'
+                ]));
+                $this->response->send();
+                $this->_stop();
+            }
+
+            $this->loadModel('LeagueAward');
+            $this->LeagueAward->recursive = -1;
+
+            $this->loadModel('LeaCupTeam');
+            $this->LeaCupTeam->recursive = -1;
+
+            $this->loadModel('CartoleandoTeam');
+            $this->CartoleandoTeam->recursive = -1;
+
+            $this->loadModel('User');
+            $this->User->recursive = -1;
+
+            $winner = $this->LeaCupTeam->find('first', [
+                'conditions' => [
+                    'LeaCupTeam.lea_cup_id' => $leaCup['LeaCup']['id'],
+                    'LeaCupTeam.team_id' => $leaCup['LeaCup']['winner_id']
+                ],
+                'joins' => [
+                    [
+                        'alias' => 'CartoleandoTeam',
+                        'table' => 'cartoleando_teams',
+                        'type' => 'LEFT',
+                        'conditions' => 'CartoleandoTeam.id = LeaCupTeam.team_id'
+                    ]
+                ],
+                'fields' => [
+                    'LeaCupTeam.*',
+                    'CartoleandoTeam.*',
+                ],
+            ]);
+
+            $awardWinner = $this->LeagueAward->find('first', [
+                'conditions' => [
+                    'LeagueAward.league_id' => $league['League']['id'],
+                    'LeagueAward.position' => 1,
+                    'LeagueAward.context' => 'cup'
+                ],
+            ]);
+
+            //Primeiro
+            if(count($awardWinner)) {
+                //Pegando o usuário
+                $owner = $this->User->read(null, $winner['LeaCupTeam']['owner_id']);
+
+                $saldo = $this->Balance->find('first', [
+                    'conditions' => [
+                        'Balance.owner_id' => $owner['User']['id']
+                    ]
+                ]);
+
+                //Parâmetros
+                $options = [];
+                $options['type_description'] = 'Parabéns pelo 1º lugar na liga '. $league['League']['name'];
+                $options['LeaCupTeam'] = $winner;
+                $options['Owner'] = $owner;
+                $options['LeaCup'] = $leaCup;
+                $options['League'] = $league;
+                $options['Balance'] = $saldo;
+                $options['LeagueAward'] = $awardWinner;
+
+                //Premiar time
+                $historic_balance_id = $this->premiarTime($options);
+                $winner['LeaCupTeam']['historic_balance_id'] = $historic_balance_id;
+                $this->LeaCupTeam->validate = [];
+                $this->LeaCupTeam->save($winner['LeaCupTeam']);
+            }
+
+            $loser = $this->LeaCupTeam->find('first', [
+                'conditions' => [
+                    'LeaCupTeam.lea_cup_id' => $leaCup['LeaCup']['id'],
+                    'LeaCupTeam.team_id' => $leaCup['LeaCup']['loser_id']
+                ],
+                'joins' => [
+                    [
+                        'alias' => 'CartoleandoTeam',
+                        'table' => 'cartoleando_teams',
+                        'type' => 'LEFT',
+                        'conditions' => 'CartoleandoTeam.id = LeaCupTeam.team_id'
+                    ]
+                ],
+                'fields' => [
+                    'LeaCupTeam.*',
+                    'CartoleandoTeam.*',
+                ],
+            ]);
+
+            $awardLoser = $this->LeagueAward->find('first', [
+                'conditions' => [
+                    'LeagueAward.league_id' => $league['League']['id'],
+                    'LeagueAward.position' => 2,
+                    'LeagueAward.context' => 'cup'
+                ]
+            ]);
+
+            //Premiando segundo lugar
+            if(count($awardLoser)) {
+                //Pegando o usuário
+                $owner = $this->User->read(null, $loser['LeaCupTeam']['owner_id']);
+
+                $saldo = $this->Balance->find('first', [
+                    'conditions' => [
+                        'Balance.owner_id' => $owner['User']['id']
+                    ]
+                ]);
+
+                //Parâmetros
+                $options = [];
+                $options['type_description'] = 'Parabéns pelo 2º lugar na liga '. $league['League']['name'];
+                $options['LeaCupTeam'] = $loser;
+                $options['Owner'] = $owner;
+                $options['LeaCup'] = $leaCup;
+                $options['League'] = $league;
+                $options['Balance'] = $saldo;
+                $options['LeagueAward'] = $awardLoser;
+
+                //Premiar time
+                $historic_balance_id = $this->premiarTime($options);
+                $loser['LeaCupTeam']['historic_balance_id'] = $historic_balance_id;
+                $this->LeaCupTeam->validate = [];
+                $this->LeaCupTeam->save($loser['LeaCupTeam']);
+            }
+
+            $third = $this->LeaCupTeam->find('first', [
+                'conditions' => [
+                    'LeaCupTeam.lea_cup_id' => $leaCup['LeaCup']['id'],
+                    'LeaCupTeam.team_id' => $leaCup['LeaCup']['third_id']
+                ],
+                'joins' => [
+                    [
+                        'alias' => 'CartoleandoTeam',
+                        'table' => 'cartoleando_teams',
+                        'type' => 'LEFT',
+                        'conditions' => 'CartoleandoTeam.id = LeaCupTeam.team_id'
+                    ]
+                ],
+                'fields' => [
+                    'LeaCupTeam.*',
+                    'CartoleandoTeam.*',
+                ],
+            ]);
+
+            $awardThird = $this->LeagueAward->find('first', [
+                'conditions' => [
+                    'LeagueAward.league_id' => $league['League']['id'],
+                    'LeagueAward.position' => 3,
+                    'LeagueAward.context' => 'cup'
+                ]
+            ]);
+
+            //Premiando terceiro lugar
+            if(count($awardThird)) {
+                //Pegando o usuário
+                $owner = $this->User->read(null, $third['LeaCupTeam']['owner_id']);
+
+                $saldo = $this->Balance->find('first', [
+                    'conditions' => [
+                        'Balance.owner_id' => $owner['User']['id']
+                    ]
+                ]);
+
+                //Parâmetros
+                $options = [];
+                $options['type_description'] = 'Parabéns pelo 3º lugar na liga '. $league['League']['name'];
+                $options['LeaCupTeam'] = $third;
+                $options['Owner'] = $owner;
+                $options['LeaCup'] = $leaCup;
+                $options['League'] = $league;
+                $options['Balance'] = $saldo;
+                $options['LeagueAward'] = $awardThird;
+
+                //Premiar time
+                $historic_balance_id = $this->premiarTime($options);
+                $third['LeaCupTeam']['historic_balance_id'] = $historic_balance_id;
+                $this->LeaCupTeam->validate = [];
+                $this->LeaCupTeam->save($third['LeaCupTeam']);
+            }
+
+            $this->response->type('json');
+            $this->response->statusCode(200);
+            $this->response->body(json_encode([
+                'msg' => 'Sorteio de times concluído',
+                'status' => 'success'
+            ]));
+            $this->response->send();
+            $this->_stop();
+        }
+    }
+
     public function atualizarPontuacao($id = null)
     {
         $this->LeaCup->id = $id;
@@ -164,23 +438,26 @@ class LeaCupsController extends AppController {
                 'conditions' => [
                     'LeaCupStep.round' => $rodada,
                     'LeaCupStep.active' => 1,
-                    'LeaCupStep.updated' => 0,
+                    'LeaCupStep.upd' => 0,
                 ]
             ]);
 
             if(count($faseAtual) == 0) {
-                echo json_encode([
+                $this->response->type('json');
+                $this->response->statusCode(200);
+                $this->response->body(json_encode([
                     'msg' => 'A rodada já foi atualizada',
                     'status' => 'error'
-                ]);
-                die;
+                ]));
+                $this->response->send();
+                $this->_stop();
             }
 
             $proximaFase = $this->LeaCupStep->find('first', [
                 'conditions' => [
                     'LeaCupStep.round' => $rodada + 1,
                     'LeaCupStep.active' => 0,
-                    'LeaCupStep.updated' => 0,
+                    'LeaCupStep.upd' => 0,
                 ]
             ]);
 
@@ -199,8 +476,11 @@ class LeaCupsController extends AppController {
             $segundo = null;
             $terceiro = null;
             $quarto = null;
+            $terceiroChave = null;
+            $quartoChave = null;
 
             foreach ($chaves as $chave) {
+
                 $timeCasa = $this->CartoleandoTeam->find('first', [
                     'conditions' => [
                         'CartoleandoTeam.id' => $chave['LeaCupKey']['home_team_id']
@@ -262,9 +542,11 @@ class LeaCupsController extends AppController {
                 //Se for a semifinal
                 if($chave['LeaCupKey']['type_step'] == 'S') {
                     if($terceiro == null) {
+                        $terceiroChave = $chave;
                         $terceiro = $loser;
                     } else {
                         $quarto = $loser;
+                        $quartoChave = $chave;
                     }
                 }
 
@@ -272,12 +554,15 @@ class LeaCupsController extends AppController {
                 if(!count($chaveSubsequente))
                     continue;
 
+                //A cada 2 loops, pega o vencedor
                 if($chaveSubsequente['LeaCupKey']['home_team_id'] == null) {
                     $chaveSubsequente['LeaCupKey']['home_team_id'] = $winner['id'];
                     $chaveSubsequente['LeaCupKey']['home_item_id'] = $chave['LeaCupKey']['home_item_id'];
+                    $chaveSubsequente['LeaCupKey']['lea_cup_team_home_id'] = $chave['LeaCupKey']['lea_cup_team_home_id'];
                 } else {
                     $chaveSubsequente['LeaCupKey']['out_team_id'] = $winner['id'];
                     $chaveSubsequente['LeaCupKey']['out_item_id'] = $chave['LeaCupKey']['out_item_id'];
+                    $chaveSubsequente['LeaCupKey']['lea_cup_team_out_id'] = $chave['LeaCupKey']['lea_cup_team_out_id'];
                 }
 
                 $this->LeaCupKey->save($chaveSubsequente);
@@ -299,14 +584,18 @@ class LeaCupsController extends AppController {
                     ],
                 ]);
                 $chaveTerceiro['LeaCupKey']['home_team_id'] = $terceiro['id'];
+                $chaveTerceiro['LeaCupKey']['lea_cup_team_home_id'] = $terceiroChave['LeaCupKey']['lea_cup_team_home_id'];
+                $chaveTerceiro['LeaCupKey']['home_item_id'] = $terceiroChave['LeaCupKey']['home_item_id'];
                 $chaveTerceiro['LeaCupKey']['out_team_id'] = $quarto['id'];
+                $chaveTerceiro['LeaCupKey']['lea_cup_team_out_id'] = $quartoChave['LeaCupKey']['lea_cup_team_home_id'];
+                $chaveTerceiro['LeaCupKey']['out_item_id'] = $quartoChave['LeaCupKey']['out_item_id'];
                 $this->LeaCupKey->save($chaveTerceiro);
             }
 
             //Desativando a fase atual
             $faseAtual['LeaCupStep']['current_step'] = $faseAtual['LeaCupStep']['type_step'] == 'F' ? 1 : 0;
             $faseAtual['LeaCupStep']['active'] = 0;
-            $faseAtual['LeaCupStep']['updated'] = 1;
+            $faseAtual['LeaCupStep']['upd'] = 1;
             $this->LeaCupStep->save($faseAtual);
 
             //Se for fase final
@@ -342,34 +631,18 @@ class LeaCupsController extends AppController {
                 $leaCup['LeaCup']['third_id'] = $terceiro;
                 $leaCup['LeaCup']['fourth_id'] = $quarto;
                 $leaCup['LeaCup']['finished'] = 1;
+                $leaCup['LeaCup']['show_podium'] = 1;
                 $this->LeaCup->save($leaCup);
             }
 
             $this->response->type('json');
             $this->response->statusCode(200);
             $this->response->body(json_encode([
-                'msg' => 'ok',
+                'msg' => 'Atualização de pontos concluída',
                 'status' => 'success'
             ]));
-            $this->layout = false;
-            $this->autoRender = false;
-            $this->render(false);
-
-            /*$teams = $league->cupTeams;
-            foreach($teams as $key => $team) {
-                $client = new Client(['base_uri' => 'http://api.cartolafc.globo.com/']);
-                $response = $client->request('GET', 'time/slug/'.$team->cartoleandoTeam->slug,  [
-                    'headers' => [
-                        'x-glb-token' => env('X_GLB_TOKEN')
-                    ]
-                ]);
-                $body = json_decode($response->getBody());
-                $team->team = $body;
-            }
-
-            if(!is_null($teams)) {
-                return response()->json($teams, 200);
-            }*/
+            $this->response->send();
+            $this->_stop();
         }
     }
 
@@ -508,6 +781,7 @@ class LeaCupsController extends AppController {
                 $step = null;
                 $step['LeaCupStep']['type_step'] = $fase['type_step'];
                 $step['LeaCupStep']['lea_cup_id'] = $leaCup['LeaCup']['id'];
+                $step['LeaCupStep']['upd'] = 0;
                 //$step['LeaCupStep']['round'] = $currentRound;
                 $this->LeaCupStep->create();
                 $this->LeaCupStep->save($step);
@@ -601,6 +875,8 @@ class LeaCupsController extends AppController {
                         $key['LeaCupKey']['type_step'] = $fase['type_step'];
                         $key['LeaCupKey']['home_team_id'] = $time_casa['CartoleandoTeam']['id'];
                         $key['LeaCupKey']['out_team_id'] = $time_fora['CartoleandoTeam']['id'];
+                        $key['LeaCupKey']['lea_cup_team_out_id'] = $time_fora['LeaCupTeam']['id'];
+                        $key['LeaCupKey']['lea_cup_team_home_id'] = $time_casa['LeaCupTeam']['id'];
                         $key['LeaCupKey']['home_position'] = null;
                         $key['LeaCupKey']['out_position'] = null;
                         $key['LeaCupKey']['round'] = $currentRound;
@@ -630,6 +906,7 @@ class LeaCupsController extends AppController {
                     $step['LeaCupStep']['id'] = $this->LeaCupStep->id;
                     $step['LeaCupStep']['round'] = $currentRound;
                     $step['LeaCupStep']['active'] = 1;
+                    $step['LeaCupStep']['current_step'] = 1;
                     $this->LeaCupStep->save($step);
                 } else {
                     $step = null;

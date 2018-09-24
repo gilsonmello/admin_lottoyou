@@ -45,9 +45,33 @@
                     <button type="button" class="btn btn-icon-toggle dropdown-toggle" data-toggle="dropdown"><i class="fa fa-gear"></i></button>
                     <ul class="dropdown-menu dropdown-menu-right" role="menu">
                         <?php if($v['LeaCup']['in_progress'] == 0) { ?>
-                            <li><?= $this->Html->link('<i class="md md-create"></i>&nbsp Sortear Times', 'javascript: void(0)', array("escape" => false, 'id' => $v['LeaCup']['id'], 'class' => 'btnSortearTimes')) ?></li>
+                            <li>
+                                <?= $this->Html->link('<i class="md md-create"></i>&nbsp Sortear Times', 'javascript: void(0)', [
+                                    "escape" => false,
+                                    'id' => $v['LeaCup']['id'],
+                                    'class' => 'btn-loading-state btnSortearTimes',
+                                    'data-loading-text' => "<i class='fa fa-spinner fa-spin'></i> Processando..."
+                                ]) ?>
+                            </li>
                         <?php } ?>
-                        <li><?= $this->Html->link('<i class="md md-create"></i>&nbsp Atualizar Pontuação', 'javascript: void(0)', array("escape" => false, 'id' => $v['LeaCup']['id'], 'class' => 'btnAtualizarPontuacao')) ?></li>
+                        <?php if($v['LeaCup']['finished'] == 0) { ?>
+                            <li>
+                                <?= $this->Html->link('<i class="md md-create"></i>&nbsp Premiar', 'javascript: void(0)', [
+                                    "escape" => false,
+                                    'id' => $v['LeaCup']['id'],
+                                    'class' => 'btn-loading-state btnPremiar',
+                                    'data-loading-text' => "<i class='fa fa-spinner fa-spin'></i> Processando..."
+                                ]) ?>
+                            </li>
+                        <?php } ?>
+                        <li>
+                            <?= $this->Html->link('<i class="md md-create"></i>&nbsp Atualizar Pontuação', 'javascript: void(0)', [
+                                "escape" => false,
+                                'id' => $v['LeaCup']['id'],
+                                'class' => 'btn-loading-state btnAtualizarPontuacao',
+                                'data-loading-text' => "<i class='fa fa-spinner fa-spin'></i> Processando..."
+                            ]) ?>
+                        </li>
                         <li class="divider"></li>
                         <li><?= $this->Html->link('<i class="md md-create"></i>&nbsp Editar', 'javascript: void(0)', array("escape" => false, 'id' => $v['LeaCup']['id'], 'class' => 'btnEditar')) ?></li>
                         <li>

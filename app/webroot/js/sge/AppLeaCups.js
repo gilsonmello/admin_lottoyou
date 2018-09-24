@@ -93,21 +93,33 @@
     /**
      *
      * @param id
+     * @param btn
      * @private
      */
-    p._sortearTimes = function (id) {
+    p._sortearTimes = function (id, btn) {
         let url = baseUrl + 'leaCups/sortearTimes/' + id;
         $.ajax({
             method: 'post',
             url: url,
             beforeSend: function () {
-
+                if(confirm('Deseja realmente sortear os times?')) {
+                    btn.button('loading');
+                    return true;
+                }
+                return false;
             },
             success: function (data) {
-                p._loadConsLeaCups();
+                toastr.options.timeOut = 5000;
+                if(data.status === 'success') {
+                    toastr.success(data.msg);
+                    p._loadConsLeaCups();
+                } else {
+                    toastr.error(data.msg);
+                    btn.button('reset');
+                }
             },
             error: function (error) {
-
+                btn.button('reset');
             }
         });
     };
@@ -115,21 +127,67 @@
     /**
      *
      * @param id
+     * @param btn
      * @private
      */
-    p._atualizarPontuacao = function (id) {
+    p._premiar = function (id, btn) {
+        let url = baseUrl + 'leaCups/premiar/' + id;
+        $.ajax({
+            method: 'post',
+            url: url,
+            beforeSend: function () {
+                if(confirm('Deseja realmente continuar?')) {
+                    btn.button('loading');
+                    return true;
+                }
+                return false;
+            },
+            success: function (data) {
+                toastr.options.timeOut = 5000;
+                if(data.status === 'success') {
+                    toastr.success(data.msg);
+                    p._loadConsLeaCups();
+                } else {
+                    toastr.error(data.msg);
+                    btn.button('reset');
+                }
+            },
+            error: function (error) {
+                btn.button('reset');
+            }
+        });
+    };
+
+    /**
+     *
+     * @param id
+     * @param btn
+     * @private
+     */
+    p._atualizarPontuacao = function (id, btn) {
         let url = baseUrl + 'leaCups/atualizarPontuacao/' + id;
         $.ajax({
             method: 'post',
             url: url,
             beforeSend: function () {
-
+                if(confirm('Deseja realmente atualizar a pontuação?')) {
+                    btn.button('loading');
+                    return true;
+                }
+                return false;
             },
             success: function (data) {
-                p._loadConsLeaCups();
+                toastr.options.timeOut = 5000;
+                if(data.status === 'success') {
+                    toastr.success(data.msg);
+                    p._loadConsLeaCups();
+                } else {
+                    toastr.error(data.msg);
+                    btn.button('reset');
+                }
             },
             error: function (error) {
-
+                btn.button('reset');
             }
         });
     };
@@ -139,10 +197,13 @@
             p._loadFormLeaCups($(this).attr('id'));
         });
         $(AppLeaCups.objectId + ' .btnSortearTimes').click(function () {
-            p._sortearTimes($(this).attr('id'));
+            p._sortearTimes($(this).attr('id'), $(this));
         });
         $(AppLeaCups.objectId + ' .btnAtualizarPontuacao').click(function () {
-            p._atualizarPontuacao($(this).attr('id'));
+            p._atualizarPontuacao($(this).attr('id'), $(this));
+        });
+        $(AppLeaCups.objectId + ' .btnPremiar').click(function () {
+            p._premiar($(this).attr('id'), $(this));
         });
         $(AppLeaCups.objectId + ' .btnDeletar').click(function () {
             var url = baseUrl + 'leaCups/delete/' + $(this).attr('id');

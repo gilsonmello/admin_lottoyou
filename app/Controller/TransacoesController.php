@@ -20,6 +20,7 @@ class TransacoesController extends AppController {
 
         // CARREGA FUNÇÕES BÁSICAS DE PESQUISA E ORDENAÇÃO
 
+        //Diferente de premio e devolução
         $options = array(
             'conditions' => [
                 'HistoricBalance.description !=' => 'award',

@@ -112,6 +112,178 @@ class LeaClassicsController extends AppController {
         }
     }
 
+
+    private function premiarTime($options = [])
+    {
+        $winner = $options['LeaClassicTeam'];
+        $owner = $options['Owner'];
+        $saldo = $options['Balance'];
+        $leaClassic = $options['LeaClassic'];
+        $league = $options['League'];
+        $leagueAward = $options['LeagueAward'];
+
+        $ok = true;
+        $this->StartTransaction();
+
+        $historico['HistoricBalance']['balance_id'] = $saldo['Balance']['id'];
+        $historico['HistoricBalance']['owner_id'] = $owner['User']['id'];
+        $historico['HistoricBalance']['from'] = $saldo['Balance']['value'];
+
+        switch ($leagueAward['LeagueAward']['type']) {
+            //Quantia fixa
+            case 1: {
+                $options['value'] = $leagueAward['LeagueAward']['value'];
+                break;
+            }
+            //Porcentagem
+            case 2: {
+                $options['value'] = ($league['League']['collected'] * $leagueAward['LeagueAward']['value']) / 100;
+                break;
+            }
+            //Objetos
+            case 3: {
+                $options['value'] = null;
+                $options['type_description'] = $options['type_description']. ' e você ganhou: '. $leagueAward['LeagueAward']['type_description'];
+                break;
+            }
+        }
+
+        $saldo['Balance']['value'] += $options['value'];
+
+        $ok = $this->Balance->save($saldo) ? true : false;
+        $this->HistoricBalance->create();
+        $historico['HistoricBalance']['amount'] = $options['value'];
+        $historico['HistoricBalance']['to'] = $saldo['Balance']['value'];
+        $historico['HistoricBalance']['type'] = 1;
+        $historico['HistoricBalance']['system'] = 0;
+        $historico['HistoricBalance']['description'] = 'award';
+        $historico['HistoricBalance']['message'] = $options['type_description'];
+        $historico['HistoricBalance']['modality'] = 'award';
+        $historico['HistoricBalance']['context'] = 'classic league';
+
+        $ok = $this->HistoricBalance->save($historico) ? true : false;
+
+        $this->validaTransacao($ok);
+
+        return $this->HistoricBalance->id;
+    }
+
+    public function premiar($id = null)
+    {
+        $this->LeaClassic->id = $id;
+        $this->LeaClassic->recursive = -1;
+        //Verifica se a liga mata mata existe
+        if (!$this->LeaClassic->exists()) {
+            throw new NotFoundException('Registro inexistente', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-danger'));
+        }
+
+        if ($this->request->is('post') || $this->request->is('put')) {
+
+            $leaClassic = $this->LeaClassic->read(null, $id);
+            $league = $this->League->read(null, $leaClassic['LeaClassic']['league_id']);
+
+            $this->loadModel('LeaClassicTeam');
+            $this->LeaClassicTeam->recursive = -1;
+
+            $this->loadModel('LeagueAward');
+            $this->LeagueAward->recursive = -1;
+
+            $this->loadModel('User');
+            $this->User->recursive = -1;
+
+            $this->loadModel('HistoricBalance');
+            $this->HistoricBalance->recursive = -1;
+
+            $this->loadModel('Balance');
+            $this->Balance->recursive = -1;
+
+            //Tipos de ordenamentos
+            $typeOrders = [
+                0 => '',
+                1 => 'p_c',
+                2 => 'p_m',
+                3 => 'p_m',
+                4 => 'p_p',
+                5 => 'p_r',
+            ];
+
+            //Ordenar de acordo com o tipo de ordenamento da liga
+            $typeOrder = $typeOrders[$leaClassic['LeaClassic']['type_award_id']];
+            //Pegando os times inseridos na liga clássica
+            $leaClassicTeams = $this->LeaClassicTeam->find('all', [
+                'conditions' => [
+                    'LeaClassicTeam.lea_classic_id' => $leaClassic['LeaClassic']['id']
+                ],
+                'order' => [
+                    'LeaClassicTeam.'.$typeOrder.' desc'
+                ]
+            ]);
+
+
+            //Percorrendo todos os times
+            foreach($leaClassicTeams as $leaClassicTeam) {
+
+                $award = $this->LeagueAward->find('first', [
+                    'conditions' => [
+                        'LeagueAward.league_id' => $league['League']['id'],
+                        'LeagueAward.position' => $leaClassicTeam['LeaClassicTeam']['position'],
+                        'LeagueAward.context' => 'classic'
+                    ],
+                ]);
+
+                //Se não encontrou premiação para a posição
+                if(count($award) < 0)
+                    continue;
+
+
+                //Pegando o usuário
+                $owner = $this->User->read(null, $leaClassicTeam['LeaClassicTeam']['owner_id']);
+
+                $saldo = $this->Balance->find('first', [
+                    'conditions' => [
+                        'Balance.owner_id' => $owner['User']['id']
+                    ]
+                ]);
+
+                //Parâmetros
+                $options = [];
+                $options['type_description'] = 'Parabéns pelo '.$leaClassicTeam['LeaClassicTeam']['position'].'º lugar na Liga '. $league['League']['name'];
+                $options['LeaClassicTeam'] = $leaClassicTeam;
+                $options['Owner'] = $owner;
+                $options['LeaClassic'] = $leaClassic;
+                $options['League'] = $league;
+                $options['Balance'] = $saldo;
+                $options['LeagueAward'] = $award;
+
+                //Premiar time
+                $historic_balance_id = $this->premiarTime($options);
+                $leaClassicTeam['LeaClassicTeam']['historic_balance_id'] = $historic_balance_id;
+                $this->LeaClassicTeam->validate = [];
+                $this->LeaClassicTeam->save($leaClassicTeam['LeaClassicTeam']);
+            }
+
+            $league['League']['active'] = '0';
+            $league['League']['open'] = '0';
+            $league['League']['new'] = '0';
+            $this->League->validate = null;
+            $this->League->save($league);
+
+            $leaClassic['LeaClassic']['show_podium'] = 1;
+            $leaClassic['LeaClassic']['finished'] = 1;
+            $this->LeaClassic->save($leaClassic);
+
+            $this->response->type('json');
+            $this->response->statusCode(200);
+            $this->response->body(json_encode([
+                'msg' => 'Premiação efeituada.',
+                'status' => 'success'
+            ]));
+            $this->response->send();
+            $this->_stop();
+
+        }
+    }
+
     public function atualizarPontuacao($id = null)
     {
         $this->LeaClassic->id = $id;
@@ -127,14 +299,16 @@ class LeaClassicsController extends AppController {
             //$rodada = 25;
             $turno = $rodada <= 18 ? 1 : 2;
 
-
             $leaClassic = $this->LeaClassic->read(null, $id);
             if($rodada > $leaClassic['LeaClassic']['last_round']) {
-                echo json_encode([
+                $this->response->type('json');
+                $this->response->statusCode(200);
+                $this->response->body(json_encode([
                     'msg' => 'Rodada atual '.$rodada.' é maior do que a última rodada cadastrada na liga',
                     'status' => 'error'
-                ]);
-                die;
+                ]));
+                $this->response->send();
+                $this->_stop();
             }
 
             $league = $this->League->read(null, $leaClassic['LeaClassic']['league_id']);
@@ -170,11 +344,14 @@ class LeaClassicsController extends AppController {
 
             //Se já atualizou na rodada
             if(count($updated) > 0) {
-                echo json_encode([
+                $this->response->type('json');
+                $this->response->statusCode(200);
+                $this->response->body(json_encode([
                     'msg' => 'A rodada já foi atualizada',
                     'status' => 'error'
-                ]);
-                die;
+                ]));
+                $this->response->send();
+                $this->_stop();
             }
 
             $this->loadModel('CartoleandoTeam');
@@ -342,16 +519,11 @@ class LeaClassicsController extends AppController {
             $this->response->type('json');
             $this->response->statusCode(200);
             $this->response->body(json_encode([
-                'msg' => 'ok'
-            ]));
-            $this->layout = false;
-            $this->autoRender = false;
-            $this->render(false);
-            echo json_encode([
-                'msg' => 'ok',
+                'msg' => 'Atualização de pontos concluída',
                 'status' => 'success'
-            ]);
-            die;
+            ]));
+            $this->response->send();
+            $this->_stop();
         }
 
     }
