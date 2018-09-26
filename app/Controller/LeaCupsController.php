@@ -129,6 +129,10 @@ class LeaCupsController extends AppController {
         }
     }
 
+    /**
+     * @param array $options
+     * @return mixed
+     */
     private function premiarTime($options = [])
     {
         $this->loadModel('HistoricBalance');
@@ -188,6 +192,9 @@ class LeaCupsController extends AppController {
         return $this->HistoricBalance->id;
     }
 
+    /**
+     * @param null $id
+     */
     public function premiar($id = null)
     {
         $this->LeaCup->id = $id;
@@ -414,6 +421,7 @@ class LeaCupsController extends AppController {
 
         if ($this->request->is('post') || $this->request->is('put')) {
 
+            //Buscando rodada atual no site do cartola
             $rodada = $this->getRodada()->rodada_atual;
 
             $leaCup = $this->LeaCup->read(null, $id);
@@ -434,6 +442,7 @@ class LeaCupsController extends AppController {
             $this->loadModel('CartoleandoTeam');
             $this->CartoleandoTeam->recursive = -1;
 
+            //Pegando fase atual com base na rodada
             $faseAtual = $this->LeaCupStep->find('first', [
                 'conditions' => [
                     'LeaCupStep.round' => $rodada,
@@ -453,6 +462,8 @@ class LeaCupsController extends AppController {
                 $this->_stop();
             }
 
+
+            //Próxima fase
             $proximaFase = $this->LeaCupStep->find('first', [
                 'conditions' => [
                     'LeaCupStep.round' => $rodada + 1,
@@ -461,7 +472,7 @@ class LeaCupsController extends AppController {
                 ]
             ]);
 
-
+            //Pegando as chaves da fase atual
             $chaves = $this->LeaCupKey->find('all', [
                 'conditions' => [
                     'LeaCupKey.lea_cup_step_id' => $faseAtual['LeaCupStep']['id'],
@@ -472,12 +483,23 @@ class LeaCupsController extends AppController {
                 ]
             ]);
 
+            //Primeiro colocado
             $primeiro = null;
+            //Segundo colocado
             $segundo = null;
+            //Terceiro colocado
             $terceiro = null;
+            //Quarto colocado
             $quarto = null;
+            //Chave do terceiro colocado
             $terceiroChave = null;
+            //Chave do quarto colocado
             $quartoChave = null;
+
+            //Se for 1, é o time da casa,
+            //Se for 2, é o time de fora
+            $quemVenceu = 1;
+            $quemVenceuFaseSemifinal = 1;
 
             foreach ($chaves as $chave) {
 
@@ -512,13 +534,46 @@ class LeaCupsController extends AppController {
                 $timeForaPontos = !isset($body->pontos) ? 0 : $body->pontos;
                 $winner = null;
                 $loser = null;
+
+                //Se o time da casa foi vencedor
                 if($timeCasaPontos > $timeForaPontos) {
                     $winner = $timeCasa['CartoleandoTeam'];
                     $loser = $timeFora['CartoleandoTeam'];
-                } else {
+                    $quemVenceu = 1;
+                }
+                //Se os times empataram
+                else if($timeCasaPontos == $timeForaPontos) {
+                    //Se a últime pontuação do time da casa for maior
+                    if($chave['LeaCupKey']['home_last_punctuation'] > $chave['LeaCupKey']['out_last_punctuation']) {
+                        $winner = $timeCasa['CartoleandoTeam'];
+                        $loser = $timeFora['CartoleandoTeam'];
+                        $quemVenceu = 1;
+                    } else {
+                        //Se igual a 1, o time vencedor é do casa
+                        //Se igual a 2, o time vencedor é o de fora
+                        $num_aleatorio = rand(1, 2);
+
+                        if($num_aleatorio == 1) {
+                            $quemVenceu = 1;
+                            $winner = $timeCasa['CartoleandoTeam'];
+                            $loser = $timeFora['CartoleandoTeam'];
+                        }
+
+                        if($num_aleatorio == 2) {
+                            $quemVenceu = 2;
+                            $winner = $timeFora['CartoleandoTeam'];
+                            $loser = $timeCasa['CartoleandoTeam'];
+                        }
+
+                    }
+                }
+                //Se não o time de fora é o vencedor
+                else {
+                    $quemVenceu = 2;
                     $winner = $timeFora['CartoleandoTeam'];
                     $loser = $timeCasa['CartoleandoTeam'];
                 }
+
                 $chave['LeaCupKey']['home_team_score'] = $timeCasaPontos;
                 $chave['LeaCupKey']['out_team_score'] = $timeForaPontos;
                 $chave['LeaCupKey']['finished'] = 1;
@@ -557,11 +612,13 @@ class LeaCupsController extends AppController {
                 //A cada 2 loops, pega o vencedor
                 if($chaveSubsequente['LeaCupKey']['home_team_id'] == null) {
                     $chaveSubsequente['LeaCupKey']['home_team_id'] = $winner['id'];
+                    $chaveSubsequente['LeaCupKey']['home_last_punctuation'] = $chave['LeaCupKey']['home_team_score'];
                     $chaveSubsequente['LeaCupKey']['home_item_id'] = $chave['LeaCupKey']['home_item_id'];
                     $chaveSubsequente['LeaCupKey']['lea_cup_team_home_id'] = $chave['LeaCupKey']['lea_cup_team_home_id'];
                 } else {
                     $chaveSubsequente['LeaCupKey']['out_team_id'] = $winner['id'];
                     $chaveSubsequente['LeaCupKey']['out_item_id'] = $chave['LeaCupKey']['out_item_id'];
+                    $chaveSubsequente['LeaCupKey']['out_last_punctuation'] = $chave['LeaCupKey']['out_team_score'];
                     $chaveSubsequente['LeaCupKey']['lea_cup_team_out_id'] = $chave['LeaCupKey']['lea_cup_team_out_id'];
                 }
 
@@ -585,10 +642,12 @@ class LeaCupsController extends AppController {
                 ]);
                 $chaveTerceiro['LeaCupKey']['home_team_id'] = $terceiro['id'];
                 $chaveTerceiro['LeaCupKey']['lea_cup_team_home_id'] = $terceiroChave['LeaCupKey']['lea_cup_team_home_id'];
+                $chaveTerceiro['LeaCupKey']['home_last_punctuation'] = $terceiroChave['LeaCupKey']['home_team_score'];
                 $chaveTerceiro['LeaCupKey']['home_item_id'] = $terceiroChave['LeaCupKey']['home_item_id'];
                 $chaveTerceiro['LeaCupKey']['out_team_id'] = $quarto['id'];
                 $chaveTerceiro['LeaCupKey']['lea_cup_team_out_id'] = $quartoChave['LeaCupKey']['lea_cup_team_home_id'];
                 $chaveTerceiro['LeaCupKey']['out_item_id'] = $quartoChave['LeaCupKey']['out_item_id'];
+                $chaveTerceiro['LeaCupKey']['out_last_punctuation'] = $quartoChave['LeaCupKey']['out_team_score'];
                 $this->LeaCupKey->save($chaveTerceiro);
             }
 
@@ -620,10 +679,35 @@ class LeaCupsController extends AppController {
 
                 $terceiro = null;
                 $quarto = null;
+                //Se o time da casa foi o vencedor
                 if($chaveTerceiro['LeaCupKey']['home_team_score'] > $chaveTerceiro['LeaCupKey']['out_team_score']) {
                     $terceiro = $chaveTerceiro['LeaCupKey']['home_team_id'];
                     $quarto = $chaveTerceiro['LeaCupKey']['out_team_id'];
-                } else {
+                }
+                //Se os times empataram
+                else if($chaveTerceiro['LeaCupKey']['home_team_score'] == $chaveTerceiro['LeaCupKey']['out_team_score']) {
+                    //Se a últime pontuação do time da casa for maior
+                    if($chaveTerceiro['LeaCupKey']['home_last_punctuation'] > $chaveTerceiro['LeaCupKey']['out_last_punctuation']) {
+                        $terceiro = $chaveTerceiro['LeaCupKey']['home_team_id'];
+                        $quarto = $chaveTerceiro['LeaCupKey']['out_team_id'];
+                    } else {
+                        //Se igual a 1, o time vencedor é do casa
+                        //Se igual a 2, o time vencedor é o de fora
+                        $num_aleatorio = rand(1, 2);
+
+                        if($num_aleatorio == 1) {
+                            $terceiro = $chaveTerceiro['LeaCupKey']['home_team_id'];
+                            $quarto = $chaveTerceiro['LeaCupKey']['out_team_id'];
+                        }
+
+                        if($num_aleatorio == 2) {
+                            $terceiro = $chaveTerceiro['LeaCupKey']['out_team_id'];
+                            $quarto = $chaveTerceiro['LeaCupKey']['home_team_id'];
+                        }
+                    }
+                }
+                //Se o time de fora foi o vencedor
+                else {
                     $terceiro = $chaveTerceiro['LeaCupKey']['out_team_id'];
                     $quarto = $chaveTerceiro['LeaCupKey']['home_team_id'];
                 }
@@ -746,10 +830,14 @@ class LeaCupsController extends AppController {
             ]);
 
             if(count($teams) < $league['League']['number_team']) {
-                echo json_encode([
-                    'msg' => 'Número de times insuficiente'
-                ]);
-                die;
+                $this->response->type('json');
+                $this->response->statusCode(200);
+                $this->response->body(json_encode([
+                    'msg' => 'Número de times insuficiente',
+                    'status' => 'error'
+                ]));
+                $this->response->send();
+                $this->_stop();
             }
 
             //Número total de fases
@@ -923,15 +1011,11 @@ class LeaCupsController extends AppController {
         $this->response->type('json');
         $this->response->statusCode(200);
         $this->response->body(json_encode([
-            'msg' => 'ok'
+            'msg' => 'Sorteio de times concluído',
+            'status' => 'success'
         ]));
-        $this->layout = false;
-        $this->autoRender = false;
-        $this->render(false);
-        echo json_encode([
-            'msg' => ''
-        ]);
-        die;
+        $this->response->send();
+        $this->_stop();
     }
 
     public function edit($id = null) {

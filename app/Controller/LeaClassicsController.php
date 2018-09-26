@@ -235,7 +235,6 @@ class LeaClassicsController extends AppController {
                 if(count($award) < 0)
                     continue;
 
-
                 //Pegando o usuário
                 $owner = $this->User->read(null, $leaClassicTeam['LeaClassicTeam']['owner_id']);
 
@@ -280,10 +279,13 @@ class LeaClassicsController extends AppController {
             ]));
             $this->response->send();
             $this->_stop();
-
         }
     }
 
+    /**
+     * @param null $id
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
     public function atualizarPontuacao($id = null)
     {
         $this->LeaClassic->id = $id;
@@ -511,7 +513,6 @@ class LeaClassicsController extends AppController {
                 $leaClassic['LeaClassic']['loser_id'] = $segundo['LeaClassicTeam']['team_id'];
                 $leaClassic['LeaClassic']['third_id'] = $terceiro['LeaClassicTeam']['team_id'];
                 $leaClassic['LeaClassic']['fourth_id'] = $quarto['LeaClassicTeam']['team_id'];
-                $leaClassic['LeaClassic']['show_podium'] = 1;
                 $this->LeaClassic->validate = [];
                 $this->LeaClassic->save($leaClassic);
             }
