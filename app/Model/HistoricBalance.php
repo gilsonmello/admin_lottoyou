@@ -89,6 +89,20 @@ class HistoricBalance extends AppModel {
             'fields' => '',
             'order' => ''
         ],
+        'LeaCupTeam' => [
+            'className' => 'LeaCupTeam',
+            'foreignKey' => 'historic_balance_id',
+            'conditions' => '',
+            'fields' => '',
+            'order' => ''
+        ],
+        'LeaClassicTeam' => [
+            'className' => 'LeaClassicTeam',
+            'foreignKey' => 'historic_balance_id',
+            'conditions' => '',
+            'fields' => '',
+            'order' => ''
+        ],
     ];
 
     /*public function paginate($conditions, $fields, $order, $limit, $page = 1, $recursive = null, $extra = array()) {
@@ -317,6 +331,30 @@ class HistoricBalance extends AppModel {
             ],
             'fields' => [
                 'BalanceWithdraw.id'
+            ]
+        ]);
+    }
+
+    public function getLeaCupTeam($id) {
+        $this->LeaCupTeam->recursive = -1;
+        return $this->LeaCupTeam->find('first', [
+            'conditions' => [
+                'LeaCupTeam.historic_balance_id' => $id
+            ],
+            'fields' => [
+                'LeaCupTeam.id'
+            ]
+        ]);
+    }
+
+    public function getLeaClassicTeam($id) {
+        $this->LeaClassicTeam->recursive = -1;
+        return $this->LeaClassicTeam->find('first', [
+            'conditions' => [
+                'LeaClassicTeam.historic_balance_id' => $id
+            ],
+            'fields' => [
+                'LeaClassicTeam.id'
             ]
         ]);
     }

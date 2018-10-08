@@ -1,7 +1,7 @@
 <h4>
     Total de registros: <?= $this->Paginator->params()['count']; ?>&nbsp;&nbsp;&nbsp;
-    Total entrada: $<?= $totalEntrada[0]['total_entrada'] != null ? $totalEntrada[0]['total_entrada'] : '0.00'; ?>
-    Total saída: $<?= $totalSaida[0]['total_saida'] != null ? $totalSaida[0]['total_saida'] : '0.00'; ?>
+    Total entrada: R$<?= $totalEntrada[0]['total_entrada'] != null ? $totalEntrada[0]['total_entrada'] : '0.00'; ?>
+    Total saída: R$<?= $totalSaida[0]['total_saida'] != null ? $totalSaida[0]['total_saida'] : '0.00'; ?>
 </h4>
 <table id=""
        class="table table-condensed table-hover"
@@ -106,6 +106,18 @@
                     $found = $query > 0 ? true : false;
                 }
 
+                if(!$found && $v['HistoricBalance']['context'] == 'league.cup') {
+                    $query = count($model->getLeaCupTeam($v['HistoricBalance']['id']));
+                    $modalidade = $query > 0 ? 'Liga Mata Mata' : '';
+                    $found = $query > 0 ? true : false;
+                }
+
+                if(!$found && $v['HistoricBalance']['context'] == 'league.classic') {
+                    $query = count($model->getLeaClassicTeam($v['HistoricBalance']['id']));
+                    $modalidade = $query > 0 ? 'Liga Clássica' : '';
+                    $found = $query > 0 ? true : false;
+                }
+
                 if(!$found) {
                     $modalidade = 'Indefinido';
                 }
@@ -139,13 +151,15 @@
                 else if($v['HistoricBalance']['description'] == 'pagseguro deposit') $tipo = 'Depósito Pagseguro';
                 else if($v['HistoricBalance']['description'] == 'internal deposit') $tipo = 'Depósito Interno';
                 else if($v['HistoricBalance']['description'] == 'internal withdrawal') $tipo = 'Retirada Interna';
+                else if($v['HistoricBalance']['context'] == 'league.classic') $tipo = 'Liga Clássica';
+                else if($v['HistoricBalance']['context'] == 'league.cup') $tipo = 'Liga Mata Mata';
                 else $tipo = 'Indefinido';
                 ?>
 
                 <?= $tipo ?>
             </td>
             <td>
-                $<?= $v['HistoricBalance']['amount'] < 0 ? number_format($v['HistoricBalance']['amount'] * -1, 2, '.', '') : number_format($v['HistoricBalance']['amount'], 2, '.', '') ?>
+                R$<?= $v['HistoricBalance']['amount'] < 0 ? number_format($v['HistoricBalance']['amount'] * -1, 2, '.', '') : number_format($v['HistoricBalance']['amount'], 2, '.', '') ?>
             </td>
         </tr>
     <?php } ?>
@@ -154,7 +168,7 @@
             Total de Entrada
         </th>
         <td colspan="5">
-            $<?= number_format($totalEntrada, 2, '.', '') ?>
+            R$<?= number_format($totalEntrada, 2, '.', '') ?>
         </td>
     </tr>
     <tr>
@@ -162,7 +176,7 @@
             Total de Saída
         </th>
         <td colspan="5">
-            $<?= number_format($totalSaida, 2, '.', '') ?>
+            R$<?= number_format($totalSaida, 2, '.', '') ?>
         </td>
     </tr>
     </tbody>

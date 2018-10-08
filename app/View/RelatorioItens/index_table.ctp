@@ -31,14 +31,16 @@
                 <?php
                 if($v['OrderItem']['type'] == "scratch_card") echo "Raspadinha";
                 else if($v['OrderItem']['type'] == "soccer_expert") echo "Soccer Expert";
-                else echo "Loteria";
+                else if($v['OrderItem']['type'] == "lottery") echo "Loteria";
+                else if($v['OrderItem']['type'] == "cartoleando") echo "Cartoleando";
+                else echo "t";
                 ?>
             </td>
             <td>
                 <?= $v['OrderItem']['id']; ?>
             </td>
             <td>
-                $<?= $v['OrderItem']['amount']; ?>
+                R$<?= $v['OrderItem']['amount']; ?>
                 <?php $total += $v['OrderItem']['amount']; ?>
             </td>
             <td>
@@ -61,7 +63,7 @@
             Total da página
         </th>
         <td colspan="3">
-            $<?= number_format($total, 2, '.', '') ?>
+            R$<?= number_format($total, 2, '.', '') ?>
         </td>
     </tr>
     </tbody>

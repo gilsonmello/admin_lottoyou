@@ -156,10 +156,9 @@ class LeaClassicsController extends AppController {
         $historico['HistoricBalance']['to'] = $saldo['Balance']['value'];
         $historico['HistoricBalance']['type'] = 1;
         $historico['HistoricBalance']['system'] = 0;
-        $historico['HistoricBalance']['description'] = 'award';
-        $historico['HistoricBalance']['message'] = $options['type_description'];
+        $historico['HistoricBalance']['description'] = $options['type_description'];
+        $historico['HistoricBalance']['context'] = 'lea_classics';
         $historico['HistoricBalance']['modality'] = 'award';
-        $historico['HistoricBalance']['context'] = 'classic league';
 
         $ok = $this->HistoricBalance->save($historico) ? true : false;
 

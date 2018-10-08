@@ -150,7 +150,9 @@ class BalancesController extends AppController {
                     
                     //$historicBalance['HistoricBalance']['balance_insert_id'] = $this->BalanceInsert->id;
                     $historicBalance['HistoricBalance']['modality'] = 'withdrawal';
-                    $historicBalance['HistoricBalance']['description'] = 'internal withdrawal';
+                    $historicBalance['HistoricBalance']['description'] = 'O sistema interno removeu R$'. $amount .' do seu saldo';
+                    $historicBalance['HistoricBalance']['context'] = 'balance_withdraw';
+                    $historicBalance['HistoricBalance']['context_message'] = 'internal withdrawal';
                     $historicBalance['HistoricBalance']['system'] = 0;
                     $this->HistoricBalance->create();
                     $this->HistoricBalance->save($historicBalance);
@@ -236,7 +238,9 @@ class BalancesController extends AppController {
                     $historicBalance['HistoricBalance']['amount'] = $amount;
                     //$historicBalance['HistoricBalance']['balance_insert_id'] = $this->BalanceInsert->id;
                     $historicBalance['HistoricBalance']['modality'] = 'deposit';
-                    $historicBalance['HistoricBalance']['description'] = 'internal deposit';
+                    $historicBalance['HistoricBalance']['description'] = 'O sistema interno inseriu R$'. $amount .' no seu saldo';
+                    $historicBalance['HistoricBalance']['context'] = 'balance_inserts';
+                    $historicBalance['HistoricBalance']['context_message'] = 'internal deposit';
                     $historicBalance['HistoricBalance']['system'] = 1;
                     $this->HistoricBalance->create();
                     $this->HistoricBalance->save($historicBalance);

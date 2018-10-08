@@ -23,7 +23,7 @@ class TransacoesController extends AppController {
         //Diferente de premio e devolução
         $options = array(
             'conditions' => [
-                'HistoricBalance.description !=' => 'award',
+                'HistoricBalance.modality !=' => 'award',
                 'HistoricBalance.devolution' => 0,
             ],
             'limit' => 50,
@@ -93,6 +93,9 @@ class TransacoesController extends AppController {
                 'HistoricBalance.type',
                 'HistoricBalance.system',
                 'HistoricBalance.created',
+                'HistoricBalance.context',
+                'HistoricBalance.message',
+                'HistoricBalance.modality',
                 'Owner.id',
                 'Owner.name',
                 'Owner.last_name',
@@ -195,6 +198,14 @@ class TransacoesController extends AppController {
 
             if(in_array(7, $query['type'])) {
                 $options['conditions']['OR'][]['HistoricBalance.description'] = 'internal deposit';
+            }
+
+            if(in_array(8, $query['type'])) {
+                $options['conditions']['OR'][]['HistoricBalance.context'] = 'league classic';
+            }
+
+            if(in_array(9, $query['type'])) {
+                $options['conditions']['OR'][]['HistoricBalance.context'] = 'league cup';
             }
 
         }

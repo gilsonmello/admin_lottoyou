@@ -47,7 +47,7 @@
                                 'data-loading-text' => "<i class='fa fa-spinner fa-spin'></i> Processando..."
                             ]) ?>
                         </li>
-                        <?php if($v['LeaCup']['finished'] == 0) { ?>
+                        <?php if($v['LeaClassic']['finished'] == 0) { ?>
                             <li><?= $this->Html->link('<i class="md md-create"></i>&nbsp Premiar', 'javascript: void(0)', [
                                     "escape" => false,
                                     'id' => $v['LeaClassic']['id'],
