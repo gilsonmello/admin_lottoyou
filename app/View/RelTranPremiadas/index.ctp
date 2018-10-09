@@ -44,6 +44,8 @@
                                     1 => 'Soccer Apostas',
                                     2 => 'Loteria Apostas',
                                     3 => 'Raspadinhas',
+                                    4 => 'Liga Clássica',
+                                    5 => 'Liga Mata Mata',
                                 ],
                                 'required' => false,
                                 'multiple' => true,
@@ -79,7 +81,7 @@
             <div id="gridRelTranPremiadas" style="padding: 24px;">
                 <h4>
                     Total de registros: <?= $this->Paginator->params()['count']; ?>&nbsp;&nbsp;&nbsp;
-                    Total: $<?= $total[0]['total']; ?>
+                    Total: R$<?= $total[0]['total']; ?>
                 </h4>
                 <table id=""
                        class="table table-condensed table-hover"
@@ -122,15 +124,27 @@
                                         $found = $query > 0 ? true : false;
                                     }
 
-                                    if(!$found && $v['HistoricBalance']['description'] == 'award') {
+                                    if(!$found) {
                                         $query = count($model->getSocAposta($v['HistoricBalance']['id']));
                                         $modalidade = $query > 0 ? 'Soccer Expert' : '';
                                         $found = $query > 0 ? true : false;
                                     }
 
-                                    if(!$found && $v['HistoricBalance']['description'] == 'award') {
+                                    if(!$found) {
                                         $query = count($model->getRaspadinha($v['HistoricBalance']['id']));
                                         $modalidade = $query > 0 ? 'Raspadinhas' : '';
+                                        $found = $query > 0 ? true : false;
+                                    }
+
+                                    if(!$found) {
+                                        $query = count($model->getLeaCupTeam($v['HistoricBalance']['id']));
+                                        $modalidade = $query > 0 ? 'Liga Mata Mata' : '';
+                                        $found = $query > 0 ? true : false;
+                                    }
+
+                                    if(!$found) {
+                                        $query = count($model->getLeaClassicTeam($v['HistoricBalance']['id']));
+                                        $modalidade = $query > 0 ? 'Liga Clássica' : '';
                                         $found = $query > 0 ? true : false;
                                     }
 
@@ -146,7 +160,7 @@
                                 Prêmio
                             </td>
                             <td>
-                                $<?= $v['HistoricBalance']['amount'] ?>
+                                R$<?= $v['HistoricBalance']['amount'] ?>
                             </td>
                         </tr>
                     <?php } ?>
@@ -155,7 +169,7 @@
                             Total da página
                         </th>
                         <td>
-                            $<?= number_format($totalEntrada, 2, '.', '') ?>
+                            R$<?= number_format($totalEntrada, 2, '.', '') ?>
                         </td>
                     </tr>
                     </tbody>

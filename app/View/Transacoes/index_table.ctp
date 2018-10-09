@@ -70,49 +70,49 @@
                     $found = $query > 0 ? true : false;
                 }
 
-                if(!$found && $v['HistoricBalance']['description'] == 'pagseguro deposit') {
+                if(!$found && $v['HistoricBalance']['context_message'] == 'pagseguro deposit') {
                     $query = count($model->getPedidoPagseguro($v['HistoricBalance']['id']));
                     $modalidade = $query > 0 ? 'Depósito' : '';
                     $found = $query > 0 ? true : false;
                 }
 
-                if(!$found && $v['HistoricBalance']['description'] == 'pagseguro devolution') {
+                if(!$found && $v['HistoricBalance']['context_message'] == 'pagseguro devolution') {
                     $query = count($model->getPedidoPagseguro($v['HistoricBalance']['id']));
                     $modalidade = $query > 0 ? 'Devolução' : '';
                     $found = $query > 0 ? true : false;
                 }
 
-                if(!$found && $v['HistoricBalance']['description'] == 'buy') {
+                if(!$found && $v['HistoricBalance']['context_message'] == 'buy') {
                     $query = count($model->getItem($v['HistoricBalance']['id']));
                     $modalidade = $query > 0 ? 'Compra' : '';
                     $found = $query > 0 ? true : false;
                 }
 
-                if(!$found && $v['HistoricBalance']['description'] == 'internal deposit') {
+                if(!$found && $v['HistoricBalance']['context_message'] == 'internal deposit') {
                     $query = count($model->getBalanceInsert($v['HistoricBalance']['id']));
                     $modalidade = $query > 0 ? 'Depósito' : '';
                     $found = $query > 0 ? true : false;
                 }
 
-                if(!$found && $v['HistoricBalance']['description'] == 'agent withdrawal') {
+                if(!$found && $v['HistoricBalance']['context_message'] == 'agent withdrawal') {
                     $query = count($model->getRetiradaAgente($v['HistoricBalance']['id']));
                     $modalidade = $query > 0 ? 'Retirada' : '';
                     $found = $query > 0 ? true : false;
                 }
 
-                if(!$found && $v['HistoricBalance']['description'] == 'internal withdrawal') {
+                if(!$found && $v['HistoricBalance']['context_message'] == 'internal withdrawal') {
                     $query = count($model->getBalanceWithdraw($v['HistoricBalance']['id']));
                     $modalidade = $query > 0 ? 'Retirada' : '';
                     $found = $query > 0 ? true : false;
                 }
 
-                if(!$found && $v['HistoricBalance']['context'] == 'league.cup') {
+                if(!$found && $v['HistoricBalance']['context_message'] == 'league cup') {
                     $query = count($model->getLeaCupTeam($v['HistoricBalance']['id']));
                     $modalidade = $query > 0 ? 'Liga Mata Mata' : '';
                     $found = $query > 0 ? true : false;
                 }
 
-                if(!$found && $v['HistoricBalance']['context'] == 'league.classic') {
+                if(!$found && $v['HistoricBalance']['context_message'] == 'league classic') {
                     $query = count($model->getLeaClassicTeam($v['HistoricBalance']['id']));
                     $modalidade = $query > 0 ? 'Liga Clássica' : '';
                     $found = $query > 0 ? true : false;
@@ -142,17 +142,15 @@
             <td>
                 <?php $tipo = ''; ?>
                 <?php
-                if($v['HistoricBalance']['description'] == 'buy') $tipo = 'Compra';
-                else if($v['HistoricBalance']['description'] == 'agent withdrawal') $tipo = 'Ag. Pagamento';
-                else if($v['HistoricBalance']['description'] == 'award') $tipo = 'Prêmio';
-                else if($v['HistoricBalance']['description'] == 'pagseguro devolution') $tipo = 'Devolução Pagseguro';
-                else if($v['HistoricBalance']['description'] == 'paypal devolution') $tipo = 'Devolução Paypal';
-                else if($v['HistoricBalance']['description'] == 'paypal deposit') $tipo = 'Depósito Paypal';
-                else if($v['HistoricBalance']['description'] == 'pagseguro deposit') $tipo = 'Depósito Pagseguro';
-                else if($v['HistoricBalance']['description'] == 'internal deposit') $tipo = 'Depósito Interno';
-                else if($v['HistoricBalance']['description'] == 'internal withdrawal') $tipo = 'Retirada Interna';
-                else if($v['HistoricBalance']['context'] == 'league.classic') $tipo = 'Liga Clássica';
-                else if($v['HistoricBalance']['context'] == 'league.cup') $tipo = 'Liga Mata Mata';
+                if($v['HistoricBalance']['context_message'] == 'buy') $tipo = 'Compra';
+                else if($v['HistoricBalance']['context_message'] == 'agent withdrawal') $tipo = 'Ag. Pagamento';
+                else if($v['HistoricBalance']['context_message'] == 'award') $tipo = 'Prêmio';
+                else if($v['HistoricBalance']['context_message'] == 'pagseguro devolution') $tipo = 'Devolução Pagseguro';
+                else if($v['HistoricBalance']['context_message'] == 'paypal devolution') $tipo = 'Devolução Paypal';
+                else if($v['HistoricBalance']['context_message'] == 'paypal deposit') $tipo = 'Depósito Paypal';
+                else if($v['HistoricBalance']['context_message'] == 'pagseguro deposit') $tipo = 'Depósito Pagseguro';
+                else if($v['HistoricBalance']['context_message'] == 'internal deposit') $tipo = 'Depósito Interno';
+                else if($v['HistoricBalance']['context_message'] == 'internal withdrawal') $tipo = 'Retirada Interna';
                 else $tipo = 'Indefinido';
                 ?>
 

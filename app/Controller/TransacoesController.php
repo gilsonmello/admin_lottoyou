@@ -94,7 +94,7 @@ class TransacoesController extends AppController {
                 'HistoricBalance.system',
                 'HistoricBalance.created',
                 'HistoricBalance.context',
-                'HistoricBalance.message',
+                'HistoricBalance.context_message',
                 'HistoricBalance.modality',
                 'Owner.id',
                 'Owner.name',
@@ -173,39 +173,31 @@ class TransacoesController extends AppController {
         if(isset($query['type']) && is_array($query['type'])) {
 
             if(in_array(1, $query['type'])) {
-                $options['conditions']['OR'][]['HistoricBalance.description'] = 'buy';
+                $options['conditions']['OR'][]['HistoricBalance.context_message'] = 'buy';
             }
 
             if(in_array(2, $query['type'])) {
-                $options['conditions']['OR'][]['HistoricBalance.description'] = 'agent withdrawal';
+                $options['conditions']['OR'][]['HistoricBalance.context_message'] = 'agent withdrawal';
             }
 
             /*if(in_array(3, $query['type'])) {
-                $options['conditions']['OR'][]['HistoricBalance.description'] = 'award';
+                $options['conditions']['OR'][]['HistoricBalance.context_message'] = 'award';
             }*/
 
             if(in_array(4, $query['type'])) {
-                $options['conditions']['OR'][]['HistoricBalance.description'] = 'internal withdrawal';
+                $options['conditions']['OR'][]['HistoricBalance.context_message'] = 'internal withdrawal';
             }
 
             if(in_array(5, $query['type'])) {
-                $options['conditions']['OR'][]['HistoricBalance.description'] = 'paypal deposit';
+                $options['conditions']['OR'][]['HistoricBalance.context_message'] = 'paypal deposit';
             }
 
             if(in_array(6, $query['type'])) {
-                $options['conditions']['OR'][]['HistoricBalance.description'] = 'pagseguro deposit';
+                $options['conditions']['OR'][]['HistoricBalance.context_message'] = 'pagseguro deposit';
             }
 
             if(in_array(7, $query['type'])) {
-                $options['conditions']['OR'][]['HistoricBalance.description'] = 'internal deposit';
-            }
-
-            if(in_array(8, $query['type'])) {
-                $options['conditions']['OR'][]['HistoricBalance.context'] = 'league classic';
-            }
-
-            if(in_array(9, $query['type'])) {
-                $options['conditions']['OR'][]['HistoricBalance.context'] = 'league cup';
+                $options['conditions']['OR'][]['HistoricBalance.context_message'] = 'internal deposit';
             }
 
         }

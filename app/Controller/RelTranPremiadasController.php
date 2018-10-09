@@ -22,7 +22,8 @@ class RelTranPremiadasController extends AppController {
 
         $options = array(
             'conditions' => [
-                'HistoricBalance.description =' => 'award'
+                'HistoricBalance.modality =' => 'award',
+                'HistoricBalance.devolution' => 0
             ],
             'limit' => 50,
             'order' => array('HistoricBalance.id' => 'desc'),
@@ -42,6 +43,8 @@ class RelTranPremiadasController extends AppController {
                 'HistoricBalance.amount',
                 'HistoricBalance.type',
                 'HistoricBalance.created',
+                'HistoricBalance.context',
+                'HistoricBalance.context_message',
                 'Owner.id',
                 'Owner.name',
                 'Owner.last_name',
@@ -65,6 +68,18 @@ class RelTranPremiadasController extends AppController {
             if(in_array(3, $query['modality'])) {
                 $options['conditions']['AND']['OR'][] = [
                     "exists (SELECT 1 FROM raspadinhas Raspadinha WHERE Raspadinha.historic_balance_id = HistoricBalance.id LIMIT 1)"
+                ];
+            }
+
+            if(in_array(4, $query['modality'])) {
+                $options['conditions']['AND']['OR'][] = [
+                    "exists (SELECT 1 FROM lea_classic_teams LeaClassicTeam WHERE LeaClassicTeam.historic_balance_id = HistoricBalance.id LIMIT 1)"
+                ];
+            }
+
+            if(in_array(5, $query['modality'])) {
+                $options['conditions']['AND']['OR'][] = [
+                    "exists (SELECT 1 FROM lea_cup_teams LeaCupTeam WHERE LeaCupTeam.historic_balance_id = HistoricBalance.id LIMIT 1)"
                 ];
             }
         }
