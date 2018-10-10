@@ -173,11 +173,15 @@ class TransacoesController extends AppController {
         if(isset($query['type']) && is_array($query['type'])) {
 
             if(in_array(1, $query['type'])) {
-                $options['conditions']['OR'][]['HistoricBalance.context_message'] = 'buy';
+                $options['conditions']['OR'][]['HistoricBalance.context_message'] = 'buy.lottery';
+                $options['conditions']['OR'][]['HistoricBalance.context_message'] = 'buy.scratch_card';
+                $options['conditions']['OR'][]['HistoricBalance.context_message'] = 'buy.soccer_expert';
+                $options['conditions']['OR'][]['HistoricBalance.context_message'] = 'buy.cartoleando.lea_classic';
+                $options['conditions']['OR'][]['HistoricBalance.context_message'] = 'buy.cartoleando.lea_cup';
             }
 
             if(in_array(2, $query['type'])) {
-                $options['conditions']['OR'][]['HistoricBalance.context_message'] = 'agent withdrawal';
+                $options['conditions']['OR'][]['HistoricBalance.context_message'] = 'agent.withdrawal';
             }
 
             /*if(in_array(3, $query['type'])) {
@@ -185,19 +189,19 @@ class TransacoesController extends AppController {
             }*/
 
             if(in_array(4, $query['type'])) {
-                $options['conditions']['OR'][]['HistoricBalance.context_message'] = 'internal withdrawal';
+                $options['conditions']['OR'][]['HistoricBalance.context_message'] = 'internal.withdrawal';
             }
 
             if(in_array(5, $query['type'])) {
-                $options['conditions']['OR'][]['HistoricBalance.context_message'] = 'paypal deposit';
+                $options['conditions']['OR'][]['HistoricBalance.context_message'] = 'paypal.deposit';
             }
 
             if(in_array(6, $query['type'])) {
-                $options['conditions']['OR'][]['HistoricBalance.context_message'] = 'pagseguro deposit';
+                $options['conditions']['OR'][]['HistoricBalance.context_message'] = 'pagseguro.deposit';
             }
 
             if(in_array(7, $query['type'])) {
-                $options['conditions']['OR'][]['HistoricBalance.context_message'] = 'internal deposit';
+                $options['conditions']['OR'][]['HistoricBalance.context_message'] = 'internal.deposit';
             }
 
         }

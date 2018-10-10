@@ -159,7 +159,7 @@ class LeaClassicsController extends AppController {
         $historico['HistoricBalance']['description'] = $options['type_description'];
         $historico['HistoricBalance']['context'] = 'lea_classics';
         $historico['HistoricBalance']['modality'] = 'award';
-        $historico['HistoricBalance']['context_message'] = 'award';
+        $historico['HistoricBalance']['context_message'] = 'award.cartoleando.lea_classic';
 
         $ok = $this->HistoricBalance->save($historico) ? true : false;
 

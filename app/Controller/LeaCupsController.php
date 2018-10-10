@@ -182,7 +182,7 @@ class LeaCupsController extends AppController {
         $historico['HistoricBalance']['system'] = 0;
         $historico['HistoricBalance']['description'] = $options['type_description'];
         $historico['HistoricBalance']['context'] = 'lea_cups';
-        $historico['HistoricBalance']['context_message'] = 'award';
+        $historico['HistoricBalance']['context_message'] = 'award.cartoleando.lea_cup';
         $historico['HistoricBalance']['modality'] = 'award';
 
         $ok = $this->HistoricBalance->save($historico) ? true : false;

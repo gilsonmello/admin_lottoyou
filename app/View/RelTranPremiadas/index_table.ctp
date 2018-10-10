@@ -3,7 +3,7 @@
     Total: R$<?= $total[0]['total']; ?>
 </h4>
 <table id=""
-       class="table table-condensed table-hover"
+       class="table table-responsive table-condensed table-hover"
        cellspacing="0"
        width="100%"
        style="margin-bottom:0;">
@@ -13,11 +13,17 @@
         <th>E-mail</th>
         <th>Data</th>
         <th>Modalidade</th>
-        <th>Tipo</th>
         <th>Quantia</th>
     </tr>
     </thead>
     <tbody>
+    <?php $modalidades = [
+        'award.soccer_expert' => 'Soccer Expert',
+        'award.lottery' => 'Loteria',
+        'award.scratch_card' => 'Raspadinha',
+        'award.cartoleando.lea_classic' => 'Liga Clássica',
+        'award.cartoleando.lea_cup' => 'Liga Mata Mata',
+    ];?>
     <?php $totalEntrada = 0.00; $totalSaida = 0.00; foreach ($dados as $k => $v) { ?>
         <?php if($v['HistoricBalance']['type'] == 1) $totalEntrada += $v['HistoricBalance']['amount'] ?>
         <?php if($v['HistoricBalance']['type'] == 0) $totalSaida += $v['HistoricBalance']['amount'] * -1 ?>
@@ -37,7 +43,7 @@
                 //$modalidade = $model->getLotUserJogo($v['HistoricBalance']['id']);
                 $found = false;
 
-                if($v['HistoricBalance']['description'] == 'award') {
+                /*if($v['HistoricBalance']['description'] == 'award') {
                     $query = count($model->getLotUserJogo($v['HistoricBalance']['id']));
                     $modalidade = 'Loteria';
                     $found = $query > 0 ? true : false;
@@ -65,7 +71,7 @@
                     $query = count($model->getLeaClassicTeam($v['HistoricBalance']['id']));
                     $modalidade = $query > 0 ? 'Liga Clássica' : '';
                     $found = $query > 0 ? true : false;
-                }
+                }*/
 
                 if(!$found) {
                     $modalidade = 'Indefinido';
@@ -73,10 +79,7 @@
                 ?>
 
 
-                <?= $modalidade ?>
-            </td>
-            <td>
-                Prêmio
+                <?= $modalidades[$v['HistoricBalance']['context_message']] ?>
             </td>
             <td>
                 R$<?= $v['HistoricBalance']['amount'] ?>
@@ -84,7 +87,7 @@
         </tr>
     <?php } ?>
     <tr>
-        <th colspan="5">
+        <th colspan="4">
             Total da página
         </th>
         <td>

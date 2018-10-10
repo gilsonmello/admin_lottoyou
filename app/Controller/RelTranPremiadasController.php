@@ -45,6 +45,7 @@ class RelTranPremiadasController extends AppController {
                 'HistoricBalance.created',
                 'HistoricBalance.context',
                 'HistoricBalance.context_message',
+                'HistoricBalance.modality',
                 'Owner.id',
                 'Owner.name',
                 'Owner.last_name',

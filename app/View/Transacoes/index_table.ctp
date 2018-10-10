@@ -20,6 +20,29 @@
     </tr>
     </thead>
     <tbody>
+    <?php $modalidades = [
+        'deposit' => 'Depósito',
+        'buy' => 'Compra',
+        'award' => 'Prêmio',
+        'withdrawal' => 'Retirada',
+    ]; ?>
+    <?php $tipos = [
+        'paypal.deposit' => 'Paypal',
+        'pagseguro.deposit' => 'Pagseguro',
+        'buy.soccer_expert' => 'Soccer Expert',
+        'buy.lottery' => 'Loteria',
+        'buy.scratch_card' => 'Raspadinha',
+        'buy.cartoleando.lea_classic' => 'Liga Clássica',
+        'buy.cartoleando.lea_cup' => 'Liga Mata Mata',
+        'award.soccer_expert' => 'Soccer Expert',
+        'award.lottery' => 'Loteria',
+        'award.scratch_card' => 'Raspadinha',
+        'award.cartoleando.lea_classic' => 'Liga Classica',
+        'award.cartoleando.lea_cup' => 'Liga Mata Mata',
+        'internal.deposit' => 'Depósito Interno',
+        'agent.withdrawal' => 'Ag. Pagamento',
+        'internal.withdrawal' => 'Retirada Interna',
+    ];?>
     <?php $totalEntrada = 0.00; $totalSaida = 0.00; foreach ($dados as $k => $v) { ?>
         <?php
         if($v['HistoricBalance']['system'] == 1) {
@@ -64,63 +87,53 @@
                     $found = $query > 0 ? true : false;
                 }*/
 
-                if(!$found && $v['HistoricBalance']['description'] == 'paypal deposit') {
+
+
+                /*if(!$found && $v['HistoricBalance']['context_message'] == 'paypal.deposit') {
                     $query = count($model->getPedidoPaypal($v['HistoricBalance']['id']));
                     $modalidade = $query > 0 ? 'Depósito' : '';
                     $found = $query > 0 ? true : false;
                 }
 
-                if(!$found && $v['HistoricBalance']['context_message'] == 'pagseguro deposit') {
+                if(!$found && $v['HistoricBalance']['context_message'] == 'pagseguro.deposit') {
                     $query = count($model->getPedidoPagseguro($v['HistoricBalance']['id']));
                     $modalidade = $query > 0 ? 'Depósito' : '';
                     $found = $query > 0 ? true : false;
                 }
 
-                if(!$found && $v['HistoricBalance']['context_message'] == 'pagseguro devolution') {
+                if(!$found && $v['HistoricBalance']['context_message'] == 'pagseguro.devolution') {
                     $query = count($model->getPedidoPagseguro($v['HistoricBalance']['id']));
                     $modalidade = $query > 0 ? 'Devolução' : '';
                     $found = $query > 0 ? true : false;
                 }
 
-                if(!$found && $v['HistoricBalance']['context_message'] == 'buy') {
+                if(!$found && $v['HistoricBalance']['modality'] == 'buy') {
                     $query = count($model->getItem($v['HistoricBalance']['id']));
                     $modalidade = $query > 0 ? 'Compra' : '';
                     $found = $query > 0 ? true : false;
                 }
 
-                if(!$found && $v['HistoricBalance']['context_message'] == 'internal deposit') {
+                if(!$found && $v['HistoricBalance']['context_message'] == 'internal.deposit') {
                     $query = count($model->getBalanceInsert($v['HistoricBalance']['id']));
                     $modalidade = $query > 0 ? 'Depósito' : '';
                     $found = $query > 0 ? true : false;
                 }
 
-                if(!$found && $v['HistoricBalance']['context_message'] == 'agent withdrawal') {
+                if(!$found && $v['HistoricBalance']['context_message'] == 'agent.withdrawal') {
                     $query = count($model->getRetiradaAgente($v['HistoricBalance']['id']));
                     $modalidade = $query > 0 ? 'Retirada' : '';
                     $found = $query > 0 ? true : false;
                 }
 
-                if(!$found && $v['HistoricBalance']['context_message'] == 'internal withdrawal') {
+                if(!$found && $v['HistoricBalance']['context_message'] == 'internal.withdrawal') {
                     $query = count($model->getBalanceWithdraw($v['HistoricBalance']['id']));
                     $modalidade = $query > 0 ? 'Retirada' : '';
                     $found = $query > 0 ? true : false;
                 }
 
-                if(!$found && $v['HistoricBalance']['context_message'] == 'league cup') {
-                    $query = count($model->getLeaCupTeam($v['HistoricBalance']['id']));
-                    $modalidade = $query > 0 ? 'Liga Mata Mata' : '';
-                    $found = $query > 0 ? true : false;
-                }
-
-                if(!$found && $v['HistoricBalance']['context_message'] == 'league classic') {
-                    $query = count($model->getLeaClassicTeam($v['HistoricBalance']['id']));
-                    $modalidade = $query > 0 ? 'Liga Clássica' : '';
-                    $found = $query > 0 ? true : false;
-                }
-
                 if(!$found) {
                     $modalidade = 'Indefinido';
-                }
+                }*/
 
                 /*if(isset($v['LotUserJogo']) && $v['LotUserJogo']['id'] != null) $modalidade = 'Loteria';
                 else if(isset($v['SocAposta']) && $v['SocAposta']['id'] != null) $modalidade = 'Soccer Expert';
@@ -133,8 +146,7 @@
                 else $modalidade = 'Indefinido';*/
                 ?>
 
-
-                <?= $modalidade ?>
+                <?= $modalidades[$v['HistoricBalance']['modality']] ?>
             </td>
             <!--<td>
 
@@ -142,7 +154,7 @@
             <td>
                 <?php $tipo = ''; ?>
                 <?php
-                if($v['HistoricBalance']['context_message'] == 'buy') $tipo = 'Compra';
+                /*if($v['HistoricBalance']['context_message'] == 'buy') $tipo = 'Compra';
                 else if($v['HistoricBalance']['context_message'] == 'agent withdrawal') $tipo = 'Ag. Pagamento';
                 else if($v['HistoricBalance']['context_message'] == 'award') $tipo = 'Prêmio';
                 else if($v['HistoricBalance']['context_message'] == 'pagseguro devolution') $tipo = 'Devolução Pagseguro';
@@ -151,10 +163,10 @@
                 else if($v['HistoricBalance']['context_message'] == 'pagseguro deposit') $tipo = 'Depósito Pagseguro';
                 else if($v['HistoricBalance']['context_message'] == 'internal deposit') $tipo = 'Depósito Interno';
                 else if($v['HistoricBalance']['context_message'] == 'internal withdrawal') $tipo = 'Retirada Interna';
-                else $tipo = 'Indefinido';
+                else $tipo = 'Indefinido';*/
                 ?>
 
-                <?= $tipo ?>
+                <?= $tipos[$v['HistoricBalance']['context_message']] ?>
             </td>
             <td>
                 R$<?= $v['HistoricBalance']['amount'] < 0 ? number_format($v['HistoricBalance']['amount'] * -1, 2, '.', '') : number_format($v['HistoricBalance']['amount'], 2, '.', '') ?>
