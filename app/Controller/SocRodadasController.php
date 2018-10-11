@@ -21,7 +21,7 @@ class SocRodadasController extends AppController {
 
 
 
-    private function salvarPremiacao($grupo, $dado, $porcentagem)
+    private function salvarPremiacao($grupo, $dado, $porcentagem, $tema)
     {
         $ok = true;
         $this->StartTransaction();
@@ -47,8 +47,12 @@ class SocRodadasController extends AppController {
         $historico['HistoricBalance']['to'] = $saldo['Balance']['value'];
         $historico['HistoricBalance']['type'] = 1;
         $historico['HistoricBalance']['system'] = 0;
-        $historico['HistoricBalance']['description'] = 'award';
+        $historico['HistoricBalance']['description'] = 'Grupo = #'.$grupo['SocRodadasGrupo']['id'];
+        $historico['HistoricBalance']['description'] .= '; Rodada = '.$dado['SocAposta']['nome'];
+        $historico['HistoricBalance']['description'] .= '; Soccer Expert = '.$tema['SocCategoria']['nome'];
         $historico['HistoricBalance']['modality'] = 'award';
+        $historico['HistoricBalance']['context'] = 'soc_apostas';
+        $historico['HistoricBalance']['context_message'] = 'award.soccer_expert';
 
         $ok = $this->HistoricBalance->save($historico);
 
@@ -76,6 +80,7 @@ class SocRodadasController extends AppController {
         $this->SocRodada->recursive = -1;
 
 
+        $this->loadModel('SocCategoria');
         $this->loadModel('SocAposta');
         $this->loadModel('SocApostasJogo');
         $this->loadModel('SocRodadasGrupo');
@@ -96,6 +101,8 @@ class SocRodadasController extends AppController {
         $this->render = false;
 
         $rodada = $this->SocRodada->read(null, $id);
+
+        $tema = $this->SocCategoria->read(null, $rodada['SocRodada']['soc_categoria_id']);
 
         $grupos = null;
         $grupo_sem_qtd_minima = null;
@@ -228,7 +235,7 @@ class SocRodadasController extends AppController {
             //Caso sim, a porcentagem máxima é de 77%
             if(count($primeiros) >= 20) {
                 foreach ($primeiros as $k => $primeiro) {
-                    $this->salvarPremiacao($grupo, $primeiro, count($primeiros) / $prc_maxima);
+                    $this->salvarPremiacao($grupo, $primeiro, count($primeiros) / $prc_maxima, $tema);
                     $primeiro['SocAposta']['quantia'] = ($grupo['SocRodadasGrupo']['arrecadado'] * (count($primeiros) / $prc_maxima)) / 100;
                     $primeiro['SocAposta']['vencedor'] = 1;
                     $primeiro['SocAposta']['historic_balance_id'] = $this->lastHistoricBalanceId;
@@ -266,7 +273,7 @@ class SocRodadasController extends AppController {
             //Percorrendo todos os primeiros colocados
             foreach ($primeiros as $k => $primeiro) {
                 //Salvo a premiação para o usuário com base na porcentagem encontrada
-                $this->salvarPremiacao($grupo, $primeiro, $primeiro_pct / count($primeiros));
+                $this->salvarPremiacao($grupo, $primeiro, $primeiro_pct / count($primeiros), $tema);
                 $primeiro['SocAposta']['quantia'] = ($grupo['SocRodadasGrupo']['arrecadado'] * ($primeiro_pct / count($primeiros))) / 100;
                 $primeiro['SocAposta']['vencedor'] = 1;
                 $primeiro['SocAposta']['historic_balance_id'] = $this->lastHistoricBalanceId;
@@ -311,7 +318,7 @@ class SocRodadasController extends AppController {
 
             foreach ($segundos as $k => $segundo) {
                 if($segundos_pct > 0) {
-                    $this->salvarPremiacao($grupo, $segundo, $segundos_pct / count($segundos));
+                    $this->salvarPremiacao($grupo, $segundo, $segundos_pct / count($segundos), $tema);
                     $segundo['SocAposta']['quantia'] = ($grupo['SocRodadasGrupo']['arrecadado'] * ($segundos_pct / count($segundos))) / 100;
                     $segundo['SocAposta']['vencedor'] = 0;
                     $segundo['SocAposta']['historic_balance_id'] = $this->lastHistoricBalanceId;
@@ -349,7 +356,7 @@ class SocRodadasController extends AppController {
 
             foreach ($terceiros as $k => $terceiro) {
                 if($terceiros_pct > 0) {
-                    $this->salvarPremiacao($grupo, $terceiro, $terceiros_pct / count($terceiros));
+                    $this->salvarPremiacao($grupo, $terceiro, $terceiros_pct / count($terceiros), $tema);
                     $terceiro['SocAposta']['quantia'] = ($grupo['SocRodadasGrupo']['arrecadado'] * ($terceiros_pct / count($terceiros))) / 100;
                     $terceiro['SocAposta']['vencedor'] = 0;
                     $terceiro['SocAposta']['historic_balance_id'] = $this->lastHistoricBalanceId;
@@ -385,7 +392,7 @@ class SocRodadasController extends AppController {
 
             foreach ($quartos as $k => $quarto) {
                 if($quartos_pct > 0) {
-                    $this->salvarPremiacao($grupo, $quarto, $quartos_pct / count($quartos));
+                    $this->salvarPremiacao($grupo, $quarto, $quartos_pct / count($quartos), $tema);
                     $quarto['SocAposta']['quantia'] = ($grupo['SocRodadasGrupo']['arrecadado'] * ($quartos_pct / count($quartos))) / 100;
                     $quarto['SocAposta']['vencedor'] = 0;
                     $quarto['SocAposta']['historic_balance_id'] = $this->lastHistoricBalanceId;
@@ -422,7 +429,7 @@ class SocRodadasController extends AppController {
 
             foreach ($quintos as $k => $quinto) {
                 if($quintos_pct > 0) {
-                    $this->salvarPremiacao($grupo, $quinto, $quintos_pct / count($quintos));
+                    $this->salvarPremiacao($grupo, $quinto, $quintos_pct / count($quintos), $tema);
                     $quinto['SocAposta']['quantia'] = $grupo['SocRodadasGrupo']['arrecadado'] * ($quintos_pct / count($quintos)) / 100;
                     $quinto['SocAposta']['vencedor'] = 0;
                     $quinto['SocAposta']['historic_balance_id'] = $this->lastHistoricBalanceId;
@@ -459,7 +466,7 @@ class SocRodadasController extends AppController {
 
             foreach ($sextos as $k => $sexto) {
                 if($sextos_pct > 0) {
-                    $this->salvarPremiacao($grupo, $sexto, $sextos_pct / count($sextos));
+                    $this->salvarPremiacao($grupo, $sexto, $sextos_pct / count($sextos), $tema);
                     $sexto['SocAposta']['quantia'] = $grupo['SocRodadasGrupo']['arrecadado'] * ($sextos_pct / count($sextos)) / 100;
                     $sexto['SocAposta']['vencedor'] = 0;
                     $sexto['SocAposta']['historic_balance_id'] = $this->lastHistoricBalanceId;
@@ -496,7 +503,7 @@ class SocRodadasController extends AppController {
 
             foreach ($setimos as $k => $setimo) {
                 if($setimo_pct > 0) {
-                    $this->salvarPremiacao($grupo, $setimo, $setimo_pct / count($setimos));
+                    $this->salvarPremiacao($grupo, $setimo, $setimo_pct / count($setimos), $tema);
                     $setimo['SocAposta']['quantia'] = $grupo['SocRodadasGrupo']['arrecadado'] * ($setimo_pct / count($setimos)) / 100;
                     $setimo['SocAposta']['vencedor'] = 0;
                     $setimo['SocAposta']['historic_balance_id'] = $this->lastHistoricBalanceId;
@@ -533,7 +540,7 @@ class SocRodadasController extends AppController {
 
             foreach ($oitavos as $k => $oitavo) {
                 if($oitavo_pct > 0) {
-                    $this->salvarPremiacao($grupo, $oitavo, $oitavo_pct / count($oitavos));
+                    $this->salvarPremiacao($grupo, $oitavo, $oitavo_pct / count($oitavos), $tema);
                     $oitavo['SocAposta']['quantia'] = $grupo['SocRodadasGrupo']['arrecadado'] * ($oitavo_pct / count($oitavos)) / 100;
                     $oitavo['SocAposta']['vencedor'] = 0;
                     $oitavo['SocAposta']['historic_balance_id'] = $this->lastHistoricBalanceId;
@@ -570,7 +577,7 @@ class SocRodadasController extends AppController {
 
             foreach ($nonos as $k => $nono) {
                 if($nono_pct > 0) {
-                    $this->salvarPremiacao($grupo, $nono, $nono_pct / count($nonos));
+                    $this->salvarPremiacao($grupo, $nono, $nono_pct / count($nonos), $tema);
                     $nono['SocAposta']['quantia'] = $grupo['SocRodadasGrupo']['arrecadado'] * ($nono_pct / count($nonos)) / 100;
                     $nono['SocAposta']['vencedor'] = 0;
                     $nono['SocAposta']['historic_balance_id'] = $this->lastHistoricBalanceId;
@@ -608,7 +615,7 @@ class SocRodadasController extends AppController {
 
             foreach ($decimos as $k => $decimo) {
                 if($decimo_pct > 0) {
-                    $this->salvarPremiacao($grupo, $decimo, $decimo_pct / count($decimos));
+                    $this->salvarPremiacao($grupo, $decimo, $decimo_pct / count($decimos), $tema);
                     $decimo['SocAposta']['quantia'] = $grupo['SocRodadasGrupo']['arrecadado'] * ($decimo_pct / count($decimos)) / 100;
                     $decimo['SocAposta']['vencedor'] = 0;
                     $decimo['SocAposta']['historic_balance_id'] = $this->lastHistoricBalanceId;
@@ -645,7 +652,7 @@ class SocRodadasController extends AppController {
 
             foreach ($decimo_primeiros as $k => $decimo) {
                 if($decimo_primeiro_pct > 0) {
-                    $this->salvarPremiacao($grupo, $decimo, $decimo_primeiro_pct / count($decimo_primeiros));
+                    $this->salvarPremiacao($grupo, $decimo, $decimo_primeiro_pct / count($decimo_primeiros), $tema);
                     $decimo['SocAposta']['quantia'] = $grupo['SocRodadasGrupo']['arrecadado'] * ($decimo_primeiro_pct / count($decimo_primeiros)) / 100;
                     $decimo['SocAposta']['vencedor'] = 0;
                     $decimo['SocAposta']['historic_balance_id'] = $this->lastHistoricBalanceId;
@@ -683,7 +690,7 @@ class SocRodadasController extends AppController {
 
             foreach ($decimo_segundos as $k => $decimo) {
                 if($decimo_segundo_pct > 0) {
-                    $this->salvarPremiacao($grupo, $decimo, $decimo_segundo_pct / count($decimo_segundos));
+                    $this->salvarPremiacao($grupo, $decimo, $decimo_segundo_pct / count($decimo_segundos), $tema);
                     $decimo['SocAposta']['quantia'] = $grupo['SocRodadasGrupo']['arrecadado'] * ($decimo_segundo_pct / count($decimo_segundos)) / 100;
                     $decimo['SocAposta']['vencedor'] = 0;
                     $decimo['SocAposta']['historic_balance_id'] = $this->lastHistoricBalanceId;
@@ -720,7 +727,7 @@ class SocRodadasController extends AppController {
 
             foreach ($decimo_terceiros as $k => $decimo) {
                 if($decimo_terceiro_pct > 0) {
-                    $this->salvarPremiacao($grupo, $decimo, $decimo_terceiro_pct / count($decimo_terceiros));
+                    $this->salvarPremiacao($grupo, $decimo, $decimo_terceiro_pct / count($decimo_terceiros), $tema);
                     $decimo['SocAposta']['quantia'] = $grupo['SocRodadasGrupo']['arrecadado'] * ($decimo_terceiro_pct / count($decimo_terceiros)) / 100;
                     $decimo['SocAposta']['vencedor'] = 0;
                     $decimo['SocAposta']['historic_balance_id'] = $this->lastHistoricBalanceId;
@@ -757,7 +764,7 @@ class SocRodadasController extends AppController {
 
             foreach ($decimo_quartos as $k => $decimo) {
                 if($decimo_quarto_pct > 0) {
-                    $this->salvarPremiacao($grupo, $decimo, $decimo_quarto_pct / count($decimo_quartos));
+                    $this->salvarPremiacao($grupo, $decimo, $decimo_quarto_pct / count($decimo_quartos), $tema);
                     $decimo['SocAposta']['quantia'] = $grupo['SocRodadasGrupo']['arrecadado'] * ($decimo_quarto_pct / count($decimo_quartos)) / 100;
                     $decimo['SocAposta']['vencedor'] = 0;
                     $decimo['SocAposta']['historic_balance_id'] = $this->lastHistoricBalanceId;
@@ -795,7 +802,7 @@ class SocRodadasController extends AppController {
 
             foreach ($decimo_quintos as $k => $decimo) {
                 if($decimo_quinto_pct > 0) {
-                    $this->salvarPremiacao($grupo, $decimo, $decimo_quinto_pct / count($decimo_quintos));
+                    $this->salvarPremiacao($grupo, $decimo, $decimo_quinto_pct / count($decimo_quintos), $tema);
                     $decimo['SocAposta']['quantia'] = $grupo['SocRodadasGrupo']['arrecadado'] * ($decimo_quinto_pct / count($decimo_quintos)) / 100;
                     $decimo['SocAposta']['vencedor'] = 0;
                     $decimo['SocAposta']['historic_balance_id'] = $this->lastHistoricBalanceId;
@@ -832,7 +839,7 @@ class SocRodadasController extends AppController {
 
             foreach ($decimo_sextos as $k => $decimo) {
                 if($decimo_sexto_pct > 0) {
-                    $this->salvarPremiacao($grupo, $decimo, $decimo_sexto_pct / count($decimo_sextos));
+                    $this->salvarPremiacao($grupo, $decimo, $decimo_sexto_pct / count($decimo_sextos), $tema);
                     $decimo['SocAposta']['quantia'] = $grupo['SocRodadasGrupo']['arrecadado'] * ($decimo_sexto_pct / count($decimo_sextos)) / 100;
                     $decimo['SocAposta']['vencedor'] = 0;
                     $decimo['SocAposta']['historic_balance_id'] = $this->lastHistoricBalanceId;
@@ -870,7 +877,7 @@ class SocRodadasController extends AppController {
 
             foreach ($decimo_setimos as $k => $decimo) {
                 if($decimo_setimo_pct > 0) {
-                    $this->salvarPremiacao($grupo, $decimo, $decimo_setimo_pct / count($decimo_setimos));
+                    $this->salvarPremiacao($grupo, $decimo, $decimo_setimo_pct / count($decimo_setimos), $tema);
                     $decimo['SocAposta']['quantia'] = $grupo['SocRodadasGrupo']['arrecadado'] * ($decimo_setimo_pct / count($decimo_setimos)) / 100;
                     $decimo['SocAposta']['vencedor'] = 0;
                     $decimo['SocAposta']['historic_balance_id'] = $this->lastHistoricBalanceId;
@@ -908,7 +915,7 @@ class SocRodadasController extends AppController {
 
             foreach ($decimo_oitavos as $k => $decimo) {
                 if($decimo_oitavo_pct > 0) {
-                    $this->salvarPremiacao($grupo, $decimo, $decimo_oitavo_pct / count($decimo_oitavos));
+                    $this->salvarPremiacao($grupo, $decimo, $decimo_oitavo_pct / count($decimo_oitavos), $tema);
                     $decimo['SocAposta']['quantia'] = $grupo['SocRodadasGrupo']['arrecadado'] * ($decimo_oitavo_pct / count($decimo_oitavos)) / 100;
                     $decimo['SocAposta']['vencedor'] = 0;
                     $decimo['SocAposta']['historic_balance_id'] = $this->lastHistoricBalanceId;
@@ -945,7 +952,7 @@ class SocRodadasController extends AppController {
 
 
             foreach ($decimo_nonos as $k => $decimo) {
-                $this->salvarPremiacao($grupo, $decimo, $decimo_nono_pct / count($decimo_nonos));
+                $this->salvarPremiacao($grupo, $decimo, $decimo_nono_pct / count($decimo_nonos), $tema);
                 $decimo['SocAposta']['quantia'] = $grupo['SocRodadasGrupo']['arrecadado'] * ($decimo_nono_pct / count($decimo_nonos)) / 100;
                 $decimo['SocAposta']['vencedor'] = 0;
                 $decimo['SocAposta']['historic_balance_id'] = $this->lastHistoricBalanceId;
@@ -982,7 +989,7 @@ class SocRodadasController extends AppController {
 
             foreach ($vigesimos as $k => $vigesimo) {
                 if($vigesimo_pct > 0) {
-                    $this->salvarPremiacao($grupo, $vigesimo, $vigesimo_pct / count($vigesimos));
+                    $this->salvarPremiacao($grupo, $vigesimo, $vigesimo_pct / count($vigesimos), $tema);
                     $vigesimo['SocAposta']['quantia'] = $grupo['SocRodadasGrupo']['arrecadado'] * ($vigesimo_pct / count($vigesimos)) / 100;
                     $vigesimo['SocAposta']['vencedor'] = 0;
                     $vigesimo['SocAposta']['historic_balance_id'] = $this->lastHistoricBalanceId;
