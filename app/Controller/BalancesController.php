@@ -236,7 +236,7 @@ class BalancesController extends AppController {
                     $historicBalance['HistoricBalance']['to'] = $to;
                     $historicBalance['HistoricBalance']['type'] = 1;
                     $historicBalance['HistoricBalance']['amount'] = $amount;
-                    //$historicBalance['HistoricBalance']['balance_insert_id'] = $this->BalanceInsert->id;
+                    // $historicBalance['HistoricBalance']['balance_insert_id'] = $this->BalanceInsert->id;
                     $historicBalance['HistoricBalance']['modality'] = 'deposit';
                     $historicBalance['HistoricBalance']['description'] = 'O sistema interno inseriu R$'. $amount .' no seu saldo';
                     $historicBalance['HistoricBalance']['context'] = 'balance_inserts';
