@@ -16,7 +16,8 @@ class LeaClassicsController extends AppController {
 
     var $uses = [
         'League',
-        'LeaClassic'
+        'LeaClassic',
+        'LeaPackage'
     ];
 
     public function index($modal = 0) {
@@ -110,6 +111,14 @@ class LeaClassicsController extends AppController {
                 $this->Session->setFlash('Não foi possível salvar o registro.<br/>Favor tentar novamente.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-danger'));
             }
         }
+
+        $this->LeaPackage->recursive = -1;
+        $packages = $this->LeaPackage->find('list', [
+            'conditions' => [
+                'LeaPackage.active' => 1
+            ]
+        ]);
+        $this->set('packages', $packages);
     }
 
 
@@ -591,6 +600,14 @@ class LeaClassicsController extends AppController {
 
             $league_id = $leaClassic['LeaClassic']['league_id'];
             $this->request->data = $this->League->read(null, $league_id);
+
+            $this->LeaPackage->recursive = -1;
+            $packages = $this->LeaPackage->find('list', [
+                'conditions' => [
+                    'LeaPackage.active' => 1
+                ]
+            ]);
+            $this->set('packages', $packages);
         }
 
     }

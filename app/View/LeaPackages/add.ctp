@@ -1,21 +1,21 @@
 <?php echo $this->Form->create('LeaPackage', array('class' => 'form form-validate', 'role' => 'form', 'type' => 'file')); ?>
 <?php echo $this->element('forms/title', array('title' => '<i class="fa fa-plus-square"></i> Cadastrar Pacote de Ligas')); ?>
     <div class="card-body">
-        <div class="row">
+        <!--<div class="row">
             <div class="col-sm-12 col-lg-12">
                 <div class="form-group">
-                    <?= $this->Form->label('league_id', 'Ligas<span style="color:red;">*</span>', []); ?>
-                    <?= $this->Form->input('league_id', [
+                    <?/*= $this->Form->label('league_id', 'Ligas<span style="color:red;">*</span>', []); */?>
+                    <?/*= $this->Form->input('league_id', [
                         'label' => false,
                         'class' => 'form-control chosen',
                         'options' => $leagues,
                         //'empty' => 'Selecione',
                         'multiple' => 'multiple',
                         'required' => false
-                    ]); ?>
+                    ]); */?>
                 </div>
             </div>
-        </div>
+        </div>-->
         <div class="row">
             <div class="col-sm-6 col-lg-4 col-xs-12 col-md-4">
                 <div class="form-group">

@@ -46,6 +46,13 @@ class League extends AppModel {
     ];
 
     public $validate = [
+        'lea_package_id' => [
+            'required' => [
+                'rule' => ['notEmpty'],
+                'required' => true,
+                'message' => 'Campo obrigatório'
+            ],
+        ],
         'name' => [
             'required' => [
                 'rule' => ['notEmpty'],

@@ -87,7 +87,8 @@ class LeaPackagesController extends AppController {
     /**
      *
      */
-    public function add() {
+    public function add()
+    {
         // CONFIGURA LAYOUT
         $this->layout = 'ajax';
 

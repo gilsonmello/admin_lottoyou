@@ -98,13 +98,13 @@ class LeaPackage extends AppModel {
     public function afterSave($created, $options = []) {
 
         //Dados das Ligas
-        $dados = $this->_extractFieldsHABTM($this->data['LeaPackage']['league_id'], $this->data['LeaPackage']['id'], 'lea_package_id', 'league_id');
+        // $dados = $this->_extractFieldsHABTM($this->data['LeaPackage']['league_id'], $this->data['LeaPackage']['id'], 'lea_package_id', 'league_id');
 
         // APAGA REGISTROS RELACIONADOS AO ID das ligas
-        $this->LeaPackagesHasLeague->deleteAll(array('lea_package_id' => $this->data['LeaPackage']['id']));
+        // $this->LeaPackagesHasLeague->deleteAll(array('lea_package_id' => $this->data['LeaPackage']['id']));
 
         // ASSOCIA PERMISSÕES A FUNCIONALIDADE das ligas
-        $this->LeaPackagesHasLeague->saveAll($dados);
+        // $this->LeaPackagesHasLeague->saveAll($dados);
 
         if(!empty($this->request->data['LeaPackage']['bg_image']['name'])) {
             //$this->data['LeaPackage']['bg_image']['name'] =

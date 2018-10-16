@@ -2,6 +2,20 @@
 <?php echo $this->element('forms/title', array('title' => '<i class="fa fa-plus-square"></i> Cadastrar Liga Mata Mata')); ?>
     <div class="card-body">
         <div class="row">
+            <div class="col-sm-12 col-lg-12">
+                <div class="form-group">
+                    <?= $this->Form->label('lea_package_id', 'Pacote<span style="color:red;">*</span>', []); ?>
+                    <?= $this->Form->input('lea_package_id', [
+                        'label' => false,
+                        'class' => 'form-control chosen',
+                        'options' => $packages,
+                        'empty' => 'Selecione',
+                        'required' => false
+                    ]); ?>
+                </div>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-sm-6 col-lg-3">
                 <div class="form-group">
                     <?php echo $this->Form->input('name', array('label' => 'Nome', 'class' => 'form-control name-has-slug', 'required' => true)); ?>

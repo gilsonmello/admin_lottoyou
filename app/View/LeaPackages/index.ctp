@@ -78,7 +78,7 @@
                                 <?= $v['LeaPackage']['slug']; ?>
                             </td>
                             <td>
-                                $<?= $v['LeaPackage']['value']; ?>
+                                R$<?= $v['LeaPackage']['value']; ?>
                             </td>
                             <td>
                                 <label class="label label-<?php echo $v['LeaPackage']['novo_label']; ?>">
