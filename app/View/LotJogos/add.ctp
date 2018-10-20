@@ -34,7 +34,7 @@
         </div>
         <div class="col-sm-3">
             <div class="form-group">
-                <?php echo $this->Form->input('hora_fim', array('label' => 'Hora de término', 'class' => 'form-control hora', 'required'=>true ,'title'=>'Hora final')); ?>
+                <?php echo $this->Form->input('hora_fim', array('label' => 'Hora de término', 'class' => 'form-control hora', 'required' => true, 'title'=>'Hora final')); ?>
             </div>
         </div>
     </div>

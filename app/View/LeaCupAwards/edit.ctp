@@ -23,7 +23,7 @@
                 <div class="form-group">
                     <?php echo $this->Form->input('value', [
                         'label' => 'Valor',
-                        'class' => 'form-control money',
+                        'class' => 'form-control decimal2',
                         'data-toggle' => "tooltip",
                         'data-placement' => "top",
                         'title' => "Em dinheiro ou Porcentagem",

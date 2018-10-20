@@ -90,23 +90,28 @@ class LeagueAward extends AppModel {
      * @return bool|void
      */
     public function beforeValidate($options = array()) {
-        parent::beforeValidate($options);
         if(isset($this->data[$this->alias]['type'])) {
             //Se for do tipo ilimitado, não é necessário o campo limite,
             //Removo o campo limite da validação
-            if($this->data[$this->alias]['type'] != '3') {
+            if($this->data[$this->alias]['type'] == 1 || $this->data[$this->alias]['type'] == 2) {
                 unset($this->validate['type_description']);
             }
 
-            /*if($this->data[$this->alias]['type'] == '2') {
-
-            }*/
+            if ($this->data[$this->alias]['type'] == 2) {
+                if ($this->data[$this->alias]['value'] >= 100) {
+                    $this->validate['value']['biggerThen'] = [
+                        'rule' => ['biggerThen', 'value', 100],
+                        'message' => 'Porcentagem maior do que 100%'
+                    ];
+                }
+            }
 
             if( $this->data[$this->alias]['type'] == '3') {
                 $this->data[$this->alias]['value'] = null;
                 unset($this->validate['value']);
             }
         }
+        parent::beforeValidate($options);
     }
 
     public function beforeSave($options = array())

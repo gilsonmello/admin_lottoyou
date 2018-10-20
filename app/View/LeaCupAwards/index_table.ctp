@@ -14,6 +14,14 @@
     </tr>
     </thead>
     <tbody>
+    <?php function getTextValue($type, $value, $description = null) {
+        $text = [
+            1 => 'R$'.$value,
+            2 => $value.'%',
+            3 => $description,
+        ];
+        return $text[$type];
+    }?>
     <?php foreach ($dados as $k => $v) { ?>
         <tr>
             <td>
@@ -29,9 +37,9 @@
             </td>-->
             <td>
                 <?php if($v['LeagueAward']['value'] != null) {?>
-                    R$<?= $v['LeagueAward']['value']; ?>
+                    <?= getTextValue($v['LeagueAward']['type'], $v['LeagueAward']['value']); ?>
                 <?php } else { ?>
-                    R$0.00
+                    <?= getTextValue($v['LeagueAward']['type'], '0.00', $v['LeagueAward']['type_description']); ?>
                 <?php } ?>
             </td>
             <td>

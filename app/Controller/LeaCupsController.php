@@ -1056,6 +1056,7 @@ class LeaCupsController extends AppController {
                 $leaCup['LeaCup']['one_x_one'] = $league['League']['one_x_one'];
                 $leaCup['LeaCup']['number_team'] = $league['League']['number_team'];
                 $leaCup['LeaCup']['lottery_date'] = $this->LeaCup->formatDateToMysql($league['League']['lottery_date']);
+                $leaCup['LeaCup']['lottery_date'] .= ' ' . $league['League']['hour'];
                 $this->LeaCup->save($leaCup);
                 $this->Session->setFlash('Registro salvo com sucesso.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-success'));
             } else {

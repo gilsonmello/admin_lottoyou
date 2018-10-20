@@ -522,9 +522,9 @@ class AppModel extends Model {
 
     public function biggerThen($check, $field, $param) {
         if($this->data[$this->name][$field] > $param) {
-            return true;
-        } else {
             return false;
+        } else {
+            return true;
         }
     }
 

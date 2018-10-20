@@ -92,7 +92,7 @@ class LeaCupAwardsController extends AppController {
         $this->layout = 'ajax';
 
         if ($this->request->is('post') || $this->request->is('put')) {
-            $this->request->data['LeagueAward']['value'] = $this->App->formataValorDouble($this->request->data['LeagueAward']['value']);
+            //$this->request->data['LeagueAward']['value'] = $this->App->formataValorDouble($this->request->data['LeagueAward']['value']);
             $this->request->data['LeagueAward']['context'] = 'cup';
             if ($this->LeagueAward->save($this->request->data)) {
                 $this->LeaCupAward->create();
@@ -125,7 +125,7 @@ class LeaCupAwardsController extends AppController {
             $leaAwardId = $award['LeaCupAward']['league_award_id'];
 
             $this->request->data['LeagueAward']['id'] = $leaAwardId;
-            $this->request->data['LeagueAward']['value'] = $this->App->formataValorDouble($this->request->data['LeagueAward']['value']);
+            //$this->request->data['LeagueAward']['value'] = $this->App->formataValorDouble($this->request->data['LeagueAward']['value']);
             if ($this->LeagueAward->save($this->request->data)) {
                 $this->Session->setFlash('Registro salvo com sucesso.', 'alert', array('plugin' => 'BoostCake', 'class' => 'alert-success'));
             } else {

@@ -32,13 +32,24 @@
                     <?php echo $this->Form->input('value', array('label' => 'Valor', 'class' => 'form-control money', 'required' => true)); ?>
                 </div>
             </div>
-            <div class="col-sm-6 col-lg-4 col-xs-12 col-md-4">
+            <div class="col-sm-6 col-lg-2 col-xs-12 col-md-4">
                 <div class="form-group">
                     <?php echo $this->Form->input('lottery_date', [
                         'label' => 'Data Sorteio',
                         'value' => $leaCup['LeaCup']['lottery_date'],
                         'class' => 'form-control date',
                         'required' => true
+                    ]); ?>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-2 col-xs-12 col-md-4">
+                <div class="form-group">
+                    <?php echo $this->Form->input('hour', [
+                        'label' => 'Hora do Sorteio',
+                        'value' => explode(' ', $leaCup['LeaCup']['lottery_date'])[1],
+                        'class' => 'form-control hora',
+                        'required' => true,
+                        'type' => 'time'
                     ]); ?>
                 </div>
             </div>

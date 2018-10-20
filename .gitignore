@@ -8,6 +8,9 @@
 /app/webroot/files/Soccer_Expert_Clubes/*
 /app/webroot/files/Loteria_Temas
 /app/webroot/files/Loteria_Temas/*
+/app/webroot/files/Leagues_Bg_Image
+/app/webroot/files/LeaCups_Bg_Image
+/app/webroot/files/LeaPackages_Bg_Image
 /app/webroot/files/temp
 /app/tmp/cache/models
 /app/tmp/cache/persistent
