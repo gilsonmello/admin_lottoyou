@@ -10,17 +10,30 @@ use GuzzleHttp\Client;
  */
 class LeaClassicsController extends AppController {
 
+    /**
+     * @var array
+     */
     public $components = array('App');
 
+    /**
+     * @var array
+     */
     public $helpers = array('Time');
 
+    /**
+     * @var array
+     */
     var $uses = [
         'League',
         'LeaClassic',
         'LeaPackage'
     ];
 
-    public function index($modal = 0) {
+    /**
+     * @param int $modal
+     */
+    public function index($modal = 0)
+    {
         $this->League->recursive = -1;
         $query = $this->request->query;
 
@@ -84,7 +97,11 @@ class LeaClassicsController extends AppController {
 
     }
 
-    public function add() {
+    /**
+     *
+     */
+    public function add()
+    {
         $this->League->recursive = -1;
         $this->LeaClassic->recursive = -1;
         // CONFIGURA LAYOUT
@@ -121,7 +138,10 @@ class LeaClassicsController extends AppController {
         $this->set('packages', $packages);
     }
 
-
+    /**
+     * @param array $options
+     * @return mixed
+     */
     private function premiarTime($options = [])
     {
         $winner = $options['LeaClassicTeam'];
@@ -177,6 +197,9 @@ class LeaClassicsController extends AppController {
         return $this->HistoricBalance->id;
     }
 
+    /**
+     * @param null $id
+     */
     public function premiar($id = null)
     {
         $this->LeaClassic->id = $id;
@@ -538,7 +561,11 @@ class LeaClassicsController extends AppController {
 
     }
 
-    private function addValidateFields() {
+    /**
+     *
+     */
+    private function addValidateFields()
+    {
         $this->League->validate['type_award_id'] = [
             'required' => [
                 'rule' => array('checkVazio', 'type_award_id'),
@@ -562,7 +589,11 @@ class LeaClassicsController extends AppController {
         ];
     }
 
-    public function edit($id = null) {
+    /**
+     * @param null $id
+     */
+    public function edit($id = null)
+    {
         // CONFIGURA LAYOUT
         $this->layout = 'ajax';
 
@@ -615,7 +646,8 @@ class LeaClassicsController extends AppController {
     /**
      * @param null $id
      */
-    public function delete($id = null) {
+    public function delete($id = null)
+    {
         $this->modelClass = 'LeaClassic';
         $leaClassic = $this->LeaClassic->read(null, $id);
         $this->League->id = $leaClassic['LeaClassic']['league_id'];

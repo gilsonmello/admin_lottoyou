@@ -10,16 +10,44 @@ use GuzzleHttp\Client;
  */
 class LeaCupsController extends AppController {
 
+    /**
+     * @var array
+     */
     public $components = array('App');
 
+    /**
+     * @var array
+     */
     public $helpers = array('Time');
 
+    /**
+     * @var array
+     */
     var $uses = [
         'League',
         'LeaCup',
         'LeaPackage'
     ];
 
+    /**
+     * Called before the controller action. You can use this method to configure and customize components
+     * or perform logic that needs to happen before each controller action.
+     *
+     * @return void
+     */
+    public function beforeFilter()
+    {
+        // LIBERA ACESSO AO CONTEÚDO DO SITE
+        if (strpos(env('MAIN_SERVER_DOMAIN'), $_SERVER['HTTP_ORIGIN']) !== false) {
+            $this->Auth->allow([
+                'sortearTimes'
+            ]);
+        }
+    }
+
+    /**
+     * @param int $modal
+     */
     public function index($modal = 0) {
 
         $this->League->recursive = -1;
@@ -85,7 +113,11 @@ class LeaCupsController extends AppController {
 
     }
 
-    private function addValidateFields() {
+    /**
+     *
+     */
+    private function addValidateFields()
+    {
         $this->League->validate['number_team'] = [
             'required' => [
                 'rule' => array('checkVazio', 'number_team'),
@@ -102,7 +134,11 @@ class LeaCupsController extends AppController {
         ];
     }
 
-    public function add() {
+    /**
+     *
+     */
+    public function add()
+    {
         $this->League->recursive = -1;
         $this->LeaCup->recursive = -1;
         // CONFIGURA LAYOUT
