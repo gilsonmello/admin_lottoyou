@@ -67,6 +67,9 @@ class UsersController extends AppController {
 
             // INICIA A TRANSAÇÃO
             $this->User->begin();
+
+
+            unset($this->User->validate['key']);
             
             try {
                 // VERIFICA SE A AÇÃO É PARA INSERIR UM NOVO REGISTRO
@@ -94,10 +97,11 @@ class UsersController extends AppController {
                     $message = str_replace('{{link_confirmacao}}', $link_confirmacao, $message);
                     $message = str_replace('{{email}}', $this->request->data['User']['username'], $message);
 
-                    if ($this->enviarEmail($to, $subject, $message)){
+                    /*if ($this->enviarEmail($to, $subject, $message)){
                         // CONFIRMA TRANSAÇÃO
                         $this->User->commit(); 
-                    }
+                    }*/
+                    $this->User->commit();
                 } else {
                     // DESFAZ TRANSAÇÃO
                     $this->User->rollback();   

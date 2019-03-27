@@ -20,7 +20,7 @@
                 <?php echo $this->Form->input('password', array('type' => 'text', 'value' => '102030', 'class' => 'form-control', 'label' => 'Senha Inicial', 'required' => 'required')); ?>
             </div>
         </div>
-        <div class="col-sm-6" <?php echo ($grupo_tipo == 'E') ? 'style="display: none;"' : ''; ?>>
+        <div class="col-sm-6" <?php echo (isset($grupo_tipo) && $grupo_tipo == 'E') ? 'style="display: none;"' : ''; ?>>
             <div class="form-group">                
                 <?php echo $this->Form->input('group_id', array('label' => 'Perfil', 'required' => 'required', 'class' => 'form-control')); ?>
             </div>
