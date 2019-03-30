@@ -158,7 +158,6 @@ class BalancesController extends AppController {
                     $this->HistoricBalance->save($historicBalance);
 
 
-
                     $this->BalanceWithdraw->recursive = -1;
                     $this->BalanceWithdraw->validate = [];
                     $balanceWithdraw['BalanceWithdraw']['owner_id'] = $balance['Balance']['owner_id'];
@@ -169,6 +168,10 @@ class BalancesController extends AppController {
                     $balanceWithdraw['BalanceWithdraw']['historic_balance_id'] = $this->HistoricBalance->id;
                     $this->BalanceWithdraw->create();
                     $this->BalanceWithdraw->save($balanceWithdraw);
+
+                    $historicBalance['HistoricBalance']['id'] = $this->HistoricBalance->id;
+                    $historicBalance['HistoricBalance']['context_id'] = $this->BalanceWithdraw->id;
+                    $this->HistoricBalance->save($historicBalance);
 
 
                     $this->validaTransacao(true);
@@ -241,6 +244,7 @@ class BalancesController extends AppController {
                     $historicBalance['HistoricBalance']['description'] = 'O sistema interno inseriu R$'. $amount .' no seu saldo';
                     $historicBalance['HistoricBalance']['context'] = 'balance_inserts';
                     $historicBalance['HistoricBalance']['context_message'] = 'internal.deposit';
+
                     $historicBalance['HistoricBalance']['system'] = 1;
                     $this->HistoricBalance->create();
                     $this->HistoricBalance->save($historicBalance);
@@ -257,6 +261,9 @@ class BalancesController extends AppController {
                     $this->BalanceInsert->create();
                     $this->BalanceInsert->save($balanceInsert);
 
+                    $historicBalance['HistoricBalance']['id'] = $this->HistoricBalance->id;
+                    $historicBalance['HistoricBalance']['context_id'] = $this->BalanceInsert->id;
+                    $this->HistoricBalance->save($historicBalance);
 
                     $this->validaTransacao(true);
 

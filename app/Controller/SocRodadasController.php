@@ -53,6 +53,7 @@ class SocRodadasController extends AppController {
         $historico['HistoricBalance']['modality'] = 'award';
         $historico['HistoricBalance']['context'] = 'soc_apostas';
         $historico['HistoricBalance']['context_message'] = 'award.soccer_expert';
+        $historico['HistoricBalance']['context_id'] = $dado['SocAposta']['id'];
 
         $ok = $this->HistoricBalance->save($historico);
 
@@ -1070,12 +1071,16 @@ class SocRodadasController extends AppController {
                 $ok = $this->Balance->save($saldo);
 
                 $this->HistoricBalance->create();
-                $historico['HistoricBalance']['soccer_expert_bet_id'] = $aposta['SocAposta']['id'];
                 $historico['HistoricBalance']['type'] = 1;
                 $historico['HistoricBalance']['devolution'] = 1;
                 $historico['HistoricBalance']['amount'] = $rodada['SocRodada']['valor'];
-                $historico['HistoricBalance']['description'] = 'devolution';
+                $historico['HistoricBalance']['description'] = 'O seu dinheiro foi devolvido, pois não havia uma quantidade mínima de jogadores na cartela ' . $rodada['SocRodada']['nome'];
+                $historico['HistoricBalance']['system'] = 0;
+                $historico['HistoricBalance']['modality'] = 'devolution';
                 $historico['HistoricBalance']['to'] = $saldo['Balance']['value'];
+                $historico['HistoricBalance']['context'] = 'soc_apostas';
+                $historico['HistoricBalance']['context_message'] = 'devolution.soccer_expert';
+                $historico['HistoricBalance']['context_id'] = $aposta['SocAposta']['id'];
 
                 $ok = $this->HistoricBalance->save($historico);
 

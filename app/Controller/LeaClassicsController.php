@@ -186,9 +186,10 @@ class LeaClassicsController extends AppController {
         $historico['HistoricBalance']['type'] = 1;
         $historico['HistoricBalance']['system'] = 0;
         $historico['HistoricBalance']['description'] = $options['type_description'];
-        $historico['HistoricBalance']['context'] = 'lea_classics';
+        $historico['HistoricBalance']['context'] = 'lea_classic_teams';
         $historico['HistoricBalance']['modality'] = 'award';
         $historico['HistoricBalance']['context_message'] = 'award.cartoleando.lea_classic';
+        $historico['HistoricBalance']['context_id'] = $winner['id'];
 
         $ok = $this->HistoricBalance->save($historico) ? true : false;
 
