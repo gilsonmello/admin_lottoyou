@@ -102,7 +102,7 @@
         // INSTANCIA VARIÁREIS
         var form = $(AppBalances.objectId + ' #pesquisarBalances');
         var table = $(AppBalances.objectId + ' #gridBalances');
-        var url = baseUrl + '/balances/index';
+        var url = '/balances/index';
 
         window.materialadmin.AppNavigation.carregando(table);
 
@@ -156,7 +156,7 @@
         // CHAMA A FUNÇÃO MODAL
         var modalObject = $(AppBalances.modalFormId);
         var action = (typeof clonar !== 'undefined') ? 'add' : 'edit';
-        var url = (typeof id === 'undefined') ? 'balances/add' : 'balances/' + action + '/' + id;
+        var url = (typeof id === 'undefined') ? '/balances/add' : '/balances/' + action + '/' + id;
 
         window.materialadmin.AppForm.loadModal(modalObject, url, '70%', function () {
             modalObject.off('hide.bs.modal');
