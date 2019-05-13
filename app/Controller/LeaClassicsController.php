@@ -335,7 +335,7 @@ class LeaClassicsController extends AppController {
             $turno = $rodada <= 18 ? 1 : 2;
 
             $leaClassic = $this->LeaClassic->read(null, $id);
-            if($rodada > $leaClassic['LeaClassic']['last_round']) {
+            if($rodada > $leaClassic['LeaClassic']['last_round'] + 1) {
                 $this->response->type('json');
                 $this->response->statusCode(200);
                 $this->response->body(json_encode([
