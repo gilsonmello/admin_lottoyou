@@ -159,7 +159,7 @@ class LeaClassicsController extends AppController
     $historico['HistoricBalance']['owner_id'] = $owner['User']['id'];
     $historico['HistoricBalance']['from'] = $saldo['Balance']['value'];
 
-    switch ($leagueAward['LeagueAward']['type']) {
+      switch ($leagueAward['LeagueAward']['type']) {
       //Quantia fixa
       case 1:
         {
@@ -193,7 +193,7 @@ class LeaClassicsController extends AppController
     $historico['HistoricBalance']['context'] = 'lea_classic_teams';
     $historico['HistoricBalance']['modality'] = 'award';
     $historico['HistoricBalance']['context_message'] = 'award.cartoleando.lea_classic';
-    $historico['HistoricBalance']['context_id'] = $winner['id'];
+    $historico['HistoricBalance']['context_id'] = $winner['LeaClassicTeam']['id'];
 
     $ok = $this->HistoricBalance->save($historico) ? true : false;
 
@@ -269,7 +269,7 @@ class LeaClassicsController extends AppController
         ]);
 
         //Se não encontrou premiação para a posição
-        if (count($award) < 0)
+        if (count($award) <= 0)
           continue;
 
         //Pegando o usuário

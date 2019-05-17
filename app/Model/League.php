@@ -171,9 +171,7 @@ class League extends AppModel {
     public function beforeDelete($cascade = false) {
         $data = $this->findById($this->id);
         $file = new File($data[$this->alias]['bg_image']);
-        if($file->delete()) {
-            return true;
-        }
-        return false;
+        $file->delete();
+        return true;
     }
 }
